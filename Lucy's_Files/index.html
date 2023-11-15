@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/styles/button.css">
+    <style>
+         * {
+            /* box-sizing is from https://dev.to/lennythedev/css-gotcha-how-to-fill-page-with-a-div-270j */
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background-color: #FDC9D3;
+        }
+
+        iframe {
+            /* margin: 1rem; */
+            /* padding: 1rem; */
+            /* display: flex; */
+            /* justify-content: center;
+            align-content: center; */
+            /* background-color: pink; */
+           
+           /* position: relative; */
+            z-index: 0;
+            overflow-x: visible;
+            margin: 0;
+            padding: 0;
+            border: none;
+            /* border: solid black 1px; */
+            
+            
+            
+        }
+        
+
+        img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: rotate(-25deg);
+            max-width: 300px;
+            z-index: 1;
+            
+
+
+
+        }
+
+        .horizontal {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .pinkContainer {
+            
+            background: linear-gradient(147.5deg, #f5dae0 50%, #faafbd 50%);
+            /* width: fit-content;
+            height: fit-content; */
+             transform: scale(0.8);
+            border-style: solid;
+            border-width: 10px;
+            border-color: #f5dae0;
+            border-radius: 2rem;
+
+            
+
+            border-top-color: #f5dae0;
+            border-left-color: #f5dae0;
+            border-bottom-color: #faafbd;
+            border-right-color: #faafbd; 
+
+            margin: auto;
+            padding: 1rem;
+
+           
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header> -->
+        <!-- <img src="assets/logo.png"
+            alt="Uni-Verse Logo: Unicorn smiling with arms raised over text that says Uni-Verse."> -->
+    <!-- </header> -->
+    <!-- <div class="horizontal">
+        <button class="lightPurpleShine superRound outline"> Button 1 </button> -->
+        <!-- <div class="pinkContainer">
+            <iframe src="game.html" height="700" width="1000" scrolling = "no">game not available</iframe>
+        </div> -->
+        <div class="pinkContainer">
+            <iframe src="dressUp.html" height="625" width="1000" scrolling = "no">game not available</iframe>
+        </div>
+    <!-- </div> -->
+
+</body>
+
+</html>
