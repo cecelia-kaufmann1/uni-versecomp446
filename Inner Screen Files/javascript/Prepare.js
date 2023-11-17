@@ -5,27 +5,27 @@ class Prepare extends Phaser.Scene {
 
     // Load in assets and give them names
     preload() {
-        this.load.image('grass', 'assets/grass.png');
-        this.load.image('bigGrass', 'assets/bigGrass.png');
-        this.load.image('accessories', 'assets/accessories.png');
-        this.load.tilemapTiledJSON('map', 'assets/universeTiles.json');
+        this.load.image('grass', '../../assets/images/grass.png');
+        this.load.image('bigGrass', '../../assets/images/bigGrass.png');
+        this.load.image('accessories', '../../assets/sheets/grassSheet.png');
+        this.load.tilemapTiledJSON('map', '../../assets/sheets/universeTiles.json');
         this.load.spritesheet('player',
-            'assets/player.png',
+            '../../assets/sheets/player.png',
             { frameWidth: 93, frameHeight: 75 }
         );
         this.load.spritesheet('enemy',
-            'assets/enemy.png',
+            '../../assets/sheets/enemy.png',
             { frameWidth: 93, frameHeight: 75 }
         );
         this.load.spritesheet('sparkle',
-            'assets/sparkle.png',
+            '../../assets/sheets/sparkle.png',
             { frameWidth: 63, frameHeight: 63 }
         );
        
-        this.load.html('gameOver', 'assets/styles/gameOver.html');
-        this.load.html('startGame', 'assets/styles/startGame.html');
+        this.load.html('gameOver', '../html/gameOver.html');
+        this.load.html('startGame', '../html/startGame.html');
 
-        this.load.html('score', 'assets/styles/score.html');
+        this.load.html('score', '../html/score.html');
 
     }
 

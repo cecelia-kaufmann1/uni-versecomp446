@@ -2,43 +2,48 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="assets/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/styles/button.css">
   <style>
     @font-face {
       font-family: myFont;
-      src: url(assets/fonts/wonderbar.ttf);
+      src: url(../../assets/fonts/wonderbar.ttf);
       /* font-weight:400;
     font-weight:normal; */
     }
-    * {
+     * {
             box-sizing: border-box;
         }
     body {
+      display: block;
       font-family: myFont;
-     
+      
      
     }
 
     .pinkContainer {
+      position: relative;
       display: flex;
       height: 100%;
+      width: 70%;
+      justify-items: center;
       flex-direction: column;
       background-color: #FDC9D3;
       border-style: solid;
       border-width: 10px;
       border-color: #f5dae0;
       border-radius: 2rem;
-     
-      border-width: 10px;
-      border-style: solid;
-      border-color: black;
+
+      
       
       border-top-color: #f5dae0;
       border-left-color: #f5dae0;
       border-bottom-color: #faafbd;
       border-right-color: #faafbd;
 
-      padding: 3rem;
+      padding: 0.5rem;
+      justify-content: center;
+      
+      
     }
 
     /* .containerOutline {
@@ -52,19 +57,22 @@
      
     } */
 
-    .gameOver {
+    h1 {
       font-size: 50px;
       text-align: center;
     }
 
     button {
       font-family: myFont;
-      margin: 3rem;
+      margin: auto;
+          
     }
 
     p {
       text-align: center;
       padding: 1rem;
+      font-size: 20px;
+      text-wrap: pretty;
     }
 
    
@@ -73,10 +81,9 @@
 </head>
 <body>  
    <div class = "pinkContainer" id = "gameOver">
-    <div class = "gameOver">Game Over</div>
-    <p id = "score"></p>
-    <p id = "totalSparkles"></p>
-    <button name = "replay" class = "lightPurpleShine superRound outline"> Replay </button>
+    <h1>Play Game</h1>
+   <p> Collect as many sparkles as you can while avoiding the papparazi! <br>Use the up and down arrows to move</p>
+    <button name = "play" class = "lightPurpleShine superRound outline"> Play </button>
     </div>
   
    
