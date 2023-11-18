@@ -17,5 +17,12 @@
     border-bottom-color: #faafbd;
     border-right-color: #faafbd;
 
+    justify-content: center;
+    justify-items: center;
+
     padding: 1rem;
+
+   
   }
+
+  

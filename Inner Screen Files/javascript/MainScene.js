@@ -42,10 +42,6 @@ class MainScene extends Phaser.Scene {
 
         this.add.image(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2,"bigGrass").setScale(100);
 
-
-       
-      
-
         this.map2 = this.make.tilemap({key: "map"});
         const tileset2 = this.map.addTilesetImage("MagicForest", "accessories");
         // // grass layer 2
@@ -87,11 +83,16 @@ class MainScene extends Phaser.Scene {
         // gameOver = true;
         // this.gameOver();
 
-        const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2.5).createFromCache('startGame');
+        const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('startGame');
+        console.log("start screen parent: " + element.parent);
+
+        element.setOrigin(0.5);
+        
         element.addListener('click');
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
         element.on('click', function(event) {
             if (event.target.name === "play"){
+                this.removeElement();
                 this.destroy();
                 self.countdown();
             }
@@ -104,7 +105,7 @@ class MainScene extends Phaser.Scene {
         if (!startedGame) {
             return;
         }
-        console.log("layer3: " + this.layer3.x + " layer4 : " + this.layer4.x);
+        // console.log("layer3: " + this.layer3.x + " layer4 : " + this.layer4.x);
         if (!gameOver) {
             // TODO: better way to do this?
             this.children.bringToTop(this.scoreText);
@@ -240,7 +241,9 @@ class MainScene extends Phaser.Scene {
      gameOver() {
         this.scoreText.text = "";
         // code to add DOM elements is from https://labs.phaser.io/edit.html?src=src/game%20objects/dom%20element/css%20style%20object.js&v=3.60.0
-        const element = this.add.dom(CANVAS_WIDTH / 2.5, CANVAS_HEIGHT / 2.5).createFromCache('gameOver');
+        const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('gameOver');
+        console.log("game over parent: " + element.parent);
+        element.setOrigin(0.5);
 
         // let gameOverDisplay = document.getElementById("gameOver");
 
@@ -251,6 +254,7 @@ class MainScene extends Phaser.Scene {
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
         element.on('click', function(event) {
             if (event.target.name === "replay"){
+                this.removeElement();
                 this.destroy();
                 self.replay();
             }
@@ -290,7 +294,6 @@ class MainScene extends Phaser.Scene {
         player.body.offset.y = player.displayHeight * 0.2;
     }
     countdown () {
-        console.log("hi");
         let countdownText = this.add.text(CANVAS_WIDTH/2, CANVAS_HEIGHT/2, "3", {fontSize: '100px', fill: '#FFF' });
         countdownText.setOrigin(0.5);
        

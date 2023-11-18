@@ -6,15 +6,31 @@
   <link rel="stylesheet" type="text/css" href="../../assets/styles/pinkContainer.css">
   <link rel="stylesheet" type="text/css" href="../../assets/styles/sharedStyles.css">
   <link rel="stylesheet" type="text/css" href="../../assets/styles/gameOver.css">
-  
+  <style>
+    .gameBox {
+    width: 35rem;
+    height: 30rem;
+      
+    justify-content: center;
+    align-content: center;
+    justify-items: center;      
+   
+  }
+
+  .centerButton {
+    margin: auto;
+  }
+
+    
+  </style>
   
 </head>
 <body>  
-   <div class = "pinkContainer" id = "gameOver">
+   <div class = "pinkContainer gameBox" id = "gameOver">
     <div class = "gameOver">Game Over</div>
     <p id = "score"></p>
     <p id = "totalSparkles"></p>
-    <button name = "replay" class = "lightPurpleShine superRound outline"> Replay </button>
+    <button name = "replay" class = "lightPurpleShine superRound outline centerButton"> Replay </button>
     </div>
   
    

@@ -13,7 +13,7 @@ body {
     row-gap: 1rem;
   
     /* Make the grid 10 columns wide, every other taking up twice the free space */
-    grid-template-columns: 1fr 15fr 1fr;
+    grid-template-columns: 1fr 15fr 2fr;
   
     /* Make the grid have 10 explicit rows, 50px high each */
     grid-template-rows: 1fr;
@@ -38,8 +38,10 @@ body {
    
 
     grid-column-start: 2;
+    
+
     grid-row-start: 1;
-    grid-row-end: 11;
+    grid-row-end: 10;
     /* justify-content: center;
     align-items: center;
     font-size: 1.5em;
@@ -82,7 +84,7 @@ body {
     transform: scale(1);
     overflow-x: visible;
     margin: auto;
-    padding: 0;
+    
     border: none;
     top: 0;
     bottom: 0;
