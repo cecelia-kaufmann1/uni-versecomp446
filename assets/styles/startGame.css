@@ -1,0 +1,26 @@
+  
+    body {
+        display: block;
+        
+      
+      }
+  
+  
+      h1 {
+        font-size: 50px;
+        text-align: center;
+      }
+  
+      button {
+        font-family: myFont;
+        margin: auto;
+            
+      }
+  
+      p {
+        text-align: center;
+        padding: 1rem;
+        font-size: 20px;
+        text-wrap: pretty;
+      }
+  

@@ -15,6 +15,11 @@ button {
     font-weight: bold;
     font-size: 24px;
   }
+
+  .navButton {
+    width: 15rem;
+    height: 4rem;
+  }
   
   .outline {
     border-width: 5px;

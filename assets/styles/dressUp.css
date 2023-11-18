@@ -1,0 +1,142 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    
+    background-color: #B7FAFF;
+    margin: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+
+    background-color: #B7FAFF;
+    /* height: 100vh; vh unit from https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window */
+    margin: 1rem;
+    width: 50%;
+    text-align: center;
+    
+
+    position: relative;
+    margin: 1rem;
+    padding: 0;
+    border-radius: 1rem;
+    /*Custom border radius: https://blog.avada.io/css/border-examples*/
+    
+
+
+}
+
+img {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
+    top: 0rem;
+    margin: auto;
+    /* bottom: 1rem;
+    right: 1rem; */
+    transform: scale(1.25);
+}
+
+
+
+.clothingItemBorder {
+    background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff);
+    padding: 0.5rem;
+    border-radius: 2rem;
+    margin: 0.5rem;
+}
+
+
+.clothingItem {
+    background-color: #B7FAFF;
+    
+    border-radius: 2rem;
+    height: 100%;
+    vertical-align: middle;
+    
+}
+
+.closet {
+    padding: 1rem;
+    overflow-y: scroll;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0;
+    grid-auto-rows: 12rem;
+    background-color: #3ED0DD;
+    border: solid 15px #1d7077;
+    border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
+    
+}
+
+.verticalContainer {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.horizontalContainer {
+    display: grid;
+    grid-template-columns: 3fr 3fr 4fr 1fr 8fr; 
+    margin-left: 2rem;
+}
+
+.tab {
+    
+    background-color: #CCCCFF;
+    margin: 0;
+    padding: 1rem;
+    padding-bottom: 0;
+    border-radius: 2rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: solid #1d7077 5px;
+    border-bottom-width: 0;
+    text-align: center;
+}
+
+#myClothes{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    
+}
+#shop {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row: 1;
+    margin-left: 3rem;
+}
+/* Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/*/
+#scrollbar::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    height: 50%;
+    
+}
+
+#scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+    border: 1px solid #cacaca;
+    background-color: #f1f1f1;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+    margin: 7rem;
+    
+}
+
+#scrollbar::-webkit-scrollbar-thumb {
+     background-color: #FDC9D3;
+    border-radius: 10px;
+}

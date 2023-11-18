@@ -1,0 +1,8 @@
+@font-face {
+    font-family: myFont;
+    src: url(../../assets/fonts/wonderbar.ttf);
+  }
+  * {
+          box-sizing: border-box;
+          font-family: myFont;
+      }
