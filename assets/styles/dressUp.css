@@ -17,7 +17,7 @@ body {
     padding: 0;
 }
 
-section {
+avatar {
 
     background-color: #B7FAFF;
     /* height: 100vh; vh unit from https://stackoverflow.com/questions/1575141/how-to-make-a-div-100-height-of-the-browser-window */
@@ -64,6 +64,10 @@ img {
     border-radius: 2rem;
     height: 100%;
     vertical-align: middle;
+
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-position-x: center;
     
 }
 
@@ -139,4 +143,59 @@ img {
 #scrollbar::-webkit-scrollbar-thumb {
      background-color: #FDC9D3;
     border-radius: 10px;
+}
+
+
+#bottom1 {
+    background-image: url("../images/clothes/bottom1.png");
+    
+}
+
+#bottom2 {
+    background-image: url("../images/clothes/bottom2.png");
+    
+}
+
+#bottom3 {
+    background-image: url("../images/clothes/bottom3.png");
+    
+}
+
+#bottom4 {
+    background-image: url("../images/clothes/bottom4.png");
+    
+}
+
+#bottom5 {
+    background-image: url("../images/clothes/bottom5.png");
+    
+}
+
+#bottom6 {
+    background-image: url("../images/clothes/bottom6.png");
+    
+}
+
+#top2 {
+    background-image: url("../images/clothes/top2.png");
+    
+}
+
+#top3 {
+    background-image: url("../images/clothes/top3.png");
+    
+}
+
+
+
+#bottom {
+    position: absolute;
+    top: 10rem;
+    left: 9rem;
+}
+
+#top {
+    position: absolute;
+    top: 8.5rem;
+    left: -3rem;
 }

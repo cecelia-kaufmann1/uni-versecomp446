@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../../assets/styles/button.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/dressUp.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/sharedStyles.css">
+    <script type="text/javascript" src="../javascript/dressUp.js"></script>
 </head>
 
 <body>
@@ -19,29 +20,29 @@
         <section class="closet" id = "scrollbar">
             <!-- TODO: need more semantic html tags-->
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="bottom1" onclick="putOn(id, 'bottom')">  </div>
             </div>
             
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="bottom2" onclick="putOn(id, 'bottom')">  </div>
             </div>
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="bottom3" onclick="putOn(id, 'bottom')">  </div>
+            </div>
+            <div class="clothingItemBorder" > 
+                <div class="clothingItem" id="bottom4" onclick="putOn(id, 'bottom')">  </div>
             </div>
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="bottom5" onclick="putOn(id, 'bottom')">  </div>
             </div>
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="bottom6" onclick="putOn(id, 'bottom')">  </div>
             </div>
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="top2" onclick="putOn(id, 'top')">  </div>
             </div>
             <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
-            </div>
-            <div class="clothingItemBorder"> 
-                <div class="clothingItem">  </div>
+                <div class="clothingItem" id="top3" onclick="putOn(id, 'top')">  </div>
             </div>
             <div class="clothingItemBorder"> 
                 <div class="clothingItem">  </div>
@@ -52,9 +53,13 @@
         </section>
     </div>
 
-    <section>
-        <img src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar">
-    </section>
+    <avatar class="" id="avatar">
+        <img src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar"> 
+       
+
+    </avatar>
+
+    
 
 </body>
 
