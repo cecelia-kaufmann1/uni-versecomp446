@@ -3,7 +3,11 @@
 var wearing = [4, 7]; // temporary - this represents the user data of what they are currently wearing
 
 var owns = [0, 3, 4, 6, 7]; // temporary - this represents the user data of what they currently own
+
+var numSparkles = 150; // temporary - this represents the user data of how many sparkles they currently have
 var clothes;
+
+
 
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
 fetch("../clothes.json")
@@ -23,6 +27,9 @@ fetch("../clothes.json")
 
 $(document).ready(function () {
         console.log("ready");
+    let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+    numSparklesElement.innerHTML = "Sparkles: <br> " + numSparkles;
+
 })
 
 // Fill the 'My Clothes' section with owned clothes
@@ -34,7 +41,7 @@ function populateOwnedClothes() {
         let item = clothes[owns[i]].name;
         let itemType = clothes[owns[i]].type;
         // console.log("Owns id: " + id + " = " + item);
-        let clothingItemBox = createClothingItemBox(id, item, itemType);
+        let clothingItemBox = createClothingItemBox(item, itemType);
         closet.appendChild(clothingItemBox);
     }
 
@@ -63,7 +70,7 @@ function populateShop() {
             let item = clothes[i].name;
             let itemType = clothes[i].type;
             
-            let clothingItemBox = createClothingItemBox(item, itemType);
+            let clothingItemBox = createShopItemBox(item, itemType);
             closet.appendChild(clothingItemBox);
         }
     }
@@ -76,7 +83,7 @@ function populateShop() {
 }
 
 // create a box that holds a clothing item for the closet
-function createClothingItemBox(id, item, itemType) {
+function createClothingItemBox(item, itemType) {
     const itemBox = document.createElement("div");
     itemBox.classList.add("clothingItemBorder");
     const clothingItem = document.createElement("div");
@@ -90,6 +97,16 @@ function createClothingItemBox(id, item, itemType) {
         putOn(item, itemType);
     }
     return itemBox;
+}
+
+// create a clothing item box, but it has a price on it and works differently than items that you already own (unfinished)
+function createShopItemBox(item, itemType) {
+    let baseClothingBox = createClothingItemBox(item, itemType);
+    // const price = document.createElement("p");
+    // price.innerHTML = "5";
+    // price.classList.add("price");
+    // baseClothingBox.appendChild(price);
+    return baseClothingBox;
 }
 
 // return true if the avatar is wearing the clothing of the given id

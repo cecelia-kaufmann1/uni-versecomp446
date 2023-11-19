@@ -9,8 +9,10 @@
     grid-template-columns: 1fr 1fr;
     margin-top: 0;
     grid-auto-rows: 12rem;
-    background-color: #3ED0DD;
-    border: solid 15px #1d7077;
+    /* background-color: #3ED0DD; */
+    background-color: white;
+    /* border: solid 15px #1d7077; */
+    border: solid 15px #404b4b;
     /*Custom border radius: https://blog.avada.io/css/border-examples*/
     border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
     
@@ -18,27 +20,30 @@
 
 .tab {
     
-    background-color: #CCCCFF;
+    /* background-color: #CCCCFF; */
+    background-color: gray;
     margin: 0;
     padding: 1rem;
     padding-bottom: 0;
     border-radius: 2rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border: solid #1d7077 5px;
+    /* border: solid #1d7077 5px; */
+    border: solid #404b4b 5px;
     border-bottom-width: 0;
     text-align: center;
 }
 
 .highlighted {
-    background-color: #a0a0fd;
+    /* background-color: #a0a0fd; */
+    background-color: white;
 }
 
 /* ----- Avatar ----- */
 
 avatar {
 
-    background-color: #B7FAFF;
+    /* background-color: #B7FAFF; */
     margin: 1rem;
     width: 50%;
     text-align: center;
@@ -50,6 +55,12 @@ avatar {
     border-radius: 1rem;
     
 }
+
+/* ----- Currency ----- */
+.numSparkles {
+    text-align: center;
+}
+
 
 /* ----- Clothes ----- */
 
@@ -66,7 +77,8 @@ img {
 }
 
 .clothingItemBorder {
-    background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff);
+    /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
+    background: linear-gradient(120deg, gray 30%, white);
     padding: 0.5rem;
     border-radius: 2rem;
     margin: 0.5rem;
@@ -74,7 +86,8 @@ img {
 
 
 .clothingItem {
-    background-color: #B7FAFF;
+    /* background-color: #B7FAFF; */
+    background-color: white;
     
     border-radius: 2rem;
     height: 100%;
@@ -87,7 +100,8 @@ img {
 }
 
 .clothingItem.highlighted {
-    background-color:#c8c8f7;
+    /* background-color:#c8c8f7; */
+    background-color: gray;
 }
 
 
@@ -129,7 +143,8 @@ body {
     align-content: center;
     flex-direction: row;
     
-    background-color: #B7FAFF;
+    /* background-color: #B7FAFF; */
+    background-color: white;
     margin: auto;
     height: 100%;
     margin: 0;
