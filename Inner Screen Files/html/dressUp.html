@@ -6,20 +6,25 @@
     <link rel="stylesheet" type="text/css" href="../../assets/styles/button.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/dressUp.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/sharedStyles.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <script type="text/javascript" src="../javascript/dressUp.js"></script>
+   
 </head>
 
 <body>
 
     <div class="verticalContainer">
         <div class="horizontalContainer">
-            <div class="tab" id = "myClothes"> My clothes</div> 
-            <div class="tab" id="shop"> Shop</div> 
+            <div class="tab highlighted" id = "myClothes" onclick="populateOwnedClothes()"> My clothes</div> 
+            <div class="tab" id="shop" onclick="populateShop()"> Shop</div> 
         </div>   
-        
-        <section class="closet" id = "scrollbar">
+   
+        <section class="closet scrollbar" id = "closet">
             <!-- TODO: need more semantic html tags-->
-            <div class="clothingItemBorder"> 
+            <!-- <div class="clothingItemBorder"> 
                 <div class="clothingItem" id="bottom1" onclick="putOn(id, 'bottom')">  </div>
             </div>
             
@@ -49,12 +54,12 @@
             </div>
             <div class="clothingItemBorder"> 
                 <div class="clothingItem">  </div>
-            </div>
+            </div> -->
         </section>
     </div>
 
     <avatar class="" id="avatar">
-        <img src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar"> 
+        <img class = "unicornImage" src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar"> 
        
 
     </avatar>

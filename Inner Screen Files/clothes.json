@@ -1,0 +1,54 @@
+{
+    "clothes": [
+        {
+            "name": "bottom1",
+            "type": "bottom",
+            "url": "",
+            "id": 0
+        },
+        {
+            "name": "bottom2",
+            "type": "bottom",
+            "url": "",
+            "id": 1
+        },
+        {
+            "name": "bottom3",
+            "type": "bottom",
+            "url": "",
+            "id": 2
+        },
+        {
+            "name": "bottom4",
+            "type": "bottom",
+            "url": "",
+            "id": 3
+        },
+        {
+            "name": "bottom5",
+            "type": "bottom",
+            "url": "",
+            "id": 4
+        },
+        {
+            "name": "bottom6",
+            "type": "bottom",
+            "url": "",
+            "id": 5
+        },
+        {
+            "name": "top2",
+            "type": "top",
+            "url": "",
+            "id": 6
+        },
+        {
+            "name": "top3",
+            "type": "top",
+            "url": "",
+            "id": 7
+        }
+       
+    ]
+   
+}

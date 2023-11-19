@@ -111,6 +111,10 @@ img {
     text-align: center;
 }
 
+.highlighted {
+    background-color: #a0a0fd;
+}
+
 #myClothes{
     grid-column-start: 1;
     grid-column-end: 3;
@@ -124,14 +128,14 @@ img {
     margin-left: 3rem;
 }
 /* Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/*/
-#scrollbar::-webkit-scrollbar {
+.scrollbar::-webkit-scrollbar {
     width: 10px;
     border-radius: 10px;
     height: 50%;
     
 }
 
-#scrollbar::-webkit-scrollbar-track {
+.scrollbar::-webkit-scrollbar-track {
     border-radius: 10px;
     border: 1px solid #cacaca;
     background-color: #f1f1f1;
@@ -140,7 +144,7 @@ img {
     
 }
 
-#scrollbar::-webkit-scrollbar-thumb {
+.scrollbar::-webkit-scrollbar-thumb {
      background-color: #FDC9D3;
     border-radius: 10px;
 }
