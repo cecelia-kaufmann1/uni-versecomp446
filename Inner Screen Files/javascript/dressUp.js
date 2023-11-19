@@ -15,16 +15,17 @@ fetch("../clothes.json")
             let id = wearing[i];
             let item = clothes[wearing[i]].name;
             let itemType = clothes[wearing[i]].type;
-            console.log("Wearing id: " + id + " = " + item);
+            // console.log("Wearing id: " + id + " = " + item);
             putOn(item, itemType);
         }
         populateOwnedClothes();
     });
 
 $(document).ready(function () {
-    console.log("ready");
+        console.log("ready");
 })
 
+// Fill the 'My Clothes' section with owned clothes
 function populateOwnedClothes() {
     let closet = document.getElementById("closet");
     closet.replaceChildren();
@@ -32,17 +33,20 @@ function populateOwnedClothes() {
         let id = owns[i];
         let item = clothes[owns[i]].name;
         let itemType = clothes[owns[i]].type;
-        console.log("Owns id: " + id + " = " + item);
-        let clothingItemBox = createClothingItemBox(item, itemType);
+        // console.log("Owns id: " + id + " = " + item);
+        let clothingItemBox = createClothingItemBox(id, item, itemType);
         closet.appendChild(clothingItemBox);
     }
 
+    // highlight the my clothes tab
     let myClothesTab = document.getElementById("myClothes");
     myClothesTab.classList.add("highlighted");
     let shopTab = document.getElementById("shop");
     shopTab.classList.remove("highlighted");
+   
 }
 
+// Fill the 'Shop' section with unowned clothes
 function populateShop() {
     let closet = document.getElementById("closet");
     closet.replaceChildren();
@@ -54,7 +58,7 @@ function populateShop() {
             }
         }
         if (!itemIsOwned) {
-            console.log(i + " is not already owned");
+            // console.log(i + " is not already owned");
             let id = owns[i];
             let item = clothes[i].name;
             let itemType = clothes[i].type;
@@ -62,52 +66,51 @@ function populateShop() {
             let clothingItemBox = createClothingItemBox(item, itemType);
             closet.appendChild(clothingItemBox);
         }
-
     }
 
+    // highlight the shop tab
     let myClothesTab = document.getElementById("myClothes");
     myClothesTab.classList.remove("highlighted");
     let shopTab = document.getElementById("shop");
     shopTab.classList.add("highlighted");
 }
 
-function createClothingItemBox(item, itemType) {
+// create a box that holds a clothing item for the closet
+function createClothingItemBox(id, item, itemType) {
     const itemBox = document.createElement("div");
     itemBox.classList.add("clothingItemBorder");
     const clothingItem = document.createElement("div");
     clothingItem.classList.add("clothingItem");
     itemBox.appendChild(clothingItem);
     clothingItem.id = item;
+    // if (isWearing(id)) {
+    //     clothingItem.classList.add("highlighted");
+    // }
     clothingItem.onclick = function () {
         putOn(item, itemType);
     }
-
-
     return itemBox;
-
-    /*<div class="clothingItemBorder"> 
-                <div class="clothingItem" id="bottom1" onclick="putOn(id, 'bottom')">  </div>
-            </div>*/
 }
 
+// return true if the avatar is wearing the clothing of the given id
+function isWearing(id){
+    return wearing.includes(id);
+}
 
+// put on the clothing item
 function putOn(item, itemType) {
-    console.log(clothes);
+    // console.log(clothes);
     removeIfWearing(itemType);
     const clothing = document.createElement("img");
     const avatar = document.getElementById("avatar");
-    // clothing.classList.add(itemType);
     clothing.id = itemType;
+    clothing.classList.add("wornClothing");
     clothing.setAttribute("src", "../../assets/images/clothes/" + item + ".png");
     avatar.appendChild(clothing);
     avatar.classList.add(itemType);
-    console.log("added item");
-    // console.log(avatar.classList);
-    // <img class= "bottom" src="../../assets/images/clothes/bottom1.png">
 }
 
-
-
+// remove the given type of clothing
 function remove(itemType) {
     const itemToRemove = document.getElementById(itemType);
     const avatar = document.getElementById("avatar");
@@ -117,10 +120,10 @@ function remove(itemType) {
     itemToRemove.remove();
 }
 
+// remove clothing if avatar is already wearing that type of clothing
 function removeIfWearing(itemType) {
     const avatar = document.getElementById("avatar");
     if (avatar.classList.contains(itemType)) {
         remove(itemType);
     }
-
 }
