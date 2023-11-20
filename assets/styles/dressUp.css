@@ -48,13 +48,24 @@ avatar {
     width: 50%;
     text-align: center;
     
-
     position: relative;
     margin: 1rem;
     padding: 0;
     border-radius: 1rem;
+    background-color: orange;
+    margin: 1rem;
     
 }
+
+.container {
+    background-color: orange;
+    position: relative;
+}
+
+/* .top {
+    background-color: red;
+    position:relative;
+    /* width: 10px; */
 
 /* ----- Currency ----- */
 .numSparkles {
@@ -139,8 +150,8 @@ html {
 
 body {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    /* justify-content: center;
+    align-content: center; */
     flex-direction: row;
     
     /* background-color: #B7FAFF; */
@@ -161,7 +172,7 @@ body {
 #top {
     position: absolute;
     top: 8.5rem;
-    left: -3rem;
+    left: 3rem;
 }
 
 /* ----- Clothing image paths ----- */
