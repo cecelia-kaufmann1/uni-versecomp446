@@ -62,14 +62,40 @@ avatar {
     position: relative;
 }
 
-/* .top {
-    background-color: red;
-    position:relative;
-    /* width: 10px; */
 
 /* ----- Currency ----- */
 .numSparkles {
     text-align: center;
+}
+
+.price {
+    background-color: white;
+    border: black dashed 3px;
+    border-radius: 10px;
+    padding: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    font-size: 20px;
+}
+
+.shopItemBox {
+   display:grid;
+   grid-template-rows: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.canAfford {
+    background-color: white;
+}
+
+.cannotAfford {
+    background-color: red;
 }
 
 
@@ -107,6 +133,10 @@ img {
     background-repeat: no-repeat;
     background-position: 0;
     background-position-x: center;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 5;
     
 }
 

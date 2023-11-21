@@ -1,10 +1,10 @@
 
 
-var wearing = [0, 7]; // temporary - this represents the user data of what they are currently wearing
+var wearing = [1, 7]; // temporary - this represents the user data of what they are currently wearing
 
-var owns = [0, 3, 4, 6, 7]; // temporary - this represents the user data of what they currently own
+var owns = [1, 7, 5]; // temporary - this represents the user data of what they currently own
 
-var numSparkles = 150; // temporary - this represents the user data of how many sparkles they currently have
+var numSparkles = 10; // temporary - this represents the user data of how many sparkles they currently have
 var clothes;
 
 
@@ -22,7 +22,8 @@ fetch("../clothes.json")
             // console.log("Wearing id: " + id + " = " + item);
             putOn(item, itemType);
         }
-        populateOwnedClothes();
+        // populateOwnedClothes();
+        populateShop();
     });
 
 $(document).ready(function () {
@@ -69,8 +70,8 @@ function populateShop() {
             let id = owns[i];
             let item = clothes[i].name;
             let itemType = clothes[i].type;
-            
-            let clothingItemBox = createShopItemBox(item, itemType);
+            let price = clothes[i].price;
+            let clothingItemBox = createShopItemBox(item, itemType, price);
             closet.appendChild(clothingItemBox);
         }
     }
@@ -90,22 +91,30 @@ function createClothingItemBox(item, itemType) {
     clothingItem.classList.add("clothingItem");
     itemBox.appendChild(clothingItem);
     clothingItem.id = item;
-    // if (isWearing(id)) {
-    //     clothingItem.classList.add("highlighted");
-    // }
-    clothingItem.onclick = function () {
+   
+    itemBox.onclick = function () {
         putOn(item, itemType);
     }
     return itemBox;
 }
 
 // create a clothing item box, but it has a price on it and works differently than items that you already own (unfinished)
-function createShopItemBox(item, itemType) {
+function createShopItemBox(item, itemType, itemPrice) {
     let baseClothingBox = createClothingItemBox(item, itemType);
-    // const price = document.createElement("p");
-    // price.innerHTML = "5";
-    // price.classList.add("price");
-    // baseClothingBox.appendChild(price);
+    const price = document.createElement("p");
+    price.innerHTML = itemPrice;
+    price.classList.add("price");
+
+    if (numSparkles >= itemPrice) {
+        price.classList.add("canAfford");
+    } else {
+        price.classList.add("cannotAfford");
+    }
+    baseClothingBox.appendChild(price);
+    
+    baseClothingBox.classList.add("shopItemBox");
+   
+
     return baseClothingBox;
 }
 
@@ -125,6 +134,8 @@ function putOn(item, itemType) {
     clothing.setAttribute("src", "../../assets/images/clothes/" + item + ".png");
     avatar.appendChild(clothing);
     avatar.classList.add(itemType);
+
+    
 }
 
 // remove the given type of clothing
@@ -147,4 +158,8 @@ function removeIfWearing(itemType) {
     }  else if (itemType == "skirt" && avatar.classList.contains("bottom")) {
         remove("bottom");
     }
+}
+
+function userOwnsItem(id) {
+    return owns.includes(id);
 }

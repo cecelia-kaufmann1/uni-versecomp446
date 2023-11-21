@@ -4,48 +4,56 @@
             "name": "bottom1",
             "type": "skirt",
             "url": "",
+            "price": 10,
             "id": 0
         },
         {
             "name": "bottom2",
             "type": "skirt",
             "url": "",
+            "price": 15,
             "id": 1
         },
         {
             "name": "bottom3",
             "type": "skirt",
             "url": "",
+            "price": 20,
             "id": 2
         },
         {
             "name": "bottom4",
             "type": "bottom",
             "url": "",
+            "price": 10,
             "id": 3
         },
         {
             "name": "bottom5",
             "type": "bottom",
             "url": "",
+            "price": 15,
             "id": 4
         },
         {
             "name": "bottom6",
             "type": "bottom",
             "url": "",
+            "price": 20,
             "id": 5
         },
         {
             "name": "top2",
             "type": "top",
             "url": "",
+            "price": 10,
             "id": 6
         },
         {
             "name": "top3",
             "type": "top",
             "url": "",
+            "price": 15,
             "id": 7
         }
     ]
