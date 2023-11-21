@@ -169,6 +169,12 @@ body {
     left: 9rem;
 }
 
+#skirt {
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+}
+
 #top {
     position: absolute;
     top: 8.5rem;

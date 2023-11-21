@@ -1,6 +1,6 @@
 
 
-var wearing = [4, 7]; // temporary - this represents the user data of what they are currently wearing
+var wearing = [0, 7]; // temporary - this represents the user data of what they are currently wearing
 
 var owns = [0, 3, 4, 6, 7]; // temporary - this represents the user data of what they currently own
 
@@ -142,5 +142,9 @@ function removeIfWearing(itemType) {
     const avatar = document.getElementById("avatar");
     if (avatar.classList.contains(itemType)) {
         remove(itemType);
+    } else if (itemType == "bottom" && avatar.classList.contains("skirt")){
+        remove("skirt");
+    }  else if (itemType == "skirt" && avatar.classList.contains("bottom")) {
+        remove("bottom");
     }
 }

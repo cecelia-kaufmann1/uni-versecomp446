@@ -2,19 +2,19 @@
     "clothes": [
         {
             "name": "bottom1",
-            "type": "bottom",
+            "type": "skirt",
             "url": "",
             "id": 0
         },
         {
             "name": "bottom2",
-            "type": "bottom",
+            "type": "skirt",
             "url": "",
             "id": 1
         },
         {
             "name": "bottom3",
-            "type": "bottom",
+            "type": "skirt",
             "url": "",
             "id": 2
         },
