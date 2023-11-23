@@ -7,6 +7,10 @@ var owns = [1, 7, 5]; // temporary - this represents the user data of what they 
 var numSparkles = 10; // temporary - this represents the user data of how many sparkles they currently have
 var clothes;
 
+var costInCart = 0;
+var itemsInCart = [];
+
+var tabOpen = "shop";
 
 
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
@@ -15,23 +19,50 @@ fetch("../clothes.json")
     .then(json => {
 
         clothes = json.clothes;
+        // put on each item that user is currently wearing
         for (let i = 0; i < wearing.length; i++) {
             let id = wearing[i];
             let item = clothes[wearing[i]].name;
             let itemType = clothes[wearing[i]].type;
-            // console.log("Wearing id: " + id + " = " + item);
-            putOn(item, itemType);
+
+            putOn(item, itemType, id);
         }
-        // populateOwnedClothes();
-        populateShop();
+        if (tabOpen == "shop") {
+            populateShop();
+        } else {
+            populateOwnedClothes();
+        }
     });
 
 $(document).ready(function () {
-        console.log("ready");
+    console.log("ready");
+    updateSparklesLabel();
+
+    let buyItemButton = document.getElementsByClassName("buyItemButton")[0];
+    buyItemButton.onclick = purchaseItems;
+
+    updateCartButton();
+})
+
+// ----------------------------------------------------
+// -------------------- Debugging ---------------------
+// ----------------------------------------------------
+
+function printDebugValues() {
+    console.log("owns: " + owns);
+    console.log("itemsInCart:" + itemsInCart);
+    console.log("costInCart: " + costInCart);
+}
+
+// -------------------------------------------------
+// -------------------- Visuals --------------------
+// -------------------------------------------------
+
+// Visually update the label at top of screen that shows how many sparkles the user has
+function updateSparklesLabel() {
     let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
     numSparklesElement.innerHTML = "Sparkles: <br> " + numSparkles;
-
-})
+}
 
 // Fill the 'My Clothes' section with owned clothes
 function populateOwnedClothes() {
@@ -39,10 +70,10 @@ function populateOwnedClothes() {
     closet.replaceChildren();
     for (let i = 0; i < owns.length; i++) {
         let id = owns[i];
+
         let item = clothes[owns[i]].name;
         let itemType = clothes[owns[i]].type;
-        // console.log("Owns id: " + id + " = " + item);
-        let clothingItemBox = createClothingItemBox(item, itemType);
+        let clothingItemBox = createClothingItemBox(item, itemType, id);
         closet.appendChild(clothingItemBox);
     }
 
@@ -51,7 +82,9 @@ function populateOwnedClothes() {
     myClothesTab.classList.add("highlighted");
     let shopTab = document.getElementById("shop");
     shopTab.classList.remove("highlighted");
-   
+
+    tabOpen = "closet";
+
 }
 
 // Fill the 'Shop' section with unowned clothes
@@ -66,12 +99,11 @@ function populateShop() {
             }
         }
         if (!itemIsOwned) {
-            // console.log(i + " is not already owned");
-            let id = owns[i];
+            let id = i;
             let item = clothes[i].name;
             let itemType = clothes[i].type;
             let price = clothes[i].price;
-            let clothingItemBox = createShopItemBox(item, itemType, price);
+            let clothingItemBox = createShopItemBox(item, itemType, price, id);
             closet.appendChild(clothingItemBox);
         }
     }
@@ -81,26 +113,28 @@ function populateShop() {
     myClothesTab.classList.remove("highlighted");
     let shopTab = document.getElementById("shop");
     shopTab.classList.add("highlighted");
+
+    tabOpen = "shop";
 }
 
-// create a box that holds a clothing item for the closet
-function createClothingItemBox(item, itemType) {
+// Create a box that holds a clothing item for the closet
+function createClothingItemBox(item, itemType, id) {
     const itemBox = document.createElement("div");
     itemBox.classList.add("clothingItemBorder");
     const clothingItem = document.createElement("div");
     clothingItem.classList.add("clothingItem");
     itemBox.appendChild(clothingItem);
     clothingItem.id = item;
-   
+
     itemBox.onclick = function () {
-        putOn(item, itemType);
+        putOn(item, itemType, id);
     }
     return itemBox;
 }
 
 // create a clothing item box, but it has a price on it and works differently than items that you already own (unfinished)
-function createShopItemBox(item, itemType, itemPrice) {
-    let baseClothingBox = createClothingItemBox(item, itemType);
+function createShopItemBox(item, itemType, itemPrice, id) {
+    let baseClothingBox = createClothingItemBox(item, itemType, id);
     const price = document.createElement("p");
     price.innerHTML = itemPrice;
     price.classList.add("price");
@@ -111,34 +145,56 @@ function createShopItemBox(item, itemType, itemPrice) {
         price.classList.add("cannotAfford");
     }
     baseClothingBox.appendChild(price);
-    
+
     baseClothingBox.classList.add("shopItemBox");
-   
 
     return baseClothingBox;
 }
 
-// return true if the avatar is wearing the clothing of the given id
-function isWearing(id){
-    return wearing.includes(id);
-}
-
 // put on the clothing item
-function putOn(item, itemType) {
-    // console.log(clothes);
+function putOn(item, itemType, id) {
     removeIfWearing(itemType);
+
     const clothing = document.createElement("img");
     const avatar = document.getElementById("avatar");
     clothing.id = itemType;
     clothing.classList.add("wornClothing");
     clothing.setAttribute("src", "../../assets/images/clothes/" + item + ".png");
+    clothing.setAttribute("itemName", item);
+    clothing.setAttribute("itemID", id);
     avatar.appendChild(clothing);
     avatar.classList.add(itemType);
 
-    
+    if (!userOwnsItem(id)) {
+        costInCart += clothes[id].price;
+        itemsInCart.push(id);
+        updateCartButton();
+    } else {
+        // for some reason wearing.push(id) is causing an infinite loop
+        // wearing.push(id);
+        // wearing.push(1);
+        // console.log("wearing: " + wearing);
+
+    }
 }
 
-// remove the given type of clothing
+// Visually update the purchase button
+function updateCartButton() {
+    const buyItemButton = document.getElementsByClassName("buyItemButton")[0];
+    buyItemButton.innerHTML = "Purchase for: " + costInCart;
+
+    if (costInCart == 0) {
+        buyItemButton.style.display = "none";
+    } else if (costInCart > numSparkles) {
+        buyItemButton.style.display = "block";
+        buyItemButton.classList.add("disabled");
+    } else {
+        buyItemButton.style.display = "block";
+        buyItemButton.classList.remove("disabled");
+    }
+}
+
+// Remove the given type of clothing
 function remove(itemType) {
     const itemToRemove = document.getElementById(itemType);
     const avatar = document.getElementById("avatar");
@@ -146,20 +202,83 @@ function remove(itemType) {
     avatar.removeChild(itemToRemove);
     avatar.classList.remove(itemType);
     itemToRemove.remove();
+
+    let item = itemToRemove.getAttribute("itemName");
+    let id = itemToRemove.getAttribute("itemID");
+
+    if (!userOwnsItem(id)) {
+        costInCart -= clothes[id].price;
+        itemsInCart = removeValueFromArray(itemsInCart, id);
+        updateCartButton();
+    }
 }
 
-// remove clothing if avatar is already wearing that type of clothing
+// Remove clothing if avatar is already wearing that type/category of clothing
 function removeIfWearing(itemType) {
     const avatar = document.getElementById("avatar");
     if (avatar.classList.contains(itemType)) {
         remove(itemType);
-    } else if (itemType == "bottom" && avatar.classList.contains("skirt")){
+    } else if (itemType == "bottom" && avatar.classList.contains("skirt")) {
         remove("skirt");
-    }  else if (itemType == "skirt" && avatar.classList.contains("bottom")) {
+    } else if (itemType == "skirt" && avatar.classList.contains("bottom")) {
         remove("bottom");
     }
 }
 
-function userOwnsItem(id) {
-    return owns.includes(id);
+// ----------------------------------------------
+// -------------------- Data --------------------
+// ----------------------------------------------
+
+// Buy items if they can be afforded
+function purchaseItems() {
+    if (costInCart <= numSparkles) {
+        for (let i = 0; i < itemsInCart.length; i++) {
+            owns.push(itemsInCart[i]);
+        }
+        numSparkles -= costInCart;
+        costInCart = 0;
+        itemsInCart = [];
+        updateCartButton();
+        updateSparklesLabel();
+
+        if (tabOpen == "shop") {
+            populateShop();
+        } else {
+            populateOwnedClothes();
+        }
+        printDebugValues();
+    }
+
 }
+
+// Return true if the user is currently wearing the item
+function isWearing(id) {
+    return wearing.includes(id);
+}
+
+// Return true if the user currently owns the item
+function userOwnsItem(id) {
+    // convert a string to a number using the + sign: https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/#:~:text=(quantity))%3B-,How%20to%20convert%20a%20string%20to%20a%20number%20in%20JavaScript,will%20go%20before%20the%20operand.&text=We%20can%20also%20use%20the,into%20a%20floating%20point%20number.
+    return owns.includes(+id);
+}
+
+// Given a name, return the id for that clothing item
+function getIdFromName(name) {
+    return "not implemented";
+}
+
+// ----------------------------------------------------------
+// -------------------- Helper functions --------------------
+// ----------------------------------------------------------
+
+// Given an array and a value, remove all instances of that value from the array and return a new array
+function removeValueFromArray(array, value) {
+    let newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] != value) {
+            newArray.push(array[i]);
+        }
+    }
+    return newArray;
+}
+

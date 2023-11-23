@@ -4,7 +4,7 @@ const PLAYER_SPEED = 330; // player vertical speed
 
 const INIT_ENEMY_SPAWN_RATE = 300;
 const INIT_SPARKLE_SPAWN_RATE = 250;
-const INIT_RUNNING_SPEED = -80;
+const INIT_RUNNING_SPEED = -110;
 
 // Global variables
 var cursors;
@@ -128,7 +128,7 @@ class MainScene extends Phaser.Scene {
             clockTick++;
 
             // increase difficulty about every 10 seconds
-            if (clockTick % 666 == 0){
+            if (clockTick % 450 == 0){
                 this.increaseDifficulty();
             }
 

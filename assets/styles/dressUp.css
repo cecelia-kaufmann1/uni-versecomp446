@@ -58,7 +58,7 @@ avatar {
 }
 
 .container {
-    background-color: orange;
+    background-color: red;
     position: relative;
 }
 
@@ -96,6 +96,11 @@ avatar {
 
 .cannotAfford {
     background-color: red;
+}
+
+.buyItemButton {
+    background-color: pink;
+    top: 33rem;
 }
 
 
