@@ -182,16 +182,23 @@ function putOn(item, itemType, id) {
 function updateCartButton() {
     const buyItemButton = document.getElementsByClassName("buyItemButton")[0];
     buyItemButton.innerHTML = "Purchase for: " + costInCart;
+    
+    const cartItems = document.getElementsByClassName("cartItems")[0];
+    cartItems.innerHTML = "In cart: \n" + itemsInCart;
 
     if (costInCart == 0) {
         buyItemButton.style.display = "none";
+        cartItems.style.display = "none";
     } else if (costInCart > numSparkles) {
         buyItemButton.style.display = "block";
+        cartItems.style.display = "block";
         buyItemButton.classList.add("disabled");
     } else {
         buyItemButton.style.display = "block";
+        cartItems.style.display = "block";
         buyItemButton.classList.remove("disabled");
     }
+    
 }
 
 // Remove the given type of clothing

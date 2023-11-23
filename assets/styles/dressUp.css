@@ -103,6 +103,15 @@ avatar {
     top: 33rem;
 }
 
+.cartItems {
+    position: relative;
+    
+    top: 30rem;
+    left: -15rem;
+    width: 5rem;
+    height: 5rem;
+}
+
 
 /* ----- Clothes ----- */
 

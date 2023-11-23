@@ -89,3 +89,7 @@ button {
     background: radial-gradient(ellipse farthest-corner at top left,   #BCBCEB 15%, #DFDFED 30%, #BCBCEB 50%);
   }
   
+
+  .short {
+    width: 15rem;
+  }
