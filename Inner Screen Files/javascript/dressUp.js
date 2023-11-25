@@ -67,7 +67,7 @@ function updateSparklesLabel() {
 // Fill the 'My Clothes' section with owned clothes
 function populateOwnedClothes() {
     let closet = document.getElementById("closet");
-    closet.style.backgroundColor = "white";
+    closet.style.backgroundColor = "#3ED0DD";
     closet.replaceChildren();
     for (let i = 0; i < owns.length; i++) {
         let id = owns[i];
@@ -85,7 +85,7 @@ function populateOwnedClothes() {
 // Fill the 'Shop' section with unowned clothes
 function populateShop() {
     let closet = document.getElementById("closet");
-    closet.style.backgroundColor = "lightgray";
+    closet.style.backgroundColor = "#CCCCFF";
     closet.replaceChildren();
     for (let i = 0; i < clothes.length; i++) {
         let itemIsOwned = false;
@@ -115,7 +115,7 @@ function highlightShopTab() {
     let shopTab = document.getElementById("shop");
     
 
-    shopTab.style.zIndex = 1;
+    shopTab.style.zIndex = 2;
     myClothesTab.style.zIndex = 0;
     shopTab.style.borderBottomWidth = 0;
     myClothesTab.style.borderBottomWidth = "5px";
@@ -151,8 +151,10 @@ function createClothingItemBox(item, itemType, id) {
     }
 
     if (isWearing(id)) {
-        clothingItem.style.backgroundColor = "lightgray";
+        clothingItem.style.backgroundColor = "#86f7ff";
     }
+
+    
     return itemBox;
 }
 
@@ -202,9 +204,10 @@ function putOn(item, itemType, id) {
 // Visually update the purchase button
 function updateCartButton() {
     const buyItemButton = document.getElementsByClassName("buyItemButton")[0];
+   
     buyItemButton.innerHTML = "Purchase for: " + costInCart;
     
-    const cartItemsContainer = document.getElementsByClassName("cartItemsContainer")[0];
+    const cartItemsContainer = document.getElementsByClassName("cartVerticalContainer")[0];
     if (costInCart == 0) {
         buyItemButton.style.visibility = "hidden";
         cartItemsContainer.style.visibility = "hidden";

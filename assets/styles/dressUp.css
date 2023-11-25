@@ -11,14 +11,12 @@
     margin-top: 0;
     grid-auto-rows: 12rem;
     /* background-color: #3ED0DD; */
-    background-color: white;
     /* border: solid 15px #1d7077; */
     border: solid 5px #404b4b;
     /* Custom border radius: https://blog.avada.io/css/border-examples
     border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
      */
     border-radius: 2rem;
-    
      
 }
 
@@ -39,7 +37,7 @@
     /* border: solid #1d7077 5px; */
     border: solid #404b4b 5px;
     text-align: center;
-
+    border-bottom-width: 0;
     
 }
 
@@ -67,10 +65,9 @@ avatar {
 }
 
 .container {
-    background-color: red;
     position: relative;
-    left: 5rem;
-    bottom: -2rem;
+    left: 1rem;
+    bottom: 0rem;
 }
 
 
@@ -123,10 +120,12 @@ avatar {
     left: -10rem; */
 }
 .cartVerticalContainer {
-    left: 32rem;
-    bottom: 5rem;
+    left: 29rem;
+    bottom: 4.8rem;
     position: absolute;
-    
+    background-color: #FFFFFFD0;
+    padding: 0.2rem;
+    border-radius: 3rem;
   
 }
 .cartItemsContainer {
@@ -141,9 +140,9 @@ avatar {
 }
 
 .cartItem {
-    background-color: white;
-    height: 5rem;
-    width: 5rem;
+    background-color: #B7FAFF;
+    height: 4rem;
+    width: 4rem;
    
     margin: 0.2rem;
     padding: 0.5rem;
@@ -152,7 +151,7 @@ avatar {
     background-position-x: center;
     background-size:contain;
 
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     border: 3px black solid;
 
 }
@@ -174,7 +173,8 @@ img {
 
 .clothingItemBorder {
     /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
-    background: linear-gradient(120deg, gray 30%, white);
+    background: linear-gradient(120deg, #B7FAFF
+    30%, white);
     padding: 0.3rem;
     border-radius: 1rem;
     margin: 0.3rem;
@@ -184,7 +184,8 @@ img {
 
 .clothingItem {
     /* background-color: #B7FAFF; */
-    background-color: white;
+    background-color: #B7FAFF
+    ;
     
     border-radius: 1rem;
     height: 100%;
@@ -211,14 +212,14 @@ img {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 1;
-    background-color: white;
+    background-color: #3ED0DD;
 }
 #shop {
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row: 1;
     margin-left: 3rem;
-    background-color: lightgray;
+    background-color: #CCCCFF;
 }
 
 .verticalContainer {
@@ -235,7 +236,6 @@ img {
     margin-left: 2rem;
     transform: rotate(270deg) translate(-5rem, -17.5rem);
     margin-top: 4rem;
-
 }
 
 html {
@@ -245,6 +245,10 @@ html {
 }
 body {
     height: 100%;
+    background-image: url("../images/dressup_background.png");
+    background-repeat: no-repeat;
+    background-size: 105% 100%;
+    
 }
 
 .flexRow {
@@ -254,7 +258,7 @@ body {
     flex-direction: row;
     
     /* background-color: #B7FAFF; */
-    background-color: white;
+   
     margin: auto;
     height: 100%;
     margin: 0;
@@ -340,16 +344,16 @@ p {
 .scrollbar::-webkit-scrollbar-track {
     border-radius: 10px;
    
-    background: linear-gradient(90deg, gray, white 30% 70%, gray );
+    background: linear-gradient(90deg, #9ef5fb, #c2fbff 40% 60%,#9ef5fb);
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
     margin: 7rem;
-    border: 1px gray solid;
+    
     
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-     background: linear-gradient(white, gray 20%);
-     border: 1px gray solid;
+     background: linear-gradient(white, #30a1ab 20%);
+     border: 1px #30a1ab solid;
     border-radius: 10px;
 }
 
