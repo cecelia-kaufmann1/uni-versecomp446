@@ -62,7 +62,7 @@ button {
     background: radial-gradient(ellipse farthest-corner at top left,   #AB2E58 15%, #D37897 30%, #AB2E58 50%);
   }
 
-  .darkPinkShine.disabled {
+  .darkPinkShine.disabled, .pinkShine.disabled, .lightPinkShine.disabled, .purpleShine.disabled, .lightPurpleShine.disabled {
     /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
     background: radial-gradient(ellipse farthest-corner at top left,   #b6b6b6 15%, #cbcbcb 30%, #b6b6b6 50%);
     border-color: #b6b6b6;
@@ -92,7 +92,6 @@ button {
 
   .short {
     width: 8rem;
-    
     font-size: 100%;
     text-wrap:pretty;
     text-align: center;

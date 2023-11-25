@@ -17,7 +17,9 @@
     /* Custom border radius: https://blog.avada.io/css/border-examples
     border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
      */
-     border-radius: 2rem;
+    border-radius: 2rem;
+    
+     
 }
 
 .tab {
@@ -81,6 +83,8 @@ avatar {
     margin: 0;
     width: 100%;
     font-size: larger;
+    margin-top: 1rem;
+    
 }
 
 .price {
@@ -171,9 +175,10 @@ img {
 .clothingItemBorder {
     /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
     background: linear-gradient(120deg, gray 30%, white);
-    padding: 0.5rem;
-    border-radius: 2rem;
-    margin: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    margin: 0.3rem;
+
 }
 
 
@@ -181,7 +186,7 @@ img {
     /* background-color: #B7FAFF; */
     background-color: white;
     
-    border-radius: 2rem;
+    border-radius: 1rem;
     height: 100%;
     vertical-align: middle;
 
@@ -206,12 +211,14 @@ img {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 1;
+    background-color: white;
 }
 #shop {
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row: 1;
     margin-left: 3rem;
+    background-color: lightgray;
 }
 
 .verticalContainer {
@@ -227,6 +234,7 @@ img {
     grid-template-columns: 3fr 3fr 4fr 1fr 8fr; 
     margin-left: 2rem;
     transform: rotate(270deg) translate(-5rem, -17.5rem);
+    margin-top: 4rem;
 
 }
 
@@ -321,7 +329,7 @@ p {
 /* ----- Scrollbar ----- */
 /* Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/*/
 .scrollbar::-webkit-scrollbar {
-    width: 20px;
+    width: 30px;
     border-radius: 10px;
     height: 50%;
    
@@ -331,16 +339,20 @@ p {
 
 .scrollbar::-webkit-scrollbar-track {
     border-radius: 10px;
-    border: 1px solid #cacaca;
-    background-color: #f1f1f1;
+   
+    background: linear-gradient(90deg, gray, white 30% 70%, gray );
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
     margin: 7rem;
+    border: 1px gray solid;
     
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-     background-color: #FDC9D3;
+     background: linear-gradient(white, gray 20%);
+     border: 1px gray solid;
     border-radius: 10px;
 }
+
+
 
 

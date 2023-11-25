@@ -10,7 +10,7 @@ var clothes;
 var costInCart = 0;
 var itemsInCart = [];
 
-var tabOpen = "shop";
+var tabOpen = "closet"; // should be either "closet" or "shop"
 
 
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
@@ -67,6 +67,7 @@ function updateSparklesLabel() {
 // Fill the 'My Clothes' section with owned clothes
 function populateOwnedClothes() {
     let closet = document.getElementById("closet");
+    closet.style.backgroundColor = "white";
     closet.replaceChildren();
     for (let i = 0; i < owns.length; i++) {
         let id = owns[i];
@@ -84,6 +85,7 @@ function populateOwnedClothes() {
 // Fill the 'Shop' section with unowned clothes
 function populateShop() {
     let closet = document.getElementById("closet");
+    closet.style.backgroundColor = "lightgray";
     closet.replaceChildren();
     for (let i = 0; i < clothes.length; i++) {
         let itemIsOwned = false;
@@ -106,11 +108,12 @@ function populateShop() {
    
 }
 
+// highlight the shop tab on the side of the closet
 function highlightShopTab() {
     let myClothesTab = document.getElementById("myClothes");
-    myClothesTab.classList.remove("highlighted");
+    
     let shopTab = document.getElementById("shop");
-    shopTab.classList.add("highlighted");
+    
 
     shopTab.style.zIndex = 1;
     myClothesTab.style.zIndex = 0;
@@ -119,12 +122,13 @@ function highlightShopTab() {
     tabOpen = "shop";
 }
 
+// highlight the my clothes tab on the side of the closet
 function highlightMyClothesTab() {
     
     let myClothesTab = document.getElementById("myClothes");
-    myClothesTab.classList.add("highlighted");
+    
     let shopTab = document.getElementById("shop");
-    shopTab.classList.remove("highlighted");
+   
 
     shopTab.style.zIndex = 0;
     myClothesTab.style.zIndex = 1;
@@ -144,6 +148,10 @@ function createClothingItemBox(item, itemType, id) {
 
     itemBox.onclick = function () {
         clickClosetItem(item, itemType, id);
+    }
+
+    if (isWearing(id)) {
+        clothingItem.style.backgroundColor = "lightgray";
     }
     return itemBox;
 }
@@ -189,10 +197,6 @@ function putOn(item, itemType, id) {
         itemsInCart.push(id);
         updateCartButton();
     } 
-
-    
-
-    console.log("wearing: " + wearing);
 }
 
 // Visually update the purchase button
@@ -216,6 +220,7 @@ function updateCartButton() {
     updateInCartItems();
 }
 
+// Display the items that are in the cart
 function updateInCartItems() {
     const cartItemsContainer = document.getElementsByClassName("cartItemsContainer")[0];
     cartItemsContainer.replaceChildren();
@@ -276,6 +281,12 @@ function clickClosetItem(item, itemType, id) {
         remove(itemType);
     } else {
         putOn(item, itemType, id);
+    }
+
+    if (tabOpen == "shop"){
+        populateShop();
+    } else {
+        populateOwnedClothes();
     }
 }
 // Buy items if they can be afforded
