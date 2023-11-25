@@ -6,48 +6,45 @@
     <link rel="stylesheet" type="text/css" href="../../assets/styles/button.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/dressUp.css">
     <link rel="stylesheet" type="text/css" href="../../assets/styles/sharedStyles.css">
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../javascript/dressUp.js"></script>
-   
+
 </head>
 
 <body>
-    
-    <div class="verticalContainer">
-        <div class="horizontalContainer">
-            <div class="tab highlighted" id = "myClothes" onclick="populateOwnedClothes()"> My clothes</div> 
-            <div class="tab" id="shop" onclick="populateShop()"> Shop</div> 
-        </div>   
-   
-        <section class="closet scrollbar" id = "closet">
-            <!-- TODO: need more semantic html tags-->
-        </section>
-    </div>
     <p class="numSparkles"> Sparkles: <br> 100000</p>
-    <!-- <avatar class="" id="avatar">
-        <img class = "unicornImage " src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar"> 
-       
-
-    </avatar> -->
-
-    <div class="container" id="avatar">
-        <img class = "unicornImage" src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar"> 
-
-        
-    </div>
-    <button class="buyItemButton darkPinkShine superRound outline short"> Buy</button>
-    <div class="cartItemsContainer">In cart: 
-        <div class="cartItem" id = "bottom1"> item1 </div>
-        <div class="cartItem"> item2 </div>
-        <div class="cartItem"> item3 </div>
-        
-    </div>
-
+    <div class="flexRow">
+        <div class="verticalContainer">
+            <div class="horizontalContainer">
+                <div class="tab" id="shop" onclick="populateShop()"> Shop</div>
+                <div class="tab highlighted" id="myClothes" onclick="populateOwnedClothes()"> My clothes</div>
+            </div>
     
-
+            <section class="closet scrollbar" id="closet">
+                <!-- TODO: need more semantic html tags-->
+            </section>
+        </div>
+        
+    
+        <div class="container" id="avatar">
+            <img class="unicornImage" src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar">
+    
+    
+        </div>
+        <div class="cartVerticalContainer">
+            
+    
+            <div class="cartItemsContainer">In cart:
+            </div>
+            <button class="buyItemButton darkPinkShine superRound outline short"> Buy</button>
+        </div>
+    
+    
+    
+    
+    </div>
+    
 </body>
 
 </html>

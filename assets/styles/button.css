@@ -91,5 +91,9 @@ button {
   
 
   .short {
-    width: 15rem;
+    width: 8rem;
+    
+    font-size: 100%;
+    text-wrap:pretty;
+    text-align: center;
   }

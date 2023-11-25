@@ -77,13 +77,7 @@ function populateOwnedClothes() {
         closet.appendChild(clothingItemBox);
     }
 
-    // highlight the my clothes tab
-    let myClothesTab = document.getElementById("myClothes");
-    myClothesTab.classList.add("highlighted");
-    let shopTab = document.getElementById("shop");
-    shopTab.classList.remove("highlighted");
-
-    tabOpen = "closet";
+    highlightMyClothesTab();
 
 }
 
@@ -108,13 +102,35 @@ function populateShop() {
         }
     }
 
-    // highlight the shop tab
+    highlightShopTab();
+   
+}
+
+function highlightShopTab() {
     let myClothesTab = document.getElementById("myClothes");
     myClothesTab.classList.remove("highlighted");
     let shopTab = document.getElementById("shop");
     shopTab.classList.add("highlighted");
 
+    shopTab.style.zIndex = 1;
+    myClothesTab.style.zIndex = 0;
+    shopTab.style.borderBottomWidth = 0;
+    myClothesTab.style.borderBottomWidth = "5px";
     tabOpen = "shop";
+}
+
+function highlightMyClothesTab() {
+    
+    let myClothesTab = document.getElementById("myClothes");
+    myClothesTab.classList.add("highlighted");
+    let shopTab = document.getElementById("shop");
+    shopTab.classList.remove("highlighted");
+
+    shopTab.style.zIndex = 0;
+    myClothesTab.style.zIndex = 1;
+    myClothesTab.style.borderBottomWidth = 0;
+    shopTab.style.borderBottomWidth = "5px";
+    tabOpen = "closet";
 }
 
 // Create a box that holds a clothing item for the closet
@@ -186,15 +202,15 @@ function updateCartButton() {
     
     const cartItemsContainer = document.getElementsByClassName("cartItemsContainer")[0];
     if (costInCart == 0) {
-        buyItemButton.style.display = "none";
-        cartItemsContainer.style.display = "none";
+        buyItemButton.style.visibility = "hidden";
+        cartItemsContainer.style.visibility = "hidden";
     } else if (costInCart > numSparkles) {
-        buyItemButton.style.display = "block";
-        cartItemsContainer.style.display = "flex";
+        buyItemButton.style.visibility = "visible";
+        cartItemsContainer.style.visibility = "visible";
         buyItemButton.classList.add("disabled");
     } else {
-        buyItemButton.style.display = "block";
-        cartItemsContainer.style.display = "flex";
+        buyItemButton.style.visibility = "visible";
+        cartItemsContainer.style.visibility = "visible";
         buyItemButton.classList.remove("disabled");
     }
     updateInCartItems();
