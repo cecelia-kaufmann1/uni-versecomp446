@@ -8,13 +8,13 @@
     <link rel="stylesheet" type="text/css" href="assets/styles/pinkContainer.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/sharedStyles.css">
    <script> 
-     
+     var buttonSound = new Audio("/assets/sounds/pleasing-bell.wav");
      function clickDressUp() {
-       
+        buttonSound.play();
         document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/dressUp.html") 
          }
     function clickGetSparkles() {
-       
+        buttonSound.play();
        document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
         }
     </script>
