@@ -127,7 +127,7 @@ function createClothingItemBox(item, itemType, id) {
     clothingItem.id = item;
 
     itemBox.onclick = function () {
-        putOn(item, itemType, id);
+        clickClosetItem(item, itemType, id);
     }
     return itemBox;
 }
@@ -165,17 +165,18 @@ function putOn(item, itemType, id) {
     avatar.appendChild(clothing);
     avatar.classList.add(itemType);
 
+    if (!isWearing(id)) {
+        wearing.push(id);
+    } 
     if (!userOwnsItem(id)) {
         costInCart += clothes[id].price;
         itemsInCart.push(id);
         updateCartButton();
-    } else {
-        // for some reason wearing.push(id) is causing an infinite loop
-        // wearing.push(id);
-        // wearing.push(1);
-        // console.log("wearing: " + wearing);
+    } 
 
-    }
+    
+
+    console.log("wearing: " + wearing);
 }
 
 // Visually update the purchase button
@@ -183,22 +184,36 @@ function updateCartButton() {
     const buyItemButton = document.getElementsByClassName("buyItemButton")[0];
     buyItemButton.innerHTML = "Purchase for: " + costInCart;
     
-    const cartItems = document.getElementsByClassName("cartItems")[0];
-    cartItems.innerHTML = "In cart: \n" + itemsInCart;
-
+    const cartItemsContainer = document.getElementsByClassName("cartItemsContainer")[0];
     if (costInCart == 0) {
         buyItemButton.style.display = "none";
-        cartItems.style.display = "none";
+        cartItemsContainer.style.display = "none";
     } else if (costInCart > numSparkles) {
         buyItemButton.style.display = "block";
-        cartItems.style.display = "block";
+        cartItemsContainer.style.display = "flex";
         buyItemButton.classList.add("disabled");
     } else {
         buyItemButton.style.display = "block";
-        cartItems.style.display = "block";
+        cartItemsContainer.style.display = "flex";
         buyItemButton.classList.remove("disabled");
     }
-    
+    updateInCartItems();
+}
+
+function updateInCartItems() {
+    const cartItemsContainer = document.getElementsByClassName("cartItemsContainer")[0];
+    cartItemsContainer.replaceChildren();
+    const inCartLabel = document.createElement("p");
+    inCartLabel.innerHTML = "In Cart: ";
+    cartItemsContainer.appendChild(inCartLabel);
+    for (let i = 0; i < itemsInCart.length; i++) {
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cartItem");
+        let id = itemsInCart[i];
+        let item = clothes[id].name;
+        cartItem.id = item;
+        cartItemsContainer.appendChild(cartItem);
+    }
 }
 
 // Remove the given type of clothing
@@ -218,6 +233,8 @@ function remove(itemType) {
         itemsInCart = removeValueFromArray(itemsInCart, id);
         updateCartButton();
     }
+
+    wearing = removeValueFromArray(wearing, id);
 }
 
 // Remove clothing if avatar is already wearing that type/category of clothing
@@ -236,6 +253,15 @@ function removeIfWearing(itemType) {
 // -------------------- Data --------------------
 // ----------------------------------------------
 
+// 
+function clickClosetItem(item, itemType, id) {
+     // if player is already wearing that item, then remove it
+     if (isWearing(id)){
+        remove(itemType);
+    } else {
+        putOn(item, itemType, id);
+    }
+}
 // Buy items if they can be afforded
 function purchaseItems() {
     if (costInCart <= numSparkles) {

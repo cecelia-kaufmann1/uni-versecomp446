@@ -103,13 +103,34 @@ avatar {
     top: 33rem;
 }
 
-.cartItems {
+.cartItemsContainer {
     position: relative;
+    top: 18rem;
+    left: 33rem;
+    width: 6rem;
+    height: 17rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
     
-    top: 30rem;
-    left: -15rem;
-    width: 5rem;
+}
+
+.cartItem {
+    background-color: white;
     height: 5rem;
+    
+   
+    margin: 0.2rem;
+    padding: 0.5rem;
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-position-x: center;
+    background-size:contain;
+
+    border-radius: 2rem;
+    border: 3px black solid;
+
 }
 
 
