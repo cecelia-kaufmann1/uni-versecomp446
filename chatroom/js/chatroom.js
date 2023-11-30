@@ -1,14 +1,19 @@
+const CANVAS_WIDTH = 800;
+const CANVAS_HEIGHT = 600;
 var config = {
-  type: Phaser.AUTO,
+  // type: Phaser.AUTO,
   parent: 'phaser-example',
-  width: 800,
-  height: 600,
+  width: CANVAS_WIDTH,
+  height: CANVAS_HEIGHT,
   physics: {
     default: 'arcade',
     arcade: {
       debug: false,
       gravity: { y: 0 }
     }
+  },
+  dom: {
+    createContainer: true
   },
   scene: {
     preload: preload,
@@ -24,6 +29,7 @@ function preload() {
   this.load.image('bigGrass', '../../assets/images/bigGrass.png');
   this.load.image('altbg', '../../assets/images/alt_bg.png');
 
+  this.load.html('chatInput', 'html/chatInput.html');
   
 }
 function create() {
@@ -74,7 +80,13 @@ function create() {
   cursors = this.input.keyboard.createCursorKeys();
 
   this.add.image(0, 0,"bigGrass").setScale(100);
+
+ 
+
+  // focus: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
   focus(this);
+
+  const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT  * 0.9).createFromCache('chatInput');
 }
 const MAX_SPEED = 120;
 var xSpeed = 0;
