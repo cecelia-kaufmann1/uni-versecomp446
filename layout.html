@@ -17,6 +17,11 @@
         buttonSound.play();
        document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
         }
+
+    function clickChatroom() {
+        buttonSound.play();
+       document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
+        }
     </script>
 
 </head>
@@ -24,7 +29,7 @@
 <body>
     <div class="container">
         <!-- <div class="item header_empty"> </div> -->
-        <div class="canvas pinkContainer"> <iframe src="Inner Screen Files/html/dressUp.html" height="100%" width="100%" scrolling="no"  id="frame">game
+        <div class="canvas pinkContainer"> <iframe src="chatroom/index2.html" height="100%" width="100%" scrolling="no"  id="frame">game
                 not available</iframe> </div>
 
        
@@ -36,7 +41,7 @@
             <button class="darkPinkShine superRound outline navButton"> Home </button>
             <button class="darkPinkShine superRound outline navButton" onclick="clickGetSparkles()"> Get Sparkles </button>
             <button class="darkPinkShine superRound outline navButton" id = "dressUp" onclick="clickDressUp()"> Dress Up </button>
-            <button class="darkPinkShine superRound outline navButton" id = "multiplayer" onclick="clickDressUp()"> Chatroom</button>
+            <button class="darkPinkShine superRound outline navButton" id = "multiplayer" onclick="clickChatroom()"> Chatroom</button>
 
         </div>
     </div>

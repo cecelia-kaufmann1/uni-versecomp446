@@ -42,7 +42,7 @@ body {
     
 
     grid-row-start: 1;
-    grid-row-end: 10;
+    grid-row-end: 4;
     /* justify-content: center;
     align-items: center;
     font-size: 1.5em;
@@ -82,7 +82,7 @@ body {
 }
 
   iframe {
-    transform: scale(1);
+    transform: scale(0.9);
     overflow-x: visible;
     margin: auto;
     

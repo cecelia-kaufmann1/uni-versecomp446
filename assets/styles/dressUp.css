@@ -248,7 +248,12 @@ body {
     background-image: url("../images/dressup_background.png");
     background-repeat: no-repeat;
     background-size: 105% 100%;
-    
+    /* height: 100%;
+    background-image: url("../images/dressup_bg2.png");
+    background-repeat: no-repeat;
+    /* background-size: 150% 150%; */
+    /* background-size: cover;
+     */ 
 }
 
 .flexRow {

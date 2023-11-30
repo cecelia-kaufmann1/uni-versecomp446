@@ -1,6 +1,8 @@
 .pinkContainer {
     display: flex;
-    height: 100%;
+    /* height: 100%; */
+    width: fit-content;
+    height: auto;
     flex-direction: column;
     background-color: #FDC9D3;
     border-style: solid;
@@ -20,7 +22,7 @@
     justify-content: center;
     justify-items: center;
 
-    padding: 1rem;
+    padding: 0.1rem;
 
    
   }
