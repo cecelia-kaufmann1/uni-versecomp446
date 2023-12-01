@@ -108,6 +108,16 @@ function create() {
   });
 
 
+  // fixing the space bar for sending chats from: https://stackoverflow.com/questions/1987439/space-bar-not-working-in-form-fields
+let chatInput = document.getElementById("chat");
+chatInput.addEventListener("keydown", (event) => {
+  if (event.key == " "){
+    chatInput.value += " ";
+  }
+}); 
+
+
+
 }
 const MAX_SPEED = 120;
 var xSpeed = 0;
@@ -204,3 +214,4 @@ function addNewChat(text) {
   chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
   
 }
+
