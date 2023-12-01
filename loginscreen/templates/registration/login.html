@@ -1,12 +1,34 @@
+
+
+
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Login{% endblock %} 
 
 {% block content %}
-<h2>Log In</h2>
-<form method="post" action = "/">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
+<head>
+  <link rel="stylesheet" href="../../static/loginscreen/login_style.css" />
+  <!-- Do we have to create a new assets folder just for the asseets for this? -->
+  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/assets/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/assets/styles/pinkContainer.css">
+  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/assets/styles/sharedStyles.css">
+</head>
+    <div class="container">
+        <div class="logo_div" > 
+            <img class="logo" src="../../static/loginscreen/assets/images/universe_logo.png" alt="uni-verse_logo" 
+            width="250"
+            height="250"/>
+        </div>
+
+        <div class="form_div"> 
+            <h1> Login </h1>
+
+            <form method="post" action="/">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Log In</button>
+                <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+            </form>
+        </div>
+    </div>
 {% endblock %}
