@@ -30,13 +30,15 @@ function preload() {
   this.load.image('altbg', '../../assets/images/alt_bg.png');
 
   this.load.html('chatInput', 'html/chatInput.html');
-  
+
 }
+
 function create() {
   var self = this;
+  
   this.socket = io();
   this.otherPlayers = this.physics.add.group();
-
+ 
   // populate all of the players for the current user
   this.socket.on('currentPlayers', function (players) {
     Object.keys(players).forEach(function (id) {
@@ -76,17 +78,36 @@ function create() {
       }
     });
   });
-  
+
+  this.socket.on('showNewChat', function(text) {
+    console.log("showNewChat");
+    addNewChat(text);
+  });
+
   cursors = this.input.keyboard.createCursorKeys();
 
-  this.add.image(0, 0,"bigGrass").setScale(100);
+  this.add.image(0, 0, "bigGrass").setScale(100);
 
- 
+  
 
   // focus: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
   focus(this);
 
-  const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT  * 0.9).createFromCache('chatInput');
+  
+
+  const element = this.add.dom(CANVAS_WIDTH * 0.2, CANVAS_HEIGHT * 0.8).createFromCache('chatInput');
+
+  let chatLog = document.getElementById("chatLog");
+
+  // put scrollbar at bottom is from: https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
+  chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
+
+  let submitChatButton = document.getElementById("submitchat");
+  submitChatButton.addEventListener("click", function() {
+    submitChat(self);
+  });
+
+
 }
 const MAX_SPEED = 120;
 var xSpeed = 0;
@@ -94,13 +115,13 @@ var ySpeed = 0;
 // handle player movement
 function update() {
   if (this.ship) {
-   
+
     if (cursors.left.isDown) {
       xSpeed = -1;
       this.ship.flipX = false;
     } else if (cursors.right.isDown) {
-     xSpeed = 1;
-     this.ship.flipX = true;
+      xSpeed = 1;
+      this.ship.flipX = true;
     } else {
       xSpeed = 0;
     }
@@ -108,25 +129,25 @@ function update() {
     if (cursors.up.isDown) {
       ySpeed = -1;
     } else if (cursors.down.isDown) {
-     ySpeed = 1;
+      ySpeed = 1;
     } else {
       ySpeed = 0;
     }
-    this.ship.setVelocity(xSpeed,ySpeed);
+    this.ship.setVelocity(xSpeed, ySpeed);
     this.ship.body.velocity.normalize().scale(MAX_SPEED);
-  
-    
+
+
     // emit player movement
 
     // store player position info
     var x = this.ship.x;
     var y = this.ship.y;
     var r = this.ship.rotation;
-    
+
 
     // if the position has changed, emit a playerMovement event
     if (this.ship.oldPosition && (x !== this.ship.oldPosition.x || y !== this.ship.oldPosition.y || r !== this.ship.oldPosition.rotation)) {
-      this.socket.emit('playerMovement', { x: this.ship.x, y: this.ship.y, xSpeed: this.ship.body.velocity.x});
+      this.socket.emit('playerMovement', { x: this.ship.x, y: this.ship.y, xSpeed: this.ship.body.velocity.x });
     }
     // save old position data
     this.ship.oldPosition = {
@@ -158,4 +179,28 @@ function addOtherPlayers(self, playerInfo) {
   // }
   otherPlayer.playerId = playerInfo.playerId;
   self.otherPlayers.add(otherPlayer);
+}
+
+// if there is a valid message in the chatbox, emit a signal that there is a new chat
+function submitChat(self) {
+  let chatInput = document.getElementById("chat");
+  let text = chatInput.value;
+  if (text){
+    self.socket.emit('newChat', text);
+  }
+}
+
+// add a new chat to the chatlog
+function addNewChat(text) {
+  let chatLog = document.getElementById("chatLog");
+  let chatInput = document.getElementById("chat");
+  let message = document.createElement("div");
+  message.classList.add("message");
+  message.innerHTML = "username: " + text;
+  chatLog.appendChild(message);
+  chatInput.value = "";
+
+  // put scrollbar at bottom is from: https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
+  chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
+  
 }

@@ -9,15 +9,40 @@
         margin: auto;
         padding: 1rem;
     }
+
+    .chatContainer {
+        background-color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chatLog {
+        background-color: white;
+        margin: 1rem;
+        max-height: 150px;
+        height: 150px;
+        overflow-y: scroll;
+    }
+    .message {
+        padding: 0.5rem;
+        border: 1px black solid;
+    }
  </style>
 </head>
 <body>  
-    <div class="chatInput">
-        <label for="chat">Type here:</label> <br>
-        <input type="text" id="chat" name="chat">
-        <input type="submit" value="Submit">
-
+    <div class = "chatContainer">
+        <div class="chatLog" id = "chatLog">
+        </div>
+        <div class="chatInput">
+        
+            <!--https://www.w3schools.com/tags/tag_input.asp-->
+            <label for="chat">Type here:</label> <br>
+            <input type="text" id="chat" name="chat">
+            <input type="submit" id = "submitchat" value="Submit">
+    
+        </div>
     </div>
+   
     
 
    

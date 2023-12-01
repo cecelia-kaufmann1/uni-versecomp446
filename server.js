@@ -53,7 +53,15 @@ io.on('connection', function (socket) {
         // emit a message to all players about the player that moved
         socket.broadcast.emit('playerMoved', players[socket.id]);
     });
+
+    // when a player submits a chat, update it for everyone
+    socket.on('newChat', function (text) {
+        // emit a message to all players about the chat
+        console.log("chat! = " + text);
+        io.emit('showNewChat', text);
+    });
 });
+
 
 // Make server listen on port 8081
 server.listen(8081, function () {
