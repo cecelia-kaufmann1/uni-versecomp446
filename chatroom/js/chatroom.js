@@ -95,8 +95,8 @@ function create() {
 
   
 
-  const element = this.add.dom(CANVAS_WIDTH * 0.2, CANVAS_HEIGHT * 0.8).createFromCache('chatInput');
-
+  const element = this.add.dom(CANVAS_WIDTH * 0, CANVAS_HEIGHT).createFromCache('chatInput');
+  element.setOrigin(0,1);
   let chatLog = document.getElementById("chatLog");
 
   // put scrollbar at bottom is from: https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
@@ -115,8 +115,6 @@ chatInput.addEventListener("keydown", (event) => {
     chatInput.value += " ";
   }
 }); 
-
-
 
 }
 const MAX_SPEED = 120;
