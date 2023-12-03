@@ -25,7 +25,14 @@ var game = new Phaser.Game(config);
 var cursors;
 function preload() {
   this.load.image('player', '../../assets/vectorArt/player.png');
-  this.load.image('skirt', '../../assets/images/clothes/bottom1.png');
+  this.load.image('bottom1', '../../assets/images/clothes/bottom1.png');
+  this.load.image('bottom2', '../../assets/images/clothes/bottom2.png');
+  this.load.image('bottom3', '../../assets/images/clothes/bottom3.png');
+  this.load.image('bottom4', '../../assets/images/clothes/bottom4.png');
+  this.load.image('bottom5', '../../assets/images/clothes/bottom5.png');
+  this.load.image('bottom6', '../../assets/images/clothes/bottom6.png');
+  this.load.image('top2', '../../assets/images/clothes/top2.png');
+  this.load.image('top3', '../../assets/images/clothes/top3.png');
   this.load.image('bigGrass', '../../assets/images/bigGrass.png');
   this.load.image('altbg', '../../assets/images/alt_bg.png');
 
@@ -74,8 +81,10 @@ function create() {
         otherPlayer.setPosition(playerInfo.x, playerInfo.y);
 
         if (playerInfo.xSpeed < 0) {
+          setPlayerFlipX(otherPlayer, false);
           otherPlayer.flipX = false;
         } else if (playerInfo.xSpeed > 0) {
+          setPlayerFlipX(otherPlayer, true);
           otherPlayer.flipX = true;
         }
       }
@@ -136,10 +145,13 @@ function update() {
     if (cursors.left.isDown) {
       xSpeed = -1;
       this.ship.flipX = false;
+      setPlayerFlipX(this.ship, false);
      
     } else if (cursors.right.isDown) {
       xSpeed = 1;
       this.ship.flipX = true;
+      
+      setPlayerFlipX(this.ship, true);
       
     } else {
       xSpeed = 0;
@@ -177,16 +189,21 @@ function update() {
   }
 }
 
+function setPlayerFlipX(container, bool) {
+  container.list.forEach(function(child) {
+    child.flipX = bool;
+  }, this);
+}
 function addPlayer(self, playerInfo) {
   self.ship = self.add.container();
+  self.ship.x = playerInfo.x;
+  self.ship.y = playerInfo.y;
   self.physics.world.enable(self.ship);
-  let baseImage = self.physics.add.image(playerInfo.x, playerInfo.y, 'player').setOrigin(0.5, 0.5).setScale(0.3)
-  
-
-  var skirt = self.physics.add.image(playerInfo.x, playerInfo.y, 'skirt').setScale(0.3);
-  skirt.setOrigin(-0.5,0.2);
+  let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3)
   self.ship.add(baseImage);
-  self.ship.add(skirt);
+
+  putOnClothes(self, self.ship, playerInfo);
+
   // skirt.anchor.setTo(0.5, 0.5);
   // self.ship.addChild(skirt);
 
@@ -203,15 +220,67 @@ function addPlayer(self, playerInfo) {
 }
 
 function addOtherPlayers(self, playerInfo) {
-  const otherPlayer = self.add.sprite(playerInfo.x, playerInfo.y, 'player').setOrigin(0.5, 0.5).setScale(0.3)
-  // if (playerInfo.team === 'blue') {
-  //   otherPlayer.setTint(0x0000ff);
-  // } else {
-  //   otherPlayer.setTint(0xff0000);
-  // }
+  
+  const otherPlayer = self.add.container();
+  otherPlayer.x = playerInfo.x;
+  otherPlayer.y = playerInfo.y;
+  self.physics.world.enable(otherPlayer);
+  let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3)
+  otherPlayer.add(baseImage);
+
+  putOnClothes(self, otherPlayer, playerInfo);
   otherPlayer.playerId = playerInfo.playerId;
   self.otherPlayers.add(otherPlayer);
 }
+
+function putOnClothes(self, sprite, playerInfo) {
+  
+  
+  
+  playerInfo.wearing.forEach((item) => {
+    let id = item;
+    let name = clothes[id].name;
+    let itemType = clothes[id].type;
+    console.log("wearing: " + itemType);
+    var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
+    if (itemType == "skirt") {
+      clothingItem.setOrigin(-2,-1.1);
+    } else if (itemType == "top"){
+      clothingItem.setOrigin(-0.6,-1.1);
+    } else if (itemType == "bottom"){
+      clothingItem.setOrigin(-1.9,-0.9);
+    }
+    
+    sprite.add(clothingItem);
+    // for (let i = 0; i < wearing.length; i++) {
+        //     let id = wearing[i];
+        //     let item = clothes[wearing[i]].name;
+        //     let itemType = clothes[wearing[i]].type;
+        //     console.log("reaindg: " + id);
+        //     // putOn(item, itemType, id);
+        // }
+  });
+}
+
+var clothes;
+// fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
+fetch("../../Inner Screen Files/clothes.json")
+    .then(response => response.json())
+    .then(json => {
+
+        clothes = json.clothes;
+        // put on each item that user is currently wearing
+        // for (let i = 0; i < wearing.length; i++) {
+        //     let id = wearing[i];
+        //     let item = clothes[wearing[i]].name;
+        //     let itemType = clothes[wearing[i]].type;
+        //     console.log("reaindg: " + id);
+        //     // putOn(item, itemType, id);
+        // }
+       
+    });
+
+
 
 // if there is a valid message in the chatbox, emit a signal that there is a new chat
 function submitChat(self) {

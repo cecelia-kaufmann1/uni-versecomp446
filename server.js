@@ -26,7 +26,9 @@ io.on('connection', function (socket) {
         x: Math.floor(Math.random() * 700) + 50,
         y: Math.floor(Math.random() * 500) + 50,
         playerId: socket.id,
-        team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue'
+        team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue',
+        wearing: [2, 6]
+        
     };
     // send the players object to the new player
     socket.emit('currentPlayers', players); // socket.emit only emits to the client (just the new player)
