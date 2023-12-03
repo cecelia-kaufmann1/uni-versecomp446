@@ -14,31 +14,81 @@
         background-color: gray;
         display: flex;
         flex-direction: column;
+        border-radius: 1rem;
+        border: 1px black solid;
     }
 
     .chatLog {
         background-color: white;
-        margin: 1rem;
+        margin: 0.5rem;
         max-height: 200px;
         height: 200px;
         overflow-y: scroll;
+
+        border-radius: 1rem;
     }
     .message {
         padding: 0.5rem;
         border: 1px black solid;
     }
+
+    /*Styling form elements: https://www.w3schools.com/css/tryit.asp?filename=trycss_form_button*/
+    input[type=submit] {
+        /* TODO: The arrow for this button should be flipped horizontally*/
+        background-image: url("../../assets/images/icons/up-arrow.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: gray;
+        background-position: 0;
+        
+        width:30px;
+        padding: 0.5rem;
+       
+    }
+
+    .horizontalContainer {
+        display: flex;
+        flex-direction: row;
+        background-color: yellow;
+    }
+
+    /* ----- Scrollbar ----- */
+/* Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/*/
+.scrollbar::-webkit-scrollbar {
+    border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+   
+    background-color: lightgray;
+    /* box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); */
+    margin: 0.5rem;
+    
+    
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+     background-color: gray;
+     border: 1px #30a1ab solid;
+    border-radius: 10px;
+}
+
+
  </style>
 </head>
 <body>  
     <div class = "chatContainer">
-        <div class="chatLog" id = "chatLog">
+        <div class="chatLog scrollbar" id = "chatLog">
         </div>
         <div class="chatInput">
         
             <!--https://www.w3schools.com/tags/tag_input.asp-->
-            <label for="chat">Type here:</label> <br>
-            <input type="text" id="chat" name="chat">
-            <input type="submit" id = "submitchat" value="Submit">
+            <div class="horizontalContainer">
+                <input type="text" id="chat" name="chat">
+                <input type="submit" id = "submitchat" value="">
+            </div>
+           
     
         </div>
     </div>

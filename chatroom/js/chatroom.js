@@ -1,4 +1,4 @@
-const CANVAS_WIDTH = 800;
+const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 600;
 var config = {
   // type: Phaser.AUTO,
@@ -8,7 +8,7 @@ var config = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false,
+      debug: true,
       gravity: { y: 0 }
     }
   },
@@ -24,10 +24,13 @@ var config = {
 var game = new Phaser.Game(config);
 var cursors;
 function preload() {
-  this.load.image('player', '../assets/vectorArt/player.png');
-  this.load.image('otherPlayer', '../assets/images/logo.png');
+  this.load.image('player', '../../assets/vectorArt/player.png');
+  this.load.image('skirt', '../../assets/images/clothes/bottom1.png');
   this.load.image('bigGrass', '../../assets/images/bigGrass.png');
   this.load.image('altbg', '../../assets/images/alt_bg.png');
+
+  this.load.image('accessories', '../../assets/sheets/grassSheet.png');
+  this.load.tilemapTiledJSON('map', '../../assets/sheets/universeTiles.json');
 
   this.load.html('chatInput', 'html/chatInput.html');
 
@@ -88,7 +91,13 @@ function create() {
 
   this.add.image(0, 0, "bigGrass").setScale(100);
 
-  
+  this.map2 = this.make.tilemap({key: "map"});
+        const tileset2 = this.map2.addTilesetImage("MagicForest", "accessories");
+        
+        // flower layer 1
+        this.layer3 = this.map2.createDynamicLayer('Accessories', tileset2, 0, 0);
+        this.layer3.setScale(3);
+        this.layer3.shuffle(0,0,1800,1800);
 
   // focus: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
   focus(this);
@@ -127,9 +136,11 @@ function update() {
     if (cursors.left.isDown) {
       xSpeed = -1;
       this.ship.flipX = false;
+     
     } else if (cursors.right.isDown) {
       xSpeed = 1;
       this.ship.flipX = true;
+      
     } else {
       xSpeed = 0;
     }
@@ -141,7 +152,7 @@ function update() {
     } else {
       ySpeed = 0;
     }
-    this.ship.setVelocity(xSpeed, ySpeed);
+    this.ship.body.setVelocity(xSpeed, ySpeed);
     this.ship.body.velocity.normalize().scale(MAX_SPEED);
 
 
@@ -167,15 +178,28 @@ function update() {
 }
 
 function addPlayer(self, playerInfo) {
-  self.ship = self.physics.add.image(playerInfo.x, playerInfo.y, 'player').setOrigin(0.5, 0.5).setScale(0.3);
+  self.ship = self.add.container();
+  self.physics.world.enable(self.ship);
+  let baseImage = self.physics.add.image(playerInfo.x, playerInfo.y, 'player').setOrigin(0.5, 0.5).setScale(0.3)
+  
+
+  var skirt = self.physics.add.image(playerInfo.x, playerInfo.y, 'skirt').setScale(0.3);
+  skirt.setOrigin(-0.5,0.2);
+  self.ship.add(baseImage);
+  self.ship.add(skirt);
+  // skirt.anchor.setTo(0.5, 0.5);
+  // self.ship.addChild(skirt);
+
+
+  
   if (playerInfo.team === 'blue') {
     // self.ship.setTint(0x0000ff);
   } else {
     // self.ship.setTint(0xff0000);
   }
-  self.ship.setDrag(100);
-  self.ship.setAngularDrag(100);
-  self.ship.setMaxVelocity(200);
+  self.ship.body.setDrag(100);
+  self.ship.body.setAngularDrag(100);
+  self.ship.body.setMaxVelocity(200);
 }
 
 function addOtherPlayers(self, playerInfo) {

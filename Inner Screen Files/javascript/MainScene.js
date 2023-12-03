@@ -224,7 +224,7 @@ class MainScene extends Phaser.Scene {
      updateUI() {
         
         this.scoreText.text = "Sparkles: " + score;
-        this.scoreText.x = CANVAS_WIDTH - this.scoreText.displayWidth;
+        this.scoreText.x = CANVAS_WIDTH - this.scoreText.displayWidth * 1.1;
      }
 
      increaseDifficulty() {

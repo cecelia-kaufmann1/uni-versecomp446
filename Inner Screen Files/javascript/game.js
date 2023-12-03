@@ -2,7 +2,7 @@
 //     var game = new Phaser.Game();
 // }
 
-const CANVAS_WIDTH = 900;
+const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 600;
 const SPRITE_SCALE = 1.25;
 
