@@ -9,6 +9,10 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import CreateView
+
+
 
 class LoginView(View):
     template_name = "registration/login.html"
@@ -27,3 +31,11 @@ class LoginView(View):
             print("Form is not valid:", form.errors)
             # Redirect to a success page or do something else
         return render(request, self.template_name, {'form': form})
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy('login')  # Redirect to the login page upon successful registration
+
+# class CustomLoginView(LoginView):
+#     template_name = 'registration/login.html'  # You can customize the login template if needed

@@ -19,6 +19,7 @@ from django.urls import path, include
 from .views import LoginView
 from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
+from .views import SignUpView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +28,6 @@ urlpatterns = [
     path('', LoginView.as_view(), name = 'login'),
     path("home/", TemplateView.as_view(template_name="home.html"), name="home"),
     path('logout/', auth_views.LogoutView.as_view(), name = "logout"),
+    path('signup/', SignUpView.as_view(), name='signup'),
 
 ]
