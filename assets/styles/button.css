@@ -6,7 +6,7 @@ button {
     width: 20rem;
     height: 5rem;
   
-    border-radius: 28px;
+    border-radius: 40px;
     border-width: 0;  
     padding: 5px;
     background: #17C7FF;
@@ -14,10 +14,11 @@ button {
     color: black;
     font-weight: bold;
     font-size: 24px;
+    margin: 4px;
   }
 
   .navButton {
-    width: 15rem;
+    width: 12rem;
     height: 4rem;
   }
   
@@ -26,7 +27,7 @@ button {
   }
   
   .superRound {
-    border-radius: 50%;
+    /* border-radius: 50%; */
   }
   
   
@@ -53,9 +54,14 @@ button {
   
   .darkPinkShine {
     /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
-    background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%);
-    border-color: #C93667;
-    color: white;
+    /* background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%); */
+    background: radial-gradient(ellipse at center top,  #FFF3F5 20%, #FDC9D3 50%);
+    /* border-color: #C93667; */
+    border: 3px #fea6b8 solid;
+    color: #5d162d;
+    letter-spacing: 2px;
+
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
   }
   
   .darkPinkShine:active {
