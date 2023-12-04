@@ -27,7 +27,7 @@ io.on('connection', function (socket) {
         y: Math.floor(Math.random() * 500) + 50,
         playerId: socket.id,
         team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue',
-        wearing: [2, 6]
+        wearing: [3, 7]
         
     };
     // send the players object to the new player

@@ -8,7 +8,7 @@ var config = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true,
+      debug: false,
       gravity: { y: 0 }
     }
   },
@@ -117,6 +117,11 @@ function create() {
   element.setOrigin(0,1);
   let chatLog = document.getElementById("chatLog");
 
+
+  
+
+  
+
   // put scrollbar at bottom is from: https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
   chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
 
@@ -133,6 +138,8 @@ chatInput.addEventListener("keydown", (event) => {
     chatInput.value += " ";
   }
 }); 
+
+
 
 }
 const MAX_SPEED = 120;
@@ -191,7 +198,27 @@ function update() {
 
 function setPlayerFlipX(container, bool) {
   container.list.forEach(function(child) {
+    let itemType = child.itemType;
+   
     child.flipX = bool;
+    if (bool) {
+      if (itemType == "skirt") {
+        child.setOrigin(-0.2,-1.1);
+      } else if (itemType == "top"){
+        child.setOrigin(-1,-1.1);
+      } else if (itemType == "bottom"){
+        child.setOrigin(-0.3,-0.9);
+      }
+    } else {
+      if (itemType == "skirt") {
+        child.setOrigin(-2,-1.1);
+      } else if (itemType == "top"){
+        child.setOrigin(-0.6,-1.1);
+      } else if (itemType == "bottom"){
+        child.setOrigin(-1.9,-0.9);
+      }
+    }
+    
   }, this);
 }
 function addPlayer(self, playerInfo) {
@@ -199,15 +226,10 @@ function addPlayer(self, playerInfo) {
   self.ship.x = playerInfo.x;
   self.ship.y = playerInfo.y;
   self.physics.world.enable(self.ship);
-  let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3)
+  let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3);
   self.ship.add(baseImage);
 
   putOnClothes(self, self.ship, playerInfo);
-
-  // skirt.anchor.setTo(0.5, 0.5);
-  // self.ship.addChild(skirt);
-
-
   
   if (playerInfo.team === 'blue') {
     // self.ship.setTint(0x0000ff);
@@ -217,6 +239,9 @@ function addPlayer(self, playerInfo) {
   self.ship.body.setDrag(100);
   self.ship.body.setAngularDrag(100);
   self.ship.body.setMaxVelocity(200);
+
+  self.ship.body.setCollideWorldBounds(true);
+
 }
 
 function addOtherPlayers(self, playerInfo) {
@@ -242,6 +267,7 @@ function putOnClothes(self, sprite, playerInfo) {
     let name = clothes[id].name;
     let itemType = clothes[id].type;
     console.log("wearing: " + itemType);
+   
     var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
     if (itemType == "skirt") {
       clothingItem.setOrigin(-2,-1.1);
@@ -250,7 +276,7 @@ function putOnClothes(self, sprite, playerInfo) {
     } else if (itemType == "bottom"){
       clothingItem.setOrigin(-1.9,-0.9);
     }
-    
+    clothingItem.itemType = itemType;
     sprite.add(clothingItem);
     // for (let i = 0; i < wearing.length; i++) {
         //     let id = wearing[i];
