@@ -1,6 +1,6 @@
 body {
     background: pink;
-    background-image: url("assets/images/alt_bg.png");
+    background-image: url("../images/alt_bg2.png");
     font-family: sans-serif;
     color: var(--black);
     margin: 1%;

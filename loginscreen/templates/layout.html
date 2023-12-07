@@ -3,24 +3,24 @@
 
 <head>
     <title> Login Home </title>
-    <link rel="stylesheet" href="../static/homescreen/styles/login_style.css" />
+    <link rel="stylesheet" href="../static/loginscreen/assets/styles/layout_style.css" />
     <link rel="stylesheet" type="text/css" href="../static/shared/styles/button.css">
     <link rel="stylesheet" type="text/css" href="../static/shared/styles/pinkContainer.css">
     <link rel="stylesheet" type="text/css" href="../static/shared/styles/sharedStyles.css">
    <script> 
-     var buttonSound = new Audio("/assets/sounds/pleasing-bell.wav");
+     var buttonSound = new Audio("../static/assets/sounds/pleasing-bell.wav");
      function clickDressUp() {
         buttonSound.play();
         document.getElementById("frame").setAttribute("src", "../static/dressup/html/dressup.html") 
          }
     function clickGetSparkles() {
         buttonSound.play();
-       document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
+       document.getElementById("frame").setAttribute("src", "../static/game/html/game.html") 
         }
 
     function clickChatroom() {
         buttonSound.play();
-       document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
+       document.getElementById("frame").setAttribute("src", "../static/chatroom/html/index2.html"); 
         }
     </script>
 
@@ -34,9 +34,9 @@
 
        
         <div class="item">
-            <img class="logo" src="assets/images/universe_logo.png" alt="uni-verse_logo" 
+            <img class="logo" src="../static/assets/images/uni_logo2.png" alt="uni-verse_logo" 
             width = "250"
-            height = "250"/>
+            height = "200"/>
 
             <button class="darkPinkShine superRound outline navButton"> Home </button>
             <button class="darkPinkShine superRound outline navButton" onclick="clickGetSparkles()"> Get Sparkles </button>
