@@ -14,7 +14,7 @@ var tabOpen = "closet"; // should be either "closet" or "shop"
 
 
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
-fetch("../clothes.json")
+fetch("../json/clothes.json")
     .then(response => response.json())
     .then(json => {
 
