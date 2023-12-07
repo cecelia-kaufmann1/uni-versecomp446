@@ -1,8 +1,0 @@
-@font-face {
-    font-family: myFont;
-    src: url(../fonts/fruitfont.otf);
-  }
-  * {
-          box-sizing: border-box;
-          font-family: myFont;
-      }
