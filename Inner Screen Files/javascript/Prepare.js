@@ -1,7 +1,10 @@
 class Prepare extends Phaser.Scene {
+
     constructor() {
+        var music;
         super("bootGame");
     }
+
 
     // Load in assets and give them names
     preload() {
@@ -27,11 +30,15 @@ class Prepare extends Phaser.Scene {
 
         this.load.html('score', '../html/score.html');
 
+        // this.load.audio('sparkles', '../../assets/sounds/8Bit.wav');
+
     }
+
 
     create() {
         this.add.text(20, 20, "Loading game...");
-       this.scene.start("playGame");
+        this.scene.start("playGame");
+
         // Animations
         this.anims.create({
             key: 'right',
@@ -74,5 +81,11 @@ class Prepare extends Phaser.Scene {
             frameRate: 3,
             repeat: -1, 
         });
+
+
+        var audio = new Audio( '../../assets/sounds/8Bit.wav');
+        audio.loop = true;
+        audio.play();   
+
     }
 }

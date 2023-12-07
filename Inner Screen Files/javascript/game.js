@@ -27,3 +27,4 @@ const SPRITE_SCALE = 1.25;
   
   
   var game = new Phaser.Game(config);
+  

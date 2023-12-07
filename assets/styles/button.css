@@ -17,9 +17,21 @@ button {
     margin: 4px;
   }
 
+  button.navButton:hover {
+    /* background:#FDC9D3; */
+    background: radial-gradient(ellipse farthest-corner at top left,   #E5357B 15%, #FF85B6 30%, #E5357B 50%);
+    color: #FFF3F5;
+
+  }
+
   .navButton {
     width: 12rem;
     height: 4rem;
+  }
+
+
+  .logoutButton {
+    margin-top: 2rem;
   }
   
   .outline {
@@ -29,7 +41,6 @@ button {
   .superRound {
     /* border-radius: 50%; */
   }
-  
   
   
   .pinkShine {
