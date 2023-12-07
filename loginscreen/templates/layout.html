@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Login Home </title>
+    <link rel="stylesheet" href="../static/homescreen/styles/login_style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/shared/styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../static/shared/styles/pinkContainer.css">
+    <link rel="stylesheet" type="text/css" href="../static/shared/styles/sharedStyles.css">
+   <script> 
+     var buttonSound = new Audio("/assets/sounds/pleasing-bell.wav");
+     function clickDressUp() {
+        buttonSound.play();
+        document.getElementById("frame").setAttribute("src", "../static/dressup/html/dressup.html") 
+         }
+    function clickGetSparkles() {
+        buttonSound.play();
+       document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
+        }
+
+    function clickChatroom() {
+        buttonSound.play();
+       document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="item header_empty"> </div> -->
+        <div class="canvas pinkContainer"> <iframe src="../static/dressup/html/dressup.html" height="100%" width="100%" scrolling="no"  id="frame">game
+                not available</iframe> </div>
+
+       
+        <div class="item">
+            <img class="logo" src="assets/images/universe_logo.png" alt="uni-verse_logo" 
+            width = "250"
+            height = "250"/>
+
+            <button class="darkPinkShine superRound outline navButton"> Home </button>
+            <button class="darkPinkShine superRound outline navButton" onclick="clickGetSparkles()"> Get Sparkles </button>
+            <button class="darkPinkShine superRound outline navButton" id = "dressUp" onclick="clickDressUp()"> Dress Up </button>
+            <button class="darkPinkShine superRound outline navButton" id = "multiplayer" onclick="clickChatroom()"> Chatroom</button>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
