@@ -214,7 +214,7 @@ class MainScene extends Phaser.Scene {
         this.updateUI();
         
      }
-
+     // test comment
      collectSparkle(player, sparkle) {
         sparkle.destroy();
         score += 1;
