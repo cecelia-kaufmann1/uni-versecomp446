@@ -7,6 +7,7 @@ from django.dispatch import receiver
 class Profile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sparkles = models.IntegerField(null=True)
+    # wearing = models.CharField(max_length=100)
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):

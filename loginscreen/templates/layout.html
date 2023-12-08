@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/pinkContainer.css">
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
    <script> 
-     var buttonSound = new Audio("/assets/sounds/pleasing-bell.wav");
+     var buttonSound = new Audio("../static/loginscreen/assets//sounds/pleasing-bell.wav");
      function clickDressUp() {
         buttonSound.play();
         // document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
@@ -39,7 +39,7 @@
             width = "270"
             height = "200"/>
 
-            
+            <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django -->
             <a href="/home">
                 <button class="darkPinkShine superRound outline navButton">Home</button>
               </a>

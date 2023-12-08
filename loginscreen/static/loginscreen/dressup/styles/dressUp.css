@@ -13,6 +13,7 @@
     /* background-color: #3ED0DD; */
     /* border: solid 15px #1d7077; */
     border: solid 5px #404b4b;
+   
 
     /* Custom border radius: https://blog.avada.io/css/border-examples
     border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
@@ -121,7 +122,7 @@
     left: -10rem; */
 }
 #frame .cartVerticalContainer {
-    left: 29rem;
+    left: 50rem;
     bottom: 4.8rem;
     position: absolute;
     background-color: #FFFFFFD0;
@@ -199,7 +200,7 @@
     grid-row-end: 5;
     grid-column-start: 1;
     grid-column-end: 5;
-    
+   
 }
 
 #frame .clothingItem.highlighted {
@@ -235,7 +236,7 @@
     display: grid;
     grid-template-columns: 3fr 3fr 4fr 1fr 8fr; 
     margin-left: 2rem;
-    transform: rotate(270deg) translate(-5rem, -17.5rem);
+    transform: rotate(270deg) translate(-5rem, -16.4rem);
     margin-top: 4rem;
 }
 
@@ -245,11 +246,13 @@
     padding: 0;
 }
 #frame {
-    height: 100%;
-    width: 200%;
+    height: 95%;
+    width: 95%;
+    
     background-image: url("../../assets/images/dressup_background.png");
     background-repeat: no-repeat;
     background-size: 105% 100%;
+
     /* height: 100%;
     background-image: url("../images/dressup_bg2.png");
     background-repeat: no-repeat;
@@ -270,10 +273,12 @@
     height: 100%;
     margin: 0;
     padding: 0;
+    
 }
 
 #frame p {
     margin: 0;
+    
 }
 /* ----- Avatar Clothing Positioning -----*/
 #frame #bottom {
@@ -297,6 +302,9 @@
 /* ----- Clothing image paths ----- */
 #frame #bottom1 {
     background-image: url("../../assets/images/clothes/bottom1.png");
+    /* background-image: url("../static/loginscreen/assets/images/clothes/bottom1.png"); */
+
+    
     
 }
 

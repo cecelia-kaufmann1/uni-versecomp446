@@ -1,6 +1,6 @@
 
 
-var wearing = [1, 7]; // temporary - this represents the user data of what they are currently wearing
+var wearing = [0, 7]; // temporary - this represents the user data of what they are currently wearing
 
 var owns = [1, 7, 5]; // temporary - this represents the user data of what they currently own
 
@@ -14,7 +14,7 @@ var tabOpen = "closet"; // should be either "closet" or "shop"
 
 
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
-fetch("../json/clothes.json")
+fetch("../static/loginscreen/dressup/json/clothes.json")
     .then(response => response.json())
     .then(json => {
 
@@ -42,6 +42,7 @@ $(document).ready(function () {
     buyItemButton.onclick = purchaseItems;
 
     updateCartButton();
+    // populateOwnedClothes();
 })
 
 // ----------------------------------------------------
@@ -186,7 +187,7 @@ function putOn(item, itemType, id) {
     const avatar = document.getElementById("avatar");
     clothing.id = itemType;
     clothing.classList.add("wornClothing");
-    clothing.setAttribute("src", "../../assets/images/clothes/" + item + ".png");
+    clothing.setAttribute("src", "../static/loginscreen/assets/images/clothes/" + item + ".png");
     clothing.setAttribute("itemName", item);
     clothing.setAttribute("itemID", id);
     avatar.appendChild(clothing);
@@ -345,4 +346,5 @@ function removeValueFromArray(array, value) {
     }
     return newArray;
 }
+
 

@@ -1,10 +1,14 @@
 a { text-decoration: none; } 
 body {
     background: pink;
-    background-image: url("assets/images/gradient_bg.png");
+    background-image:  url("../../assets/images/alt_bg.png");
+    
     font-family: sans-serif;
     color: var(--black);
     margin: 1%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
 }
 
 .container {
@@ -19,6 +23,8 @@ body {
   
     /* Make the grid have 10 explicit rows, 50px high each */
     grid-template-rows: 1fr;
+   
+    
 }
 
 /* Each item in our grid will contain numbers */
@@ -32,6 +38,7 @@ body {
     padding: 0.125rem;
     text-align: center;
     margin-bottom: 5rem;
+   
 }
 
 .canvas {
@@ -50,7 +57,7 @@ body {
     border-radius: 0.25em;
     padding: 0.125rem; */
    
-   
+
 
 }
 
@@ -82,7 +89,7 @@ body {
 }
 
   iframe {
-    transform: scale(0.9);
+    /* transform: scale(0.9);
     overflow-x: visible;
     margin: auto;
     
@@ -94,7 +101,7 @@ body {
 
     margin-left:auto;
     margin-right:auto;
-    width:990px;
+    width:990px; */
    
    
     
