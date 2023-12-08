@@ -1,7 +1,7 @@
 
 /* ----- Closet ----- */
 
-.closet {
+#frame .closet {
     padding: 1rem;
     overflow-y: scroll;
     width: 80%;
@@ -20,7 +20,7 @@
      
 }
 
-.tab {
+#frame .tab {
     
     /* background-color: #CCCCFF; */
     background-color: gray;
@@ -41,14 +41,14 @@
     
 }
 
-.highlighted {
+#frame .highlighted {
     /* background-color: #a0a0fd; */
     background-color: white;
 }
 
 /* ----- Avatar ----- */
 
-avatar {
+#frame avatar {
 
     /* background-color: #B7FAFF; */
     margin: 1rem;
@@ -64,7 +64,7 @@ avatar {
     
 }
 
-.container {
+#frame .container {
     position: relative;
     left: 1rem;
     bottom: 0rem;
@@ -73,7 +73,7 @@ avatar {
 
 
 /* ----- Currency ----- */
-.numSparkles {
+#frame .numSparkles {
     text-align: center;
     height: fit-content;
     position: absolute;
@@ -84,7 +84,7 @@ avatar {
     
 }
 
-.price {
+#frame .price {
     background-color: white;
     border: black dashed 3px;
     border-radius: 10px;
@@ -99,27 +99,27 @@ avatar {
     font-size: 20px;
 }
 
-.shopItemBox {
+#frame .shopItemBox {
    display:grid;
    grid-template-rows: 1fr 1fr 1fr;
    grid-template-columns: 1fr 1fr 1fr 1fr;
     
 }
 
-.canAfford {
+#frame .canAfford {
     background-color: white;
 }
 
-.cannotAfford {
+#frame .cannotAfford {
     background-color: red;
 }
 
-.buyItemButton {
+#frame .buyItemButton {
     background-color: pink;
     /* top: 33rem;
     left: -10rem; */
 }
-.cartVerticalContainer {
+#frame .cartVerticalContainer {
     left: 29rem;
     bottom: 4.8rem;
     position: absolute;
@@ -128,7 +128,7 @@ avatar {
     border-radius: 3rem;
   
 }
-.cartItemsContainer {
+#frame .cartItemsContainer {
     position: relative;
     height: fit-content;
     display: flex;
@@ -139,7 +139,7 @@ avatar {
     
 }
 
-.cartItem {
+#frame .cartItem {
     background-color: #B7FAFF;
     height: 4rem;
     width: 4rem;
@@ -159,7 +159,7 @@ avatar {
 
 /* ----- Clothes ----- */
 
-img {
+#frame img {
     position: absolute;
     bottom: 0rem;
     left: 0rem;
@@ -171,7 +171,7 @@ img {
     transform: scale(1.25);
 }
 
-.clothingItemBorder {
+#frame .clothingItemBorder {
     /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
     background: linear-gradient(120deg, #B7FAFF
     30%, white);
@@ -182,7 +182,7 @@ img {
 }
 
 
-.clothingItem {
+#frame .clothingItem {
     /* background-color: #B7FAFF; */
     background-color: #B7FAFF
     ;
@@ -201,20 +201,20 @@ img {
     
 }
 
-.clothingItem.highlighted {
+#frame .clothingItem.highlighted {
     /* background-color:#c8c8f7; */
     background-color: gray;
 }
 
 
 /* ----- Layout ----- */
-#myClothes{
+#frame #myClothes{
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 1;
     background-color: #3ED0DD;
 }
-#shop {
+#frame #shop {
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row: 1;
@@ -222,7 +222,7 @@ img {
     background-color: #CCCCFF;
 }
 
-.verticalContainer {
+#frame .verticalContainer {
     margin: 2rem;
     margin-left: 4rem;
     margin-top: 0rem;
@@ -230,7 +230,7 @@ img {
     flex-direction: column;
     width: 50%;
 }
-.horizontalContainer {
+#frame .horizontalContainer {
     display: grid;
     grid-template-columns: 3fr 3fr 4fr 1fr 8fr; 
     margin-left: 2rem;
@@ -238,13 +238,14 @@ img {
     margin-top: 4rem;
 }
 
-html {
+#frame html {
     height: 100%;
     margin: 0;
     padding: 0;
 }
-body {
+#frame {
     height: 100%;
+    width: 200%;
     background-image: url("../../assets/images/dressup_background.png");
     background-repeat: no-repeat;
     background-size: 105% 100%;
@@ -256,7 +257,7 @@ body {
      */ 
 }
 
-.flexRow {
+#frame .flexRow {
     display: flex;
     /* justify-content: center;
     align-content: center; */
@@ -270,60 +271,60 @@ body {
     padding: 0;
 }
 
-p {
+#frame p {
     margin: 0;
 }
 /* ----- Avatar Clothing Positioning -----*/
-#bottom {
+#frame #bottom {
     position: absolute;
     top: 10rem;
     left: 9rem;
 }
 
-#skirt {
+#frame #skirt {
     position: absolute;
     top: 5rem;
     left: 10rem;
 }
 
-#top {
+#frame #top {
     position: absolute;
     top: 8.5rem;
     left: 3rem;
 }
 
 /* ----- Clothing image paths ----- */
-#bottom1 {
+#frame #bottom1 {
     background-image: url("../../assets/images/clothes/bottom1.png");
     
 }
 
-#bottom2 {
+#frame #bottom2 {
     background-image: url("../../assets/images/clothes/bottom2.png");
     
 }
 
-#bottom3 {
+#frame #bottom3 {
     background-image: url("../../assets/images/clothes/bottom3.png");
 }
 
-#bottom4 {
+#frame #bottom4 {
     background-image: url("../../assets/images/clothes/bottom4.png");
 }
 
-#bottom5 {
+#frame #bottom5 {
     background-image: url("../../assets/images/clothes/bottom5.png");
 }
 
-#bottom6 {
+#frame #bottom6 {
     background-image: url("../../assets/images/clothes/bottom6.png");
 }
 
-#top2 {
+#frame #top2 {
     background-image: url("../../assets/images/clothes/top2.png");
 }
 
-#top3 {
+#frame #top3 {
     background-image: url("../../assets/images/clothes/top3.png");
 }
 

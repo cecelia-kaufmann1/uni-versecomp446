@@ -11,16 +11,16 @@
      var buttonSound = new Audio("/assets/sounds/pleasing-bell.wav");
      function clickDressUp() {
         buttonSound.play();
-        document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
+        // document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
          }
     function clickGetSparkles() {
         buttonSound.play();
-       document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
+        // document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
         }
 
     function clickChatroom() {
         buttonSound.play();
-       document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
+        //document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
         }
     </script>
 
@@ -29,8 +29,11 @@
 <body>
     <div class="container">
         <!-- <div class="item header_empty"> </div> -->
-        <div class="canvas pinkContainer"> <iframe src="chatroom/index2.html" height="100%" width="100%" scrolling="no"  id="frame">game
-                not available</iframe> </div>
+        <div class="canvas pinkContainer"> 
+            {% block content %}
+            {% endblock %}
+            </iframe> 
+        </div>
 
        
         <div class="item">

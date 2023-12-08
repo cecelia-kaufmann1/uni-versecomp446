@@ -30,4 +30,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name = "logout"),
     path('signup/', SignUpView.as_view(), name='signup'),
 
+    path('layout/', TemplateView.as_view(template_name="layout_template.html"), name='layout'),
+    path('dressup/', TemplateView.as_view(template_name="dressUp_template.html"), name='dressup'),
+
 ]

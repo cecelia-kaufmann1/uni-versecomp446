@@ -60,8 +60,9 @@ function printDebugValues() {
 
 // Visually update the label at top of screen that shows how many sparkles the user has
 function updateSparklesLabel() {
-    let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-    numSparklesElement.innerHTML = "Sparkles: <br> " + numSparkles;
+    // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+    // numSparklesElement.innerHTML = "Sparkles: <br> " + "{{ user.profile.sparkles }}";
+    
 }
 
 // Fill the 'My Clothes' section with owned clothes
