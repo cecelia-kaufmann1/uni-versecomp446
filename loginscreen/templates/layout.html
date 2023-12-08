@@ -11,16 +11,16 @@
      var buttonSound = new Audio("/assets/sounds/pleasing-bell.wav");
      function clickDressUp() {
         buttonSound.play();
-        document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
+        // document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
          }
     function clickGetSparkles() {
         buttonSound.play();
-       document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
+    //    document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
         }
 
     function clickChatroom() {
         buttonSound.play();
-       document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
+    //    document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
         }
     </script>
 
@@ -29,8 +29,9 @@
 <body>
     <div class="container">
         <!-- <div class="item header_empty"> </div> -->
-        <div class="canvas pinkContainer"> <iframe src="chatroom/index2.html" height="100%" width="100%" scrolling="no"  id="frame">game
-                not available</iframe> </div>
+        <div class="canvas pinkContainer"> {% block content %}
+            {% endblock %}
+        </div>
 
        
         <div class="item">
@@ -38,11 +39,23 @@
             width = "270"
             height = "200"/>
 
-            <button class="darkPinkShine superRound outline navButton"> Home </button>
-            <button class="darkPinkShine superRound outline navButton" onclick="clickGetSparkles()">Get Sparkles </button>
-            <button class="darkPinkShine superRound outline navButton" id = "dressUp" onclick="clickDressUp()">Dress Up </button>
-            <button class="darkPinkShine superRound outline navButton" id = "multiplayer" onclick="clickChatroom()">Chatroom</button>
-            <button class="darkPinkShine superRound outline navButton logoutButton" id = "logout">Logout</button>
+            
+            <a href="/home">
+                <button class="darkPinkShine superRound outline navButton">Home</button>
+              </a>
+              <a href="/game">
+                <button class="darkPinkShine superRound outline navButton" onclick="clickGetSparkles()">Get Sparkles</button>
+              </a>
+           
+            <a href="/dressup">
+                <button class="darkPinkShine superRound outline navButton" id = "dressUp" onclick="clickDressUp()">Dress Up</button>
+              </a>
+              <a href="/chatroom">
+                <button class="darkPinkShine superRound outline navButton"  onclick="clickChatroom()">Chatroom</button>
+              </a>
+              <a href="/logout">
+                <button class="darkPinkShine superRound outline navButton" >Logout</button>
+              </a>
 
         </div>
     </div>
