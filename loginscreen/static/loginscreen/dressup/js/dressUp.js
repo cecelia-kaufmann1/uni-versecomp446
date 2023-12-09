@@ -4,7 +4,6 @@ var wearing = [0, 7]; // temporary - this represents the user data of what they 
 
 var owns = [1, 7, 5]; // temporary - this represents the user data of what they currently own
 
-var numSparkles = 10; // temporary - this represents the user data of how many sparkles they currently have
 var numSparkles =10; // temporary - this represents the user data of how many sparkles they currently have
 var clothes;
 
@@ -68,9 +67,10 @@ function updateSparklesLabel() {
     strippedNum = strippedNum.replace("Sparkles:", "");
     strippedNum = strippedNum.replace(" ", "");
     strippedNum = strippedNum.replace("<br>", "");
-    numSparkles = Number(strippedNum);
+    numSparkles = parseInt(strippedNum);
    
     // console.log(parseInt(strippedNum));
+    console.log(numSparkles);
 
     numSparklesElement.innerHTML = "Sparkles: <br> " + numSparkles;
     
@@ -310,7 +310,11 @@ function purchaseItems() {
         for (let i = 0; i < itemsInCart.length; i++) {
             owns.push(itemsInCart[i]);
         }
-        numSparkles -= costInCart;
+        
+        console.log("Purchased item(s), calculating..." + numSparkles + "-" + costInCart);
+        numSparkles = numSparkles - costInCart;
+        console.log("numSparkles is now: " + numSparkles)
+        
         costInCart = 0;
         itemsInCart = [];
         updateCartButton();
