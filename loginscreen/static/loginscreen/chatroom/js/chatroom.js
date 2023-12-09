@@ -47,55 +47,55 @@ function create() {
   
   var self = this;
   
-  // this.socket = io();
+  this.socket = io();
   this.otherPlayers = this.physics.add.group();
  
   // populate all of the players for the current user
-  // this.socket.on('currentPlayers', function (players) {
-  //   Object.keys(players).forEach(function (id) {
-  //     // add the current player
-  //     if (players[id].playerId === self.socket.id) {
-  //       addPlayer(self, players[id]);
-  //     } else {
-  //       // add all other players
-  //       addOtherPlayers(self, players[id]);
-  //     }
-  //   });
-  // });
-  // // update other players when a new player joins
-  // this.socket.on('newPlayer', function (playerInfo) {
-  //   addOtherPlayers(self, playerInfo);
-  // });
-  // // remove player from everyone else when they disconnect
-  // this.socket.on('remove', function (playerId) {
-  //   self.otherPlayers.getChildren().forEach(function (otherPlayer) {
-  //     if (playerId === otherPlayer.playerId) {
-  //       otherPlayer.destroy();
-  //     }
-  //   });
-  // });
+  this.socket.on('currentPlayers', function (players) {
+    Object.keys(players).forEach(function (id) {
+      // add the current player
+      if (players[id].playerId === self.socket.id) {
+        addPlayer(self, players[id]);
+      } else {
+        // add all other players
+        addOtherPlayers(self, players[id]);
+      }
+    });
+  });
+  // update other players when a new player joins
+  this.socket.on('newPlayer', function (playerInfo) {
+    addOtherPlayers(self, playerInfo);
+  });
+  // remove player from everyone else when they disconnect
+  this.socket.on('remove', function (playerId) {
+    self.otherPlayers.getChildren().forEach(function (otherPlayer) {
+      if (playerId === otherPlayer.playerId) {
+        otherPlayer.destroy();
+      }
+    });
+  });
 
-  // this.socket.on('playerMoved', function (playerInfo) {
-  //   self.otherPlayers.getChildren().forEach(function (otherPlayer) {
-  //     if (playerInfo.playerId === otherPlayer.playerId) {
-  //       // otherPlayer.setRotation(playerInfo.rotation);
-  //       otherPlayer.setPosition(playerInfo.x, playerInfo.y);
+  this.socket.on('playerMoved', function (playerInfo) {
+    self.otherPlayers.getChildren().forEach(function (otherPlayer) {
+      if (playerInfo.playerId === otherPlayer.playerId) {
+        // otherPlayer.setRotation(playerInfo.rotation);
+        otherPlayer.setPosition(playerInfo.x, playerInfo.y);
 
-  //       if (playerInfo.xSpeed < 0) {
-  //         setPlayerFlipX(otherPlayer, false);
-  //         otherPlayer.flipX = false;
-  //       } else if (playerInfo.xSpeed > 0) {
-  //         setPlayerFlipX(otherPlayer, true);
-  //         otherPlayer.flipX = true;
-  //       }
-  //     }
-  //   });
-  // });
+        if (playerInfo.xSpeed < 0) {
+          setPlayerFlipX(otherPlayer, false);
+          otherPlayer.flipX = false;
+        } else if (playerInfo.xSpeed > 0) {
+          setPlayerFlipX(otherPlayer, true);
+          otherPlayer.flipX = true;
+        }
+      }
+    });
+  });
 
-  // this.socket.on('showNewChat', function(text) {
-  //   console.log("showNewChat");
-  //   addNewChat(text);
-  // });
+  this.socket.on('showNewChat', function(text) {
+    console.log("showNewChat");
+    addNewChat(text);
+  });
 
   cursors = this.input.keyboard.createCursorKeys();
 

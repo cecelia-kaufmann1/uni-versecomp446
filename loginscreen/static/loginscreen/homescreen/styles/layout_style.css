@@ -6,8 +6,8 @@ body {
     font-family: sans-serif;
     color: var(--black);
     margin: 1%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
 
 }
 
