@@ -5,6 +5,7 @@ var wearing = [0, 7]; // temporary - this represents the user data of what they 
 var owns = [1, 7, 5]; // temporary - this represents the user data of what they currently own
 
 var numSparkles = 10; // temporary - this represents the user data of how many sparkles they currently have
+var numSparkles =10; // temporary - this represents the user data of how many sparkles they currently have
 var clothes;
 
 var costInCart = 0;
@@ -61,8 +62,17 @@ function printDebugValues() {
 
 // Visually update the label at top of screen that shows how many sparkles the user has
 function updateSparklesLabel() {
-    // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-    // numSparklesElement.innerHTML = "Sparkles: <br> " + "{{ user.profile.sparkles }}";
+    let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+    numSparkles = numSparklesElement.lastChild;
+    var strippedNum = String(numSparklesElement.innerHTML);
+    strippedNum = strippedNum.replace("Sparkles:", "");
+    strippedNum = strippedNum.replace(" ", "");
+    strippedNum = strippedNum.replace("<br>", "");
+    numSparkles = Number(strippedNum);
+   
+    // console.log(parseInt(strippedNum));
+
+    numSparklesElement.innerHTML = "Sparkles: <br> " + numSparkles;
     
 }
 

@@ -16,11 +16,19 @@
 
 </head>
 
+{% load static %}
+<script src="{% static './loginscreen/dressup/js/dressUp.js' %}"
+        defer
+        numSparkles="{{ user.profile.sparkles }}"></script>
+        
 
 <!-- <iframe id="frame" height="100%" width="100%" scrolling="no"  id="frame">game
     not available -->
     <div id="frame">
-        <p class="numSparkles"> Sparkle: <br>{{ user.profile.sparkles }}</p>
+        <p class="numSparkles"> Sparkles: 
+            <br>
+            {{ user.profile.sparkles }}
+        </p>
 
         <div class="flexRow">
             <div class="verticalContainer">
