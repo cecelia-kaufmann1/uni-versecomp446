@@ -30,5 +30,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name = "logout"),
     path('signup/', SignUpView.as_view(), name='signup'),
     path('dressup/', TemplateView.as_view(template_name="dressUp_template.html"), name='dressup'),
+    path('chatroom/', TemplateView.as_view(template_name="chatroom_template.html"), name='chatroom'),
 
 ]

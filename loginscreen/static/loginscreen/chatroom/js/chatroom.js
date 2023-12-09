@@ -24,77 +24,78 @@ var config = {
 var game = new Phaser.Game(config);
 var cursors;
 function preload() {
-  this.load.image('player', '../../assets/vectorArt/player.png');
-  this.load.image('bottom1', '../../assets/images/clothes/bottom1.png');
-  this.load.image('bottom2', '../../assets/images/clothes/bottom2.png');
-  this.load.image('bottom3', '../../assets/images/clothes/bottom3.png');
-  this.load.image('bottom4', '../../assets/images/clothes/bottom4.png');
-  this.load.image('bottom5', '../../assets/images/clothes/bottom5.png');
-  this.load.image('bottom6', '../../assets/images/clothes/bottom6.png');
-  this.load.image('top2', '../../assets/images/clothes/top2.png');
-  this.load.image('top3', '../../assets/images/clothes/top3.png');
-  this.load.image('bigGrass', '../../assets/images/bigGrass.png');
-  this.load.image('altbg', '../../assets/images/alt_bg.png');
+  this.load.image('player', '../static/loginscreen/assets/vectorArt/player.png');
+  this.load.image('bottom1', '../static/loginscreen/assets/images/clothes/bottom1.png');
+  this.load.image('bottom2', '../static/loginscreen/assets/images/clothes/bottom2.png');
+  this.load.image('bottom3', '../static/loginscreen/assets/images/clothes/bottom3.png');
+  this.load.image('bottom4', '../static/loginscreen/assets/images/clothes/bottom4.png');
+  this.load.image('bottom5', '../static/loginscreen/assets/images/clothes/bottom5.png');
+  this.load.image('bottom6', '../static/loginscreen/assets/images/clothes/bottom6.png');
+  this.load.image('top2', '../static/loginscreen/assets/images/clothes/top2.png');
+  this.load.image('top3', '../static/loginscreen/assets/images/clothes/top3.png');
+  this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
+  this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
 
-  this.load.image('accessories', '../../assets/sheets/grassSheet.png');
-  this.load.tilemapTiledJSON('map', '../../assets/sheets/universeTiles.json');
+  this.load.image('accessories', '../static/loginscreen/assets/sheets/grassSheet.png');
+  this.load.tilemapTiledJSON('map', '../static/loginscreen/assets/sheets/universeTiles.json');
 
-  this.load.html('chatInput', 'html/chatInput.html');
-
+  this.load.html('chatInput', '../static/loginscreen/chatroom/html/chatInput.html');
+  
 }
 
 function create() {
+  
   var self = this;
   
-  this.socket = io();
+  // this.socket = io();
   this.otherPlayers = this.physics.add.group();
  
   // populate all of the players for the current user
-  this.socket.on('currentPlayers', function (players) {
-    Object.keys(players).forEach(function (id) {
-      // add the current player
-      if (players[id].playerId === self.socket.id) {
-        addPlayer(self, players[id]);
-      } else {
-        // add all other players
-        addOtherPlayers(self, players[id]);
-      }
-    });
-  });
-  // update other players when a new player joins
-  this.socket.on('newPlayer', function (playerInfo) {
-    addOtherPlayers(self, playerInfo);
-  });
-  // remove player from everyone else when they disconnect
-  this.socket.on('remove', function (playerId) {
-    self.otherPlayers.getChildren().forEach(function (otherPlayer) {
-      if (playerId === otherPlayer.playerId) {
-        otherPlayer.destroy();
-      }
-    });
-  });
+  // this.socket.on('currentPlayers', function (players) {
+  //   Object.keys(players).forEach(function (id) {
+  //     // add the current player
+  //     if (players[id].playerId === self.socket.id) {
+  //       addPlayer(self, players[id]);
+  //     } else {
+  //       // add all other players
+  //       addOtherPlayers(self, players[id]);
+  //     }
+  //   });
+  // });
+  // // update other players when a new player joins
+  // this.socket.on('newPlayer', function (playerInfo) {
+  //   addOtherPlayers(self, playerInfo);
+  // });
+  // // remove player from everyone else when they disconnect
+  // this.socket.on('remove', function (playerId) {
+  //   self.otherPlayers.getChildren().forEach(function (otherPlayer) {
+  //     if (playerId === otherPlayer.playerId) {
+  //       otherPlayer.destroy();
+  //     }
+  //   });
+  // });
 
-  this.socket.on('playerMoved', function (playerInfo) {
-    self.otherPlayers.getChildren().forEach(function (otherPlayer) {
-      if (playerInfo.playerId === otherPlayer.playerId) {
-        // otherPlayer.setRotation(playerInfo.rotation);
-        otherPlayer.setPosition(playerInfo.x, playerInfo.y);
+  // this.socket.on('playerMoved', function (playerInfo) {
+  //   self.otherPlayers.getChildren().forEach(function (otherPlayer) {
+  //     if (playerInfo.playerId === otherPlayer.playerId) {
+  //       // otherPlayer.setRotation(playerInfo.rotation);
+  //       otherPlayer.setPosition(playerInfo.x, playerInfo.y);
 
-        if (playerInfo.xSpeed < 0) {
-          setPlayerFlipX(otherPlayer, false);
-          otherPlayer.flipX = false;
-        } else if (playerInfo.xSpeed > 0) {
-          setPlayerFlipX(otherPlayer, true);
-          otherPlayer.flipX = true;
-        }
-      }
-    });
-  });
+  //       if (playerInfo.xSpeed < 0) {
+  //         setPlayerFlipX(otherPlayer, false);
+  //         otherPlayer.flipX = false;
+  //       } else if (playerInfo.xSpeed > 0) {
+  //         setPlayerFlipX(otherPlayer, true);
+  //         otherPlayer.flipX = true;
+  //       }
+  //     }
+  //   });
+  // });
 
-  this.socket.on('showNewChat', function(text) {
-    console.log("showNewChat");
-    addNewChat(text);
-  });
+  // this.socket.on('showNewChat', function(text) {
+  //   console.log("showNewChat");
+  //   addNewChat(text);
+  // });
 
   cursors = this.input.keyboard.createCursorKeys();
 
@@ -147,6 +148,7 @@ var xSpeed = 0;
 var ySpeed = 0;
 // handle player movement
 function update() {
+  
   if (this.ship) {
 
     if (cursors.left.isDown) {
@@ -290,7 +292,7 @@ function putOnClothes(self, sprite, playerInfo) {
 
 var clothes;
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
-fetch("../../Inner Screen Files/clothes.json")
+fetch("../static/loginscreen/dressup/json/clothes.json")
     .then(response => response.json())
     .then(json => {
 
