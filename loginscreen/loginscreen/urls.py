@@ -32,6 +32,7 @@ urlpatterns = [
     # path('dressup/', TemplateView.as_view(template_name="dressUp_template.html"), name='dressup'),
     path('chatroom/', TemplateView.as_view(template_name="chatroom_template.html"), name='chatroom'),
     path('dressup/', views.run_dressup),
+    path('game/',TemplateView.as_view(template_name = "gameSetUp_template.html"), name = "game"),
     
     
     path('my-ajax-test/', views.testcall),

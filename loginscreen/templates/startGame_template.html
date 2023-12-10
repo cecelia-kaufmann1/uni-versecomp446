@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}startGame{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/game/css/startGame.css">
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/pinkContainer.css">
+ 
+  <style> 
+  .gameBox {
+    width: 35rem;
+    height: 30rem;
+      
+    justify-content: center;
+    align-content: center;
+    justify-items: center;      
+   
+  }
+  </style>
+</head>
+<body>  
+   <div class = "pinkContainer gameBox">
+    <h1>Play Game</h1>
+   <p> Collect as many sparkles as you can while avoiding the papparazi! <br>Use the up and down arrows to move</p>
+    <button name = "play" class = "lightPurpleShine superRound outline"> Play </button>
+    </div>
+  
+   
+  
+
+</body>
+</html>
+{% endblock %}
