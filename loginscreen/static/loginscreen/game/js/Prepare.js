@@ -5,27 +5,47 @@ class Prepare extends Phaser.Scene {
 
     // Load in assets and give them names
     preload() {
-        this.load.image('grass', '../assets/images/grass.png');
-        this.load.image('bigGrass', '../assets/images/bigGrass.png');
-        this.load.image('accessories', '../assets/sheets/grassSheet.png');
-        this.load.tilemapTiledJSON('map', '../assets/sheets/universeTiles.json');
+        this.load.image('grass', '/static/loginscreen/assets/images/grass.png');
+        this.load.image('bigGrass', '/static/loginscreen/assets/images/bigGrass.png');
+        this.load.image('accessories', '/static/loginscreen/assets/sheets/grassSheet.png');
+        // this.load.image('grass', '../assets/images/grass.png');
+        // this.load.image('bigGrass', '../assets/images/bigGrass.png');
+        // this.load.image('accessories', '../assets/sheets/grassSheet.png');
+        // this.load.tilemapTiledJSON('map', '../assets/sheets/universeTiles.json');
+        // this.load.spritesheet('player',
+        //     '../assets/sheets/player.png',
+        //     { frameWidth: 93, frameHeight: 75 }
+        // );
+        // this.load.spritesheet('enemy',
+        //     '../assets/sheets/enemy.png',
+        //     { frameWidth: 93, frameHeight: 75 }
+        // );
+        // this.load.spritesheet('sparkle',
+        //     '../assets/sheets/sparkle.png',
+        //     { frameWidth: 63, frameHeight: 63 }
+        // );
+        this.load.tilemapTiledJSON('map', '/static/loginscreen/assets/sheets/universeTiles.json');
         this.load.spritesheet('player',
-            '../assets/sheets/player.png',
+            '/static/loginscreen/assets/sheets/player.png',
             { frameWidth: 93, frameHeight: 75 }
         );
         this.load.spritesheet('enemy',
-            '../assets/sheets/enemy.png',
+            '/static/loginscreen/assets/sheets/enemy.png',
             { frameWidth: 93, frameHeight: 75 }
         );
         this.load.spritesheet('sparkle',
-            '../assets/sheets/sparkle.png',
+            '/static/loginscreen/assets/sheets/sparkle.png',
             { frameWidth: 63, frameHeight: 63 }
         );
-       
-        this.load.html('gameOver', '../../../templates/gameOver_template.html');
-        this.load.html('startGame', '../../../templates/gameOver_template.html');
 
-        this.load.html('score', '../../../templates/score_template.html');
+        this.load.html('gameOver_template', '../../../../templates/gameOver_template.html');
+        this.load.html('startGame_template', '../../../../templates/startGame_template.html');
+        this.load.html('score_template', '../../../../templates/score_template.html');
+        
+        // this.load.html('gameOver', '../../../templates/gameOver_template.html');
+        // this.load.html('startGame', '../../../templates/gameOver_template.html');
+
+        // this.load.html('score', '../../../templates/score_template.html');
 
     }
 

@@ -7,7 +7,7 @@ const CANVAS_HEIGHT = 600;
 const SPRITE_SCALE = 1.25;
 
   var config = {
-    parent: 'phaser-example',
+    parent: 'game',
     width: CANVAS_WIDTH,
     height: CANVAS_HEIGHT,
     backgroundColor: 0x000000,
