@@ -35,7 +35,7 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
     });
 
 $(document).ready(function () {
-    console.log("ready");
+    console.log("ready boys");
     updateSparklesLabel();
 
     let buyItemButton = document.getElementsByClassName("buyItemButton")[0];
@@ -61,18 +61,19 @@ function printDebugValues() {
 
 // Visually update the label at top of screen that shows how many sparkles the user has
 function updateSparklesLabel() {
-    let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-    numSparkles = numSparklesElement.lastChild;
-    var strippedNum = String(numSparklesElement.innerHTML);
-    strippedNum = strippedNum.replace("Sparkles:", "");
-    strippedNum = strippedNum.replace(" ", "");
-    strippedNum = strippedNum.replace("<br>", "");
-    numSparkles = parseInt(strippedNum);
+    // console.log("ruunning");
+    // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+    // // numSparkles = numSparklesElement.lastChild;
+    // // var strippedNum = String(numSparklesElement.innerHTML);
+    // // strippedNum = strippedNum.replace("Sparkles:", "");
+    // // strippedNum = strippedNum.replace(" ", "");
+    // // strippedNum = strippedNum.replace("<br>", "");
+    // // numSparkles = parseInt(strippedNum);
    
-    // console.log(parseInt(strippedNum));
-    console.log(numSparkles);
+    // // // console.log(parseInt(strippedNum));
+    // // console.log(numSparkles);
 
-    numSparklesElement.innerHTML = "Sparkles: <br> " + numSparkles;
+    // numSparklesElement.innerHTML +="{{sparkles}}";
     
 }
 

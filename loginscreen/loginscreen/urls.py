@@ -20,7 +20,7 @@ from .views import LoginView
 from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
 from .views import SignUpView
-
+from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include("accounts.urls")),
@@ -29,7 +29,12 @@ urlpatterns = [
     path("home/", TemplateView.as_view(template_name="layout.html"), name="home"),
     path('logout/', auth_views.LogoutView.as_view(), name = "logout"),
     path('signup/', SignUpView.as_view(), name='signup'),
-    path('dressup/', TemplateView.as_view(template_name="dressUp_template.html"), name='dressup'),
+    # path('dressup/', TemplateView.as_view(template_name="dressUp_template.html"), name='dressup'),
     path('chatroom/', TemplateView.as_view(template_name="chatroom_template.html"), name='chatroom'),
+    path('dressup/', views.run_dressup),
+    
+    
+    path('my-ajax-test/', views.testcall),
+
 
 ]

@@ -12,6 +12,9 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 
+from json import dumps 
+from django.http import HttpResponse
+
 
 
 class LoginView(View):
@@ -39,3 +42,35 @@ class SignUpView(CreateView):
 
 # class CustomLoginView(LoginView):
 #     template_name = 'registration/login.html'  # You can customize the login template if needed
+
+
+  
+  
+def send_dictionary(request): 
+    
+    print("username", request.user)
+    print("sparkles", request.user.profile.sparkles)
+    # create data dictionary 
+    dataDictionary = { 
+        'hello': 'World', 
+        'geeks': 'forgeeks', 
+        'ABC': 123, 
+        456: 'abc', 
+        14000605: 1, 
+        'list': ['geeks', 4, 'geeks'], 
+        'dictionary': {'you': 'can', 'send': 'anything', 3: 1} 
+    } 
+    # dump data 
+    dataJSON = dumps(dataDictionary) 
+    return render(request, 'landing.html', {'data': dataJSON, 'username': request.user, 'sparkles': request.user.profile.sparkles}) 
+
+def run_dressup(request): 
+    print("username", request.user)
+    print("sparkles", request.user.profile.sparkles)
+    # create data dictionary 
+    return render(request, 'dressUp_template.html', {'username': request.user, 'sparkles': request.user.profile.sparkles}) 
+
+def testcall(request):
+   response =  request.user
+   #Send the response
+   return HttpResponse(response)
