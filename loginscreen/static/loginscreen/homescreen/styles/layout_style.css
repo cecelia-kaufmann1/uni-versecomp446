@@ -3,7 +3,8 @@ body {
     background: pink;
     background-image:  url("../../assets/images/alt_bg.png");
     
-    font-family: sans-serif;
+    font-family: 'FruitFont';
+    src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
     color: var(--black);
     margin: 1%;
     /* overflow-x: hidden;
