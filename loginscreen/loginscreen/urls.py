@@ -39,6 +39,7 @@ urlpatterns = [
     
     
     path('my-ajax-test/', views.testcall),
+     path('update_sparkles/', views.update_sparkles),
 
 
 ]

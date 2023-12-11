@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../static/loginscreen/dressup/js/dressUp.js"></script>
 
 </head>
 
@@ -63,18 +62,5 @@
 
 </div>
 <!-- </iframe>  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $.ajax({
-                type: "POST",
-                url: 'my-ajax-test/',
-                data: { csrfmiddlewaretoken: '{{ csrf_token }}'},  
-                success: function callback(response){
-                           /* do whatever with the response */
-                           console.log(response);
-                        //    alert(response);
-                        }
-            });
-</script>
 
 {% endblock %}

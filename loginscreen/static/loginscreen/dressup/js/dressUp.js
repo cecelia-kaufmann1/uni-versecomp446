@@ -43,6 +43,9 @@ $(document).ready(function () {
 
     updateCartButton();
     // populateOwnedClothes();
+
+    console.log("finished ready method");
+
 })
 
 // ----------------------------------------------------
@@ -62,18 +65,18 @@ function printDebugValues() {
 // Visually update the label at top of screen that shows how many sparkles the user has
 function updateSparklesLabel() {
     // console.log("ruunning");
-    // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-    // // numSparkles = numSparklesElement.lastChild;
-    // // var strippedNum = String(numSparklesElement.innerHTML);
-    // // strippedNum = strippedNum.replace("Sparkles:", "");
-    // // strippedNum = strippedNum.replace(" ", "");
-    // // strippedNum = strippedNum.replace("<br>", "");
-    // // numSparkles = parseInt(strippedNum);
+    let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+    numSparkles = numSparklesElement.lastChild;
+    var strippedNum = String(numSparklesElement.innerHTML);
+    strippedNum = strippedNum.replace("Sparkles:", "");
+    strippedNum = strippedNum.replace(" ", "");
+    strippedNum = strippedNum.replace("<br>", "");
+    numSparkles = parseInt(strippedNum);
    
-    // // // console.log(parseInt(strippedNum));
-    // // console.log(numSparkles);
+    // // console.log(parseInt(strippedNum));
+    // console.log(numSparkles);
 
-    // numSparklesElement.innerHTML +="{{sparkles}}";
+    numSparklesElement.innerHTML = "Sparkles: " + numSparkles;
     
 }
 
@@ -315,6 +318,7 @@ function purchaseItems() {
         console.log("Purchased item(s), calculating..." + numSparkles + "-" + costInCart);
         numSparkles = numSparkles - costInCart;
         console.log("numSparkles is now: " + numSparkles)
+        updateSparklesInDB();
         
         costInCart = 0;
         itemsInCart = [];
@@ -327,6 +331,7 @@ function purchaseItems() {
             populateOwnedClothes();
         }
         printDebugValues();
+        
     }
 
 }
@@ -362,4 +367,20 @@ function removeValueFromArray(array, value) {
     return newArray;
 }
 
+// Uses ajax to update the number of sparkles in the database
+function updateSparklesInDB() {
+    $.ajax({
+        type: 'POST',
+        url: '/update_sparkles/',
+        data: {
+            sparkles: numSparkles
+        },
+        success: function(data) {
+            // update the text
+            let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+            numSparklesElement.innerHTML = "Sparkles: " + data;
+        }
+    })
+
+}
 

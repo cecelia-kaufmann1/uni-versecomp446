@@ -11,6 +11,8 @@ from django.contrib.auth import login
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
+from accounts.models import Profile
+from django.views.decorators.csrf import csrf_exempt
 
 from json import dumps 
 from django.http import HttpResponse
@@ -83,3 +85,13 @@ def start_game_template(request):
 
 def score_template(request):
     return render(request, 'score_template.html')
+
+@csrf_exempt
+def update_sparkles(request):
+    if request.method == 'POST':
+        current_profile = Profile.objects.get(user=request.user)
+        current_profile.sparkles = request.POST["sparkles"]
+
+        current_profile.save()
+
+        return HttpResponse(current_profile.sparkles)
