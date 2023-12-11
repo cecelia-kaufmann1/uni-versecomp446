@@ -1,10 +1,11 @@
-
-
+// -------------------------------------------------
+// ------------- Instance Variables ----------------
+// -------------------------------------------------
 var wearing = [0, 7]; // temporary - this represents the user data of what they are currently wearing
 
 var owns = [1, 7, 5]; // temporary - this represents the user data of what they currently own
 
-var numSparkles =10; // temporary - this represents the user data of how many sparkles they currently have
+var numSparkles; // temporary - this represents the user data of how many sparkles they currently have
 var clothes;
 
 var costInCart = 0;
@@ -36,7 +37,7 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
 
 $(document).ready(function () {
     console.log("ready boys");
-    updateSparklesLabel();
+    getSparklesNum();
 
     let buyItemButton = document.getElementsByClassName("buyItemButton")[0];
     buyItemButton.onclick = purchaseItems;
@@ -62,22 +63,15 @@ function printDebugValues() {
 // -------------------- Visuals --------------------
 // -------------------------------------------------
 
-// Visually update the label at top of screen that shows how many sparkles the user has
-function updateSparklesLabel() {
-    // console.log("ruunning");
+// Gets the Django sparkles number 
+function getSparklesNum() {
     let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
     numSparkles = numSparklesElement.lastChild;
     var strippedNum = String(numSparklesElement.innerHTML);
     strippedNum = strippedNum.replace("Sparkles:", "");
     strippedNum = strippedNum.replace(" ", "");
     strippedNum = strippedNum.replace("<br>", "");
-    numSparkles = parseInt(strippedNum);
-   
-    // // console.log(parseInt(strippedNum));
-    // console.log(numSparkles);
-
-    numSparklesElement.innerHTML = "Sparkles: " + numSparkles;
-    
+    numSparkles = parseInt(strippedNum);  
 }
 
 // Fill the 'My Clothes' section with owned clothes
@@ -376,7 +370,7 @@ function updateSparklesInDB() {
             sparkles: numSparkles
         },
         success: function(data) {
-            // update the text
+            // the success will automatically update the number of sparkles for user end of site
             let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
             numSparklesElement.innerHTML = "Sparkles: " + data;
         }

@@ -39,7 +39,7 @@ urlpatterns = [
     
     
     path('my-ajax-test/', views.testcall),
-     path('update_sparkles/', views.update_sparkles),
+    path('update_sparkles/', views.update_sparkles), #keep! this is what allows us to get sparkle updates for dressUp.js
 
 
 ]
