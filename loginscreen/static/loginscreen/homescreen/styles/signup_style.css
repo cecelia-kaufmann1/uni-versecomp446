@@ -1,0 +1,71 @@
+body {
+    background: pink;
+    background-image: url("../../assets/images/gradient_bg.png");
+    font-family: 'FruitFont';
+    background-image: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
+    background-size: cover;
+    color: var(--black);
+    margin: 1%;
+}
+
+.form_h1 {
+    padding-top: 5rem;
+    margin-left: 2rem;
+    text-align: left;
+
+
+}
+.container {
+    border-radius: 2rem;
+    background: rgb(253,201,211);
+    background: linear-gradient(8deg, rgba(253,201,211,1) 0%, rgba(255,255,255,1) 100%);
+
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.15));
+
+    margin:auto;
+    width: 50%;
+    height: 30rem;
+    padding: 20px;
+}
+
+.form_header {
+    display: grid;
+    margin:auto;
+    margin-bottom: 0;
+    width: 50%;
+
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+}
+
+.form_div {
+    /* We center the contents of these items using flexbox. You can also do this CSS grid too! */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 0.25em;
+    padding: 0.125rem;
+}
+
+.header_empty {
+    display: flex;
+    background-color:rgb(212, 22, 54);
+    grid-column: span 2;
+    grid-row: span 1;
+   
+}
+
+.logo {
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 1));
+}
+
+#community_guidelines {
+    display: block;
+}
+
+#form{
+    display: none;
+}
+
+
+  
