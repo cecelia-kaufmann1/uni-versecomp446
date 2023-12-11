@@ -7,7 +7,7 @@
 
 {% block content %}
 <head>
-  <link rel="stylesheet" href="../../static/loginscreen/homescreen/styles/layout_style.css" />
+  <link rel="stylesheet" href="../../static/loginscreen/homescreen/styles/login_style.css" />
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/button.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/pinkContainer.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedStyles.css">
@@ -15,7 +15,7 @@
 </head>
     <div class="container">
         <div class="logo_div" > 
-            <img class="logo" src="../../static/loginscreen/assets/images/universe_logo.png" alt="uni-verse_logo" 
+            <img class="logo" src="../../static/loginscreen/assets/images/uni_logo2.png" alt="uni-verse_logo" 
             width="250"
             height="250"/>
         </div>
@@ -26,9 +26,9 @@
             <form method="post" action="/">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Log In</button>
-                <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-                <p> <a href ="{% url 'signup' %}"> Sign Up to Create an Account</a></p>
+                <button type="submit" class="pinkShine superRound outline navButton">Log In</button>
+                <p><a href="{% url 'password_reset' %}" class="pinkShine superRound outline navButton">Reset Password</a></p>
+                <p> <a href ="{% url 'signup' %}" class="pinkShine superRound outline navButton"> Sign Up to Create an Account</a></p>
             </form>
         </div>
     </div>
