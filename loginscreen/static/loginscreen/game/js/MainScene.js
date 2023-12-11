@@ -22,63 +22,64 @@ var startedGame = false;
 
 class MainScene extends Phaser.Scene {
     constructor() {
-      super("playGame");
+        super("playGame");
     }
+
 
     create() {
         // Get time that the game started (used for increasing difficulty)
         var clock = new Date();
         startTime = clock.getTime();
 
-         // User Input
+        // User Input
         cursors = this.input.keyboard.createCursorKeys();
 
-         // Set up background
-        this.map = this.make.tilemap({key: "map"});
+        // Set up background
+        this.map = this.make.tilemap({ key: "map" });
         const tileset = this.map.addTilesetImage("MagicForest", "grass");
-        // // grass layer one
-        this.layer = this.map.createDynamicLayer('Grass', tileset, 0, 0);
-       
+        // // // grass layer one
+        // this.layer = this.map.createDynamicLayer('Grass', tileset, 0, 0);
 
-        this.add.image(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2,"bigGrass").setScale(100);
 
-        this.map2 = this.make.tilemap({key: "map"});
+        this.add.image(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "bigGrass").setScale(100);
+
+        this.map2 = this.make.tilemap({ key: "map" });
         const tileset2 = this.map.addTilesetImage("MagicForest", "accessories");
-        // // grass layer 2
-        this.layer2 = this.map2.createDynamicLayer('Grass', tileset, this.layer.displayWidth , 0);
-        this.layer2.setScale(2);
-       
+        // // // grass layer 2
+        // this.layer2 = this.map2.createDynamicLayer('Grass', tileset, this.layer.displayWidth , 0);
+        // this.layer2.setScale(2);
+
         // flower layer 1
         this.layer3 = this.map.createDynamicLayer('Accessories', tileset2, 0, 0);
         this.layer3.setScale(3);
-        this.layer3.shuffle(0,0,1800,1800);
+        this.layer3.shuffle(0, 0, 1800, 1800);
 
         // flower layer 2
         this.layer4 = this.map2.createDynamicLayer('Accessories', tileset2, this.layer3.displayWidth * 0.75, 0);
         this.layer4.setScale(3);
-        this.layer4.shuffle(0,0,1800,1800);
-       
-        
-        
-
-         // Set up player
-         player = this.physics.add.sprite(CANVAS_WIDTH / 20,CANVAS_HEIGHT / 2, 'player');
-         player.setBounce(0.2);
-         player.setCollideWorldBounds(true);
-         player.anims.play('idleRight', true);
-         player.setScale(SPRITE_SCALE);
-
-         this.originalFrameRate = player.anims.msPerFrame;
+        this.layer4.shuffle(0, 0, 1800, 1800);
 
 
-         // Set up enemies
-         enemies = this.add.group();
 
-         // Set up sparkles
-         sparkles = this.add.group();
-         this.createUI();
 
-         this.resizeBoundingBoxes();
+        // Set up player
+        player = this.physics.add.sprite(CANVAS_WIDTH / 20, CANVAS_HEIGHT / 2, 'player');
+        player.setBounce(0.2);
+        player.setCollideWorldBounds(true);
+        player.anims.play('idleRight', true);
+        player.setScale(SPRITE_SCALE);
+
+        this.originalFrameRate = player.anims.msPerFrame;
+
+
+        // Set up enemies
+        enemies = this.add.group();
+
+        // Set up sparkles
+        sparkles = this.add.group();
+        this.createUI();
+
+        this.resizeBoundingBoxes();
 
         // gameOver = true;
         // this.gameOver();
@@ -87,11 +88,11 @@ class MainScene extends Phaser.Scene {
         console.log("start screen parent: " + element.parent);
 
         element.setOrigin(0.5);
-        
+
         element.addListener('click');
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
-        element.on('click', function(event) {
-            if (event.target.name === "play"){
+        element.on('click', function (event) {
+            if (event.target.name === "play") {
                 this.removeElement();
                 this.destroy();
                 self.countdown();
@@ -100,7 +101,7 @@ class MainScene extends Phaser.Scene {
 
 
 
-     }
+    }
     update() {
         if (!startedGame) {
             return;
@@ -113,50 +114,50 @@ class MainScene extends Phaser.Scene {
             // this.layer2.x += runningSpeed / 60;
             this.layer3.x += (runningSpeed / 60.0);
             this.layer4.x += (runningSpeed / 60.0);
-            
-            if(this.layer3.x <= -this.layer3.displayWidth){
+
+            if (this.layer3.x <= -this.layer3.displayWidth) {
                 // console.log("layer3 reset");
                 // this.layer.x = this.layer2.x + this.layer2.displayWidth;
                 this.layer3.x = this.layer4.x + this.layer4.displayWidth * 0.75;
-                this.layer3.shuffle(0,0,1800,1800);
-            } else if(this.layer4.x <= -this.layer4.displayWidth){
+                this.layer3.shuffle(0, 0, 1800, 1800);
+            } else if (this.layer4.x <= -this.layer4.displayWidth) {
                 // console.log("layer4 reset");
                 // this.layer2.x = this.layer.x + this.layer.displayWidth;
                 this.layer4.x = this.layer3.x + this.layer3.displayWidth * 0.75;
-                this.layer4.shuffle(0,0,1800,1800);
+                this.layer4.shuffle(0, 0, 1800, 1800);
             }
             clockTick++;
 
             // increase difficulty about every 10 seconds
-            if (clockTick % 450 == 0){
+            if (clockTick % 450 == 0) {
                 this.increaseDifficulty();
             }
 
             //  Spawn in new enemies
-             if (clockTick % enemySpawnRate < 1 ) {
+            if (clockTick % enemySpawnRate < 1) {
                 var enemy = new Enemy(this);
                 this.physics.add.overlap(player, enemy, this.hitEnemy, null, this);
-               
-             }
 
-             // Spawn in new sparkles
-             if (clockTick % sparkleSpawnRate < 1 ) {
+            }
+
+            // Spawn in new sparkles
+            if (clockTick % sparkleSpawnRate < 1) {
                 var sparkle = new Sparkle(this);
                 this.physics.add.overlap(player, sparkle, this.collectSparkle, null, this);
-               
-             }
 
-             // Update existing enemies
-             for (var i = 0; i < enemies.getChildren().length; i++) {
-                 var enemy = enemies.getChildren()[i];
-                 enemy.update(runningSpeed);
-                 if (enemy.body.x <= -100) {
-                     enemy.destroy();
-                 }
-             }
+            }
 
-              // Update existing sparkles
-              for (var i = 0; i < sparkles.getChildren().length; i++) {
+            // Update existing enemies
+            for (var i = 0; i < enemies.getChildren().length; i++) {
+                var enemy = enemies.getChildren()[i];
+                enemy.update(runningSpeed);
+                if (enemy.body.x <= -100) {
+                    enemy.destroy();
+                }
+            }
+
+            // Update existing sparkles
+            for (var i = 0; i < sparkles.getChildren().length; i++) {
                 var sparkle = sparkles.getChildren()[i];
                 sparkle.update(runningSpeed);
                 if (sparkle.body.x <= -100) {
@@ -165,32 +166,32 @@ class MainScene extends Phaser.Scene {
             }
 
 
-             // Handle user input/player movement
-             if (cursors.up.isDown) {
-                 player.setVelocityY(-PLAYER_SPEED);
-             } else if (cursors.down.isDown) {
-                 player.setVelocityY(PLAYER_SPEED);
-             } else if (player.body.velocity.y > FRICTION) {
-                 player.setVelocityY(player.body.velocity.y - FRICTION);
-             } else if (player.body.velocity.y < -FRICTION) {
-                 player.setVelocityY(player.body.velocity.y + FRICTION);
-             } else {
-                 player.setVelocityY(0);
-             }
+            // Handle user input/player movement
+            if (cursors.up.isDown) {
+                player.setVelocityY(-PLAYER_SPEED);
+            } else if (cursors.down.isDown) {
+                player.setVelocityY(PLAYER_SPEED);
+            } else if (player.body.velocity.y > FRICTION) {
+                player.setVelocityY(player.body.velocity.y - FRICTION);
+            } else if (player.body.velocity.y < -FRICTION) {
+                player.setVelocityY(player.body.velocity.y + FRICTION);
+            } else {
+                player.setVelocityY(0);
             }
-     }
+        }
+    }
 
-     // Game over when the player touches an enemy
+    // Game over when the player touches an enemy
     hitEnemy(player, enemy) {
         gameOver = true;
         this.physics.pause();
 
-         // Delete all enemies
+        // Delete all enemies
         enemies.clear(true, true);
 
-         // Delete all sparkles
-        sparkles.clear(true,true);
-        
+        // Delete all sparkles
+        sparkles.clear(true, true);
+
         // reset player position
         player.y = CANVAS_HEIGHT / 2;
         player.msPerFrame = this.originalFrameRate;
@@ -199,46 +200,46 @@ class MainScene extends Phaser.Scene {
         this.layer3.x = 0;
         this.layer4.x = 2700;
 
-         this.gameOver();
+        this.gameOver();
 
-         player.anims.play("idleRight", true);
-        
-         
-     }
+        player.anims.play("idleRight", true);
 
-     createUI(){
-       
-       
+
+    }
+
+    createUI() {
+
+
         this.scoreText = this.add.text(0, 0, "", { fontSize: '32px', fill: '#FFF' });
-        this.scoreText.setPadding(10,10,10,10);
+        this.scoreText.setPadding(10, 10, 10, 10);
         this.updateUI();
-        
-     }
-     // test comment
-     collectSparkle(player, sparkle) {
+
+    }
+    // test comment
+    collectSparkle(player, sparkle) {
         sparkle.destroy();
         score += 1;
         this.updateUI();
-     }
+    }
 
-     updateUI() {
-        
+    updateUI() {
+
         this.scoreText.text = "Sparkles: " + score;
         this.scoreText.x = CANVAS_WIDTH - this.scoreText.displayWidth * 1.1;
-     }
+    }
 
-     increaseDifficulty() {
-        
+    increaseDifficulty() {
+
         enemySpawnRate *= 0.85;
         sparkleSpawnRate *= 0.85;
         runningSpeed *= 1.2;
         console.log("harder: spawn rate: " + enemySpawnRate + "speed: " + runningSpeed);
         player.anims.msPerFrame = player.anims.msPerFrame * 0.925;
-       
-     }
 
-     // Display game over screen
-     gameOver() {
+    }
+
+    // Display game over screen
+    gameOver() {
         this.scoreText.text = "";
         // code to add DOM elements is from https://labs.phaser.io/edit.html?src=src/game%20objects/dom%20element/css%20style%20object.js&v=3.60.0
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('gameOver');
@@ -249,39 +250,40 @@ class MainScene extends Phaser.Scene {
 
         // gameOverDisplay.x = CANVAS_WIDTH / 2;
         // gameOverDisplay.y = CANVAS_HEIGHT / 2;
-       
+
         element.addListener('click');
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
-        element.on('click', function(event) {
-            if (event.target.name === "replay"){
+        element.on('click', function (event) {
+            if (event.target.name === "replay") {
                 this.removeElement();
                 this.destroy();
                 self.replay();
             }
         });
-        
-        
+
+
         let el = document.getElementById("score");
         el.displayOriginX = 100;
         el.x = 100;
         el.innerHTML = "Sparkles collected:  " + score;
 
-        
+
         el = document.getElementById("totalSparkles");
         el.innerHTML = "Total sparkles:  " + "N/A";
-     }
+        startedGame = false;
+    }
 
-     replay() {
+    replay() {
         score = 0;
-        this.updateUI; 
-        this.physics.resume();
-        this.scoreText.text = "Sparkles: " + score;
+        this.updateUI(); 
+       
+       
         gameOver = false;
-        sparkleSpawnRate = INIT_SPARKLE_SPAWN_RATE;
-        enemySpawnRate = INIT_ENEMY_SPAWN_RATE;
-        runningSpeed = INIT_RUNNING_SPEED;
-        player.anims.play("right", true);
-        
+        this.countdown();
+        player.setVelocityY(0);
+        this.physics.resume();
+
+
     }
     // Change size of sprite bounding boxes to align with the image size
     resizeBoundingBoxes() {
@@ -289,28 +291,32 @@ class MainScene extends Phaser.Scene {
 
         // Set up bounding box for player
         player.body.setSize(player.displayWidth * 0.6, player.displayHeight * 0.5, true); // code for smaller bounding box: https://labs.phaser.io/edit.html?src=src/physics/arcade/smaller%20bounding%20box.js
-        
-        
+
+
         player.body.offset.y = player.displayHeight * 0.2;
     }
-    countdown () {
-        let countdownText = this.add.text(CANVAS_WIDTH/2, CANVAS_HEIGHT/2, "3", {fontSize: '100px', fill: '#FFF' });
+    countdown() {
+        let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF' });
         countdownText.setOrigin(0.5);
-       
-       
-        setTimeout(function(){
+
+
+        setTimeout(function () {
             countdownText.text = "2";
-            setTimeout(function(){
+            setTimeout(function () {
                 countdownText.text = "1";
-                setTimeout(function(){
+                setTimeout(function () {
                     countdownText.destroy();
                     startedGame = true;
+                    sparkleSpawnRate = INIT_SPARKLE_SPAWN_RATE;
+                    enemySpawnRate = INIT_ENEMY_SPAWN_RATE;
+                    runningSpeed = INIT_RUNNING_SPEED;
                     player.anims.play("right", true);
+                    
                 }, 1000);
             }, 1000);
         }, 1000);
-       
-        
+
+
     }
 
 

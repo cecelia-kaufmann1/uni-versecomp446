@@ -2,8 +2,8 @@
 //     var game = new Phaser.Game();
 // }
 
-const CANVAS_WIDTH = 1000;
-const CANVAS_HEIGHT = 600;
+const CANVAS_WIDTH = 920;
+const CANVAS_HEIGHT = 620;
 const SPRITE_SCALE = 1.25;
 
   var config = {
@@ -12,6 +12,7 @@ const SPRITE_SCALE = 1.25;
     height: CANVAS_HEIGHT,
     backgroundColor: 0x000000,
     scene: [Prepare, MainScene],
+    
     // pixelArt: true,
     physics: {
       default: "arcade",

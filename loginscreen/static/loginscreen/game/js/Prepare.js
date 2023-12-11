@@ -22,9 +22,9 @@ class Prepare extends Phaser.Scene {
             { frameWidth: 63, frameHeight: 63 }
         );
 
-        this.load.html('gameOver_template', '/game_over_template/');
-        this.load.html('startGame_template', '/start_game_template/');
-        this.load.html('score_template', '/score_template/');
+        this.load.html('gameOver', '/static/loginscreen/game/html/gameOver.html');
+        this.load.html('startGame', '/static/loginscreen/game/html/startGame.html');
+        this.load.html('score', '/static/loginscreen/game/html/score.html');
 
     }
 
