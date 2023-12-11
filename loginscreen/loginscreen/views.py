@@ -74,3 +74,12 @@ def testcall(request):
    response =  request.user
    #Send the response
    return HttpResponse(response)
+
+def game_over_template(request):
+    return render(request, 'gameOver_template.html')
+
+def start_game_template(request):
+    return render(request, 'startGame_template.html')
+
+def score_template(request):
+    return render(request, 'score_template.html')

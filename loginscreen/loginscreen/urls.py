@@ -33,6 +33,9 @@ urlpatterns = [
     path('chatroom/', TemplateView.as_view(template_name="chatroom_template.html"), name='chatroom'),
     path('dressup/', views.run_dressup),
     path('game/',TemplateView.as_view(template_name = "gameSetUp_template.html"), name = "game"),
+       path('game_over_template/', views.game_over_template, name='game_over_template'),
+    path('start_game_template/', views.start_game_template, name='start_game_template'),
+    path('score_template/', views.score_template, name='score_template'),
     
     
     path('my-ajax-test/', views.testcall),
