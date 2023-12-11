@@ -22,42 +22,38 @@ body {
 }
 
 /* Each item in our grid will contain numbers */
-.logo_div {
-    /* We center the contents of these items using flexbox. You can also do this CSS grid too! */
+.logo_div,
+.form_div {
+    /* We center the contents of these items using flexbox. You can also do this with CSS grid. */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
-    background-color: transparent;
     border-radius: 0.25em;
     padding: 0.125rem;
+    background-color: transparent;
 }
 
-.form_div {
-    /* We center the contents of these items using flexbox. You can also do this CSS grid too! */
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    border-radius: 0.25em;
-    padding: 0.125rem;
-}
 
 .header_empty {
     display: flex;
-    background-color:rgb(212, 22, 54);
+    background-color: rgb(212, 22, 54);
     grid-column: span 2;
     grid-row: span 1;
-   
 }
 
 .logo {
     margin: auto;
-   /* margin-bottom: 5rem; */
-    
+    /* margin-bottom: 5rem; */
     /* transform: scale(.2); */
     /* transform: rotate(-15deg); */
     filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
 }
 
 
+.logo {
+    margin: auto;
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
+}
 
-  

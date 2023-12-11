@@ -26,9 +26,9 @@
             <form method="post" action="/">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="pinkShine superRound outline navButton">Log In</button>
-                <p><a href="{% url 'password_reset' %}" class="pinkShine superRound outline navButton">Reset Password</a></p>
-                <p> <a href ="{% url 'signup' %}" class="pinkShine superRound outline navButton"> Sign Up to Create an Account</a></p>
+                <button type="submit" class="darkPinkShine superRound outline navButton">Log In</button>
+                <p><a href="{% url 'password_reset' %}" class="darkPinkShine superRound outline navButton">Reset Password</a></p>
+                <p> <a href ="{% url 'signup' %}" class="darkPinkShine superRound outline navButton"> Sign Up to Create an Account</a></p>
             </form>
         </div>
     </div>
