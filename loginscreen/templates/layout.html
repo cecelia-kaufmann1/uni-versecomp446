@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/pinkContainer.css">
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
+    
+
    <script> 
      var buttonSound = new Audio("../static/loginscreen/assets//sounds/pleasing-bell.wav");
      function clickDressUp() {
@@ -48,16 +50,24 @@
               <a href="/chatroom">
                 <button class="darkPinkShine superRound outline navButton"  onclick="clickChatroom()">Chatroom</button>
               </a>
-              <a href="/logout">
+              <!-- <a href="/logout">
                 <button class="darkPinkShine superRound outline navButton" >Logout</button>
-              </a>
+              </a> -->
 
           </div>
 
     
           <div>
             <div class="user_bar">
-              Welcome,  {{ user.profile.user }}!
+              <div id="dropdown_area"> 
+                Welcome,  {{ user.profile.user }}!
+                <div class="dropdown">
+                  <ul class="dropdown_content">
+                    <li> <a href="{% url 'logout' %}">Log Out</a> </li>
+                    
+                  </ul>
+                </div>
+              </div>  
 
               <div id="sparkles_status"> Sparkles: {{ user.profile.sparkles }} </div>
             </div>
@@ -68,6 +78,7 @@
             </div>
           </div>
     </div>
+
 
 
 

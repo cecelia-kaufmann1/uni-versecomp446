@@ -52,6 +52,24 @@ body {
     padding-right: 2rem;
 }
 
+.dropdown{ 
+    background: white;
+    display: none;
+    position:absolute;
+    width: 15rem;
+    
+    margin-top:0.4rem;
+}
+
+#dropdown_area:hover .dropdown{ display:block;}
+
+li {
+    margin-left:-1.5rem;
+    list-style: none;
+    
+}
+
+
 
 /* Each item in our grid will contain numbers */
 .item {

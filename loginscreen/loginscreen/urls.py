@@ -27,7 +27,7 @@ urlpatterns = [
     path('accounts/', include("django.contrib.auth.urls")), 
     path('', LoginView.as_view(), name = 'login'),
     path("home/", TemplateView.as_view(template_name="layout.html"), name="home"),
-     path('logout/', auth_views.LogoutView.as_view(template_name="logout.html"), name="logout"),
+    path('logout/', auth_views.LogoutView.as_view(template_name="logout.html"), name="logout"),
     path('signup/', SignUpView.as_view(), name='signup'),
     # path('dressup/', TemplateView.as_view(template_name="dressUp_template.html"), name='dressup'),
     path('chatroom/', TemplateView.as_view(template_name="chatroom_template.html"), name='chatroom'),
