@@ -1,0 +1,28 @@
+  <!-- all we need is 
+a message that says "thanks for playing!!!!
+and then a button with a "back to login, which then takes you to a 
+the login page" -->
+
+<!--Logo for the middle of the screen and 
+and then me-->
+
+<!-- logout.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="../static/loginscreen/homescreen/styles/logout_styles.css">
+<link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
+
+    <div class="container">
+        <h2 class="message">Thank you for playing! Come again soon!</h2>
+        <div class="logo_div" > 
+            <img class="logo" src="../../static/loginscreen/assets/images/universe_logo.png" alt="uni-verse_logo" 
+            />
+        </div>
+        <a href="{% url 'login' %}" class="button">Back to Login</a>
+    </div>
+{% endblock %}
