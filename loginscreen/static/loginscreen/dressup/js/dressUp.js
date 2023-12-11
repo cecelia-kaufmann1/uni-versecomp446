@@ -65,9 +65,7 @@ function printDebugValues() {
 
 // Gets the Django sparkles number 
 function getSparklesNum() {
-    let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-    numSparkles = numSparklesElement.lastChild;
-    var strippedNum = String(numSparklesElement.innerHTML);
+    var strippedNum = String($("#sparkles_status").html());
     strippedNum = strippedNum.replace("Sparkles:", "");
     strippedNum = strippedNum.replace(" ", "");
     strippedNum = strippedNum.replace("<br>", "");
@@ -317,7 +315,6 @@ function purchaseItems() {
         costInCart = 0;
         itemsInCart = [];
         updateCartButton();
-        updateSparklesLabel();
 
         if (tabOpen == "shop") {
             populateShop();
@@ -371,8 +368,11 @@ function updateSparklesInDB() {
         },
         success: function(data) {
             // the success will automatically update the number of sparkles for user end of site
-            let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-            numSparklesElement.innerHTML = "Sparkles: " + data;
+            // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
+            // numSparklesElement.innerHTML = "Sparkles: " + data;
+            console.log($("#sparkles_status"));
+            $("#sparkles_status").text("Sparkles: " + data);
+            // $("#sparkles_status").html = "Sparkles: " + data;
         }
     })
 

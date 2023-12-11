@@ -28,6 +28,31 @@ body {
     
 }
 
+.user_bar {
+    background: #C93667;
+    border-radius: 5rem;
+    height: 5rem;
+    width: 35rem;
+    
+    color: white;
+    font-size:larger;
+
+
+    margin-left: 1rem;
+    padding-left: 2rem;
+    padding-top: 0.8rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#sparkles_status {
+    text-align: right;
+    padding-right: 2rem;
+}
+
+
 /* Each item in our grid will contain numbers */
 .item {
     /* We center the contents of these items using flexbox. You can also do this CSS grid too! */
@@ -43,8 +68,6 @@ body {
 }
 
 .canvas {
-   
-
     grid-column-start: 2;
     
 
@@ -57,9 +80,7 @@ body {
    /* border: 0.1rem solid rgba(255, 255, 255, 0.25);
     border-radius: 0.25em;
     padding: 0.125rem; */
-   
-
-
+    margin-top: -2.5rem;
 }
 
 .header_empty {

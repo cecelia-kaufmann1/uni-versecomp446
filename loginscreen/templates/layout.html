@@ -28,12 +28,7 @@
 
 <body>
     <div class="container">
-        <!-- <div class="item header_empty"> </div> -->
-        <div class="canvas pinkContainer"> {% block content %}
-            {% endblock %}
-        </div>
 
-       
         <div class="item">
             <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" 
             width = "270"
@@ -57,8 +52,23 @@
                 <button class="darkPinkShine superRound outline navButton" >Logout</button>
               </a>
 
-        </div>
+          </div>
+
+    
+          <div>
+            <div class="user_bar">
+              Welcome,  {{ user.profile.user }}!
+
+              <div id="sparkles_status"> Sparkles: {{ user.profile.sparkles }} </div>
+            </div>
+                  
+            <div class="canvas pinkContainer"> 
+              {% block content %}
+              {% endblock %}
+            </div>
+          </div>
     </div>
+
 
 
 </body>
