@@ -43,6 +43,7 @@ urlpatterns = [
 
     path('get_sparkles/', views.get_sparkles),
     path('get_wearing/', views.get_wearing),
+    path('update_wearing/', views.update_wearing),
 
 
 ]

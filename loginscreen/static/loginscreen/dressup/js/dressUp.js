@@ -62,8 +62,8 @@ function setUpScreen() {
         console.log(id);
         let item = clothes[wearing[i]].name;
         let itemType = clothes[wearing[i]].type;
-
         putOn(item, itemType, id);
+       
     }
     if (tabOpen == "shop") {
         populateShop();
@@ -217,6 +217,7 @@ function putOn(item, itemType, id) {
 
     if (!isWearing(id)) {
         wearing.push(id);
+        saveWearingToDB();
     } 
     if (!userOwnsItem(id)) {
         costInCart += clothes[id].price;
@@ -283,6 +284,7 @@ function remove(itemType) {
     }
 
     wearing = removeValueFromArray(wearing, id);
+    saveWearingToDB();
 }
 
 // Remove clothing if avatar is already wearing that type/category of clothing
@@ -388,11 +390,13 @@ function updateSparklesInDB() {
             // numSparklesElement.innerHTML = "Sparkles: " + data;
             console.log($("#sparkles_status"));
             $("#sparkles_status").text("Sparkles: " + data);
-            // $("#sparkles_status").html = "Sparkles: " + data;
+           
         }
     })
 
 }
+
+// get the user's wearing info and update the global var wearing to match it 
 function getWearing() {
     // first, get the number of sparkles that the user currently has
     $.ajax({
@@ -400,8 +404,8 @@ function getWearing() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            console.log("string: " + data.wearing);
             wearing = convertStringToArray(data.wearing);
+            
             setUpScreen();
         },
         error: function (error) {
@@ -410,17 +414,47 @@ function getWearing() {
     });
 }
 
+// save the current value of wearing (as a char string) to the database
+function saveWearingToDB() {
+    // first, get the number of sparkles that the user currently has
+    let wearingAsString = convertArrayToString(wearing);
+    $.ajax({
+        type: 'POST',
+        url: '/update_wearing/',
+        data: {
+            wearing: wearingAsString
+        },
+        success: function(data) {
+            console.log("posted wearing: ", data);
+        }
+    })
+}
+
+
 // used to turn a character string into an array of integers. the array is used to represent what the user is wearing or owns. the format of the array is integer comma integer comma integer comma. ex: "1,2,3,4,"
 // got help for this method from https://builtin.com/software-engineering-perspectives/split-string-javascript
 function convertStringToArray(str) {
     str = str.slice(0, str.length-1);
     let newArray = [];
     newArray = str.split(",");
-
+    
     for (let i = 0; i < newArray.length; i++) {
         newArray[i] = parseInt(newArray[i]);
     }
-    console.log(newArray);
+    if(!newArray[0]) { // if the string was empty, make the array an empty array
+        newArray = [];
+    }
     return newArray;
+}
+
+// given an array, convert it to a character field of elements separated by commas. ex: [1,2,3,4] -> '1,2,3,4,'
+function convertArrayToString(arr) {
+    let newStr = "";
+    for (let i = 0; i < arr.length; i++) {
+        newStr += arr[i] + ",";
+    }
+    console.log(wearing);
+    console.log(newStr);
+    return newStr;
 }
 

@@ -103,6 +103,16 @@ def get_sparkles(request):
     if request.method == 'GET':
         response = {'sparkles':  Profile.objects.get(user=request.user).sparkles}
         return JsonResponse(response)
+
+@csrf_exempt # this allows posts to be made without any admin stuff (no 404 errors)
+def update_wearing(request):
+    if request.method == 'POST':
+        current_profile = Profile.objects.get(user=request.user)
+        current_profile.wearing = request.POST["wearing"]
+
+        current_profile.save() #update the number of sparkles for the existing user
+
+        return HttpResponse(current_profile.wearing)
     
 def get_wearing(request):
     if request.method == 'GET':
