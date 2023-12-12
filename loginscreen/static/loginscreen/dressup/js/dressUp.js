@@ -20,19 +20,8 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
     .then(json => {
 
         clothes = json.clothes;
-        // put on each item that user is currently wearing
-        for (let i = 0; i < wearing.length; i++) {
-            let id = wearing[i];
-            let item = clothes[wearing[i]].name;
-            let itemType = clothes[wearing[i]].type;
-
-            putOn(item, itemType, id);
-        }
-        if (tabOpen == "shop") {
-            populateShop();
-        } else {
-            populateOwnedClothes();
-        }
+        console.log("json loaded");
+        getWearing();
     });
 
 $(document).ready(function () {
@@ -44,8 +33,9 @@ $(document).ready(function () {
 
     updateCartButton();
     // populateOwnedClothes();
-
+   
     console.log("finished ready method");
+    
 
 })
 
@@ -63,6 +53,24 @@ function printDebugValues() {
 // -------------------- Visuals --------------------
 // -------------------------------------------------
 
+// put on clothes, and populate shop/closet. Used when the screen is first loaded
+function setUpScreen() {
+     // put on each item that user is currently wearing
+     for (let i = 0; i < wearing.length; i++) {
+        
+        let id = wearing[i];
+        console.log(id);
+        let item = clothes[wearing[i]].name;
+        let itemType = clothes[wearing[i]].type;
+
+        putOn(item, itemType, id);
+    }
+    if (tabOpen == "shop") {
+        populateShop();
+    } else {
+        populateOwnedClothes();
+    }
+}
 // Gets the Django sparkles number 
 function getSparklesNum() {
     var strippedNum = String($("#sparkles_status").html());
@@ -376,5 +384,34 @@ function updateSparklesInDB() {
         }
     })
 
+}
+function getWearing() {
+    // first, get the number of sparkles that the user currently has
+    $.ajax({
+        url: '/get_wearing/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log("string: " + data.wearing);
+            wearing = convertStringToArray(data.wearing);
+            setUpScreen();
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+}
+
+// used to turn a character string into an array of integers. the array is used to represent what the user is wearing or owns. the format of the array is integer comma integer comma integer comma. ex: "1,2,3,4,"
+function convertStringToArray(str) {
+    str = str.slice(0, str.length-1);
+    let newArray = [];
+    newArray = str.split(",");
+
+    for (let i = 0; i < newArray.length; i++) {
+        newArray[i] = parseInt(newArray[i]);
+    }
+    console.log(newArray);
+    return newArray;
 }
 

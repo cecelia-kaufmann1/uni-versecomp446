@@ -103,3 +103,8 @@ def get_sparkles(request):
     if request.method == 'GET':
         response = {'sparkles':  Profile.objects.get(user=request.user).sparkles}
         return JsonResponse(response)
+    
+def get_wearing(request):
+    if request.method == 'GET':
+        response = {'wearing':  Profile.objects.get(user=request.user).wearing}
+        return JsonResponse(response)

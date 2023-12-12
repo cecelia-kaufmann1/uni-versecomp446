@@ -42,6 +42,7 @@ urlpatterns = [
     path('update_sparkles/', views.update_sparkles), #keep! this is what allows us to get sparkle updates for dressUp.js
 
     path('get_sparkles/', views.get_sparkles),
+    path('get_wearing/', views.get_wearing),
 
 
 ]
