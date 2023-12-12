@@ -107,4 +107,4 @@ def get_sparkles(request):
 def get_wearing(request):
     if request.method == 'GET':
         response = {'wearing':  Profile.objects.get(user=request.user).wearing}
-        return JsonResponse(response)
+        return JsonResponse(response) # return a JSON response https://testdriven.io/blog/django-ajax-xhr/ and https://djangocentral.com/django-ajax-with-jquery/#making-ajax-get-requests-with-django-and-jquery 

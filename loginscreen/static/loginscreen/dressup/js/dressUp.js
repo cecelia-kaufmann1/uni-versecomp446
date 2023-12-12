@@ -403,6 +403,7 @@ function getWearing() {
 }
 
 // used to turn a character string into an array of integers. the array is used to represent what the user is wearing or owns. the format of the array is integer comma integer comma integer comma. ex: "1,2,3,4,"
+// got help for this method from https://builtin.com/software-engineering-perspectives/split-string-javascript
 function convertStringToArray(str) {
     str = str.slice(0, str.length-1);
     let newArray = [];
