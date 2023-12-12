@@ -99,7 +99,7 @@ def update_sparkles(request):
 
         return HttpResponse(current_profile.sparkles)
     
-def testGet(request):
+def get_sparkles(request):
     if request.method == 'GET':
         response = {'sparkles':  Profile.objects.get(user=request.user).sparkles}
         return JsonResponse(response)

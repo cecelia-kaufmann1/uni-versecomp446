@@ -278,14 +278,16 @@ class MainScene extends Phaser.Scene {
     // Uses ajax to update the number of sparkles in the database
     updateSparklesInDB() {
         let currentSparklesInDB = 0;
+        // first, get the number of sparkles that the user currently has
         $.ajax({
-            url: '/testGet/',
+            url: '/get_sparkles/',
             type: "GET",
             dataType: "json",
             success: function (data) {
                 currentSparklesInDB = data.sparkles;
+                // calculate what the new sparkle value should be
                 let newNumSparkles = currentSparklesInDB + score;
-                
+                // on success, post the new value
                 $.ajax({
                     type: 'POST',
                     url: '/update_sparkles/',
