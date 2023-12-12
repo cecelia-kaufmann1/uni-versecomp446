@@ -265,19 +265,54 @@ class MainScene extends Phaser.Scene {
         let el = document.getElementById("score");
         el.displayOriginX = 100;
         el.x = 100;
-        el.innerHTML = "Sparkles collected:  " + score;
+        el.innerHTML = "Sparkles collected: " + score;
 
 
         el = document.getElementById("totalSparkles");
         el.innerHTML = "Total sparkles:  " + "N/A";
         startedGame = false;
+
+        this.updateSparklesInDB();
+    }
+
+    // Uses ajax to update the number of sparkles in the database
+    updateSparklesInDB() {
+        let currentSparklesInDB = 0;
+        $.ajax({
+            url: '/testGet/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                currentSparklesInDB = data.sparkles;
+                let newNumSparkles = currentSparklesInDB + score;
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '/update_sparkles/',
+                    data: {
+                        sparkles: newNumSparkles,
+                    },
+                    success: function (data) {
+                        // the success will automatically update the number of sparkles for user end of site
+                        $("#score").text("Sparkles: " + score);
+                        $("#totalSparkles").text("Total Sparkles: " + data);
+                        $("#sparkles_status").text("Sparkles: " + data);
+                    }
+                })
+
+            },
+            error: function (error) {
+                console.log(`Error ${error}`);
+            }
+        });
+
     }
 
     replay() {
         score = 0;
-        this.updateUI(); 
-       
-       
+        this.updateUI();
+
+
         gameOver = false;
         this.countdown();
         player.setVelocityY(0);
@@ -311,7 +346,7 @@ class MainScene extends Phaser.Scene {
                     enemySpawnRate = INIT_ENEMY_SPAWN_RATE;
                     runningSpeed = INIT_RUNNING_SPEED;
                     player.anims.play("right", true);
-                    
+
                 }, 1000);
             }, 1000);
         }, 1000);

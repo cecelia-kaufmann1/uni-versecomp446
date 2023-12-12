@@ -14,6 +14,9 @@ from django.views.generic.edit import CreateView
 from accounts.models import Profile
 from django.views.decorators.csrf import csrf_exempt
 
+from django.http import JsonResponse
+
+
 from json import dumps 
 from django.http import HttpResponse
 
@@ -95,3 +98,8 @@ def update_sparkles(request):
         current_profile.save() #update the number of sparkles for the existing user
 
         return HttpResponse(current_profile.sparkles)
+    
+def testGet(request):
+    if request.method == 'GET':
+        response = {'sparkles':  Profile.objects.get(user=request.user).sparkles}
+        return JsonResponse(response)
