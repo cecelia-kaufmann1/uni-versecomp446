@@ -118,3 +118,18 @@ def get_wearing(request):
     if request.method == 'GET':
         response = {'wearing':  Profile.objects.get(user=request.user).wearing}
         return JsonResponse(response) # return a JSON response https://testdriven.io/blog/django-ajax-xhr/ and https://djangocentral.com/django-ajax-with-jquery/#making-ajax-get-requests-with-django-and-jquery 
+    
+@csrf_exempt # this allows posts to be made without any admin stuff (no 404 errors)
+def update_owns(request):
+    if request.method == 'POST':
+        current_profile = Profile.objects.get(user=request.user)
+        current_profile.owns = request.POST["owns"]
+
+        current_profile.save() #update the number of sparkles for the existing user
+
+        return HttpResponse(current_profile.owns)
+    
+def get_owns(request):
+    if request.method == 'GET':
+        response = {'owns':  Profile.objects.get(user=request.user).owns}
+        return JsonResponse(response) # return a JSON response https://testdriven.io/blog/django-ajax-xhr/ and https://djangocentral.com/django-ajax-with-jquery/#making-ajax-get-requests-with-django-and-jquery 

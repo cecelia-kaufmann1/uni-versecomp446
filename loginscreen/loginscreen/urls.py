@@ -44,6 +44,8 @@ urlpatterns = [
     path('get_sparkles/', views.get_sparkles),
     path('get_wearing/', views.get_wearing),
     path('update_wearing/', views.update_wearing),
+     path('get_owns/', views.get_owns),
+    path('update_owns/', views.update_owns),
 
 
 ]

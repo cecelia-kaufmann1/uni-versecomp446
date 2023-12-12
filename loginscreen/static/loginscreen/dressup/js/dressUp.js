@@ -323,6 +323,7 @@ function purchaseItems() {
     if (costInCart <= numSparkles) {
         for (let i = 0; i < itemsInCart.length; i++) {
             owns.push(itemsInCart[i]);
+            saveOwnsToDB();
         }
         
         console.log("Purchased item(s), calculating..." + numSparkles + "-" + costInCart);
@@ -406,7 +407,7 @@ function getWearing() {
         success: function (data) {
             wearing = convertStringToArray(data.wearing);
             
-            setUpScreen();
+            getOwns();
         },
         error: function (error) {
             console.log(`Error ${error}`);
@@ -430,20 +431,61 @@ function saveWearingToDB() {
     })
 }
 
+// get the user's wearing info and update the global var wearing to match it 
+function getOwns() {
+    // first, get the number of sparkles that the user currently has
+    $.ajax({
+        url: '/get_owns/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            owns = convertStringToArray(data.owns);
+            console.log("owns!!", data.owns);
+            setUpScreen();
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+}
+
+// save the current value of wearing (as a char string) to the database
+function saveOwnsToDB() {
+    // first, get the number of sparkles that the user currently has
+    let ownsAsString = convertArrayToString(owns);
+    console.log("saving owns as ", ownsAsString);
+    $.ajax({
+        type: 'POST',
+        url: '/update_owns/',
+        data: {
+            owns: ownsAsString
+        },
+        success: function(data) {
+            console.log("posted owns: ", data);
+        }
+    })
+}
+
+
 
 // used to turn a character string into an array of integers. the array is used to represent what the user is wearing or owns. the format of the array is integer comma integer comma integer comma. ex: "1,2,3,4,"
 // got help for this method from https://builtin.com/software-engineering-perspectives/split-string-javascript
 function convertStringToArray(str) {
-    str = str.slice(0, str.length-1);
     let newArray = [];
+    if (str !== "null") {
+        str = str.slice(0, str.length-1); // take off final comma
+    
     newArray = str.split(",");
     
     for (let i = 0; i < newArray.length; i++) {
         newArray[i] = parseInt(newArray[i]);
     }
-    if(!newArray[0]) { // if the string was empty, make the array an empty array
-        newArray = [];
+    } else {
+        console.log("twas null");
+        // keep it as an empty array
     }
+    
+    
     return newArray;
 }
 
@@ -453,8 +495,9 @@ function convertArrayToString(arr) {
     for (let i = 0; i < arr.length; i++) {
         newStr += arr[i] + ",";
     }
-    console.log(wearing);
-    console.log(newStr);
+    if (arr.length == 0) {
+        newStr = "null"; // empty array = 'null' string
+    }
     return newStr;
 }
 
