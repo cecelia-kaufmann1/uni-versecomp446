@@ -73,11 +73,19 @@ function setUpScreen() {
 }
 // Gets the Django sparkles number 
 function getSparklesNum() {
-    var strippedNum = String($("#sparkles_status").html());
-    strippedNum = strippedNum.replace("Sparkles:", "");
-    strippedNum = strippedNum.replace(" ", "");
-    strippedNum = strippedNum.replace("<br>", "");
-    numSparkles = parseInt(strippedNum);  
+    $.ajax({
+        url: '/get_sparkles/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            currentSparklesInDB = data.sparkles;
+            // calculate what the new sparkle value should be
+            numSparkles = currentSparklesInDB;
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
 }
 
 // Fill the 'My Clothes' section with owned clothes
