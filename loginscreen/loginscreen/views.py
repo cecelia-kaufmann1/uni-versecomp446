@@ -13,6 +13,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from accounts.models import Profile
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 from django.http import JsonResponse
 
@@ -69,6 +70,8 @@ def send_dictionary(request):
     dataJSON = dumps(dataDictionary) 
     return render(request, 'landing.html', {'data': dataJSON, 'username': request.user, 'sparkles': request.user.profile.sparkles}) 
 
+# This means you can only do dress up logged in
+@login_required(login_url='/')
 def run_dressup(request): 
     print("username", request.user)
     print("sparkles", request.user.profile.sparkles)
