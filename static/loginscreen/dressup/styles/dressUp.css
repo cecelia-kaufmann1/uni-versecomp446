@@ -1,0 +1,371 @@
+
+/* ----- Closet ----- */
+
+#frame .closet {
+    padding: 1rem;
+    overflow-y: scroll;
+    width: 80%;
+    height: 30rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0;
+    grid-auto-rows: 12rem;
+    /* background-color: #3ED#0DD; */
+    /* border: solid 15px #1d7077; */
+    border: solid 5px #404b4b;
+   
+
+    /* Custom border radius: https://blog.avada.io/css/border-examples
+    border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
+     */
+    border-radius: 2rem;
+     
+}
+
+#frame .tab {
+    
+    /* background-color: #CCCCFF; */
+    background-color: gray;
+    margin: -0.15rem;
+    margin-left: -0.75rem;
+    padding: 1rem;
+    padding-bottom: 0;
+    /* border-radius: 2rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    
+    /* border: solid #1d7077 5px; */
+    border: solid #404b4b 5px;
+    text-align: center;
+    border-bottom-width: 0;
+    
+}
+
+#frame .highlighted {
+    /* background-color: #a0a0fd; */
+    background-color: white;
+}
+
+/* ----- Avatar ----- */
+
+#frame avatar {
+
+    /* background-color: #B7FAFF; */
+    margin: 1rem;
+    width: 50%;
+    text-align: center;
+    
+    position: relative;
+    margin: 1rem;
+    padding: 0;
+    border-radius: 1rem;
+    background-color: orange;
+    margin: 1rem;
+    
+}
+
+#frame .container {
+    position: relative;
+    left: 1rem;
+    bottom: 0rem;
+}
+
+
+
+/* ----- Currency ----- */
+#frame .numSparkles {
+    text-align: center;
+    height: fit-content;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    font-size: larger;
+    margin-top: 1rem;
+    
+}
+
+#frame .price {
+    background-color: white;
+    border: black dashed 3px;
+    border-radius: 10px;
+    padding: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    font-size: 20px;
+}
+
+#frame .shopItemBox {
+   display:grid;
+   grid-template-rows: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+#frame .canAfford {
+    background-color: white;
+}
+
+#frame .cannotAfford {
+    background-color: red;
+}
+
+#frame .buyItemButton {
+    background-color: pink;
+    /* top: 33rem;
+    left: -10rem; */
+}
+#frame .cartVerticalContainer {
+    left: 50rem;
+    bottom: 4.8rem;
+    position: absolute;
+    background-color: #FFFFFFD0;
+    padding: 0.2rem;
+    border-radius: 3rem;
+  
+}
+#frame .cartItemsContainer {
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    margin-bottom: 1rem;
+    align-items: center;
+    
+}
+
+#frame .cartItem {
+    background-color: #B7FAFF;
+    height: 4rem;
+    width: 4rem;
+   
+    margin: 0.2rem;
+    padding: 0.5rem;
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-position-x: center;
+    background-size:contain;
+
+    border-radius: 0.5rem;
+    border: 3px black solid;
+
+}
+
+
+/* ----- Clothes ----- */
+
+#frame img {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
+    top: 0rem;
+    margin: auto;
+    /* bottom: 1rem;
+    right: 1rem; */
+    transform: scale(1.25);
+}
+
+#frame .clothingItemBorder {
+    /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
+    background: linear-gradient(120deg, #B7FAFF
+    30%, white);
+    padding: 0.3rem;
+    border-radius: 1rem;
+    margin: 0.3rem;
+
+}
+
+
+#frame .clothingItem {
+    /* background-color: #B7FAFF; */
+    background-color: #B7FAFF
+    ;
+    
+    border-radius: 1rem;
+    height: 100%;
+    vertical-align: middle;
+
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-position-x: center;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 5;
+   
+}
+
+#frame .clothingItem.highlighted {
+    /* background-color:#c8c8f7; */
+    background-color: gray;
+}
+
+
+/* ----- Layout ----- */
+#frame #myClothes{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    background-color: #3ED0DD;
+}
+#frame #shop {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row: 1;
+    margin-left: 3rem;
+    background-color: #CCCCFF;
+}
+
+#frame .verticalContainer {
+    margin: 2rem;
+    margin-left: 4rem;
+    margin-top: 0rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+#frame .horizontalContainer {
+    display: grid;
+    grid-template-columns: 3fr 3fr 4fr 1fr 8fr; 
+    margin-left: 2rem;
+    transform: rotate(270deg) translate(-5rem, -16.4rem);
+    margin-top: 4rem;
+}
+
+#frame html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#frame {
+    height: 95%;
+    width: 95%;
+    
+    background-image: url("../../assets/images/dressup_background.png");
+    background-repeat: no-repeat;
+    background-size: 105% 100%;
+
+    /* height: 100%;
+    background-image: url("../images/dressup_bg2.png");
+    background-repeat: no-repeat;
+    /* background-size: 150% 150%; */
+    /* background-size: cover;
+     */ 
+}
+
+#frame .flexRow {
+    display: flex;
+    /* justify-content: center;
+    align-content: center; */
+    flex-direction: row;
+    
+    /* background-color: #B7FAFF; */
+   
+    margin: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+#frame p {
+    margin: 0;
+    
+}
+/* ----- Avatar Clothing Positioning -----*/
+#frame #bottom {
+    position: absolute;
+    top: 10rem;
+    left: 9rem;
+}
+
+#frame #skirt {
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+}
+
+#frame #top {
+    position: absolute;
+    top: 8.5rem;
+    left: 3rem;
+}
+
+/* ----- Clothing image paths ----- */
+#frame #bottom1 {
+    background-image: url("../../assets/images/clothes/bottom1.png");
+    /* background-image: url("../static/loginscreen/assets/images/clothes/bottom1.png"); */
+
+    
+    
+}
+
+#frame #bottom2 {
+    background-image: url("../../assets/images/clothes/bottom2.png");
+    
+}
+
+#frame #bottom3 {
+    background-image: url("../../assets/images/clothes/bottom3.png");
+}
+
+#frame #bottom4 {
+    background-image: url("../../assets/images/clothes/bottom4.png");
+}
+
+#frame #bottom5 {
+    background-image: url("../../assets/images/clothes/bottom5.png");
+}
+
+#frame #bottom6 {
+    background-image: url("../../assets/images/clothes/bottom6.png");
+}
+
+#frame #top2 {
+    background-image: url("../../assets/images/clothes/top2.png");
+}
+
+#frame #top3 {
+    background-image: url("../../assets/images/clothes/top3.png");
+}
+
+
+
+/* ----- Scrollbar ----- */
+/* Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/*/
+.scrollbar::-webkit-scrollbar {
+    width: 30px;
+    border-radius: 10px;
+    height: 50%;
+   
+}
+
+
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+   
+    background: linear-gradient(90deg, #9ef5fb, #c2fbff 40% 60%,#9ef5fb);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+    margin: 7rem;
+    
+    
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+     background: linear-gradient(white, #30a1ab 20%);
+     border: 1px #30a1ab solid;
+    border-radius: 10px;
+}
+
+
+
+

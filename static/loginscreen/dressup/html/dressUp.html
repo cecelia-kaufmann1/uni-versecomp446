@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Uni-Verse</title>
+    <link rel="stylesheet" type="text/css" href="../../shared/styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../styles/dressUp.css">
+    <link rel="stylesheet" type="text/css" href="../../shared/styles/sharedStyles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/dressUp.js"></script>
+
+</head>
+
+<body>
+    <p class="numSparkles"> Sparkles: <br> 100000</p>
+
+    <div class="flexRow">
+        <div class="verticalContainer">
+            <div class="horizontalContainer">
+                <div class="tab" id="shop" onclick="populateShop()"> Shop</div>
+                <div class="tab" id="myClothes" onclick="populateOwnedClothes()"> My clothes</div>
+            </div>
+    
+            <section class="closet scrollbar" id="closet">
+                <!-- TODO: need more semantic html tags-->
+            </section>
+        </div>
+        
+    
+        <div class="container" id="avatar">
+            <img class="unicornImage" src="../../assets/vectorArt/player.png" alt="Your Unicorn Avatar">
+    
+    
+        </div>
+        <div class="cartVerticalContainer">
+            
+    
+            <div class="cartItemsContainer">In cart:
+            </div>
+            <button class="buyItemButton darkPinkShine superRound outline short"> Buy</button>
+        </div>
+    
+    
+    
+    
+    </div>
+    
+</body>
+
+</html>

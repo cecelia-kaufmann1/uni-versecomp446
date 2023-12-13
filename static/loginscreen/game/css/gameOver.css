@@ -1,0 +1,14 @@
+.gameOver {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  button {
+    font-family: myFont;
+    margin: 3rem;
+  }
+
+  p {
+    text-align: center;
+    padding: 1rem;
+  }

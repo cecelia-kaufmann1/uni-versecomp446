@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+button {
+    position: relative;
+    width: 20rem;
+    height: 5rem;
+  
+    border-radius: 40px;
+    border-width: 0;  
+    padding: 5px;
+    background: #17C7FF;
+    
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 4px;
+  }
+
+  button.navButton:hover {
+    /* background:#FDC9D3; */
+    background: radial-gradient(ellipse farthest-corner at top left,   #E5357B 15%, #FF85B6 30%, #E5357B 50%);
+    color: #FFF3F5;
+
+  }
+
+  .navButton {
+    width: 12rem;
+    height: 4rem;
+  }
+
+
+  .logoutButton {
+    margin-top: 2rem;
+  }
+  
+  .outline {
+    border-width: 5px;
+  }
+  
+  .superRound {
+    /* border-radius: 50%; */
+  }
+  
+  
+  .pinkShine {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    background: radial-gradient(ellipse farthest-corner at top left,   #FF3988 15%, #FF9FC6 30%, #FF3988 50%);
+    border-color: #FF3988;
+  }
+  
+  .pinkShine:active {
+    background: radial-gradient(ellipse farthest-corner at top left,   #E5357B 15%, #FF85B6 30%, #E5357B 50%);
+  }
+  
+  .lightPinkShine {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    background: radial-gradient(ellipse farthest-corner at top left,   #FDC9D3 15%, #FFF3F5 30%, #FDC9D3 50%);
+    border-color: #FDC9D3;
+  }
+  
+  .lightPinkShine:active {
+    background: radial-gradient(ellipse farthest-corner at top left,   #EEBDC6 15%, #FFE5E9 30%, #EEBDC6 50%);
+  }
+  
+  .darkPinkShine {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    /* background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%); */
+    background: radial-gradient(ellipse at center top,  #FFF3F5 20%, #FDC9D3 50%);
+    /* border-color: #C93667; */
+    border: 3px #fea6b8 solid;
+    color: #5d162d;
+    letter-spacing: 2px;
+
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+  }
+  
+  .darkPinkShine:active {
+    background: radial-gradient(ellipse farthest-corner at top left,   #AB2E58 15%, #D37897 30%, #AB2E58 50%);
+  }
+
+  .darkPinkShine.disabled, .pinkShine.disabled, .lightPinkShine.disabled, .purpleShine.disabled, .lightPurpleShine.disabled {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    background: radial-gradient(ellipse farthest-corner at top left,   #b6b6b6 15%, #cbcbcb 30%, #b6b6b6 50%);
+    border-color: #b6b6b6;
+    
+  }
+  
+  .purpleShine {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    background: radial-gradient(ellipse farthest-corner at top left,   #CDB8DD 15%, #F0E6F7 30%, #CDB8DD 50%);
+    border-color: #CDB8DD;
+  }
+  
+  .purpleShine:active {
+    background: radial-gradient(ellipse farthest-corner at top left,   #B6A5C3 15%, #E1D8E7 30%, #B6A5C3 50%);
+  }
+  
+  .lightPurpleShine {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    background: radial-gradient(ellipse farthest-corner at top left,   #CCCCFF 15%, #F0F0FF 30%, #CCCCFF 50%);
+    border-color: #CCCCFF;
+  }
+  
+  .lightPurpleShine:active {
+    background: radial-gradient(ellipse farthest-corner at top left,   #BCBCEB 15%, #DFDFED 30%, #BCBCEB 50%);
+  }
+  
+
+  .short {
+    width: 8rem;
+    font-size: 100%;
+    text-wrap:pretty;
+    text-align: center;
+  }

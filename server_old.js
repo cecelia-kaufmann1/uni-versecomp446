@@ -11,7 +11,7 @@ var players = {}; // all players in the game right now
 app.use(express.static(__dirname)); // use the directory as the main folder
 console.log("dir name = " + __dirname); 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/layout.html'); // set layout.html to be the root 
+    res.sendFile(__dirname + '/chatroom/html/index2.html'); // set layout.html to be the root 
 });
 
 app.get('/game', function (req, res) {
