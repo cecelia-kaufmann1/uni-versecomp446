@@ -92,6 +92,19 @@ def start_game_template(request):
 def score_template(request):
     return render(request, 'score_template.html')
 
+@login_required(login_url='/')
+def chatroom_template(request):
+    return render(request, 'chatroom_template.html')
+
+@login_required(login_url="/")
+def game_template(request):
+    return render(request, 'gameSetUp_template.html')
+
+
+@login_required(login_url="/")
+def home_template(request):
+    return render(request, 'layout.html')
+
 @csrf_exempt # this allows posts to be made without any admin stuff (no 404 errors)
 def update_sparkles(request):
     if request.method == 'POST':
