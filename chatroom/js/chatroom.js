@@ -1,5 +1,5 @@
-const CANVAS_WIDTH = 920;
-const CANVAS_HEIGHT = 620;
+const CANVAS_WIDTH = 900;
+const CANVAS_HEIGHT = 600;
 var config = {
   type: Phaser.AUTO,
   parent: 'game',
