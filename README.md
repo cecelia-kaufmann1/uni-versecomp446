@@ -1,11 +1,10 @@
 # Welcome to the Uni-verse!
 
-A capstone project from COMP 446 by Cecelia Kaufmann, Lucy Rubin, and Linda Lor
+A capstone project for Macalester College's COMP 446 by Cecelia Kaufmann, Lucy Rubin, and Linda Lor
 
-This interactive web application takes you into the world of unicorns, with the main goal of the unicorn being outrunning the papparazzi to collect sparkles! Then, go spend those sparkles at the store to show off to all your friends!
+This interactive web application takes you into the world of unicorns, with the main goal of the unicorn being outrunning the papparazzi to collect sparkles! Then, go spend those sparkles at the store to show off to all your friends! Finally, go chat with other unicorns while you are dressed in your finest attire. 
 
-
-
+This project uses the Django Framework to host the login and then a separate server to host the multiplayer/chatroom feature, which is then embedded within the wesbite. The game utilizes the Phaser Framework, and we also used Ajax for asychronous loading. For the front-end framework, we used HTML, CSS, and Javascript. 
 
 To install and run Uni-verse: 
 After cloning the above repository, here are the steps to get the uni-verse up and running. Please run these commands below. Running this command will download all of the software needed for the application to run. 
@@ -25,3 +24,38 @@ Step 2: then, run pip install virtualenv
 Step 3: run virtualenv --python uni-versecomp446 venv to create the new virtual environment. Then to activate the environment, run .\venv\Scripts\activate
 Step 4: Next, run cd into .\loginscreen\ and lastly, run python manage.py runserver
 Step 5: Finally take the link that the terminal gives and put it into your browser. From there, you should be able to go into the Uni-verse! When you are done, Ctrl + C to break and then type "deactivate" to deactivate the virtual environment. 
+
+
+Credits:
+GAME ASSETS
+Unicorn Base and Clothing Assets 
+Linda Lor 
+
+Unicorn Dress Up Backdrop
+Linda Lor
+
+Unicorn Sparkles Collection Backdrop 
+Lucy Rubin
+
+Unicorn Sparkles Sprites 
+Linda Lor 
+
+Unicorn Sparkles Music
+https://soundcloud.com/timbeek/8bit-dna-loop 
+BRANDING
+Button Design 
+Lucy Rubin
+
+Home Backdrop Image
+Linda Lor 
+
+Gradient Home Backdrop Image
+<a href="https://www.freepik.com/free-vector/pastel-gradient-1_34294700.htm#query=rainbow%20gradient&position=12&from_view=keyword&track=ais&uuid=e76850eb-714b-43a7-a460-e20b131b0199">Image by juicy_fish</a> on Freepik
+
+Site Link
+
+Rainbow Icon NOT USED YET
+https://www.hiclipart.com/free-transparent-background-png-clipart-itxob/download 
+
+Universe Logo
+Linda Lor 
