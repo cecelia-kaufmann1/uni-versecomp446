@@ -32,7 +32,7 @@ $(document).ready(function () {
     buyItemButton.onclick = purchaseItems;
 
     updateCartButton();
-    populateOwnedClothes();
+    // populateOwnedClothes();
    
     console.log("finished ready method");
     

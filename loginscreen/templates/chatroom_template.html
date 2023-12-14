@@ -25,10 +25,12 @@
 <script>
     let username = "";
     let wearing = "";
-    getUsername();
+    setTimeout(getUsername, 1000);
+    // getUsername();
 
     function sendMessage() {
-        const message = {"username": username, "wearing":wearing};
+        console.log("sent!");
+        const message = {"username": username, "wearing": wearing};
         const iframe = document.querySelector("iframe");
         iframe.contentWindow.postMessage(message, "*");
     }
@@ -42,8 +44,9 @@
             dataType: "json",
             success: function (data) {
                 username = data.username;
+                console.log("sending...");
+                // sendMessage();
                 getWearing();
-                
             },
             error: function (error) {
                 console.log(`Error ${error}`);

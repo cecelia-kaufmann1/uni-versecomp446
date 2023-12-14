@@ -18,8 +18,9 @@ app.get('/game', function (req, res) {
     res.sendFile(__dirname + '/chatroom/index2.html'); // set index.html to be the root 
 });
 // have the socket.io listen to connections
+
+
 io.on('connection', function (socket) {
-    console.log('a user connected');
     // create a new player and add it to our players object
     players[socket.id] = {
         rotation: 0,
@@ -27,11 +28,12 @@ io.on('connection', function (socket) {
         y: Math.floor(Math.random() * 500) + 50,
         playerId: socket.id,
         team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue',
-        wearing: [3, 7]
+        wearing: [],
+        username: null
         
     };
     // send the players object to the new player
-    socket.emit('currentPlayers', players); // socket.emit only emits to the client (just the new player)
+    socket.emit('currentPlayers', players, players[socket.id]); // socket.emit only emits to the client (just the new player)
     // update all other players of the new player
     socket.broadcast.emit('newPlayer', players[socket.id]); // socket.broadcast.emit sends it to all players
 
@@ -54,6 +56,20 @@ io.on('connection', function (socket) {
         players[socket.id].xSpeed = movementData.xSpeed;
         // emit a message to all players about the player that moved
         socket.broadcast.emit('playerMoved', players[socket.id]);
+        
+    });
+
+    socket.on('updatePlayerUsername', function (username, wearing){
+        players[socket.id].username = username;
+        players[socket.id].wearing = wearing;
+        socket.emit('updateSelf', players[socket.id]);
+        
+       
+    });
+
+    socket.on('selfFinishedUpdating', function(){
+        console.log("self finshed updating");
+        io.emit('updatePlayer', players[socket.id]);
     });
 
     // when a player submits a chat, update it for everyone

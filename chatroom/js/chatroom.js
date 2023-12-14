@@ -24,6 +24,7 @@ var config = {
 var game = new Phaser.Game(config);
 var cursors;
 function preload() {
+  
   this.load.image('player', 'static/loginscreen/assets/vectorArt/player.png');
   this.load.image('bottom1', '../static/loginscreen/assets/images/clothes/bottom1.png');
   this.load.image('bottom2', '../static/loginscreen/assets/images/clothes/bottom2.png');
@@ -40,15 +41,12 @@ function preload() {
   this.load.tilemapTiledJSON('map', '../static/loginscreen/assets/sheets/universeTiles.json');
 
   this.load.html('chatInput', '../static/loginscreen/chatroom/html/chatInput.html');
-  window.addEventListener('message', function(event) {
-    console.log("Message received from the parent: " + event.data); // Message received from parent
-    username = event.data.username;
-   
-  });
+  
 }
   
 
 var username = "Unknown user";
+var wearing = [];
 function create() {
  
  
@@ -56,13 +54,53 @@ function create() {
   this.socket = io();
   this.otherPlayers = this.physics.add.group();
 
+  
+  window.addEventListener('message', function(event) {
+    // console.log("Message received from the parent: " + event.data.username); // Message received from parent
+    username = event.data.username;
+    wearing = event.data.wearing;
+    self.socket.emit('updatePlayerUsername', username, wearing);
+    
+   
+  });
+  // console.log("added event listener");
  
- 
+  this.socket.on("updatePlayer", function (playerInfo) {
+    
+    // console.log("update player");
+   
+    self.otherPlayers.getChildren().forEach(function (otherPlayer) {
+      // console.log("playerinfo id:", playerInfo.playerID);
+      // console.log("oterhplayer id:", otherPlayer.playerID);
+      if (playerInfo.playerId === otherPlayer.playerId) {
+        // console.log("found match");
+        let usernameText = self.add.text(0, 100, playerInfo.username, {fontSize: '15px', fill: '#FFF' });
+        otherPlayer.add(usernameText);
+        usernameText.itemType = "text";
+        putOnClothes(self, otherPlayer, playerInfo);
+      }
+    });
+    
+    
+  });
+
+  this.socket.on("updateSelf", function(playerInfo) {
+    let usernameText =  self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+    self.ship.add(usernameText);
+    usernameText.itemType = "text";
+    // console.log("info:", playerInfo);
+    putOnClothes(self, self.ship, playerInfo);
+    
+    // console.log("sending signal that self finshed updating");
+
+    self.socket.emit("selfFinishedUpdating");
+  });
   // populate all of the players for the current user
-  this.socket.on('currentPlayers', function (players) {
+  this.socket.on('currentPlayers', function (players, myPlayerInfo) {
     Object.keys(players).forEach(function (id) {
       // add the current player
       if (players[id].playerId === self.socket.id) {
+        // console.log("ADD PLAYER");
         addPlayer(self, players[id]);
       } else {
         // add all other players
@@ -72,6 +110,7 @@ function create() {
   });
   // update other players when a new player joins
   this.socket.on('newPlayer', function (playerInfo) {
+    // console.log("new player");
     addOtherPlayers(self, playerInfo);
   });
   // remove player from everyone else when they disconnect
@@ -84,6 +123,7 @@ function create() {
   });
 
   this.socket.on('playerMoved', function (playerInfo) {
+
     self.otherPlayers.getChildren().forEach(function (otherPlayer) {
       if (playerInfo.playerId === otherPlayer.playerId) {
         // otherPlayer.setRotation(playerInfo.rotation);
@@ -101,7 +141,7 @@ function create() {
   });
 
   this.socket.on('showNewChat', function(text, user) {
-    console.log("showNewChat: text =",text, "user=",user);
+    // console.log("showNewChat: text =",text, "user=",user);
     addNewChat(text, user);
   });
 
@@ -134,7 +174,7 @@ function create() {
   chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
   let submitChatButton = document.getElementById("submitchat");
   submitChatButton.addEventListener("click", function() {
-    console.log("self.username:", username);
+    // console.log("self.username:", username);
     submitChat(self, username);
   });
 
@@ -238,12 +278,12 @@ function addPlayer(self, playerInfo) {
   self.ship.y = playerInfo.y;
   self.physics.world.enable(self.ship);
   let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3);
-  let usernameText =  self.add.text(0, 100, username, { fontSize: '15px', fill: '#FFF' });
-  self.ship.add(usernameText);
-  usernameText.itemType = "text";
+  // let usernameText =  self.add.text(0, 100, username, { fontSize: '15px', fill: '#FFF' });
+  // self.ship.add(usernameText);
+  // usernameText.itemType = "text";
   self.ship.add(baseImage);
 
-  putOnClothes(self, self.ship, playerInfo);
+  // putOnClothes(self, self.ship, playerInfo);
   
   if (playerInfo.team === 'blue') {
     // self.ship.setTint(0x0000ff);
@@ -253,6 +293,7 @@ function addPlayer(self, playerInfo) {
   self.ship.body.setDrag(100);
   self.ship.body.setAngularDrag(100);
   self.ship.body.setMaxVelocity(200);
+  self.ship.username = playerInfo.username;
 
   self.ship.body.setCollideWorldBounds(true);
 
@@ -267,20 +308,36 @@ function addOtherPlayers(self, playerInfo) {
   let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3)
   otherPlayer.add(baseImage);
 
-  putOnClothes(self, otherPlayer, playerInfo);
+  let usernameText = self.add.text(0, 100, playerInfo.username, {fontSize: '15px', fill: '#FFF' });
+  otherPlayer.add(usernameText);
+  usernameText.itemType = "text";
+
   otherPlayer.playerId = playerInfo.playerId;
+  otherPlayer.username = playerInfo.username;
+  
+  putOnClothes(self, otherPlayer, playerInfo);
+  
+  // console.log("adding username:", playerInfo.username);
   self.otherPlayers.add(otherPlayer);
+
+
 }
 
 function putOnClothes(self, sprite, playerInfo) {
   
+  // if playerInfo.wearing
+ let wearingArray = playerInfo.wearing;
+//  console.log("Array:", wearingArray, playerInfo.username);
+  if  (typeof(playerInfo.wearing.wearing) == "string") {
+    wearingArray = convertStringToArray(playerInfo.wearing.wearing);
+    // console.log("Array new:", wearingArray);
+  }
   
-  
-  playerInfo.wearing.forEach((item) => {
+ 
+  wearingArray.forEach((item) => {
     let id = item;
     let name = clothes[id].name;
     let itemType = clothes[id].type;
-    console.log("wearing: " + itemType);
    
     var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
     if (itemType == "skirt") {
@@ -302,9 +359,29 @@ function putOnClothes(self, sprite, playerInfo) {
   });
 }
 
+function convertStringToArray(str) {
+  let newArray = [];
+  // console.log("str,",str);
+  if (str !== "null") {
+      str = str.slice(0, str.length-1); // take off final comma
+  
+  newArray = str.split(",");
+  
+  for (let i = 0; i < newArray.length; i++) {
+      newArray[i] = parseInt(newArray[i]);
+  }
+  } else {
+      console.log("twas null");
+      // keep it as an empty array
+  }
+  
+  
+  return newArray;
+}
+
 var clothes;
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
-fetch("../static/loginscreen/dressup/json/clothes.json")
+fetch("../chatroom/json/clothes.json")
     .then(response => response.json())
     .then(json => {
 
@@ -327,7 +404,7 @@ function submitChat(self, user) {
   let chatInput = document.getElementById("chat");
   let text = chatInput.value;
   if (text){
-    console.log("emit: ", user);
+    // console.log("emit: ", user);
     self.socket.emit('newChat', text, user);
   }
 }
