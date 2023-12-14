@@ -298,7 +298,7 @@ class MainScene extends Phaser.Scene {
                         // the success will automatically update the number of sparkles for user end of site
                         $("#score").text("Sparkles: " + score);
                         $("#totalSparkles").text("Total Sparkles: " + data);
-                        $("#sparkles_status").text("Sparkles: " + data);
+                        $("#sparkles_status").text(data);
                     }
                 })
 

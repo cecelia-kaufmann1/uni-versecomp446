@@ -390,7 +390,7 @@ function updateSparklesInDB() {
             // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
             // numSparklesElement.innerHTML = "Sparkles: " + data;
             console.log($("#sparkles_status"));
-            $("#sparkles_status").text("Sparkles: " + data);
+            $("#sparkles_status").text(data);
            
         }
     })
