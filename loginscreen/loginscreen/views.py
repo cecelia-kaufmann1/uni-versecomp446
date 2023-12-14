@@ -83,14 +83,14 @@ def testcall(request):
    #Send the response
    return HttpResponse(response)
 
-def game_over_template(request):
-    return render(request, 'gameOver_template.html')
+def game_over(request):
+    return render(request, 'gameOver.html')
 
-def start_game_template(request):
-    return render(request, 'startGame_template.html')
+def start_game(request):
+    return render(request, 'startGame.html')
 
-def score_template(request):
-    return render(request, 'score_template.html')
+def score(request):
+    return render(request, 'gameScore.html')
 
 @login_required(login_url='/')
 def chatroom_template(request):

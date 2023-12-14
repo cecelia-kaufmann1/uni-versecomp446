@@ -33,9 +33,9 @@ urlpatterns = [
     path('chatroom/', views.chatroom_template, name='chatroom'),
     path('dressup/', views.run_dressup),
     path('game/',views.game_template, name = "game"),
-    path('game_over_template/', views.game_over_template, name='game_over_template'),
-    path('start_game_template/', views.start_game_template, name='start_game_template'),
-    path('score_template/', views.score_template, name='score_template'),
+    path('game_over/', views.game_over, name='game_over'),
+    path('start_game/', views.start_game, name='start_game'),
+    path('score_/', views.score, name='score'),
     
     
     path('my-ajax-test/', views.testcall),
