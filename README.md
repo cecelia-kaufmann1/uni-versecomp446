@@ -58,3 +58,22 @@ https://www.hiclipart.com/free-transparent-background-png-clipart-itxob/download
 
 Universe Logo
 Linda Lor 
+
+
+Links to Resources:
+Django Login/Login Database Tutorial: 
+https://learndjango.com/tutorials/django-login-and-logout-tutorial
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
+
+Chatroom:
+Code for correctly positioning/parenting the phaser canvas: https://phaser.discourse.group/t/how-do-i-move-phaser-game-to-the-center-of-a-browser/8577 
+Code for removing border form iframe: https://stackoverflow.com/questions/65034/remove-border-from-iframe
+Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/
+Tag Inputs: https://www.w3schools.com/tags/tag_input.asp
+Server:
+Code for setting up mulitplyer server is from https://gamedevacademy.org/create-a-basic-multiplayer-game-in-phaser-3-with-socket-io-part-1/#Setting_up_the_server
+Code for this line is from https://stackoverflow.com/questions/64923775/typeerror-require-listen-is-not-a-function
+Code for disconnecting a socket:https://www.dynetisgames.com/2017/03/06/how-to-make-a-multiplayer-online-game-with-phaser-socket-io-and-node-js/ 
+
+Virtual Environment and Requirements.txt file:
+https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html
