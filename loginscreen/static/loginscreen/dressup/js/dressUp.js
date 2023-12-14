@@ -148,7 +148,7 @@ function highlightShopTab() {
 
 // highlight the my clothes tab on the side of the closet
 function highlightMyClothesTab() {
-    
+    console.log('HI highlightMyClothes');
     let myClothesTab = document.getElementById("myClothes");
     
     let shopTab = document.getElementById("shop");
