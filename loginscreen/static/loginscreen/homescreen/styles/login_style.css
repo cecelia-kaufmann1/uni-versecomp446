@@ -22,12 +22,11 @@ body {
     grid-template-columns: 1fr 1fr;
   
     /* Make the grid have 10 explicit rows, 50px high each */
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 /* Each item in our grid will contain numbers */
-.logo_div,
-.form_div {
+.logo_div{
     /* We center the contents of these items using flexbox. You can also do this with CSS grid. */
     display: flex;
     flex-direction: column;
@@ -39,6 +38,21 @@ body {
     background-color: transparent;
 }
 
+.form_div {
+    border-radius: 2rem;
+    background: rgb(253,201,211);
+    background: linear-gradient(8deg, rgba(253,201,211,1) 0%, rgba(255,255,255,1) 100%);
+    font-size: large;
+
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.15));
+
+    margin:auto;
+
+    padding: 2rem;
+    padding-top: 1rem;
+    
+}
+
 
 .header_empty {
     display: flex;
@@ -47,17 +61,45 @@ body {
     grid-row: span 1;
 }
 
-.logo {
-    margin: auto;
-    /* margin-bottom: 5rem; */
-    /* transform: scale(.2); */
-    /* transform: rotate(-15deg); */
-    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
-}
-
 
 .logo {
+    display: block;
     margin: auto;
-    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
+ 
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.15));
+
 }
 
+button {
+    cursor:pointer;
+}
+
+.login_button {
+    background-color: #FF3988;
+    color: white;
+    width: 100%;
+    height: 2rem;
+    border-radius: 1rem;
+    border-color: transparent;
+}
+
+input {
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(239, 219, 222);
+    border-radius: 0.5rem;
+}
+
+hr {
+    border: 1px solid rgb(239, 183, 191);
+    border-style: inset;
+    border-width: 1px;
+}
+
+.pass_reset {
+    text-align: right;
+}
+
+a {
+    color: #7d1d44;
+}
