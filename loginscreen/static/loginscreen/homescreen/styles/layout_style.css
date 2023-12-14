@@ -1,4 +1,30 @@
 a { text-decoration: none; } 
+
+#buttonHolder {
+    background-color:#ff72a1;
+    padding: 1rem;
+    border-radius: 3rem;
+    border: #cd1d58 2px solid;
+    margin: 0;
+    background: radial-gradient(ellipse at center,  #FFF3F5 10%, #ff72a1 70%, #ff4382 100%);
+}
+#buttonHolderOutline {
+    
+    background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
+    padding: 0.75rem;
+    border-radius: 4rem;
+    border: #cd1d58 2px solid;
+    margin: 0;
+    top: 0;
+}
+#menuText {
+    color: white;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
 body {
     background: pink;
     background-image:  url("../../assets/images/alt_bg.png");
@@ -82,6 +108,7 @@ li {
     padding: 0.125rem;
     text-align: center;
     margin-bottom: 5rem;
+    padding-top: 0;
    
 }
 
@@ -121,7 +148,7 @@ li {
 
     /* margin-left: 0rem; */
    margin: auto;
-   /* margin-bottom: 5rem; */
+   margin-top: 0rem;
     
     /* transform: scale(.2); */
     /* transform: rotate(-15deg); */

@@ -33,4 +33,21 @@
    
   }
 
+  .darkPinkContainer {
+    background-color: #ffa0bf;
+    border-style: solid;
+    border-radius: 2rem;
+   
+    border-width: 10px;
+    border-style: solid;
+    border-color: black;
+    
+    border-top-color: #ff71a0;
+    border-left-color: #ff71a0;
+    border-bottom-color: #ff4382;
+    border-right-color: #ff4382;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  } 
+
   

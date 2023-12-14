@@ -19,10 +19,10 @@ button {
 
   button.navButton:hover {
     /* background:#FDC9D3; */
-    background: radial-gradient(ellipse farthest-corner at top left,   #E5357B 15%, #FF85B6 30%, #E5357B 50%);
+    background: radial-gradient(ellipse at center top,  #ffc8d1 10%, #ff256e 50%);
     color: #FFF3F5;
 
-  }
+  } 
 
   .navButton {
     width: 12rem;
@@ -74,6 +74,23 @@ button {
 
     box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
   }
+
+  .medPinkShine {
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    /* background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%); */
+    background: radial-gradient(ellipse at center top,  #FFF3F5 10%, #ff4382 50%);
+    /* border-color: #C93667; */
+    border: 3px #cd1d58 solid;
+    color: white;
+    letter-spacing: 2px;
+
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+  }
+
+  .medPinkShine:active {
+    background: radial-gradient(ellipse at center top,  #ffc8d1 10%, #ff256e 50%);
+  }
+
   
   .darkPinkShine:active {
     background: radial-gradient(ellipse farthest-corner at top left,   #AB2E58 15%, #D37897 30%, #AB2E58 50%);

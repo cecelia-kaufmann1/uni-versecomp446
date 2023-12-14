@@ -2,84 +2,93 @@
 <html>
 
 <head>
-    <title> Login Home </title>
-    <link rel="stylesheet" href="../static/loginscreen/homescreen/styles/layout_style.css" />
-    <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
-    <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/pinkContainer.css">
-    <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
+  <title> Login Home </title>
+  <link rel="stylesheet" href="../static/loginscreen/homescreen/styles/layout_style.css" />
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/pinkContainer.css">
+  <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
 
-    <link rel="shortcut icon" href="../static/loginscreen/assets/images/logo_ver2.png" />
-    
+  <link rel="shortcut icon" href="../static/loginscreen/assets/images/logo_ver2.png" />
 
-   <script> 
-     var buttonSound = new Audio("../static/loginscreen/assets//sounds/pleasing-bell.wav");
-     function clickDressUp() {
-        buttonSound.play();
-        // document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
-         }
+
+  <script>
+    var buttonSound = new Audio("../static/loginscreen/assets//sounds/pleasing-bell.wav");
+    function clickDressUp() {
+      buttonSound.play();
+      // document.getElementById("frame").setAttribute("src", "../static/loginscreen/dressup/html/dressUp.html") 
+    }
     function clickGetSparkles() {
-        buttonSound.play();
-    //    document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
-        }
+      buttonSound.play();
+      //    document.getElementById("frame").setAttribute("src", "Inner Screen Files/html/game.html") 
+    }
 
     function clickChatroom() {
-        buttonSound.play();
-    //    document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
-        }
-    </script>
+      buttonSound.play();
+      //    document.getElementById("frame").setAttribute("src", "chatroom/index2.html"); 
+    }
+  </script>
 
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
 
-        <div class="item">
-            <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" 
-            width = "270"
-            height = "200"/>
+    <div class="item">
+      <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" width="270"
+        height="200" />
 
-            <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django -->
-            <a href="/home">
-                <button class="darkPinkShine superRound outline navButton">Home</button>
-              </a>
-              <a href="/game">
-                <button class="darkPinkShine superRound outline navButton" onclick="clickGetSparkles()">Get Sparkles</button>
-              </a>
-           
-            <a href="/dressup">
-                <button class="darkPinkShine superRound outline navButton" id = "dressUp" onclick="clickDressUp()">Dress Up</button>
-              </a>
-              <a href="/chatroom">
-                <button class="darkPinkShine superRound outline navButton"  onclick="clickChatroom()">Chatroom</button>
-              </a>
-              <!-- <a href="/logout">
-                <button class="darkPinkShine superRound outline navButton" >Logout</button>
-              </a> -->
+      <div id="buttonHolderOutline">
+        <div id="buttonHolder">
+          <h1 id="menuText"> MENU </h1>
+          <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django -->
+          <a href="/home">
+            <button class="medPinkShine superRound outline navButton">Home</button>
+          </a>
+          <a href="/game">
+            <button class="medPinkShine superRound outline navButton" onclick="clickGetSparkles()">Get
+              Sparkles</button>
+          </a>
 
-          </div>
+          <a href="/dressup">
+            <button class="medPinkShine superRound outline navButton" id="dressUp" onclick="clickDressUp()">Dress
+              Up</button>
+          </a>
+          <a href="/chatroom">
+            <button class="medPinkShine superRound outline navButton" onclick="clickChatroom()">Chatroom</button>
+          </a>
+          <a href="/settings">
+            <button class="medPinkShine superRound outline navButton">Settings</button>
+          </a>
 
-    
-          <div>
-            <div class="user_bar">
-              <div id="dropdown_area"> 
-                Welcome,  {{ user.profile.user }}!
-                <div class="dropdown">
-                  <ul class="dropdown_content">
-                    <li> <a href="{% url 'logout' %}">Log Out</a> </li>
-                    
-                  </ul>
-                </div>
-              </div>  
+        </div>
+      </div>
 
-              <div id="sparkles_status"> Sparkles: {{ user.profile.sparkles }} </div>
-            </div>
-                  
-            <div class="canvas pinkContainer"> 
-              {% block content %}
-              {% endblock %}
-            </div>
-          </div>
+
+
     </div>
+
+
+    <div>
+      <div class="user_bar">
+        <div id="dropdown_area">
+          Welcome, {{ user.profile.user }}!
+          <div class="dropdown">
+            <ul class="dropdown_content">
+              <li> <a href="{% url 'logout' %}">Log Out</a> </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div id="sparkles_status"> Sparkles: {{ user.profile.sparkles }} </div>
+      </div>
+
+      <div class="canvas pinkContainer darkPinkContainer">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
 
 
 

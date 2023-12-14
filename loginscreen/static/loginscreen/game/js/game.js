@@ -3,7 +3,7 @@
 // }
 
 const CANVAS_WIDTH = 920;
-const CANVAS_HEIGHT = 620;
+const CANVAS_HEIGHT = 580;
 const SPRITE_SCALE = 1.25;
 
   var config = {
