@@ -78,10 +78,6 @@ align-content: center;
     -webkit-text-stroke-color: black;
 }
 
-button {
-    cursor:pointer;
-}
-
 body {
     background: pink;
     background-image:  url("../../assets/images/alt_bg.png");
