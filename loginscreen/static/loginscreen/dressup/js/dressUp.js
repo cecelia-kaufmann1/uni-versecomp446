@@ -175,7 +175,7 @@ function createClothingItemBox(item, itemType, id) {
     }
 
     if (isWearing(id)) {
-        clothingItem.style.backgroundColor = "#86f7ff";
+        clothingItem.style.backgroundColor = "#bb995f";
     }
 
     
