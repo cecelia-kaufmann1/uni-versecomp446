@@ -25,16 +25,18 @@
   </div>
   
   <div class="container" id="form"> 
+      <p id="back_to_cg" class="home_a"> &#8592;  Back To Community Guidelines </a>
       <h2>Sign up</h2>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="account_button">Sign Up</button>
 
     </div>
   </div>
 
   <div class="container" id="community_guidelines"> 
+    <a href="/" class="home_a"> &#8592;  Back To Login </a>
     <h1> Welcome To The Uni-Verse!</h1>
     <p> Before you join us, be sure to read the Community Guidelines to keep Uni-Verse a safe place! <br>
       Remember, you must follow these rules if you wish to use Uni-Verse.
@@ -50,7 +52,7 @@
     </p>
 
 
-    <button id="next_button" type="submit">Next</button>
+    <button id="next_button" class="account_button" type="submit">Next</button>
   </div>
   
 {% endblock %}
