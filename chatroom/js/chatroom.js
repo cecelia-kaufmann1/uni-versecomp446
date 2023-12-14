@@ -47,7 +47,6 @@ function preload() {
   });
 }
   
-}
 
 var username = "Unknown user";
 function create() {
@@ -209,8 +208,10 @@ function update() {
 function setPlayerFlipX(container, bool) {
   container.list.forEach(function(child) {
     let itemType = child.itemType;
-   
-    child.flipX = bool;
+    if (itemType != "text") {
+      child.flipX = bool;
+    }
+    
     if (bool) {
       if (itemType == "skirt") {
         child.setOrigin(-0.2,-1.1);
@@ -237,6 +238,9 @@ function addPlayer(self, playerInfo) {
   self.ship.y = playerInfo.y;
   self.physics.world.enable(self.ship);
   let baseImage = self.physics.add.image(0,0, 'player').setOrigin(0, 0).setScale(0.3);
+  let usernameText =  self.add.text(0, 100, username, { fontSize: '15px', fill: '#FFF' });
+  self.ship.add(usernameText);
+  usernameText.itemType = "text";
   self.ship.add(baseImage);
 
   putOnClothes(self, self.ship, playerInfo);

@@ -64,7 +64,7 @@ io.on('connection', function (socket) {
     });
 
     });
-});
+
 
 
 // Make server listen on port 8081
