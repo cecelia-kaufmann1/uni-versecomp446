@@ -335,7 +335,11 @@ class MainScene extends Phaser.Scene {
     countdown() {
         let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF' });
         countdownText.setOrigin(0.5);
-
+        startedGame = true;
+        sparkleSpawnRate = INIT_SPARKLE_SPAWN_RATE;
+        enemySpawnRate = INIT_ENEMY_SPAWN_RATE;
+        runningSpeed = INIT_RUNNING_SPEED;
+        player.anims.play("right", true);
 
         setTimeout(function () {
             countdownText.text = "2";
@@ -343,11 +347,7 @@ class MainScene extends Phaser.Scene {
                 countdownText.text = "1";
                 setTimeout(function () {
                     countdownText.destroy();
-                    startedGame = true;
-                    sparkleSpawnRate = INIT_SPARKLE_SPAWN_RATE;
-                    enemySpawnRate = INIT_ENEMY_SPAWN_RATE;
-                    runningSpeed = INIT_RUNNING_SPEED;
-                    player.anims.play("right", true);
+                    
 
                 }, 1000);
             }, 1000);

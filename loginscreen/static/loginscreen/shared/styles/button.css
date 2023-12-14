@@ -17,6 +17,13 @@ button {
     margin: 4px;
   }
 
+  .logoutButton {
+    width: 7rem !important;
+    margin: 0 !important;
+    top: 0 !important;
+   
+  }
+
   button.navButton:hover {
     /* background:#FDC9D3; */
     background: radial-gradient(ellipse at center top,  #ffc8d1 10%, #ff256e 50%);

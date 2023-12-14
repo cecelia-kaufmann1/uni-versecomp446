@@ -1,6 +1,6 @@
 a { text-decoration: none; } 
 
-#buttonHolder {
+.buttonHolder {
     background-color:#ff72a1;
     padding: 1rem;
     border-radius: 3rem;
@@ -8,14 +8,64 @@ a { text-decoration: none; }
     margin: 0;
     background: radial-gradient(ellipse at center,  #FFF3F5 10%, #ff72a1 70%, #ff4382 100%);
 }
-#buttonHolderOutline {
+.buttonHolderOutline {
     
-    background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
+    background: linear-gradient(135deg, #ff4382 60%, #fb84ac 70%);
     padding: 0.75rem;
     border-radius: 4rem;
     border: #cd1d58 2px solid;
+    /* margin: 0; */
+    /* top: 0; */
+}
+.buttonHolderSparkleCount {
+  /* width: 4rem; */
+  
+  /* grid-row-start: 2;
+  grid-row-end: 6; */
+  
+  background: radial-gradient(ellipse at center,  #febdd3 0%, #ff72a1 60%, #ff4382 100%);
+  /* padding: 1rem; */
+  border-radius: 2rem;
+  border: #cd1d58 2px solid;
+  margin: 0;
+ 
+  height: 6rem;
+  width:7rem;
+    display: flex;
+    flex-direction: row;
+  
+justify-content: center;
+align-content: center;
+
+  /* margin-top: 10rem;
+  margin-bottom: 10rem; */
+
+}
+.buttonHolderOutlineSparkleCount {
+    /* width: 1rem; */
+   
+    /* grid-column-start: 3;
+    grid-column-end: 4; */
+    margin-top: 7rem;
+    margin-bottom: 10rem;
+    background: none;
+    background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
+    padding: 0.3rem;
+    border-radius: 2rem;
+    border: #cd1d58 2px solid;
+    height: fit-content;
+    width: fit-content;
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+  
+  }
+
+#verticalRightContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content:baseline;
+    align-items: center;
     margin: 0;
-    top: 0;
+    
 }
 #menuText {
     color: white;
@@ -32,7 +82,9 @@ body {
     font-family: 'FruitFont';
     src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
     color: var(--black);
-    margin: 1%;
+    margin: 0.5rem;
+    
+    margin-top: 0;
     /* overflow-x: hidden;
     overflow-y: hidden; */
 
@@ -50,7 +102,7 @@ body {
   
     /* Make the grid have 10 explicit rows, 50px high each */
     grid-template-rows: 1fr;
-   
+   margin: 0.25rem;
     
 }
 
@@ -64,18 +116,22 @@ body {
     font-size:larger;
 
 
-    margin-left: 1rem;
     padding-left: 2rem;
     padding-top: 0.8rem;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    position: relative;
+    z-index: -1;
 }
 
 #sparkles_status {
-    text-align: right;
-    padding-right: 2rem;
+    text-align: center;
+    font-size: 40px;
+    height:fit-content;
+    margin: 0;
+    align-self: center;
 }
 
 .dropdown{ 
@@ -87,7 +143,6 @@ body {
     margin-top:0.4rem;
 }
 
-#dropdown_area:hover .dropdown{ display:block;}
 
 li {
     margin-left:-1.5rem;
@@ -109,13 +164,12 @@ li {
     text-align: center;
     margin-bottom: 5rem;
     padding-top: 0;
+
    
 }
 
 .canvas {
     grid-column-start: 2;
-    
-
     grid-row-start: 1;
     grid-row-end: 4;
     /* justify-content: center;
@@ -138,7 +192,7 @@ li {
 
 .logo {
    
-   
+
     /* justify-content: right; */
     /* grid-row: span 4;
     grid-column-start: 0;
@@ -147,7 +201,9 @@ li {
     /* position: absolute; */
 
     /* margin-left: 0rem; */
-   margin: auto;
+   margin: 0;
+   
+    align-self: center;
    margin-top: 0rem;
     
     /* transform: scale(.2); */
@@ -156,6 +212,7 @@ li {
 }
 
   iframe {
+  
     /* transform: scale(0.9);
     overflow-x: visible;
     margin: auto;

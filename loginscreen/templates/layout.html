@@ -37,8 +37,8 @@
       <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" width="270"
         height="200" />
 
-      <div id="buttonHolderOutline">
-        <div id="buttonHolder">
+      <div class="buttonHolderOutline">
+        <div class="buttonHolder">
           <h1 id="menuText"> MENU </h1>
           <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django -->
           <a href="/home">
@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <div id="sparkles_status"> Sparkles: {{ user.profile.sparkles }} </div>
+    
       </div>
 
       <div class="canvas pinkContainer darkPinkContainer">
@@ -88,6 +88,22 @@
         {% endblock %}
       </div>
     </div>
+
+    <div id="verticalRightContainer">
+      <a href="/logout">
+        <button class="medPinkShine superRound outline navButton logoutButton" >Logout</button>
+      </a>
+    
+      <div class="buttonHolderOutlineSparkleCount">
+        <div class="buttonHolderSparkleCount">
+          <div id="sparkles_status"> {{ user.profile.sparkles }} </div>
+          <img class="logo" src="../../../../static/loginscreen/assets/images/singleSparkle.png", alt="game_sparkles" width = "60" height="60" />
+         
+        
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
