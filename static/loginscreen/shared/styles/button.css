@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+a {
+  cursor: pointer;
+}
 button {
     position: relative;
     width: 20rem;
@@ -15,13 +18,14 @@ button {
     font-weight: bold;
     font-size: 24px;
     margin: 4px;
+    cursor: pointer;
+
   }
 
   button.navButton:hover {
     /* background:#FDC9D3; */
     background: radial-gradient(ellipse farthest-corner at top left,   #E5357B 15%, #FF85B6 30%, #E5357B 50%);
     color: #FFF3F5;
-
   }
 
   .navButton {
@@ -113,3 +117,4 @@ button {
     text-wrap:pretty;
     text-align: center;
   }
+
