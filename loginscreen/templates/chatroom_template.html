@@ -5,19 +5,71 @@
 {% block content %}
 
 <head>
-    
-   <style>
-    #game {
-        align-self: center;
-        padding: 0;
-        margin: 0;
-    }
-   </style>
-    
+
+    <style>
+        #game {
+            align-self: center;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
 
 </head>
-    <!-- Correctly positioning/parenting the phaser canvas: https://phaser.discourse.group/t/how-do-i-move-phaser-game-to-the-center-of-a-browser/8577 -->
-    <!-- Remove border form iframe: https://stackoverflow.com/questions/65034/remove-border-from-iframe-->
-    <iframe id = "game" src="http://localhost:8081" width="920" height="620" frameBorder="0"> Server not available.</iframe>
+<!-- Correctly positioning/parenting the phaser canvas: https://phaser.discourse.group/t/how-do-i-move-phaser-game-to-the-center-of-a-browser/8577 -->
+<!-- Remove border form iframe: https://stackoverflow.com/questions/65034/remove-border-from-iframe-->
+<iframe id="game" src="http://localhost:8081" width="920" height="620" frameBorder="0"> Server not available.</iframe>
 
-   {% endblock %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    let username = "";
+    let wearing = "";
+    getUsername();
+
+    function sendMessage() {
+        const message = {"username": username, "wearing":wearing};
+        const iframe = document.querySelector("iframe");
+        iframe.contentWindow.postMessage(message, "*");
+    }
+
+    // get the user's username info
+    function getUsername() {
+        // first, get the number of sparkles that the user currently has
+        $.ajax({
+            url: '/get_username/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                username = data.username;
+                getWearing();
+                
+            },
+            error: function (error) {
+                console.log(`Error ${error}`);
+            }
+        });
+    }
+
+    // get the user's wearing info and update the global var wearing to match it 
+    function getWearing() {
+        $.ajax({
+            url: '/get_wearing/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                wearing = data;
+                console.log("wearing:", data);
+                sendMessage();
+               
+            },
+            error: function (error) {
+                console.log(`Error ${error}`);
+            }
+        });
+    }
+
+
+</script>
+
+{% endblock %}

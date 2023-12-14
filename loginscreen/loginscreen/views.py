@@ -149,3 +149,9 @@ def get_owns(request):
     if request.method == 'GET':
         response = {'owns':  Profile.objects.get(user=request.user).owns}
         return JsonResponse(response) # return a JSON response https://testdriven.io/blog/django-ajax-xhr/ and https://djangocentral.com/django-ajax-with-jquery/#making-ajax-get-requests-with-django-and-jquery 
+    
+def get_username(request):
+    if request.method == 'GET':
+        username = request.user.username
+        response = {'username':  username}
+        return JsonResponse(response) 

@@ -40,15 +40,24 @@ function preload() {
   this.load.tilemapTiledJSON('map', '../static/loginscreen/assets/sheets/universeTiles.json');
 
   this.load.html('chatInput', '../static/loginscreen/chatroom/html/chatInput.html');
+  window.addEventListener('message', function(event) {
+    console.log("Message received from the parent: " + event.data); // Message received from parent
+    username = event.data.username;
+   
+  });
+}
   
 }
 
+var username = "Unknown user";
 function create() {
-  
+ 
+ 
   var self = this;
-  
   this.socket = io();
   this.otherPlayers = this.physics.add.group();
+
+ 
  
   // populate all of the players for the current user
   this.socket.on('currentPlayers', function (players) {
@@ -92,9 +101,9 @@ function create() {
     });
   });
 
-  this.socket.on('showNewChat', function(text) {
-    console.log("showNewChat");
-    addNewChat(text);
+  this.socket.on('showNewChat', function(text, user) {
+    console.log("showNewChat: text =",text, "user=",user);
+    addNewChat(text, user);
   });
 
   cursors = this.input.keyboard.createCursorKeys();
@@ -112,7 +121,6 @@ function create() {
   // focus: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
   focus(this);
 
-  
 
   const element = this.add.dom(CANVAS_WIDTH * 0, CANVAS_HEIGHT).createFromCache('chatInput');
   element.setOrigin(0,1);
@@ -125,10 +133,10 @@ function create() {
 
   // put scrollbar at bottom is from: https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
   chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
-
   let submitChatButton = document.getElementById("submitchat");
   submitChatButton.addEventListener("click", function() {
-    submitChat(self);
+    console.log("self.username:", username);
+    submitChat(self, username);
   });
 
 
@@ -311,21 +319,22 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
 
 
 // if there is a valid message in the chatbox, emit a signal that there is a new chat
-function submitChat(self) {
+function submitChat(self, user) {
   let chatInput = document.getElementById("chat");
   let text = chatInput.value;
   if (text){
-    self.socket.emit('newChat', text);
+    console.log("emit: ", user);
+    self.socket.emit('newChat', text, user);
   }
 }
 
 // add a new chat to the chatlog
-function addNewChat(text) {
+function addNewChat(text, user) {
   let chatLog = document.getElementById("chatLog");
   let chatInput = document.getElementById("chat");
   let message = document.createElement("div");
   message.classList.add("message");
-  message.innerHTML = "username: " + text;
+  message.innerHTML = user + ": " + text;
   chatLog.appendChild(message);
   chatInput.value = "";
 

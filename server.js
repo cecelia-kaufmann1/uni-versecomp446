@@ -57,10 +57,12 @@ io.on('connection', function (socket) {
     });
 
     // when a player submits a chat, update it for everyone
-    socket.on('newChat', function (text) {
+    socket.on('newChat', function (text, user) {
         // emit a message to all players about the chat
-        console.log("chat! = " + text);
-        io.emit('showNewChat', text);
+        console.log("chat = " + text);
+        io.emit('showNewChat', text, user);
+    });
+
     });
 });
 
