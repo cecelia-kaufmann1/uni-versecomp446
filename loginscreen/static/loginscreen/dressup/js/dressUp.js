@@ -91,7 +91,7 @@ function getSparklesNum() {
 // Fill the 'My Clothes' section with owned clothes
 function populateOwnedClothes() {
     let closet = document.getElementById("closet");
-    closet.style.backgroundColor = "#3ED0DD";
+    closet.style.backgroundColor = "#A28654";
     closet.replaceChildren();
     for (let i = 0; i < owns.length; i++) {
         let id = owns[i];
@@ -109,7 +109,7 @@ function populateOwnedClothes() {
 // Fill the 'Shop' section with unowned clothes
 function populateShop() {
     let closet = document.getElementById("closet");
-    closet.style.backgroundColor = "#CCCCFF";
+    closet.style.backgroundColor = "#78633E";
     closet.replaceChildren();
     for (let i = 0; i < clothes.length; i++) {
         let itemIsOwned = false;

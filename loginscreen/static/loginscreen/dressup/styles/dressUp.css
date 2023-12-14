@@ -12,7 +12,7 @@
     grid-auto-rows: 12rem;
     /* background-color: #3ED#0DD; */
     /* border: solid 15px #1d7077; */
-    border: solid 5px #404b4b;
+    border: solid 5px #655334;
    
 
     /* Custom border radius: https://blog.avada.io/css/border-examples
@@ -37,7 +37,7 @@
     border-top-right-radius: 3rem;
     
     /* border: solid #1d7077 5px; */
-    border: solid #404b4b 5px;
+    border: solid #655334 5px;
     text-align: center;
     border-bottom-width: 0;
     
@@ -175,7 +175,7 @@
 
 #frame .clothingItemBorder {
     /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
-    background: linear-gradient(120deg, #B7FAFF
+    background: linear-gradient(120deg, #655334
     30%, white);
     padding: 0.3rem;
     border-radius: 1rem;
@@ -186,7 +186,7 @@
 
 #frame .clothingItem {
     /* background-color: #B7FAFF; */
-    background-color: #B7FAFF
+    background-color: #c2a97e
     ;
     
     border-radius: 1rem;
@@ -214,14 +214,14 @@
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row: 1;
-    background-color: #3ED0DD;
+    background-color: #A28654;
 }
 #frame #shop {
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row: 1;
     margin-left: 3rem;
-    background-color: #CCCCFF;
+    background-color: #78633E;
 }
 
 #frame .verticalContainer {
@@ -249,9 +249,9 @@
     height: 95%;
     width: 95%;
     
-    background-image: url("../../assets/images/dressup_background.png");
+    background-image: url("../../assets/images/dressup_bg2.png");
     background-repeat: no-repeat;
-    background-size: 105% 100%;
+    background-size: 123% 104%;
 
     /* height: 100%;
     background-image: url("../images/dressup_bg2.png");
@@ -353,7 +353,7 @@
 .scrollbar::-webkit-scrollbar-track {
     border-radius: 10px;
    
-    background: linear-gradient(90deg, #9ef5fb, #c2fbff 40% 60%,#9ef5fb);
+    background: linear-gradient(90deg, #f6e3e3, #f8bdbb 40% 60%,#f6e3e3);
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
     margin: 7rem;
     
@@ -361,8 +361,8 @@
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-     background: linear-gradient(white, #30a1ab 20%);
-     border: 1px #30a1ab solid;
+     background: linear-gradient(white, #ffd6d5 20%);
+     border: 1px #a56463 solid;
     border-radius: 10px;
 }
 
