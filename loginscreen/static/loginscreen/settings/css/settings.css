@@ -1,8 +1,9 @@
 #frame {
     background: white;
-    width: auto;
     padding: 2%;
     border-radius: 2%;
+    height: 33rem;
+    width: 60rem;
 }
 
 #confirm_button {

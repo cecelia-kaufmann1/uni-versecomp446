@@ -24,6 +24,9 @@ const SPRITE_SCALE = 1.25;
     dom: {
       createContainer: true
     },
+    scale : {
+     mode:  Phaser.Scale.RESIZE,
+    }
   }
   
   

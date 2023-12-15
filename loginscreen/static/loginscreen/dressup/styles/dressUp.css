@@ -247,8 +247,8 @@
     padding: 0;
 }
 #frame {
-    height: 530px;
-    width: 950px;
+    height: 33rem;
+    width: 60rem;
     
     background-image: url("../../assets/images/dressup_bg2.png");
     background-repeat: no-repeat;
