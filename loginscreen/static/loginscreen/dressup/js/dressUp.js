@@ -327,13 +327,15 @@ function purchaseItems() {
     if (costInCart <= numSparkles) {
         for (let i = 0; i < itemsInCart.length; i++) {
             owns.push(itemsInCart[i]);
-            saveOwnsToDB();
+           
         }
         
         console.log("Purchased item(s), calculating..." + numSparkles + "-" + costInCart);
         numSparkles = numSparkles - costInCart;
         console.log("numSparkles is now: " + numSparkles)
         updateSparklesInDB();
+
+        saveOwnsToDB();
         
         costInCart = 0;
         itemsInCart = [];
