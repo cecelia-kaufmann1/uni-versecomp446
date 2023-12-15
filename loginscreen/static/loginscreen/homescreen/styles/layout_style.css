@@ -58,6 +58,8 @@
 
 p {
     margin: 0;
+    padding: 1rem;
+    font-size: 20px;
 }
 
 .logo {
@@ -235,35 +237,6 @@ li {
     
 }
 
-
-/* Code for animating a gif: https://blog.logrocket.com/making-css-animations-using-a-sprite-sheet/ */
-@keyframes sprite {
-    to { background-position: -45450px }
-  }
-  
-  #gif{
-    height: 297px;
-    width: 225px;
-    background: url("../../assets/sheets/sunglassesSheet.png");
-    animation: sprite 20s steps(202) infinite;
-    transform: translate(-25%, -25%) scale(0.5);
-  }
-  
-  @media only screen and (min-width: 1024px) {
-    #gif {
-      transform: scale(0.5);
-      /* background-color: red; */
-      margin: 0;
-      padding: 0;
-      right: 0;
-      bottom: 0;
-      position:fixed;
-      
-    }
-  }
-
-
-  
 
 
   

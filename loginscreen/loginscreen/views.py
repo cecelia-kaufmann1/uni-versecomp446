@@ -106,7 +106,7 @@ def game_template(request):
 
 @login_required(login_url="/")
 def home_template(request):
-    return render(request, 'layout.html')
+    return render(request, 'home_template.html')
 
 @csrf_exempt # this allows posts to be made without any admin stuff (no 404 errors)
 def update_sparkles(request):
