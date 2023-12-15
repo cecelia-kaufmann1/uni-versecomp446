@@ -78,6 +78,9 @@ def run_dressup(request):
     # create data dictionary 
     return render(request, 'dressUp_template.html', {'username': request.user, 'sparkles': request.user.profile.sparkles}) 
 
+def run_settings(request):
+    return render(request, 'settings.html')
+
 def testcall(request):
    response =  request.user
    #Send the response

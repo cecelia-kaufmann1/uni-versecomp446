@@ -36,6 +36,7 @@ urlpatterns = [
     path('game_over/', views.game_over, name='game_over'),
     path('start_game/', views.start_game, name='start_game'),
     path('score_/', views.score, name='score'),
+    path('settings/', views.run_settings, name="settings"),
     
     
     path('my-ajax-test/', views.testcall),

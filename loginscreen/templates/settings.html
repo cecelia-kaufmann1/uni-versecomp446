@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+
+<head> 
+    <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../static/loginscreen/settings/css/settings.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    {% load static %}
+     <script src="{% static './loginscreen/settings/js/settings.js' %}"></script>
+</head>
+
+    <div id="frame">
+        <h1>Settings</h1>
+
+        <h2>Volume</h2>
+        <div class="accessibility_element">
+            <label> Volume: </label>
+            <label class="switch" >
+                <input type="checkbox" id="volume_toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <h2>Accessibility</h2>
+        
+        <div class="accessibility_element">
+            <label> Accessibility Font: </label>
+            <label class="switch">
+                <input type="checkbox" id="font_toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="accessibility_element">
+            <label> Larger Font: </label>
+            <label class="switch">
+                <input type="checkbox" id="font_size_toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="accessibility_element">
+            <label> Simplify Buttons: </label>
+            <label class="switch">
+                <input type="checkbox" id="buttons_toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="accessibility_element">
+            <label> Color Blindness Friendly Colors: </label>
+            <label class="switch">
+                <input type="checkbox" id="colors_toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        
+    </div>
+
+    
+{% endblock %}
