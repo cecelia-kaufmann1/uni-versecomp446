@@ -25,12 +25,13 @@
 <script>
     let username = "";
     let wearing = "";
+    let owns = "";
     setTimeout(getUsername, 1000);
     // getUsername();
 
     function sendMessage() {
         console.log("sent!");
-        const message = {"username": username, "wearing": wearing};
+        const message = {"username": username, "wearing": wearing, "owns" : owns};
         const iframe = document.querySelector("iframe");
         iframe.contentWindow.postMessage(message, "*");
     }
@@ -45,7 +46,6 @@
             success: function (data) {
                 username = data.username;
                 console.log("sending...");
-                // sendMessage();
                 getWearing();
             },
             error: function (error) {
@@ -62,7 +62,22 @@
             dataType: "json",
             success: function (data) {
                 wearing = data;
-                console.log("wearing:", data);
+                getOwns();
+            },
+            error: function (error) {
+                console.log(`Error ${error}`);
+            }
+        });
+    }
+
+    // get the user's owns info and update the global var wearing to match it 
+    function getOwns() {
+        $.ajax({
+            url: '/get_owns/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                owns = data;
                 sendMessage();
                
             },

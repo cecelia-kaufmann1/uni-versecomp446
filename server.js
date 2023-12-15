@@ -30,7 +30,8 @@ io.on('connection', function (socket) {
         playerId: socket.id,
         team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue',
         wearing: [],
-        username: null
+        username: null,
+        owns: []
         
     };
     // send the players object to the new player
@@ -61,9 +62,10 @@ io.on('connection', function (socket) {
     });
 
     // update the server data for this player for their username and their wearing array
-    socket.on('updatePlayerUsernameAndWearing', function (username, wearing){
+    socket.on('updatePlayerUsernameAndWearing', function (username, wearing, owns){
         players[socket.id].username = username;
         players[socket.id].wearing = wearing;
+        players[socket.id].owns = owns;
         socket.emit('updateSelf', players[socket.id]); // tell client to update the current player
     });
 

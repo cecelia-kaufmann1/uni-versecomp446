@@ -48,6 +48,7 @@ function preload() {
 
 var username = "Unknown user";
 var wearing = [];
+var owns = [];
 function create() {
 
 
@@ -59,7 +60,8 @@ function create() {
   window.addEventListener('message', function (event) {
     username = event.data.username; // current player username
     wearing = event.data.wearing; // current player wearing
-    self.socket.emit('updatePlayerUsernameAndWearing', username, wearing); // save the data to the server
+    owns = event.data.owns; // current player owns
+    self.socket.emit('updatePlayerUsernameAndWearing', username, wearing, owns); // save the data to the server
   });
 
   // update another player based on the new username and wearing data
@@ -324,24 +326,34 @@ function putOnClothes(self, sprite, playerInfo) {
   if (typeof (playerInfo.wearing.wearing) == "string") {
     wearingArray = convertStringToArray(playerInfo.wearing.wearing);
   }
+  let ownsArray = playerInfo.owns;
+  if (typeof (playerInfo.owns.owns) == "string") {
+    ownsArray = convertStringToArray(playerInfo.owns.owns);
+  }
 
   wearingArray.forEach((item) => {
     let id = item;
     let name = clothes[id].name;
     let itemType = clothes[id].type;
 
-    var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
-    if (itemType == "skirt") {
-      clothingItem.setOrigin(-2, -1.1);
-    } else if (itemType == "top") {
-      clothingItem.setOrigin(-0.6, -1.1);
-    } else if (itemType == "bottom") {
-      clothingItem.setOrigin(-1.9, -0.9);
+    // if any of the clothes in wearing aren't also owned, do not put them on.
+    if (ownsArray.includes(id)) {
+
+      var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
+      if (itemType == "skirt") {
+        clothingItem.setOrigin(-2, -1.1);
+      } else if (itemType == "top") {
+        clothingItem.setOrigin(-0.6, -1.1);
+      } else if (itemType == "bottom") {
+        clothingItem.setOrigin(-1.9, -0.9);
+      }
+      clothingItem.itemType = itemType;
+      sprite.add(clothingItem);
     }
-    clothingItem.itemType = itemType;
-    sprite.add(clothingItem);
   });
 }
+
+
 
 function convertStringToArray(str) {
   let newArray = [];

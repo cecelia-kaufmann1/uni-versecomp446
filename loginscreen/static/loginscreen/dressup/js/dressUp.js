@@ -215,9 +215,13 @@ function putOn(item, itemType, id) {
     avatar.appendChild(clothing);
     avatar.classList.add(itemType);
 
-    if (!isWearing(id)) {
-        wearing.push(id);
-        saveWearingToDB();
+    if (!isWearing(id) ) {
+        if (!userOwnsItem) {
+            
+        } else {
+            wearing.push(id);
+            saveWearingToDB();
+        }
     } 
     if (!userOwnsItem(id)) {
         costInCart += clothes[id].price;
@@ -427,6 +431,8 @@ function saveWearingToDB() {
         },
         success: function(data) {
             console.log("posted wearing: ", data);
+        }, error: function (error) {
+            console.log(`Error ${error}`);
         }
     })
 }
