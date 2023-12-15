@@ -27,9 +27,9 @@
 
 
     /* Fixes resizing issues */
-    margin-left:auto;
+    /* margin-left:auto;
     margin-right:auto;
-    width:990px;
+    width:990px; */
    
   }
 
@@ -47,13 +47,20 @@
     border-bottom-color: #ff4382;
     border-right-color: #ff4382;
     /* padding-top: 1rem; */
-    padding-bottom: 1rem;
-    margin: 4%;
-    margin-top: 2%;
+    /* padding-bottom: 1rem; */
+    /* margin: 4%;
+    margin-top: 2%; */
     /* width:1300px; */
-    width: 90%;
+    width: 80%;
     min-width: 1300px;
-    justify-self: center;
+    
+    margin: auto;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    position: absolute;
+ 
     /* position:; */
     align-items: baseline;
 
