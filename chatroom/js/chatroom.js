@@ -179,7 +179,10 @@ function create() {
   chatInput.addEventListener("keydown", (event) => {
     if (event.key == " ") {
       chatInput.value += " ";
+    } else if (event.key == "Enter") {
+      submitChat(self, username);
     }
+
   });
 
   this.boundaries = this.physics.add.staticGroup();
@@ -330,7 +333,6 @@ function putOnClothes(self, sprite, playerInfo) {
   if (typeof (playerInfo.owns.owns) == "string") {
     ownsArray = convertStringToArray(playerInfo.owns.owns);
   }
-
   wearingArray.forEach((item) => {
     let id = item;
     let name = clothes[id].name;
