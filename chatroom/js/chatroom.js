@@ -39,6 +39,7 @@ function preload() {
   this.load.image('top3', '../static/loginscreen/assets/images/clothes/top3.png');
   this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
   this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
+  this.load.image('singleSparkle', '../static/loginscreen/assets/images/singleSparkle.png');
   
 
   this.load.image('accessories', '../static/loginscreen/assets/sheets/grassSheet.png');
@@ -305,6 +306,7 @@ function addPlayer(self, playerInfo) {
   let baseImage = self.physics.add.image(0, 0, 'player').setOrigin(0, 0).setScale(0.3);
 
   self.ship.add(baseImage);
+ 
 
   if (playerInfo.team === 'blue') {
     // self.ship.setTint(0x0000ff);
@@ -318,6 +320,8 @@ function addPlayer(self, playerInfo) {
 
   self.ship.body.setCollideWorldBounds(true);
   self.physics.add.collider(self.ship, self.boundaries);
+
+  makeParticleEmitter(self, self.ship);
 
 
 }
@@ -342,8 +346,33 @@ function addOtherPlayers(self, playerInfo) {
   putOnClothes(self, otherPlayer, playerInfo);
 
   self.otherPlayers.add(otherPlayer);
+
+  makeParticleEmitter(self, otherPlayer);
+
 }
 
+// add a sparkle particle emitter to the given sprite for 1 second
+function makeParticleEmitter(self, sprite) {
+
+  const particles = self.add.particles('singleSparkle');
+  particles.setPosition(sprite.body.halfWidth,sprite.body.height);
+  
+  particles.createEmitter({
+    quantity: 5,
+   
+    speed: 120,
+    lifespan: 500,
+    alpha: { start: 1, end: 0 },
+    frequency: 100,
+    scale: 0.4
+  });
+
+  sprite.add(particles);
+  sprite.bringToTop(particles);
+  self.time.delayedCall(1000, ()=>{
+    particles.destroy();
+});
+}
 function putOnClothes(self, sprite, playerInfo) {
 
   let wearingArray = playerInfo.wearing;
