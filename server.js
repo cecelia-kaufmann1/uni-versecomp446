@@ -59,16 +59,15 @@ io.on('connection', function (socket) {
         
     });
 
-    socket.on('updatePlayerUsername', function (username, wearing){
+    // update the server data for this player for their username and their wearing array
+    socket.on('updatePlayerUsernameAndWearing', function (username, wearing){
         players[socket.id].username = username;
         players[socket.id].wearing = wearing;
-        socket.emit('updateSelf', players[socket.id]);
-        
-       
+        socket.emit('updateSelf', players[socket.id]); // tell client to update the current player
     });
 
+    // after current user is updated, send message to everyone else to update their version of that player
     socket.on('selfFinishedUpdating', function(){
-        console.log("self finshed updating");
         io.emit('updatePlayer', players[socket.id]);
     });
 
