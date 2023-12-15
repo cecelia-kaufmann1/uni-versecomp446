@@ -36,6 +36,7 @@ function preload() {
   this.load.image('top3', '../static/loginscreen/assets/images/clothes/top3.png');
   this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
   this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
+  
 
   this.load.image('accessories', '../static/loginscreen/assets/sheets/grassSheet.png');
   this.load.tilemapTiledJSON('map', '../static/loginscreen/assets/sheets/universeTiles.json');
@@ -179,6 +180,9 @@ function create() {
     }
   });
 
+  this.boundaries = this.physics.add.staticGroup();
+  this.boundaries.create(0, 320, 'bigGrass').setScale(2.9, 6).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+
 }
 const MAX_SPEED = 120;
 var xSpeed = 0;
@@ -189,11 +193,14 @@ function update() {
   if (this.ship) {
 
     if (cursors.left.isDown) {
+      
       xSpeed = -1;
       this.ship.flipX = false;
       setPlayerFlipX(this.ship, false);
+      
 
     } else if (cursors.right.isDown) {
+      
       xSpeed = 1;
       this.ship.flipX = true;
 
@@ -284,6 +291,8 @@ function addPlayer(self, playerInfo) {
   self.ship.username = playerInfo.username;
 
   self.ship.body.setCollideWorldBounds(true);
+  self.physics.add.collider(self.ship, self.boundaries);
+
 
 }
 
