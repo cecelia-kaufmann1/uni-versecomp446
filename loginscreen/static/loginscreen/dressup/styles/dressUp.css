@@ -123,7 +123,7 @@
     left: -10rem; */
 }
 #frame .cartVerticalContainer {
-    left: 50rem;
+    left: 45rem;
     bottom: 4.8rem;
     position: absolute;
     background-color: #FFFFFFD0;
@@ -247,12 +247,12 @@
     padding: 0;
 }
 #frame {
-    height: 95%;
-    width: 95%;
+    height: 530px;
+    width: 950px;
     
     background-image: url("../../assets/images/dressup_bg2.png");
     background-repeat: no-repeat;
-    background-size: 123% 104%;
+    background-size: 120% 110%;
 
     /* height: 100%;
     background-image: url("../images/dressup_bg2.png");
