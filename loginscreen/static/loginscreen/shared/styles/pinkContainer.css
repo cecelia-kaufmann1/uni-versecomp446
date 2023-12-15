@@ -46,9 +46,17 @@
     border-left-color: #ff71a0;
     border-bottom-color: #ff4382;
     border-right-color: #ff4382;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
     padding-bottom: 1rem;
-    width:900px;
+    margin: 4%;
+    margin-top: 2%;
+    width:1300px;
+    justify-self: center;
+    /* position:; */
+    align-items: baseline;
+
+    /* height: 600px; */
+    
   } 
 
   

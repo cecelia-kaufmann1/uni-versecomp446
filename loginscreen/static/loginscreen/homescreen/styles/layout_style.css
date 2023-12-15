@@ -1,67 +1,79 @@
 
+#verticalContainer {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
 
+#navbar {
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+#horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    /* background-color: yellow; */
+}
+
+#userInfoVerticalContainer {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.buttonHolderSparkleCount { 
+    background: radial-gradient(ellipse at center,  #febdd3 0%, #ff72a1 60%, #ff4382 100%);
+    /* padding: 1rem; */
+    border-radius: 2rem;
+    border: #cd1d58 2px solid;
+    margin: 0;
+   
+    height: 6rem;
+    width:7rem;
+      display: flex;
+      flex-direction: row;
+    
+  justify-content: center;
+  align-content: center;
+  
+  }
+  .buttonHolderOutlineSparkleCount {
+     
+      background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
+      padding: 2%;
+      border-radius: 2rem;
+      border: #cd1d58 2px solid;
+      height: fit-content;
+      width: fit-content;
+      box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+      margin-bottom:15%;
+    }
+
+
+p {
+    margin: 0;
+}
+
+.logo {
+
+    /* position:fixed; */
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
+    transform: rotate(-20deg) translateY(-10%) scale(1.2);
+    
+}
+
+/* --------- old stuff ---------*/
 a { 
     text-decoration: none; 
 } 
 
-.buttonHolder {
-    background-color:#ff72a1;
-    padding: 1rem;
-    border-radius: 3rem;
-    border: #cd1d58 2px solid;
-    margin: 0;
-    background: radial-gradient(ellipse at center,  #FFF3F5 10%, #ff72a1 70%, #ff4382 100%);
-}
-.buttonHolderOutline {
-    
-    background: linear-gradient(135deg, #ff4382 60%, #fb84ac 70%);
-    padding: 0.75rem;
-    border-radius: 4rem;
-    border: #cd1d58 2px solid;
-    /* margin: 0; */
-    /* top: 0; */
-}
-.buttonHolderSparkleCount {
-  /* width: 4rem; */
-  
-  /* grid-row-start: 2;
-  grid-row-end: 6; */
-  
-  background: radial-gradient(ellipse at center,  #febdd3 0%, #ff72a1 60%, #ff4382 100%);
-  /* padding: 1rem; */
-  border-radius: 2rem;
-  border: #cd1d58 2px solid;
-  margin: 0;
- 
-  height: 6rem;
-  width:7rem;
-    display: flex;
-    flex-direction: row;
-  
-justify-content: center;
-align-content: center;
 
-  /* margin-top: 10rem;
-  margin-bottom: 10rem; */
-
-}
-.buttonHolderOutlineSparkleCount {
-    /* width: 1rem; */
-   
-    /* grid-column-start: 3;
-    grid-column-end: 4; */
-    margin-top: 7rem;
-    margin-bottom: 10rem;
-    background: none;
-    background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
-    padding: 0.3rem;
-    border-radius: 2rem;
-    border: #cd1d58 2px solid;
-    height: fit-content;
-    width: fit-content;
-    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
-  
-  }
 
 #verticalRightContainer {
     display: flex;
@@ -69,9 +81,9 @@ align-content: center;
     justify-content:baseline;
     align-items: center;
     margin: 0;
-    width: 6rem;
-    
+    width: 50%;    
 }
+
 #menuText {
     color: white;
     top: 0;
@@ -88,34 +100,37 @@ body {
     font-family: 'FruitFont';
     src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
     color: var(--black);
-    margin: 0.5rem;
-    
+    /* margin: 1%; */
     margin-top: 0;
-    /* overflow-x: hidden;
-    overflow-y: hidden; */
-
+   
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+   
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .container {
     display: grid;
   
     /* Make gutters between each row and column of 1rem */
-    column-gap: 1rem;
-    row-gap: 1rem;
+    column-gap: 2%;
   
     /* Make the grid 10 columns wide, every other taking up twice the free space */
     grid-template-columns: 1fr 15fr 2fr;
   
-    /* Make the grid have 10 explicit rows, 50px high each */
-    grid-template-rows: 1fr;
-   margin: 0.25rem;
+   margin: 1%;
     
 }
 
 .user_bar {
     background: #C93667;
     border-radius: 5rem;
-    height: 5rem;
+    height: 10%;
     width: 35rem;
     
     color: white;
@@ -179,9 +194,9 @@ li {
 }
 
 .canvas {
-    grid-column-start: 2;
+    /* grid-column-start: 2;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 4; */
     /* justify-content: center;
     align-items: center;
     font-size: 1.5em;
@@ -189,7 +204,7 @@ li {
    /* border: 0.1rem solid rgba(255, 255, 255, 0.25);
     border-radius: 0.25em;
     padding: 0.125rem; */
-    margin-top: -2.5rem;
+    /* margin-top: -2.5rem; */
 }
 
 .header_empty {
@@ -200,26 +215,17 @@ li {
    
 }
 
-.logo {
-   
+.image {
 
-    /* justify-content: right; */
-    /* grid-row: span 4;
-    grid-column-start: 0;
-    grid-column-end: 1; */
-
-    /* position: absolute; */
-
-    /* margin-left: 0rem; */
+    
    margin: 0;
    
     align-self: center;
    margin-top: 0rem;
-    
-    /* transform: scale(.2); */
-    /* transform: rotate(-15deg); */
     filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
 }
+
+
 
   iframe {
   
@@ -261,8 +267,9 @@ li {
       /* background-color: red; */
       margin: 0;
       padding: 0;
-      left: -10rem;
-      top: 0;
+      right: 0;
+      bottom: 0;
+      position:fixed;
       
     }
   }

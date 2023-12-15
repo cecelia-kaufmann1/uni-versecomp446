@@ -31,84 +31,58 @@
 </head>
 
 <body>
-  <div class="container">
-
-    <div class="item">
-      <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" width="270"
+ 
+  <div class="canvas pinkContainer darkPinkContainer">
+   
+    <div id = "horizontalContainer">
+      <div id="userInfoVerticalContainer">
+        <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" width="270"
         height="200" />
-
-      <div class="buttonHolderOutline">
-        <div class="buttonHolder">
-          <h1 id="menuText"> MENU </h1>
-          <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django -->
-          <a href="/home">
-            <button class="medPinkShine superRound outline navButton">Home</button>
-          </a>
-          <a href="/game">
-            <button class="medPinkShine superRound outline navButton" onclick="clickGetSparkles()">Get
-              Sparkles</button>
-          </a>
-
-          <a href="/dressup">
-            <button class="medPinkShine superRound outline navButton" id="dressUp" onclick="clickDressUp()">Dress
-              Up</button>
-          </a>
-          <a href="/chatroom">
-            <button class="medPinkShine superRound outline navButton" onclick="clickChatroom()">Chatroom</button>
-          </a>
-          <a href="/settings">
-            <button class="medPinkShine superRound outline navButton">Settings</button>
-          </a>
-
-        </div>
-      </div>
-
-
-
-    </div>
-
-
-    <div>
-      <div class="user_bar">
-        <div id="dropdown_area">
-          Welcome, {{ user.profile.user }}!
-          <div class="dropdown">
-            <ul class="dropdown_content">
-              <li> <a href="{% url 'logout' %}">Log Out</a> </li>
-
-            </ul>
+        <p> Welcome, {{ user.profile.user }}!</p>
+        <p> Total Sparkles:</p>
+        <div class="buttonHolderOutlineSparkleCount">
+          <div class="buttonHolderSparkleCount">
+            <div id="sparkles_status"> {{ user.profile.sparkles }} </div>
+            <img class="image" src="../../../../static/loginscreen/assets/images/singleSparkle.png", alt="game_sparkles" width = "60" height="60" />
+            
+          
           </div>
         </div>
-
-    
+        <a href="/settings">
+          <button class="medPinkShine superRound outline navButton">Settings</button>
+        </a>
+        <a href="/logout">
+          <button class="medPinkShine superRound outline navButton" >Logout</button>
+        </a>
       </div>
-
-      <div class="canvas pinkContainer darkPinkContainer">
-        {% block content %}
-        {% endblock %}
-      </div>
-    </div>
-
-    <div id="verticalRightContainer">
-      <a href="/logout">
-        <button class="medPinkShine superRound outline navButton logoutButton" >Logout</button>
-      </a>
-    
-      <div class="buttonHolderOutlineSparkleCount">
-        <div class="buttonHolderSparkleCount">
-          <div id="sparkles_status"> {{ user.profile.sparkles }} </div>
-          <img class="logo" src="../../../../static/loginscreen/assets/images/singleSparkle.png", alt="game_sparkles" width = "60" height="60" />
-         
-        
+        <div id="verticalContainer">
+          <div id="navbar">
+            <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django-->
+            <a href="/home">
+              <button class="medPinkShine superRound outline navButton">Home</button>
+            </a>
+            <a href="/game">
+              <button class="medPinkShine superRound outline navButton" onclick="clickGetSparkles()">Get
+                Sparkles</button>
+            </a>
+            <a href="/dressup">
+              <button class="medPinkShine superRound outline navButton" id="dressUp" onclick="clickDressUp()">Dress
+                Up</button>
+            </a>
+            <a href="/chatroom">
+              <button class="medPinkShine superRound outline navButton" onclick="clickChatroom()">Chatroom</button>
+            </a>
+          </div>
+          {% block content %}
+          {% endblock %}
         </div>
-      </div>
-      <!-- <img src="../../../../static/loginscreen/assets/images/sunglasses.gif" alt="This is an animated gif image, but it does not move"/> -->
-      <div id="gif"></div>
+       
     </div>
-
+   
   </div>
 
-
+  <!-- <div id="gif"></div> -->
+ 
 
 
 </body>
