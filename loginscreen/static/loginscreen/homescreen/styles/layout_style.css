@@ -1,3 +1,5 @@
+
+
 a { 
     text-decoration: none; 
 } 
@@ -67,6 +69,7 @@ align-content: center;
     justify-content:baseline;
     align-items: center;
     margin: 0;
+    width: 6rem;
     
 }
 #menuText {
@@ -125,6 +128,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    
     position: relative;
     z-index: -1;
 }
@@ -236,6 +240,32 @@ li {
    
     
 }
+
+
+
+@keyframes sprite {
+    to { background-position: -45450px }
+  }
+  
+  #gif{
+    height: 297px;
+    width: 225px;
+    background: url("../../assets/sheets/sunglassesSheet.png");
+    animation: sprite 20s steps(202) infinite;
+    transform: translate(-25%, -25%) scale(0.5);
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    #gif {
+      transform: scale(0.5);
+      /* background-color: red; */
+      margin: 0;
+      padding: 0;
+      left: -10rem;
+      top: 0;
+      
+    }
+  }
 
 
   

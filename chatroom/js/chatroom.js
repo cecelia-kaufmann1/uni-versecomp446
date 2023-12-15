@@ -1,4 +1,4 @@
-const CANVAS_WIDTH = 900;
+const CANVAS_WIDTH = 850;
 const CANVAS_HEIGHT = 600;
 var config = {
   type: Phaser.AUTO,
