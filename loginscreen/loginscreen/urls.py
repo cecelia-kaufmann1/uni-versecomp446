@@ -49,5 +49,8 @@ urlpatterns = [
     path('update_owns/', views.update_owns),
     path('get_username/', views.get_username),
 
+    path('update_accessibility/', views.update_accessibility),
+    path('get_accessibility/', views.get_accessibility),
+
 
 ]

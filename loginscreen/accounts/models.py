@@ -10,6 +10,12 @@ class Profile(models.Model):
     wearing = models.CharField(max_length=100, null=True)
     owns = models.CharField(max_length=100, null=True)
 
+    volume = models.BooleanField(default=True)
+    font = models.BooleanField(default=True)
+    font_size = models.BooleanField(default=True)
+    buttons = models.BooleanField(default=True)
+    colors = models.BooleanField(default=True)
+
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

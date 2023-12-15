@@ -158,3 +158,33 @@ def get_username(request):
         username = request.user.username
         response = {'username':  username}
         return JsonResponse(response) 
+
+
+@csrf_exempt
+def update_accessibility(request):
+    if request.method == 'POST':
+        current_profile = Profile.objects.get(user=request.user)
+        
+        current_profile.volume = update_accessibility_element(request.POST["volume"])
+        current_profile.font = request.POST["font"]
+        current_profile.font_size = request.POST["font_size"]
+        current_profile.buttons = request.POST["buttons"]
+        current_profile.colors = request.POST["colors"]
+
+        current_profile.save() #update the number of sparkles for the existing user
+
+        return HttpResponse(current_profile.volume)
+
+@csrf_exempt
+def get_accessibility(request):
+    if request.method == 'GET':
+
+        response = {
+            'volume':  request.user.profile.volume,
+            'font': request.user.profile.font,
+            'font_size': request.user.profile.font_size,
+            'buttons':request.user.profile.buttons,
+            'colors': request.user.profile.colors
+        }
+        return JsonResponse(response) 
+
