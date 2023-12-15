@@ -25,7 +25,10 @@ class MainScene extends Phaser.Scene {
         super("playGame");
     }
 
-
+    preload() {
+        this.load.audio('bg_music','/static/loginscreen/assets/sounds/8Bit.wav');
+        this.load.audio('sparkle','/static/loginscreen/assets/sounds/Confirm.wav');
+    }
     create() {
         // Get time that the game started (used for increasing difficulty)
         var clock = new Date();
@@ -93,6 +96,11 @@ class MainScene extends Phaser.Scene {
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
         element.on('click', function (event) {
             if (event.target.name === "play") {
+                // console.log(this.scene.sound);
+                var music = this.scene.sound.add("bg_music", { loop: true });
+                music.play();
+
+
                 this.removeElement();
                 this.destroy();
                 self.countdown();
@@ -217,6 +225,10 @@ class MainScene extends Phaser.Scene {
     }
     // test comment
     collectSparkle(player, sparkle) {
+        console.log(this.game.sound);
+        this.sound.play('sparkle')
+
+        
         sparkle.destroy();
         score += 1;
         this.updateUI();
