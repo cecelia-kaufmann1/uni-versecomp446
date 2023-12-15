@@ -19,7 +19,10 @@ var config = {
     preload: preload,
     create: create,
     update: update
-  }
+  }, 
+  scale : {
+    mode:  Phaser.Scale.RESIZE,
+   }
 };
 var game = new Phaser.Game(config);
 var cursors;
@@ -81,7 +84,23 @@ function create() {
   });
 
   // update current player based on the new username and wearing data
-  this.socket.on("updateSelf", function (playerInfo) {
+  this.socket.on("updateSelf", function (playerInfo, players) {
+     // check if player is already online
+    let numTimesLoggedIn = 0;
+    Object.keys(players).forEach(function (id) {
+      if (players[id].username === playerInfo.username) {
+        numTimesLoggedIn++;
+      }
+    });
+
+    // if you are already in the chatroom, force a disconnect
+    if (numTimesLoggedIn > 1) {
+      // code to force a disconnect: https://stackoverflow.com/questions/5048231/force-client-disconnect-from-server-with-socket-io-and-nodejs
+      self.socket.disconnect();
+
+      window.parent.postMessage("Disconnect user", "*");
+    }
+   
     // add username text below the avatar
     let usernameText = self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
     self.ship.add(usernameText);
@@ -96,9 +115,11 @@ function create() {
 
   // populate all of the players for the current user
   this.socket.on('currentPlayers', function (players, myPlayerInfo) {
+  
     Object.keys(players).forEach(function (id) {
       // add the current player
       if (players[id].playerId === self.socket.id) {
+        
         addPlayer(self, players[id]);
       } else {
         // add all other players

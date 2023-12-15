@@ -13,6 +13,25 @@
             margin: 0;
             height: 33rem;
             width: 60rem;
+           
+            /* overflow-y: hidden; */
+        }
+
+        #alreadyConnectedMessage {
+            display: none;
+            height: 33rem;
+            width: 60rem;
+            background-color: white;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            
+        }
+
+        #alreadyConnectedMessage p{
+            text-align: center;
+            justify-self: center;
+            font-size: larger;
         }
     </style>
 
@@ -21,6 +40,10 @@
 <!-- Correctly positioning/parenting the phaser canvas: https://phaser.discourse.group/t/how-do-i-move-phaser-game-to-the-center-of-a-browser/8577 -->
 <!-- Remove border form iframe: https://stackoverflow.com/questions/65034/remove-border-from-iframe-->
 <iframe id="game" src="http://localhost:8081" width="950" height="530" frameBorder="0"> Server not available.</iframe>
+
+<div id="alreadyConnectedMessage">
+    <p>You're already connected to the chatroom in another window!</p>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -89,6 +112,17 @@
         });
     }
 
+
+    window.addEventListener('message', function(event) {
+    if (event.data === "Disconnect user") {
+        // disconnect user from the iframe and show them the already connected message
+        const iframe = document.querySelector("iframe");
+        iframe.src = "";
+        iframe.style.display = "none";
+        const alreadyConnectedMessage = document.getElementById("alreadyConnectedMessage");
+        alreadyConnectedMessage.style.display = "flex";
+    }
+  });
 
 </script>
 

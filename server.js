@@ -66,7 +66,7 @@ io.on('connection', function (socket) {
         players[socket.id].username = username;
         players[socket.id].wearing = wearing;
         players[socket.id].owns = owns;
-        socket.emit('updateSelf', players[socket.id]); // tell client to update the current player
+        socket.emit('updateSelf', players[socket.id], players); // tell client to update the current player
     });
 
     // after current user is updated, send message to everyone else to update their version of that player
