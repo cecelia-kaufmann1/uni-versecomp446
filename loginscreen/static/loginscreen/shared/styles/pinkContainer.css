@@ -52,6 +52,7 @@
     margin-top: 2%;
     /* width:1300px; */
     width: 90%;
+    min-width: 1300px;
     justify-self: center;
     /* position:; */
     align-items: baseline;
