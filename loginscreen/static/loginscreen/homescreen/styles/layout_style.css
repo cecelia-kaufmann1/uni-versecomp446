@@ -242,7 +242,7 @@ li {
 }
 
 
-
+/* Code for animating a gif: https://blog.logrocket.com/making-css-animations-using-a-sprite-sheet/ */
 @keyframes sprite {
     to { background-position: -45450px }
   }
