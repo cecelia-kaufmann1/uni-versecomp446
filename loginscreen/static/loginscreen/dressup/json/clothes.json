@@ -394,60 +394,53 @@
             "id": 55
         },
         {
-            "name": "earring",
-            "type": "earringtype",
-            "url": "",
-            "price": 20,
-            "id": 56
-        },
-        {
             "name": "pearls",
             "type": "necklace",
             "url": "",
             "price": 20,
-            "id": 57
+            "id": 56
         },
         {
             "name": "glasses",
             "type": "glassestype",
             "url": "",
             "price": 20,
-            "id": 58
+            "id": 57
         },
         {
             "name": "monocle",
             "type": "monocletype",
             "url": "",
             "price": 20,
-            "id": 59
+            "id": 58
         },
         {
             "name": "eyeliner1",
             "type": "eyeliner",
             "url": "",
             "price": 20,
-            "id": 60
+            "id": 59
         },
         {
             "name": "eyeliner2",
             "type": "eyeliner",
             "url": "",
             "price": 20,
-            "id": 61
+            "id": 60
         },
         {
             "name": "stache",
             "type": "mustache",
             "url": "",
             "price": 20,
-            "id": 62
+            "id": 61
         },
         {
             "name": "nose",
             "type": "nosetype",
             "url": "",
             "price": 20,
-            "id": 63
+            "id": 62
         }
     ]
    

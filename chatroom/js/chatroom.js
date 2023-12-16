@@ -35,8 +35,74 @@ function preload() {
   this.load.image('bottom4', '../static/loginscreen/assets/images/clothes/bottom4.png');
   this.load.image('bottom5', '../static/loginscreen/assets/images/clothes/bottom5.png');
   this.load.image('bottom6', '../static/loginscreen/assets/images/clothes/bottom6.png');
+  this.load.image('bottom7', '../static/loginscreen/assets/images/clothes/bottom7.png');
+  this.load.image('bottom8', '../static/loginscreen/assets/images/clothes/bottom8.png');
+  this.load.image('bottom9', '../static/loginscreen/assets/images/clothes/bottom9.png');
+  this.load.image('bottom10', '../static/loginscreen/assets/images/clothes/bottom10.png');
+  this.load.image('bottom11', '../static/loginscreen/assets/images/clothes/bottom11.png');
+  this.load.image('bottom12', '../static/loginscreen/assets/images/clothes/bottom12.png');
+  this.load.image('bottom13', '../static/loginscreen/assets/images/clothes/bottom13.png');
+  this.load.image('bottom14', '../static/loginscreen/assets/images/clothes/bottom14.png');
+  this.load.image('bottom15', '../static/loginscreen/assets/images/clothes/bottom15.png');
+  this.load.image('bottom16', '../static/loginscreen/assets/images/clothes/bottom16.png');
+  this.load.image('bottom17', '../static/loginscreen/assets/images/clothes/bottom17.png');
+  this.load.image('bottom18', '../static/loginscreen/assets/images/clothes/bottom18.png');
+  this.load.image('bottom19', '../static/loginscreen/assets/images/clothes/bottom19.png');
+  this.load.image('bottom20', '../static/loginscreen/assets/images/clothes/bottom20.png');
+  this.load.image('bottom21', '../static/loginscreen/assets/images/clothes/bottom21.png');
+
+  this.load.image('top1', '../static/loginscreen/assets/images/clothes/top1.png');
   this.load.image('top2', '../static/loginscreen/assets/images/clothes/top2.png');
   this.load.image('top3', '../static/loginscreen/assets/images/clothes/top3.png');
+  this.load.image('top4', '../static/loginscreen/assets/images/clothes/top4.png');
+  this.load.image('top5', '../static/loginscreen/assets/images/clothes/top5.png');
+  this.load.image('top6', '../static/loginscreen/assets/images/clothes/top6.png');
+  this.load.image('top7', '../static/loginscreen/assets/images/clothes/top7.png');
+  this.load.image('top8', '../static/loginscreen/assets/images/clothes/top8.png');
+  this.load.image('top9', '../static/loginscreen/assets/images/clothes/top9.png');
+  this.load.image('top10', '../static/loginscreen/assets/images/clothes/top10.png');
+  this.load.image('top11', '../static/loginscreen/assets/images/clothes/top11.png');
+  this.load.image('top12', '../static/loginscreen/assets/images/clothes/top12.png');
+  this.load.image('top13', '../static/loginscreen/assets/images/clothes/top13.png');
+  this.load.image('top14', '../static/loginscreen/assets/images/clothes/top14.png');
+  this.load.image('top15', '../static/loginscreen/assets/images/clothes/top15.png');
+  this.load.image('top16', '../static/loginscreen/assets/images/clothes/top16.png');
+
+  this.load.image('feet1', '../static/loginscreen/assets/images/clothes/feet1.png');
+  this.load.image('feet2', '../static/loginscreen/assets/images/clothes/feet2.png');
+  this.load.image('feet3', '../static/loginscreen/assets/images/clothes/feet3.png');
+  this.load.image('feet4', '../static/loginscreen/assets/images/clothes/feet4.png');
+  this.load.image('feet5', '../static/loginscreen/assets/images/clothes/feet5.png');
+  this.load.image('feet6', '../static/loginscreen/assets/images/clothes/feet6.png');
+  this.load.image('feet7', '../static/loginscreen/assets/images/clothes/feet7.png');
+  this.load.image('feet8', '../static/loginscreen/assets/images/clothes/feet8.png');
+  this.load.image('feet9', '../static/loginscreen/assets/images/clothes/feet9.png');
+  this.load.image('feet10', '../static/loginscreen/assets/images/clothes/feet10.png');
+  this.load.image('feet11', '../static/loginscreen/assets/images/clothes/feet11.png');
+  this.load.image('feet12', '../static/loginscreen/assets/images/clothes/feet12.png');
+
+  this.load.image('backwardshat', '../static/loginscreen/assets/images/clothes/backwardshat.png');
+  this.load.image('hat', '../static/loginscreen/assets/images/clothes/hat.png');
+  this.load.image('partyhat', '../static/loginscreen/assets/images/clothes/partyhat.png');
+  this.load.image('tophat', '../static/loginscreen/assets/images/clothes/tophat.png');
+  this.load.image('carrot', '../static/loginscreen/assets/images/clothes/carrot.png');
+  this.load.image('icecream', '../static/loginscreen/assets/images/clothes/icecream.png');
+  this.load.image('headphones', '../static/loginscreen/assets/images/clothes/headphones.png');
+  this.load.image('earring', '../static/loginscreen/assets/images/clothes/earring.png');
+  this.load.image('pearls', '../static/loginscreen/assets/images/clothes/pearls.png');
+  this.load.image('glasses', '../static/loginscreen/assets/images/clothes/glasses.png');
+  this.load.image('monocle', '../static/loginscreen/assets/images/clothes/monocle.png');
+  this.load.image('eyeliner1', '../static/loginscreen/assets/images/clothes/eyeliner1.png');
+  this.load.image('eyeliner2', '../static/loginscreen/assets/images/clothes/eyeliner2.png');
+  this.load.image('stache', '../static/loginscreen/assets/images/clothes/stache.png');
+  this.load.image('nose', '../static/loginscreen/assets/images/clothes/nose.png');
+
+
+
+
+
+
+
   this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
   this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
   this.load.image('singleSparkle', '../static/loginscreen/assets/images/singleSparkle.png');
@@ -283,6 +349,34 @@ function setPlayerFlipX(container, bool) {
         child.setOrigin(-1, -1.1);
       } else if (itemType == "bottom") {
         child.setOrigin(-0.3, -0.9);
+      }  else if (itemType == "feet") {
+        child.setOrigin(-.2, -8);
+      } else if (itemType == "backcap") {
+        child.setOrigin(-1.1, -0.3);
+      }  else if (itemType == "cap") {
+        child.setOrigin(-1.4, -0.3);
+      } else if (itemType == "partyhattype") {
+        child.setOrigin(-4.5, 0.3);
+      } else if (itemType == "tophattype") {
+        child.setOrigin(-2, 0.3);
+      } else if (itemType == "carrothorn") {
+        child.setOrigin(-3.8, 0.3);
+      } else if (itemType == "icecreamhorn") {
+        child.setOrigin(-1.6, 0.1);
+      } else if (itemType == "headphonestype") {
+        child.setOrigin(-2.25, -0.1);
+      } else if (itemType == "necklace") {
+        child.setOrigin(-2, -6);
+      }  else if (itemType == "glassestype") {
+        child.setOrigin(-1.15, -0.8);
+      }  else if (itemType == "monocletype") {
+        child.setOrigin(-1.9, -0.6);
+      }  else if (itemType == "eyeliner") {
+        child.setOrigin(-3.3, -1.25);
+      }  else if (itemType == "mustache") {
+        child.setOrigin(-7.5, -5.8);
+      } else if (itemType == "nosetype") {
+        child.setOrigin(-8.5, -2.8);
       }
     } else {
       if (itemType == "skirt") {
@@ -291,6 +385,34 @@ function setPlayerFlipX(container, bool) {
         child.setOrigin(-0.6, -1.1);
       } else if (itemType == "bottom") {
         child.setOrigin(-1.9, -0.9);
+      }  else if (itemType == "feet") {
+        child.setOrigin(-0.39, -8);
+      } else if (itemType == "backcap") {
+        child.setOrigin(-0.29, -0.3);
+      }  else if (itemType == "cap") {
+        child.setOrigin(0, -0.3);
+      } else if (itemType == "partyhattype") {
+        child.setOrigin(-1.5, 0.3);
+      } else if (itemType == "tophattype") {
+        child.setOrigin(-0.8, 0.3);
+      } else if (itemType == "carrothorn") {
+        child.setOrigin(-0.7, 0.3);
+      } else if (itemType == "icecreamhorn") {
+        child.setOrigin(-0.25, 0.1);
+      } else if (itemType == "headphonestype") {
+        child.setOrigin(-1.25, -0.1);
+      } else if (itemType == "necklace") {
+        child.setOrigin(-1, -6);
+      }  else if (itemType == "glassestype") {
+        child.setOrigin(-.25, -0.8);
+      }  else if (itemType == "monocletype") {
+        child.setOrigin(-.5, -0.6);
+      }  else if (itemType == "eyeliner") {
+        child.setOrigin(-1.5, -1.25);
+      }  else if (itemType == "mustache") {
+        child.setOrigin(0.1, -5.8);
+      } else if (itemType == "nosetype") {
+        child.setOrigin(0.5, -2.8);
       }
     }
 
@@ -384,7 +506,9 @@ function putOnClothes(self, sprite, playerInfo) {
     ownsArray = convertStringToArray(playerInfo.owns.owns);
   }
   wearingArray.forEach((item) => {
+   
     let id = item;
+    console.log("item = ", clothes[id]);
     let name = clothes[id].name;
     let itemType = clothes[id].type;
 
@@ -398,7 +522,40 @@ function putOnClothes(self, sprite, playerInfo) {
         clothingItem.setOrigin(-0.6, -1.1);
       } else if (itemType == "bottom") {
         clothingItem.setOrigin(-1.9, -0.9);
+      } else if (itemType == "feet") {
+        clothingItem.setOrigin(-0.39, -8);
+      } else if (itemType == "backcap") {
+        clothingItem.setOrigin(-0.29, -0.3);
+      }  else if (itemType == "cap") {
+        clothingItem.setOrigin(0, -0.3);
+      } else if (itemType == "partyhattype") {
+        clothingItem.setOrigin(-1.5, 0.3);
+      } else if (itemType == "tophattype") {
+        clothingItem.setOrigin(-0.8, 0.3);
+      } else if (itemType == "carrothorn") {
+        clothingItem.setOrigin(-0.7, 0.3);
+      } else if (itemType == "icecreamhorn") {
+        clothingItem.setOrigin(-0.25, 0.1);
+      } else if (itemType == "headphonestype") {
+        clothingItem.setOrigin(-1.25, -0.1);
+      } else if (itemType == "necklace") {
+        clothingItem.setOrigin(-1, -6);
+      }  else if (itemType == "glassestype") {
+        clothingItem.setOrigin(-.25, -0.8);
+      }  else if (itemType == "monocletype") {
+        clothingItem.setOrigin(-.5, -0.6);
+      }  else if (itemType == "eyeliner") {
+        clothingItem.setOrigin(-1.5, -1.25);
+      }  else if (itemType == "mustache") {
+        clothingItem.setOrigin(0.1, -5.8);
+      } else if (itemType == "nosetype") {
+        clothingItem.setOrigin(0.5, -2.8);
       }
+
+
+      if (!(itemType == "feet" || itemType == "eyeliner")){ // make sure that feet are behind other clothes
+        sprite.bringToTop(clothingItem);
+    } 
       clothingItem.itemType = itemType;
       sprite.add(clothingItem);
     }
