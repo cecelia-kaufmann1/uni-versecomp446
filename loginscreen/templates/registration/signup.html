@@ -9,24 +9,24 @@
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/container.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/pinkContainer.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedStyles.css">
-  <link rel="stylesheet" href="../static/loginscreen/homescreen/styles/signup_style.css" />
+  <!-- <link rel="stylesheet" href="../static/loginscreen/homescreen/styles/signup_style.css" /> -->
 
   {% load static %}
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="{% static './loginscreen/homescreen/js/sign_up.js' %}"></script>
+  
 
 </head>
 
-  <div class="form_header">
+  <div class="headerSignUpContainer">
     <img class="logo" src="../static/loginscreen/assets/images/signup_uni.png" alt="uni-verse_logo" 
                 width = "250"
                 height = "200"/>
 
-    <h1 class="form_h1"> Join The Uni-verse! </h1>
+    <h1> Join The Uni-verse! </h1>
   </div>
   
   <div class="pinkGradientContainer halfContainer" id="form"> 
-      <p id="back_to_cg" class="home_a"> &#8592;  Back To Community Guidelines </a>
+      <a id="back_to_cg" class="home_a" href="{% url 'community_guidelines' %}"> &#8592;  Back To Community Guidelines </a>
       <h2>Sign up</h2>
       <form method="post">
         {% csrf_token %}
@@ -36,24 +36,5 @@
     </div>
   </div>
 
-  <div class="pinkGradientContainer halfContainer" id="community_guidelines"> 
-    <a href="/" class="home_a"> &#8592;  Back To Login </a>
-    <h1> Welcome To The Uni-Verse!</h1>
-    <p> Before you join us, be sure to read the Community Guidelines to keep Uni-Verse a safe place! <br>
-      Remember, you must follow these rules if you wish to use Uni-Verse.
-
-    </p>
-    <h2> Be Kind and Inclusive </h2>
-    <p> Treat every member with kindness and respect. Our community is a safe space for all, regardless of background, beliefs, or preferences. Embrace the magic of inclusivity and celebrate diversity. </p>
-    <h2> Mind Your Language</h2>
-    <p>Keep the conversation enchanting! Refrain from using offensive language, swear words, or any form of harmful communication. Let the positivity and sparkle flow in your words.</p>
-    <h2>Spread Joy</h2>
-    <p>Unicorns are all about spreading joy and positivity. If you have constructive feedback, share it with kindness. Avoid negativity, gossip, or any behavior that may dampen the magical spirit of our community.</p>
-    Remember, our unicorn community is a place of joy, kindness, and magic. Let's make it sparkle together! 🌈✨
-    </p>
-
-
-    <button id="next_button" class="account_button" type="submit">Next</button>
-  </div>
   
 {% endblock %}

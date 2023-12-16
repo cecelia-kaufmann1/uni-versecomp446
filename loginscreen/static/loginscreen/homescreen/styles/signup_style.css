@@ -1,34 +1,7 @@
-body {
-    background: pink;
-    background-image: url("../../assets/images/gradient_bg.png");
-    font-family: 'FruitFont';
-    background-image: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
-    background-size: cover;
-    color: var(--black);
-    margin: 1%;
-}
-
-.form_h1 {
-    padding-top: 5rem;
-    margin-left: 2rem;
-    text-align: left;
-
-}
-
 .account_button {
     display: block;
     /* width: 100%; */
 
-}
-
-.form_header {
-    display: grid;
-    margin:auto;
-    margin-bottom: 0;
-    width: 50%;
-
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
 }
 
 .form_div {

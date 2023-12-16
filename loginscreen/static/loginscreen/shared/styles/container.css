@@ -13,6 +13,15 @@
     grid-template-rows: 1fr;
 }
 
+.headerSignUpContainer {
+    display: grid;
+    margin:auto;
+    margin-bottom: 0;
+    width: 50%;
+
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+}
 /* ================= Container Styling ================= */
 
 

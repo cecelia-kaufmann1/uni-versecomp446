@@ -18,9 +18,11 @@ hr {
   border-width: 1px;
 }
 
+/* TEXT */
 .alignRight {
   text-align: right;
 }
+
 
 .darkPinkLink { 
   text-decoration: none;
