@@ -7,10 +7,11 @@ $(document).ready(function () {
 })
 
 function updateAllUI(data) {
-    console.log("updateAllUI is called");
+    
     updateUIElement(data.font, "accessibleFont");
     updateUIElement(data.font_size, "bigFont");
     updateUIElement(data.button, "medPink");
+    console.log("updateAllUI is called");
     
 }
 
@@ -21,6 +22,7 @@ function updateUIElement(checked, attribute) {
     }
     else {
         $('body').removeClass(attribute);
+        console.log("REMOVED CLASS " + attribute);
     }
 }
 

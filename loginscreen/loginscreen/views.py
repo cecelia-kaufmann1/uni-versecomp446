@@ -187,12 +187,11 @@ def update_accessibility_element(item):
 @csrf_exempt
 def get_accessibility(request):
     if request.method == 'GET':
-
         response = {
             'volume':  request.user.profile.volume,
             'font': request.user.profile.font,
             'font_size': request.user.profile.font_size,
-            'buttons':request.user.profile.buttons,
+            'button':request.user.profile.buttons,
             'colors': request.user.profile.colors
         }
         return JsonResponse(response) 
