@@ -5,28 +5,29 @@
 {% block content %}
 
 <head>
-  <link rel="stylesheet" href="../../static/loginscreen/homescreen/styles/login_style.css" />
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedStyles.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/container.css">
+
 
   <!-- <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedInput.css"> -->
 
   
 </head>
-<div class="container">
+<div class="twoColumnGrid">
     <div class="logo_div">
         <img class="logo" src="../../static/loginscreen/assets/images/uni_logo2.png" alt="uni-verse_logo" width="250"
             height="250" />
     </div>
-        <div class="form_div"> 
+        <div class="pinkGradientContainer"> 
             <h1> Login </h1>
             <form method="post" action="/">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="account_button" >Log In</button>
-                <p class="pass_reset"><a href="{% url 'password_reset' %}">Forgot Password?</a> </p>
+                <p class="alignRight"><a class="darkPinkLink" href="{% url 'password_reset' %}">Forgot Password?</a> </p>
                 <hr>
-                <p> New to Uni-verse? <a href ="{% url 'signup' %}">Create an Account</a></p>
+                <p> New to Uni-verse? <a class="darkPinkLink" href ="{% url 'signup' %}">Create an Account</a></p>
             </form>
         </div>
     </div>

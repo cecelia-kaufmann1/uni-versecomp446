@@ -12,6 +12,32 @@ input {
   cursor:pointer;
 }
 
+hr {
+  border: 1px solid rgb(239, 183, 191);
+  border-style: inset;
+  border-width: 1px;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.darkPinkLink { 
+  text-decoration: none;
+  color: #cd1d58; 
+  font-size: larger;
+} 
+
+
+body {
+  background: pink;
+  background-image: url("../../assets/images/alt_bg.png");
+  font-family: 'FruitFont';
+  src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
+  color: var(--black);
+  margin: 1%;
+}
+
 @font-face {
     font-family: myFont;
     src: url(../../assets/fonts/fruitfont.otf);

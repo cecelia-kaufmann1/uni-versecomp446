@@ -1,0 +1,36 @@
+/* ================= Container Formatting ================= */
+.twoColumnGrid {
+    display: grid;
+  
+    /* Make gutters between each row and column of 1rem */
+    column-gap: 1rem;
+    row-gap: 1rem;
+  
+    /* Make the grid 10 columns wide, every other taking up twice the free space */
+    grid-template-columns: 1fr 1fr;
+  
+    /* Make the grid have 10 explicit rows, 50px high each */
+    grid-template-rows: 1fr;
+}
+
+/* ================= Container Styling ================= */
+
+
+.pinkGradientContainer {
+    border-radius: 2rem;
+    background: rgb(253,201,211);
+    background: linear-gradient(8deg, rgba(253,201,211,1) 0%, rgba(255,255,255,1) 100%);
+
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.15));
+
+    margin:auto;
+    padding: 4%;
+}
+
+.halfContainer {
+    width: 60%;
+}
+
+.miniContainer {
+    width: 40%;
+}

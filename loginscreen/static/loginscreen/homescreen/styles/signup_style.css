@@ -17,20 +17,8 @@ body {
 
 .account_button {
     display: block;
-    width: 100%;
+    /* width: 100%; */
 
-}
-
-.container {
-    border-radius: 2rem;
-    background: rgb(253,201,211);
-    background: linear-gradient(8deg, rgba(253,201,211,1) 0%, rgba(255,255,255,1) 100%);
-
-    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.15));
-
-    margin:auto;
-    width: 50%;
-    padding: 20px;
 }
 
 .form_header {
