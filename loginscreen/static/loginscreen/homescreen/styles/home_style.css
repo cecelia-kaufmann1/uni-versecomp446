@@ -2,11 +2,12 @@
     height: 33rem;
     width: 60rem;
     background-color: white;   
-    background-image:  url("../../assets/images/alt_bg.png");
+    background-image:  url("../../assets/images/homebg.png");
     background-repeat: no-repeat;
-    background-size: 200% 140%;
+    background-size: 100%;
     
 }
+
 
 
 
