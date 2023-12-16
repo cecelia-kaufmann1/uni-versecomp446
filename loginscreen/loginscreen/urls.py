@@ -52,6 +52,7 @@ urlpatterns = [
 
     path('update_accessibility/', views.update_accessibility),
     path('get_accessibility/', views.get_accessibility),
+    path('get_layout_accessibility/', views.get_layout_accessibility),
 
 
 ]

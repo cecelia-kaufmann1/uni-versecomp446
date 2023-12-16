@@ -23,21 +23,21 @@
         },
         {
             "name": "bottom4",
-            "type": "bottom",
+            "type": "skirt",
             "url": "",
             "price": 10,
             "id": 3
         },
         {
             "name": "bottom5",
-            "type": "bottom",
+            "type": "skirt",
             "url": "",
             "price": 15,
             "id": 4
         },
         {
             "name": "bottom6",
-            "type": "bottom",
+            "type": "skirt",
             "url": "",
             "price": 20,
             "id": 5

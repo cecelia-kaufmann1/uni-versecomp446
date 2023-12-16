@@ -29,11 +29,12 @@ function updateUIElement(checked, attribute) {
 function getAccessibilityInDB() {
     console.log("layout.js get accessibilty called");
     $.ajax({
-        url: '/get_accessibility/',
+        url: '/get_layout_accessibility/',
         type: "GET",
         dataType: "json",
         success: function (data) {
             updateAllUI(data) 
+            console.log("layout.js get accessibilty called");
         },
         error: function (error) {
             console.log(`Error ${error}`);
