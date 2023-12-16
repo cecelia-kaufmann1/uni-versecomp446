@@ -10,7 +10,7 @@ function updateAllUI(data) {
     
     updateUIElement(data.font, "accessibleFont");
     updateUIElement(data.font_size, "bigFont");
-    updateUIElement(data.button, "medPink");
+    updateUIElement(data.buttons, "medPink");
     console.log("updateAllUI is called");
     
 }
