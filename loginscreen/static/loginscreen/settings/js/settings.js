@@ -30,6 +30,9 @@ $(document).ready(function () {
         console.log("AJAX WAS CALLED FOR ACCESSIBILITY");
         updateAccessibilityInDB();
     });
+
+    console.log("SETTINGS.JS FINISHED THEIR DOM READY METHOD");
+
 })
 
 function convertToNumber(toggle) {
@@ -64,6 +67,8 @@ function updateVariables(data){
     font_size_toggle = convertToNumber(data.font_size);
     buttons_toggle = convertToNumber(data.buttons);
     colors_toggle = convertToNumber(data.colors);
+
+    console.log("ALL SETTINGS.JS VARIABLES ARE UPDATED");
 
 }
 

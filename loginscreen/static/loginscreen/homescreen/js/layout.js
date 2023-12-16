@@ -2,21 +2,26 @@ $(document).ready(function () {
     console.log("ready boys");
     getAccessibilityInDB();
 
+    console.log("LAYOUT.JS FINISHED THEIR DOM READY METHOD");
+
 })
 
-function updateUI(data) {
-    if ((data.font_size)) {
-        // $("body").addClass("bigFont");
-        // $("body").css("fontSize", "120%");
-        $('body').attr('id', 'bigFont');
+function updateAllUI(data) {
+    console.log("updateAllUI is called");
+    updateUIElement(data.font, "accessibleFont");
+    updateUIElement(data.font_size, "bigFont");
+    updateUIElement(data.button, "medPink");
+    
+}
 
-        console.log("CHANGED FONT SIZE: BIG");
+function updateUIElement(checked, attribute) {
+    if (checked){
+        $('body').addClass(attribute);
+        console.log("ADDED CLASS " + attribute);
     }
     else {
-        $("body").removeClass("bigFont");
-        console.log("CHANGED FONT SIZE: NORMAL");
+        $('body').removeClass(attribute);
     }
-    
 }
 
 function getAccessibilityInDB() {
@@ -26,11 +31,7 @@ function getAccessibilityInDB() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            // owns = convertStringToArray(data.owns);
-            // console.log("VOLUME IS:", data.volume);
-
-            updateUI(data)
-            
+            updateAllUI(data) 
         },
         error: function (error) {
             console.log(`Error ${error}`);
