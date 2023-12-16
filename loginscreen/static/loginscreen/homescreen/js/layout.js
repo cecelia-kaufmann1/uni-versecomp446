@@ -1,10 +1,10 @@
 $(document).ready(function () {
     console.log("ready boys");
-    getAccessibilityInDB();
+    getAccessibility();
 
     console.log("LAYOUT.JS FINISHED THEIR DOM READY METHOD");
 
-})
+});
 
 function updateAllUI(data) {
     
@@ -26,7 +26,7 @@ function updateUIElement(checked, attribute) {
     }
 }
 
-function getAccessibilityInDB() {
+function getAccessibility() {
     console.log("layout.js get accessibilty called");
     $.ajax({
         url: '/get_layout_accessibility/',

@@ -191,7 +191,7 @@ def get_accessibility(request):
             'volume':  request.user.profile.volume,
             'font': request.user.profile.font,
             'font_size': request.user.profile.font_size,
-            'button':request.user.profile.buttons,
+            'buttons':request.user.profile.buttons,
             'colors': request.user.profile.colors
         }
         return JsonResponse(response) 
@@ -203,7 +203,7 @@ def get_layout_accessibility(request):
             'volume':  request.user.profile.volume,
             'font': request.user.profile.font,
             'font_size': request.user.profile.font_size,
-            'button':request.user.profile.buttons,
+            'buttons':request.user.profile.buttons,
             'colors': request.user.profile.colors
         }
         return JsonResponse(response) 

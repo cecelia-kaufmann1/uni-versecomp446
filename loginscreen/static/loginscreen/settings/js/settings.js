@@ -101,7 +101,7 @@ function updateAccessibilityInDB() {
             
             font: font_toggle,
             font_size: font_size_toggle,
-            button: buttons_toggle,
+            buttons: buttons_toggle,
             colors: colors_toggle
         }
     })
