@@ -212,10 +212,18 @@ function putOn(item, itemType, id) {
     clothing.setAttribute("src", "../static/loginscreen/assets/images/clothes/" + item + ".png");
     clothing.setAttribute("itemName", item);
     clothing.setAttribute("itemID", id);
+    
+    if (itemType == "feet" || itemType == "eyeliner"){ // make sure that feet are behind other clothes
+        clothing.style.zIndex = 0;
+    } else {
+        clothing.style.zIndex = 1;
+    }
+  
     avatar.appendChild(clothing);
     avatar.classList.add(itemType);
 
     if (!isWearing(id) ) {
+        console.log("not wearing");
         if (!userOwnsItem) {
             
         } else {
@@ -255,10 +263,9 @@ function updateCartButton() {
 // Display the items that are in the cart
 function updateInCartItems() {
     const cartItemsContainer = document.getElementsByClassName("cartItemsContainer")[0];
+    const cartVerticalContainer = document.getElementsByClassName("cartVerticalContainer")[0];
+
     cartItemsContainer.replaceChildren();
-    const inCartLabel = document.createElement("p");
-    inCartLabel.innerHTML = "In Cart: ";
-    cartItemsContainer.appendChild(inCartLabel);
     for (let i = 0; i < itemsInCart.length; i++) {
         const cartItem = document.createElement("div");
         cartItem.classList.add("cartItem");
@@ -294,13 +301,33 @@ function remove(itemType) {
 // Remove clothing if avatar is already wearing that type/category of clothing
 function removeIfWearing(itemType) {
     const avatar = document.getElementById("avatar");
+    const eyeType = ["eyeliner", "monocletype", "glassestype"]
+    const hatType = ["headphonestype","earringtype", "icecreamhorn", "carrothorn", "tophattype", "partyhattype", "cap", "backcap"];
     if (avatar.classList.contains(itemType)) {
         remove(itemType);
     } else if (itemType == "bottom" && avatar.classList.contains("skirt")) {
         remove("skirt");
     } else if (itemType == "skirt" && avatar.classList.contains("bottom")) {
         remove("bottom");
-    }
+    } else if (eyeType.includes(itemType)){
+        for (let i = 0; i < eyeType.length; i++){
+            if(avatar.classList.contains(eyeType[i])) {
+                remove(eyeType[i]);
+                break;
+            }
+        }
+    } else if (hatType.includes(itemType)){
+        for (let i = 0; i < hatType.length; i++){
+            if(avatar.classList.contains(hatType[i])) {
+                remove(hatType[i]);
+                break;
+            }
+        }
+    } 
+    
+
+
+   
 }
 
 // ----------------------------------------------
@@ -461,7 +488,7 @@ function getOwns() {
 function saveOwnsToDB() {
     // first, get the number of sparkles that the user currently has
     let ownsAsString = convertArrayToString(owns);
-    console.log("saving owns as ", ownsAsString);
+    
     $.ajax({
         type: 'POST',
         url: '/update_owns/',
@@ -470,6 +497,7 @@ function saveOwnsToDB() {
         },
         success: function(data) {
             console.log("posted owns: ", data);
+            console.log("saving owns as ", ownsAsString);
         }
     })
 }

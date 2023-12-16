@@ -43,18 +43,411 @@
             "id": 5
         },
         {
+            "name": "bottom7",
+            "type": "skirt",
+            "url": "",
+            "price": 20,
+            "id": 6
+        }, {
+            "name": "bottom8",
+            "type": "skirt",
+            "url": "",
+            "price": 20,
+            "id": 7
+        },
+        {
+            "name": "bottom9",
+            "type": "skirt",
+            "url": "",
+            "price": 20,
+            "id": 8
+        },
+        {
+            "name": "bottom10",
+            "type": "skirt",
+            "url": "",
+            "price": 20,
+            "id": 9
+        },
+        {
+            "name": "bottom11",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 10
+        },
+        {
+            "name": "bottom12",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 11
+        },
+        {
+            "name": "bottom13",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 12
+        },
+        {
+            "name": "bottom14",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 13
+        },
+        {
+            "name": "bottom15",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 14
+        },
+        {
+            "name": "bottom16",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 15
+        },
+        {
+            "name": "bottom17",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 16
+        },
+        {
+            "name": "bottom18",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 17
+        },
+        {
+            "name": "bottom19",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 18
+        },
+        {
+            "name": "bottom20",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 19
+        },
+        {
+            "name": "bottom21",
+            "type": "bottom",
+            "url": "",
+            "price": 20,
+            "id": 20
+        },
+        {
+            "name": "top1",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 21
+        },
+        {
             "name": "top2",
             "type": "top",
             "url": "",
-            "price": 10,
-            "id": 6
+            "price": 20,
+            "id": 22
         },
         {
             "name": "top3",
             "type": "top",
             "url": "",
-            "price": 15,
-            "id": 7
+            "price": 20,
+            "id": 23
+        },
+        {
+            "name": "top4",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 24
+        },
+        {
+            "name": "top5",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 25
+        },
+        {
+            "name": "top6",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 26
+        },
+        {
+            "name": "top7",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 27
+        },
+        {
+            "name": "top8",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 28
+        },
+        {
+            "name": "top9",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 29
+        },
+        {
+            "name": "top10",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 30
+        },
+        {
+            "name": "top11",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 31
+        },
+        {
+            "name": "top12",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 32
+        },
+        {
+            "name": "top13",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 33
+        },
+        {
+            "name": "top14",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 34
+        },
+        {
+            "name": "top15",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 35
+        },
+        {
+            "name": "top16",
+            "type": "top",
+            "url": "",
+            "price": 20,
+            "id": 36
+        },
+        {
+            "name": "feet1",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 37
+        },
+        {
+            "name": "feet2",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 38
+        },
+        {
+            "name": "feet3",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 39
+        },
+        {
+            "name": "feet4",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 40
+        },
+        {
+            "name": "feet5",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 41
+        },
+        {
+            "name": "feet6",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 42
+        },
+        {
+            "name": "feet7",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 43
+        },
+        {
+            "name": "feet8",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 44
+        },
+        {
+            "name": "feet9",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 45
+        },
+        {
+            "name": "feet10",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 46
+        },
+        {
+            "name": "feet11",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 47
+        },
+        {
+            "name": "feet12",
+            "type": "feet",
+            "url": "",
+            "price": 20,
+            "id": 48
+        }
+        ,
+        {
+            "name": "backwardshat",
+            "type": "backcap",
+            "url": "",
+            "price": 20,
+            "id": 49
+        }
+        ,
+        {
+            "name": "hat",
+            "type": "cap",
+            "url": "",
+            "price": 20,
+            "id": 50
+        },
+        {
+            "name": "partyhat",
+            "type": "partyhattype",
+            "url": "",
+            "price": 20,
+            "id": 51
+        },
+        {
+            "name": "tophat",
+            "type": "tophattype",
+            "url": "",
+            "price": 20,
+            "id": 52
+        },
+        {
+            "name": "carrot",
+            "type": "carrothorn",
+            "url": "",
+            "price": 20,
+            "id": 53
+        },
+        {
+            "name": "icecream",
+            "type": "icecreamhorn",
+            "url": "",
+            "price": 20,
+            "id": 54
+        },
+        {
+            "name": "headphones",
+            "type": "headphonestype",
+            "url": "",
+            "price": 20,
+            "id": 55
+        },
+        {
+            "name": "earring",
+            "type": "earringtype",
+            "url": "",
+            "price": 20,
+            "id": 56
+        },
+        {
+            "name": "pearls",
+            "type": "necklace",
+            "url": "",
+            "price": 20,
+            "id": 57
+        },
+        {
+            "name": "glasses",
+            "type": "glassestype",
+            "url": "",
+            "price": 20,
+            "id": 58
+        },
+        {
+            "name": "monocle",
+            "type": "monocletype",
+            "url": "",
+            "price": 20,
+            "id": 59
+        },
+        {
+            "name": "eyeliner1",
+            "type": "eyeliner",
+            "url": "",
+            "price": 20,
+            "id": 60
+        },
+        {
+            "name": "eyeliner2",
+            "type": "eyeliner",
+            "url": "",
+            "price": 20,
+            "id": 61
+        },
+        {
+            "name": "stache",
+            "type": "mustache",
+            "url": "",
+            "price": 20,
+            "id": 62
+        },
+        {
+            "name": "nose",
+            "type": "nosetype",
+            "url": "",
+            "price": 20,
+            "id": 63
         }
     ]
    

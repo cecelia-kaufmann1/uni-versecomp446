@@ -124,12 +124,14 @@
 }
 #frame .cartVerticalContainer {
     left: 45rem;
-    bottom: 4.8rem;
+    bottom: 1rem;
     position: absolute;
     background-color: #FFFFFFD0;
     padding: 0.2rem;
     border-radius: 3rem;
-  
+    text-align: center; 
+
+
 }
 #frame .cartItemsContainer {
     position: relative;
@@ -139,6 +141,8 @@
     text-align: center; 
     margin-bottom: 1rem;
     align-items: center;
+    max-height: 8rem;
+    overflow-y: scroll;
     
 }
 
@@ -146,7 +150,7 @@
     background-color: #B7FAFF;
     height: 4rem;
     width: 4rem;
-   
+    min-height: 4rem;
     margin: 0.2rem;
     padding: 0.5rem;
     background-repeat: no-repeat;
@@ -300,6 +304,96 @@
     left: 3rem;
 }
 
+#frame #feet {
+    position: absolute;
+    top: 20.6rem;
+    left: 3.7rem;
+}
+
+#frame #backcap {
+    position: absolute;
+    top: -19rem;
+    left: 1.5rem;
+}
+
+#frame #cap {
+    position: absolute;
+    top: -19rem;
+    left: -0.9rem;
+}
+
+#frame #partyhattype {
+    position: absolute;
+    top: -22rem;
+    left: 2rem;
+}
+
+#frame #tophattype {
+    position: absolute;
+    top: -20rem;
+    left: 2rem;
+}
+
+#frame #carrothorn {
+    position: absolute;
+    top: -20rem;
+    left: 1rem;
+}
+#frame #icecreamhorn {
+    position: absolute;
+    top: -18rem;
+    left: 0rem;
+}
+#frame #headphonestype {
+    position: absolute;
+    top: -16rem;
+    left: 4rem;
+}
+#frame #earringtype {
+    position: absolute;
+    top: -16rem;
+    left: 6rem;
+}
+
+#frame #necklace {
+    position: absolute;
+    top: 0rem;
+    left: 3rem;
+}
+
+#frame #glassestype {
+    position: absolute;
+    top: -11rem;
+    left: 0.5rem;
+}
+
+#frame #monocletype {
+    position: absolute;
+    top: -9rem;
+    left: 1.5rem;
+}
+
+
+#frame #eyeliner {
+    position: absolute;
+    top: -12.25rem;
+    left: 3.5rem;
+}
+
+#frame #mustache {
+    position: absolute;
+    top: -8rem;
+    left: -1.5rem;
+}
+
+#frame #nosetype {
+    position: absolute;
+    top: -10rem;
+    left: -3rem;
+}
+
+
+
 /* ----- Clothing image paths ----- */
 #frame #bottom1 {
     background-image: url("../../assets/images/clothes/bottom1.png");
@@ -330,6 +424,70 @@
     background-image: url("../../assets/images/clothes/bottom6.png");
 }
 
+#frame #bottom7 {
+    background-image: url("../../assets/images/clothes/bottom7.png");
+}
+
+#frame #bottom8 {
+    background-image: url("../../assets/images/clothes/bottom8.png");
+}
+
+#frame #bottom9 {
+    background-image: url("../../assets/images/clothes/bottom9.png");
+}
+
+#frame #bottom10 {
+    background-image: url("../../assets/images/clothes/bottom10.png");
+}
+
+#frame #bottom11 {
+    background-image: url("../../assets/images/clothes/bottom11.png");
+}
+
+#frame #bottom12 {
+    background-image: url("../../assets/images/clothes/bottom12.png");
+}
+
+#frame #bottom13 {
+    background-image: url("../../assets/images/clothes/bottom13.png");
+}
+
+#frame #bottom14 {
+    background-image: url("../../assets/images/clothes/bottom14.png");
+}
+
+#frame #bottom15 {
+    background-image: url("../../assets/images/clothes/bottom15.png");
+}
+
+#frame #bottom16 {
+    background-image: url("../../assets/images/clothes/bottom16.png");
+}
+
+#frame #bottom17 {
+    background-image: url("../../assets/images/clothes/bottom17.png");
+}
+
+#frame #bottom18 {
+    background-image: url("../../assets/images/clothes/bottom18.png");
+}
+
+#frame #bottom19 {
+    background-image: url("../../assets/images/clothes/bottom19.png");
+}
+
+#frame #bottom20 {
+    background-image: url("../../assets/images/clothes/bottom20.png");
+}
+
+#frame #bottom21 {
+    background-image: url("../../assets/images/clothes/bottom21.png");
+}
+
+#frame #top1 {
+    background-image: url("../../assets/images/clothes/top1.png");
+}
+
 #frame #top2 {
     background-image: url("../../assets/images/clothes/top2.png");
 }
@@ -337,6 +495,170 @@
 #frame #top3 {
     background-image: url("../../assets/images/clothes/top3.png");
 }
+
+#frame #top4 {
+    background-image: url("../../assets/images/clothes/top4.png");
+}
+
+#frame #top5 {
+    background-image: url("../../assets/images/clothes/top5.png");
+}
+
+#frame #top6 {
+    background-image: url("../../assets/images/clothes/top6.png");
+}
+
+#frame #top7 {
+    background-image: url("../../assets/images/clothes/top7.png");
+}
+
+#frame #top8 {
+    background-image: url("../../assets/images/clothes/top8.png");
+}
+
+#frame #top9 {
+    background-image: url("../../assets/images/clothes/top9.png");
+}
+
+#frame #top10 {
+    background-image: url("../../assets/images/clothes/top10.png");
+}
+
+#frame #top11 {
+    background-image: url("../../assets/images/clothes/top11.png");
+}
+
+#frame #top12 {
+    background-image: url("../../assets/images/clothes/top12.png");
+}
+
+#frame #top13 {
+    background-image: url("../../assets/images/clothes/top13.png");
+}
+
+#frame #top14 {
+    background-image: url("../../assets/images/clothes/top14.png");
+}
+
+#frame #top15 {
+    background-image: url("../../assets/images/clothes/top15.png");
+}
+
+#frame #top16 {
+    background-image: url("../../assets/images/clothes/top16.png");
+}
+
+#frame #feet1 {
+    background-image: url("../../assets/images/clothes/feet1.png");
+}
+
+#frame #feet2 {
+    background-image: url("../../assets/images/clothes/feet2.png");
+}
+
+#frame #feet3 {
+    background-image: url("../../assets/images/clothes/feet3.png");
+}
+
+#frame #feet4 {
+    background-image: url("../../assets/images/clothes/feet4.png");
+}
+
+#frame #feet5 {
+    background-image: url("../../assets/images/clothes/feet5.png");
+}
+
+#frame #feet6 {
+    background-image: url("../../assets/images/clothes/feet6.png");
+}
+
+#frame #feet7 {
+    background-image: url("../../assets/images/clothes/feet7.png");
+}
+
+#frame #feet8 {
+    background-image: url("../../assets/images/clothes/feet8.png");
+}
+
+#frame #feet9 {
+    background-image: url("../../assets/images/clothes/feet9.png");
+}
+
+#frame #feet10 {
+    background-image: url("../../assets/images/clothes/feet10.png");
+}
+
+#frame #feet11 {
+    background-image: url("../../assets/images/clothes/feet11.png");
+}
+
+#frame #feet12 {
+    background-image: url("../../assets/images/clothes/feet12.png");
+}
+
+#frame #backwardshat {
+    background-image: url("../../assets/images/clothes/backwardshat.png");
+}
+
+#frame #hat {
+    background-image: url("../../assets/images/clothes/hat.png");
+}
+
+#frame #partyhat {
+    background-image: url("../../assets/images/clothes/partyhat.png");
+}
+
+#frame #tophat {
+    background-image: url("../../assets/images/clothes/tophat.png");
+}
+
+#frame #carrot {
+    background-image: url("../../assets/images/clothes/carrot.png");
+}
+
+#frame #icecream {
+    background-image: url("../../assets/images/clothes/icecream.png");
+}
+
+#frame #headphones {
+    background-image: url("../../assets/images/clothes/headphones.png");
+}
+
+#frame #earring {
+    background-image: url("../../assets/images/clothes/earring.png");
+}
+
+#frame #pearls {
+    background-image: url("../../assets/images/clothes/pearls.png");
+}
+
+#frame #glasses {
+    background-image: url("../../assets/images/clothes/glasses.png");
+}
+
+#frame #monocle {
+    background-image: url("../../assets/images/clothes/monocle.png");
+}
+
+#frame #eyeliner1 {
+    background-image: url("../../assets/images/clothes/eyeliner1.png");
+}
+
+#frame #eyeliner2 {
+    background-image: url("../../assets/images/clothes/eyeliner2.png");
+}
+
+#frame #stache {
+    background-image: url("../../assets/images/clothes/stache.png");
+}
+
+#frame #nose {
+    background-image: url("../../assets/images/clothes/nose.png");
+}
+
+
+
+
 
 
 
