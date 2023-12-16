@@ -30,9 +30,12 @@
 .buttonHolderSparkleCount { 
     background: radial-gradient(ellipse at center,  #febdd3 0%, #ff72a1 60%, #ff4382 100%);
     /* padding: 1rem; */
-    border-radius: 2rem;
+    /*Change this back to 3rem if we need it to go back to being rectangular*/
+    border-radius: 6rem;
     border: #cd1d58 2px solid;
     margin: 0;
+    box-shadow: 0 0 10px rgba(255, 114, 161, 0.5);
+
    
     height: 6rem;
     width:7rem;
@@ -47,7 +50,7 @@
      
       background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
       padding: 2%;
-      border-radius: 2rem;
+      border-radius: 6rem;
       border: #cd1d58 2px solid;
       height: fit-content;
       width: fit-content;
@@ -55,6 +58,11 @@
       margin-bottom:15%;
     }
 
+    /* Little bit of movement for the sparkle added */
+    .buttonHolderSparkleCount:hover {
+        background: radial-gradient(ellipse at center, #febdd3 0%, #ff72a1 60%, #ff4382 100%);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
 
 p {
     margin: 0;
