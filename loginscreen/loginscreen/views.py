@@ -166,17 +166,23 @@ def get_username(request):
 @csrf_exempt
 def update_accessibility(request):
     if request.method == 'POST':
-        current_profile = Profile.objects.get(user=request.user)
+        current_profile = request.user.profile
         
         current_profile.volume = update_accessibility_element(request.POST["volume"])
-        current_profile.font = request.POST["font"]
-        current_profile.font_size = request.POST["font_size"]
-        current_profile.buttons = request.POST["buttons"]
-        current_profile.colors = request.POST["colors"]
+        current_profile.font = update_accessibility_element(request.POST["font"])
+        current_profile.font_size = update_accessibility_element(request.POST["font_size"])
+        current_profile.buttons = update_accessibility_element(request.POST["buttons"])
+        current_profile.colors = update_accessibility_element(request.POST["colors"])
 
         current_profile.save() #update the number of sparkles for the existing user
 
         return HttpResponse(current_profile.volume)
+
+def update_accessibility_element(item):
+    if (item == "1"):
+        return True
+    else:
+        return False
 
 @csrf_exempt
 def get_accessibility(request):

@@ -37,13 +37,19 @@ function convertToNumber(toggle) {
     }
 }
 function updateUI(data) {
+    $("#volume_toggle").prop('checked', data.volume);
+    $("#font_toggle").prop('checked', data.font);
+    $("#font_size_toggle").prop('checked', data.font_size);
+    $("#buttons_toggle").prop('checked', data.buttons);
+    $("#colors_toggle").prop('checked', data.colors);
+}
 
-    $("#volume_toggle").prop('checked', data.volume)
-    $("#font_toggle").prop('checked', data.font)
-    $("#font_size_toggle").prop('checked', data.font_size)
-    $("#buttons_toggle").prop('checked', data.buttons)
-    $("#colors_toggle").prop('checked', data.colors)
-
+function updateVariables(data){
+    volume_toggle = convertToNumber(data.volume);
+    font_toggle = convertToNumber(data.font);
+    font_size_toggle = convertToNumber(data.font_size);
+    buttons_toggle = convertToNumber(data.buttons);
+    colors_toggle = convertToNumber(data.colors);
 
 }
 
@@ -57,7 +63,8 @@ function getAccessibilityInDB() {
             // owns = convertStringToArray(data.owns);
             // console.log("VOLUME IS:", data.volume);
 
-            updateUI(data)
+            updateUI(data);
+            updateVariables(data);
             
         },
         error: function (error) {
