@@ -9,16 +9,17 @@ $(document).ready(function () {
 
     $("#font_toggle").on('change', function() {
         font_toggle = convertToNumber($(this).is(':checked'));
+        tryNewUI('accessibleFont', font_toggle);
     });
 
     $("#font_size_toggle").on('change', function() {
         font_size_toggle = convertToNumber($(this).is(':checked'));
-        console.log(font_size_toggle);
         tryNewUI('bigFont', font_size_toggle);
     });
 
     $("#buttons_toggle").on('change', function() {
         buttons_toggle = convertToNumber($(this).is(':checked'));
+        tryNewUI('medPink', buttons_toggle);
     });
     
     $("#colors_toggle").on('change', function() {
@@ -42,16 +43,13 @@ function convertToNumber(toggle) {
 
 function tryNewUI(attribute, checked){
     if (checked == "1") {
-        $("body").attr('id', attribute);
-        console.log("Tried new attribute, adding ID: " + attribute);
+        $("body").addClass(attribute);
     }
     else {
-        console.log("Tried removing attribute");
-        $("body").attr('id', 'none');
+        $("body").removeClass(attribute);
     }
-
-
 }
+
 function updateUI(data) {
     $("#volume_toggle").prop('checked', data.volume);
     $("#font_toggle").prop('checked', data.font);
