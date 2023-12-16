@@ -4,6 +4,7 @@ $(document).ready(function () {
     getAccessibilityInDB();
     $("#volume_toggle").on('change', function() {
         volume_toggle = convertToNumber($(this).is(':checked'));
+        
     });
 
     $("#font_toggle").on('change', function() {
@@ -12,6 +13,8 @@ $(document).ready(function () {
 
     $("#font_size_toggle").on('change', function() {
         font_size_toggle = convertToNumber($(this).is(':checked'));
+        console.log(font_size_toggle);
+        tryNewUI('bigFont', font_size_toggle);
     });
 
     $("#buttons_toggle").on('change', function() {
@@ -35,6 +38,19 @@ function convertToNumber(toggle) {
     else {
         return "0";
     }
+}
+
+function tryNewUI(attribute, checked){
+    if (checked == "1") {
+        $("body").attr('id', attribute);
+        console.log("Tried new attribute, adding ID: " + attribute);
+    }
+    else {
+        console.log("Tried removing attribute");
+        $("body").attr('id', 'none');
+    }
+
+
 }
 function updateUI(data) {
     $("#volume_toggle").prop('checked', data.volume);
