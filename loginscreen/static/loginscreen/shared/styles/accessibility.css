@@ -1,3 +1,11 @@
-.bigFont { 
+#bigFont { 
+    font-size: 200%;
+}
+
+#bigFont button {
+    font-size: 100%;
+}
+
+#bigFont p {
     font-size: 100%;
 }

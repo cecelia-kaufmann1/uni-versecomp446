@@ -5,17 +5,22 @@ $(document).ready(function () {
 })
 
 function updateUI(data) {
-    if ((data.font_size).is(':checked')) {
-        $("body").addClass("bigFont");
+    if ((data.font_size)) {
+        // $("body").addClass("bigFont");
+        // $("body").css("fontSize", "120%");
+        $('body').attr('id', 'bigFont');
+
+        console.log("CHANGED FONT SIZE: BIG");
     }
     else {
         $("body").removeClass("bigFont");
+        console.log("CHANGED FONT SIZE: NORMAL");
     }
     
 }
 
 function getAccessibilityInDB() {
-    console.log("GET ACCESSIBILITY IN DB CALLED");
+    console.log("layout.js get accessibilty called");
     $.ajax({
         url: '/get_accessibility/',
         type: "GET",
