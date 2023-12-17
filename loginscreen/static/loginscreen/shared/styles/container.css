@@ -22,6 +22,9 @@
    
     /* Make the grid have 10 explicit rows, 50px high each */
     grid-template-rows: 2fr 1fr 1.5fr;
+
+    overflow: visible;
+
 }
 
 .headerSignUpContainer {
