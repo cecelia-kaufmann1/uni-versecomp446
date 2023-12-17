@@ -124,7 +124,7 @@
 }
 #frame .cartVerticalContainer {
     left: 45rem;
-    bottom: 1rem;
+    bottom: 3rem;
     position: absolute;
     background-color: #FFFFFFD0;
     padding: 0.2rem;
@@ -141,7 +141,7 @@
     text-align: center; 
     margin-bottom: 1rem;
     align-items: center;
-    max-height: 8rem;
+    max-height: 7rem;
     overflow-y: scroll;
     
 }
@@ -264,6 +264,7 @@
     /* background-size: 150% 150%; */
     /* background-size: cover;
      */ 
+     overflow-x: hidden;
 }
 
 #frame .flexRow {
@@ -285,6 +286,137 @@
     margin: 0;
     
 }
+
+/* ----- Avatar Color -----*/
+
+#avatarColorsButton {
+    position: relative;
+    padding-bottom: 1rem;
+    left: -65rem;
+    top: -27rem;
+    width: 5rem;
+    height: fit-content;
+    border-radius: 1rem;
+    transform: rotate(90deg);
+    background-color: #bf66ff;
+    border: 5px #b44ffd solid;
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+#colorLabel {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    padding-bottom: 2rem;
+}
+#colors{
+    
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 3rem; */
+}
+
+.color {
+    background-color: pink;
+    border: 3px #7e37b1 solid;
+    height: 4rem;
+    width: 4rem;
+    margin: 0.25rem;
+    transform: rotate(-90deg);
+   
+    align-self: center;
+    border-radius: 1rem;
+}
+
+.colorName {
+    display: none;  /* change this to turn on colorblind mode*/
+    letter-spacing: 2px;
+    font-weight:normal;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.color:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+#default {
+    background: linear-gradient(pink 50%, white 70%);
+}
+#red {
+    background-color: red;
+}
+
+#orange {
+    background-color: orange;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#pink {
+    background-color: pink;
+}
+
+#white {
+    background-color: white;
+}
+
+#lightbrown {
+    background-color: burlywood;
+}
+
+#brown {
+    background-color: brown;
+}
+
+#black {
+    background-color: black;
+}
+
+/* Help for slide out menu animation from https://codepen.io/krisgrove/pen/prPdov*/
+#avatarColorsButton.on {
+    left: -9rem;
+  }
+
+  #avatarColorsButton.on #colors {
+    left: -65rem;
+  }
+  /* #slideout:hover #slideout_inner {
+    left: 0;
+  } */
+  
+
 /* ----- Avatar Clothing Positioning -----*/
 #frame #bottom {
     position: absolute;
@@ -678,7 +810,7 @@
    
     background: linear-gradient(90deg, #f6e3e3, #f8bdbb 40% 60%,#f6e3e3);
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
-    margin: 7rem;
+    margin: 4rem;
     
     
 }

@@ -88,7 +88,6 @@ button {
     /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
     /* background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%); */
     background: radial-gradient(ellipse at center top,  #FFF3F5 10%, #ff4382 50%);
-    /* border-color: #C93667; */
     border: 3px #cd1d58 solid;
     color: white;
     letter-spacing: 2px;
@@ -114,12 +113,19 @@ button {
   
   .purpleShine {
     /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
-    background: radial-gradient(ellipse farthest-corner at top left,   #CDB8DD 15%, #F0E6F7 30%, #CDB8DD 50%);
-    border-color: #CDB8DD;
+    /* background: radial-gradient(ellipse farthest-corner at top left,   #CDB8DD 15%, #F0E6F7 30%, #CDB8DD 50%);
+    border-color: #CDB8DD; */
+    background: radial-gradient(ellipse at center top,  #F0E6F7 10%, #bf66ff 50%);
+    border: 3px #b44ffd solid;
+    color: white;
+    letter-spacing: 2px;
+
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+    
   }
   
-  .purpleShine:active {
-    background: radial-gradient(ellipse farthest-corner at top left,   #B6A5C3 15%, #E1D8E7 30%, #B6A5C3 50%);
+  .purpleShine:active, .purpleShine:hover {
+    background: radial-gradient(ellipse at center top,  #ddbaf7 10%, #b756fc 50%);
   }
   
   .lightPurpleShine {

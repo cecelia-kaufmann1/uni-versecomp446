@@ -35,6 +35,22 @@ $(document).ready(function () {
     // populateOwnedClothes();
    
     console.log("finished ready method");
+
+    let avatarColorsButton = document.getElementById("avatarColorsButton");
+    let avatarColorLabel = document.getElementById("colorLabel");
+    avatarColorLabel.onclick = function() {
+        if (avatarColorsButton.classList.contains("on")) {
+            avatarColorsButton.classList.remove("on");
+        } else {
+            avatarColorsButton.classList.add("on");
+
+        }
+    }
+
+    let red = document.getElementById("red");
+    red.onclick = function() {
+        console.log("red clicked");
+    }
     
 
 })
