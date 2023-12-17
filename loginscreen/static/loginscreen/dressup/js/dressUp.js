@@ -495,7 +495,7 @@ function updateSparklesInDB() {
             // the success will automatically update the number of sparkles for user end of site
             // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
             // numSparklesElement.innerHTML = "Sparkles: " + data;
-            console.log($("#sparkles_status"));
+            console.log("new sparkles", $("#sparkles_status"));
             $("#sparkles_status").text(data);
            
         }
@@ -570,15 +570,18 @@ function getOwns() {
 // save the current value of wearing (as a char string) to the database
 function saveOwnsToDB() {
     // first, get the number of sparkles that the user currently has
+    console.log("conversion started");
     let ownsAsString = convertArrayToString(owns);
     
     $.ajax({
         type: 'POST',
         url: '/update_owns/',
         data: {
+            
             owns: ownsAsString
         },
         success: function(data) {
+            console.log("ajax success");
             console.log("posted owns: ", data);
             console.log("saving owns as ", ownsAsString);
         }
@@ -608,6 +611,7 @@ function getAvatarColor() {
         type: "GET",
         dataType: "json",
         success: function (data) {
+           
             let color;
             if (!data.color) {
                 color = "default";
@@ -645,7 +649,6 @@ function convertStringToArray(str) {
         // keep it as an empty array
     }
     
-    
     return newArray;
 }
 
@@ -658,6 +661,8 @@ function convertArrayToString(arr) {
     if (arr.length == 0) {
         newStr = "null"; // empty array = 'null' string
     }
+    console.log("conversion finsihes");
+
     return newStr;
 }
 

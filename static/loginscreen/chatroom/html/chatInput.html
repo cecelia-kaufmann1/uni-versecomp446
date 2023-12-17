@@ -4,18 +4,20 @@
 <head>
  <style>
     .chatInput {
-        background-color: lightgray;
+        background-color: #bf66ff;
         margin: auto;
-        padding: 1rem;
+        padding: 1.2rem;
         
     }
 
     .chatContainer {
-        background-color: gray;
+        background-color: #bf66ff;
         display: flex;
         flex-direction: column;
         border-radius: 1rem;
-        border: 1px black solid;
+        border: 5px#b44ffd solid;   
+         box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+
     }
 
     .chatLog {
@@ -32,6 +34,8 @@
     .message {
         padding: 0.5rem;
         border: 1px black solid;
+        border-right: none;
+        border-left: none;
         width: 160px;
         max-width: 160px;
         text-wrap: pretty;
@@ -44,18 +48,24 @@
         background-image: url("../static/loginscreen/assets/images/icons/up-arrow.png");
         background-size: contain;
         background-repeat: no-repeat;
-        background-color: gray;
-        background-position: 0;
-        
+        background-position: center;
+        background-color: #b44ffd;
+        /* background-position: 0; */
+        border-left: 3px #7534a4 solid;
         width:30px;
         padding: 0.5rem;
-       
+       border-radius: 0.5rem;
     }
 
     .horizontalContainer {
         display: flex;
         flex-direction: row;
-        background-color: yellow;
+        border: 3px #7534a4 solid;
+        border-radius: 1rem;
+    }
+
+    #chat {
+        border-radius: 1rem;
     }
 
     /* ----- Scrollbar ----- */

@@ -158,7 +158,8 @@ function create() {
     self.otherPlayers.getChildren().forEach(function (otherPlayer) {
       if (playerInfo.playerId === otherPlayer.playerId) { // match found
         // add username text below the avatar
-        let usernameText = self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+        let usernameText = self.add.text(50, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+        usernameText.setOrigin(0.5,0.5);
         otherPlayer.add(usernameText);
         
         usernameText.itemType = "text";
@@ -188,7 +189,8 @@ function create() {
     }
    
     // add username text below the avatar
-    let usernameText = self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+    let usernameText = self.add.text(50, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+    usernameText.setOrigin(0.5,0.5);
     self.ship.add(usernameText);
     usernameText.itemType = "text";
 
@@ -473,7 +475,8 @@ function addOtherPlayers(self, playerInfo) {
   let baseImage = self.physics.add.image(0, 0, "default").setOrigin(0, 0).setScale(0.3)
   otherPlayer.add(baseImage);
 
-  let usernameText = self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+  let usernameText = self.add.text(50, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
+  usernameText.setOrigin(0.5,0.5);
   otherPlayer.add(usernameText);
   usernameText.itemType = "text";
 
