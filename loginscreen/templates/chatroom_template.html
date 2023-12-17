@@ -110,8 +110,8 @@
             success: function (data) {
                 if (data.owns == "") {
                     data.owns = "null";
-                   
                 }
+                owns = data.owns;
                 console.log("data: ", data.owns);
                 getAvatarColor();
                

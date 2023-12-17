@@ -25,7 +25,6 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
     });
 
 $(document).ready(function () {
-    console.log("ready boys");
     getSparklesNum();
 
     let buyItemButton = document.getElementsByClassName("buyItemButton")[0];

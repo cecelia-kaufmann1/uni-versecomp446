@@ -115,7 +115,8 @@ function preload() {
 
 
 
-  this.load.image('bigGrass', '../static/loginscreen/assets/images/fae_cafe.png');
+  this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
+  this.load.image('cafebg', '../static/loginscreen/assets/images/fae_cafe.png')
   this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
   this.load.image('singleSparkle', '../static/loginscreen/assets/images/singleSparkle.png');
   
@@ -148,6 +149,7 @@ function create() {
     owns = event.data.owns; // current player owns
     color = event.data.color; // current player avatar color
     self.socket.emit('updatePlayerUsernameAndWearing', username, wearing, owns, color); // save the data to the server
+   
   });
 
   // update another player based on the new username and wearing data
@@ -252,15 +254,9 @@ function create() {
 
   cursors = this.input.keyboard.createCursorKeys();
 
-  this.add.image(0, 0, "bigGrass").setScale(100);
+  this.add.image(0, 320, "cafebg").setScale(0.7,0.7).setOrigin(0,0.55);
 
-  this.map2 = this.make.tilemap({ key: "map" });
-  const tileset2 = this.map2.addTilesetImage("MagicForest", "accessories");
-
-  // flower layer 1
-  this.layer3 = this.map2.createDynamicLayer('Accessories', tileset2, 0, 0);
-  this.layer3.setScale(3);
-  this.layer3.shuffle(0, 0, 1800, 1800);
+ 
 
   // focus: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
   focus(this);
@@ -291,8 +287,9 @@ function create() {
   });
 
   this.boundaries = this.physics.add.staticGroup();
-  this.boundaries.create(0, 320, 'bigGrass').setOrigin(0,0.55).setScale(0.7,0.7);
-  // this.boundaries.create(0, 320, 'bigGrass').setScale(2.9, 6).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+ 
+  this.boundaries.create(0, 230, 'bigGrass').setScale(2.9, 9).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+
 
 }
 const MAX_SPEED = 120;
@@ -514,7 +511,7 @@ function makeParticleEmitter(self, sprite) {
 });
 }
 function putOnClothes(self, sprite, playerInfo) {
-  console.log(playerInfo);
+  console.log("put on clothes");
   let color = playerInfo.color;
   if (color) {
     if (typeof(playerInfo.color.color) == "string"){
@@ -532,14 +529,15 @@ function putOnClothes(self, sprite, playerInfo) {
     wearingArray = convertStringToArray(playerInfo.wearing.wearing);
   }
   let ownsArray = playerInfo.owns;
-  if (typeof (playerInfo.ownsArray) == "string") {
-    ownsArray = convertStringToArray(playerInfo.ownsArray);
-  }
+
+  // if (typeof (playerInfo.ownsArray) == "string") {
+  //   ownsArray = convertStringToArray(playerInfo.ownsArray);
+  // }
   if (typeof (playerInfo.owns.owns) == "string") {
     ownsArray = convertStringToArray(playerInfo.owns.owns);
   }
  
-  
+  console.log("owns array:", playerInfo);
   console.log(wearingArray);
   wearingArray.forEach((item) => {
    
@@ -550,7 +548,7 @@ function putOnClothes(self, sprite, playerInfo) {
 
     // if any of the clothes in wearing aren't also owned, do not put them on.
     if (ownsArray.includes(id)) {
-
+      console.log("owns, id");
       var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
       if (itemType == "skirt") {
         clothingItem.setOrigin(-2, -1.1);
@@ -559,6 +557,7 @@ function putOnClothes(self, sprite, playerInfo) {
       } else if (itemType == "bottom") {
         clothingItem.setOrigin(-1.9, -0.9);
       } else if (itemType == "feet") {
+        console.log("feet");
         clothingItem.setOrigin(-0.39, -8);
       } else if (itemType == "backcap") {
         clothingItem.setOrigin(-0.29, -0.3);
