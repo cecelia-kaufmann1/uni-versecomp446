@@ -8,16 +8,29 @@
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedStyles.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/button.css">
   <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/container.css">
+  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/homescreen/styles/login.css">
+  <script src="../../static/loginscreen/homescreen/js/slideshow.js"></script>
 
-
-  <!-- <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedInput.css"> -->
-
-  
 </head>
+
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="../../static/loginscreen/assets/images/logindressup.png" alt="Dressuproom" height="250" width="250">
+        <div class="caption">Dress up in your favorite looks!</div>
+    </div>
+
+    <!-- <div class="mySlides fade">
+        <img src="../../static/loginscreen/assets/images/game_image2.jpg" alt="Game Image 2">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="../../static/loginscreen/assets/images/game_image3.jpg" alt="Game Image 3">
+    </div>
+</div> -->
+
 <div class="twoColumnGrid">
     <div class="logo_div">
-        <img class="logo" src="../../static/loginscreen/assets/images/uni_logo2.png" alt="uni-verse_logo" width="250"
-            height="250" />
+        <img class="logo" src="../../static/loginscreen/assets/images/uni_logo2.png" alt="uni-verse_logo" width="250" height="250"/>
     </div>
         <div class="pinkGradientContainer"> 
             <h1> Login </h1>
@@ -30,5 +43,9 @@
                 <p> New to Uni-verse? <a class="darkPinkLink" href ="{% url 'community_guidelines' %}">Create an Account</a></p>
             </form>
         </div>
+    </div>
+
+    <div class="unicorn-container">
+        <img class="unicorn" src="../../static/loginscreen/assets/vectorArt/default.png" alt="Unicorn"/>
     </div>
 {% endblock %}

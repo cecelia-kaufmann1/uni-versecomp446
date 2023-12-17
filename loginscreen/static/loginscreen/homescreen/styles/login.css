@@ -1,0 +1,135 @@
+body {
+    background-image: url('../../assets/images/layout_bg.png'); /* Replace with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Adjust as needed */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  /* .twoColumnGrid {
+    width: 900px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 20px;
+} */
+
+
+  .slideshow-container {
+    max-width: 400px;
+    position: absolute;
+    margin: auto;
+    margin-top: 100px;
+    top: 20px;
+}
+
+
+.mySlides {
+    max-width: 400px;
+    display: none;
+    border: 20px solid white;
+}
+
+
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+.pinkGradientContainer{
+    width: 500px;
+    height: 450px;
+    position: absolute;
+    /*Move this back to 300 if too wide for Mac OS*/
+    left: 550px;
+    top: 30px;
+    padding: 15px;
+}
+
+
+.logo_div {
+    margin-right: 50px;
+    margin-left: 20px;
+    margin-top: 7px;
+    width: 350px;
+    position: absolute;
+    right: 40px;
+    bottom: 600px;
+    transform: rotate(-10deg);
+}
+
+
+.logo{
+    width: 350px;
+    height: 350px;
+}
+
+
+
+
+/* Styles for the unicorn container */
+.unicorn-container {
+    text-align: center;
+    margin-top: 6px; /* Adjust as needed */
+    position: relative;
+    left: 400px;
+    bottom: 10px;
+  }
+ 
+  .unicorn {
+    width: auto; /* Let the width adjust based on the image's natural size */
+    height: 350px; /* Set a fixed height */
+  }
+ 
+
+
+.slideshow-container {
+    max-width: 70%; /* Adjust based on your preference */
+    position: relative;
+    margin: auto;
+    margin-top: 10%; /* Adjust based on your preference */
+}
+
+
+.mySlides {
+    display: none;
+    border: 2vw solid white; /* Adjust based on your preference */
+    position: relative;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.caption {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.caption.top {
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+}
+
+.caption.bottom {
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+}
+
+
