@@ -19,6 +19,15 @@
   .centerButton {
     margin: auto;
   }
+  #difficultyContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .small {
+    width: 7rem;
+    font-size: 20px;
+  }
 
     
   </style>
@@ -30,7 +39,13 @@
     <!-- <div class = "gameOver">Game Over-- the papparazi caught you!</div> -->
     <p id = "score"></p>
     <p id = "totalSparkles"></p>
-    <button name = "replay" class = "lightPurpleShine superRound outline centerButton"> Replay </button>
+
+    <p> Choose a difficulty to replay: </p>
+    <div id="difficultyContainer">
+      <button name = "replay" id = "easy" class = "lightPurpleShine superRound outline small"> Easy </button>
+      <button name = "replay" id = "medium" class = "lightPurpleShine superRound outline small"> Medium </button>
+      <button name = "replay" id = "hard" class = "lightPurpleShine superRound outline small"> Hard </button>
+      <button name = "replay" id = "extreme" class = "lightPurpleShine superRound outline small"> XTREME </button>
     </div>
 
   

@@ -19,6 +19,16 @@
     justify-items: center;      
    
   }
+
+  #difficultyContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .small {
+    width: 7rem;
+    font-size: 20px;
+  }
   </style>
 </head>
 <body>  
@@ -26,7 +36,14 @@
     <h1>Collect Sparkles</h1>
     <img class="image" src="../../../../static/loginscreen/assets/sheets/sparkle.png", alt="game_sparkles" width = "100" height="150" />
    <p> Collect as many sparkles as you can while avoiding the papparazi! <br>Use the up and down arrows to move</p>
-    <button name = "play" class = "lightPurpleShine superRound outline"> Play </button>
+   <p> Choose a difficulty: </p>
+    <div id="difficultyContainer">
+      <button name = "play" id = "easy" class = "lightPurpleShine superRound outline small"> Easy </button>
+      <button name = "play" id = "medium" class = "lightPurpleShine superRound outline small"> Medium </button>
+      <button name = "play" id = "hard" class = "lightPurpleShine superRound outline small"> Hard </button>
+      <button name = "play" id = "extreme" class = "lightPurpleShine superRound outline small"> XTREME </button>
+    </div>
+    
     </div>
 </body>
 </html>

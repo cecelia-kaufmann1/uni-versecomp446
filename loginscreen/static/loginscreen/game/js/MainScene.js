@@ -2,9 +2,9 @@
 const FRICTION = 15; // value for how much player should slide when movement stops
 const PLAYER_SPEED = 330; // player vertical speed
 
-const INIT_ENEMY_SPAWN_RATE = 300;
-const INIT_SPARKLE_SPAWN_RATE = 250;
-const INIT_RUNNING_SPEED = -110;
+let INIT_ENEMY_SPAWN_RATE = 300;
+let INIT_SPARKLE_SPAWN_RATE = 250;
+let INIT_RUNNING_SPEED = -110;
 
 // Global variables
 var cursors;
@@ -26,8 +26,8 @@ class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('bg_music','/static/loginscreen/assets/sounds/8Bit.wav');
-        this.load.audio('sparkle','/static/loginscreen/assets/sounds/Confirm.wav');
+        this.load.audio('bg_music', '/static/loginscreen/assets/sounds/8Bit.wav');
+        this.load.audio('sparkle', '/static/loginscreen/assets/sounds/Confirm.wav');
     }
     create() {
         // Get time that the game started (used for increasing difficulty)
@@ -96,7 +96,30 @@ class MainScene extends Phaser.Scene {
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
         element.on('click', function (event) {
             if (event.target.name === "play") {
-                // console.log(this.scene.sound);
+                if (event.target.id === "easy") {
+                    console.log("easy")
+
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -110;
+                } else if (event.target.id === "medium") {
+                    console.log("medium");
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -210;
+                } else if (event.target.id === "hard") {
+                    console.log("hard");
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -310;
+                } else if (event.target.id === "extreme") {
+                    console.log("extreme");
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -410;
+                }
+
+
                 var music = this.scene.sound.add("bg_music", { loop: true });
                 music.play();
 
@@ -228,7 +251,7 @@ class MainScene extends Phaser.Scene {
         console.log(this.game.sound);
         this.sound.play('sparkle')
 
-        
+
         sparkle.destroy();
         score += 1;
         this.updateUI();
@@ -267,6 +290,28 @@ class MainScene extends Phaser.Scene {
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
         element.on('click', function (event) {
             if (event.target.name === "replay") {
+                if (event.target.id === "easy") {
+                    console.log("easy")
+
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -110;
+                } else if (event.target.id === "medium") {
+                    console.log("medium");
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -210;
+                } else if (event.target.id === "hard") {
+                    console.log("hard");
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -310;
+                } else if (event.target.id === "extreme") {
+                    console.log("extreme");
+                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_RUNNING_SPEED = -410;
+                }
                 this.removeElement();
                 this.destroy();
                 self.replay();
@@ -359,7 +404,7 @@ class MainScene extends Phaser.Scene {
                 countdownText.text = "1";
                 setTimeout(function () {
                     countdownText.destroy();
-                    
+
 
                 }, 1000);
             }, 1000);
