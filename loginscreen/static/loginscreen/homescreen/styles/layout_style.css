@@ -106,7 +106,10 @@ a {
 body {
    
     /* background-image:  url("../../assets/images/alt_bg.png"); */
-    
+    background-image: none !important;
+    background: radial-gradient(ellipse at center, white 0%, #bf66ff 85%, #b44ffd 100%) !important;
+    background-repeat: no-repeat !important;
+  background-attachment: fixed !important; /* Making linear gradient not repeat: https://forum.freecodecamp.org/t/solved-preventing-a-gradient-background-from-repeating/74090*/
     font-family: 'FruitFont';
     src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
     color: var(--black);
