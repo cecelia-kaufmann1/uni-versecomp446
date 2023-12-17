@@ -245,7 +245,7 @@ function createClothingItemBox(item, itemType, id) {
 
     itemBox.onclick = function () {
         clickClosetItem(item, itemType, id);
-        playNoise('../static/loginscreen/assets/sounds/equip.wav');
+        playNoise('../static/loginscreen/assets/sounds/equip.wav', 1);
     }
 
     if (isWearing(id)) {
@@ -439,6 +439,7 @@ function purchaseItems() {
         updateSparklesInDB();
 
         saveOwnsToDB();
+        playNoise('../static/loginscreen/assets/sounds/purchase.mp3', 0.5);
         
         costInCart = 0;
         itemsInCart = [];
@@ -670,7 +671,6 @@ function convertArrayToString(arr) {
 }
 
 function getColorBlindness() {
-    console.log("color blindess ajax call");
     $.ajax({
         url: '/get_colorblindness/',
         type: "GET",
@@ -689,23 +689,15 @@ function getColorBlindness() {
             console.log(`Error ${error}`);
         }
     });
-
 }
+
 function listenForSoundEffects() {
     $("#avatarColorsButton").on('click', function() {
-        playNoise('../static/loginscreen/assets/sounds/draw_pull_out.wav');
+        playNoise('../static/loginscreen/assets/sounds/draw_pull_out.wav', 1);
     })
 
     $(".tab").on('click', function() {
-        playNoise('../static/loginscreen/assets/sounds/tick.wav');
+        playNoise('../static/loginscreen/assets/sounds/tick.wav', 1);
     })
-
-   
-
-
-
 }
-function playNoise(path) {
-    var noise = new Audio(path);
-    noise.play();
-}
+

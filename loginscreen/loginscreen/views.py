@@ -231,3 +231,11 @@ def get_colorblindness(request):
         }
         return JsonResponse(response) 
 
+@csrf_exempt
+def get_audio_preference(request):
+    if request.method == 'GET':
+        response = {
+            'audio_preference': request.user.profile.volume
+        }
+        return JsonResponse(response) 
+
