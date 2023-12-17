@@ -115,7 +115,7 @@ function preload() {
 
 
 
-  this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
+  this.load.image('bigGrass', '../static/loginscreen/assets/images/fae_cafe.png');
   this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
   this.load.image('singleSparkle', '../static/loginscreen/assets/images/singleSparkle.png');
   
@@ -138,6 +138,8 @@ function create() {
   var self = this;
   this.socket = io();
   this.otherPlayers = this.physics.add.group();
+  
+  
 
   // listen for a message from the chatroom_template.html django file
   window.addEventListener('message', function (event) {
@@ -156,6 +158,7 @@ function create() {
         // add username text below the avatar
         let usernameText = self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
         otherPlayer.add(usernameText);
+        
         usernameText.itemType = "text";
 
         // put clothes on the avatar
@@ -288,7 +291,8 @@ function create() {
   });
 
   this.boundaries = this.physics.add.staticGroup();
-  this.boundaries.create(0, 320, 'bigGrass').setScale(2.9, 6).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+  this.boundaries.create(0, 320, 'bigGrass').setOrigin(0,0.55).setScale(0.7,0.7);
+  // this.boundaries.create(0, 320, 'bigGrass').setScale(2.9, 6).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
 
 }
 const MAX_SPEED = 120;
