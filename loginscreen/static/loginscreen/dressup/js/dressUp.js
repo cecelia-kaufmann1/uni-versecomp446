@@ -11,7 +11,7 @@ var clothes;
 var costInCart = 0;
 var itemsInCart = [];
 
-var tabOpen = "closet"; // should be either "closet" or "shop"
+var tabOpen = "shop"; // should be either "closet" or "shop"
 
 
 // fetch json file from: https://stackoverflow.com/questions/7346563/loading-local-json-file
@@ -171,6 +171,7 @@ function populateOwnedClothes() {
         let clothingItemBox = createClothingItemBox(item, itemType, id);
         closet.appendChild(clothingItemBox);
     }
+
 
     highlightMyClothesTab();
 
@@ -510,7 +511,13 @@ function getWearing() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            wearing = convertStringToArray(data.wearing);
+            if (!data.wearing) {
+                wearing = [];
+                saveWearingToDB();
+            } else {
+                wearing = convertStringToArray(data.wearing);
+            }
+            
             
             getOwns();
         },
@@ -546,8 +553,12 @@ function getOwns() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            owns = convertStringToArray(data.owns);
-            console.log("owns!!", data.owns);
+            if (!data.owns) {
+                owns = [];
+                saveOwnsToDB();
+            } else {
+                owns = convertStringToArray(data.owns);
+            }
             setUpScreen();
         },
         error: function (error) {
@@ -597,7 +608,14 @@ function getAvatarColor() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            let color = data.color;
+            let color;
+            if (!data.color) {
+                color = "default";
+                saveColorToDatabase(color);
+            } else {
+                color = data.color;
+            }
+            
             console.log("got color from db: ", data.color);
             changeAvatarColor(color);
         },

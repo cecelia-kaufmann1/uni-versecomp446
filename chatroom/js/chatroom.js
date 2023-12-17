@@ -28,7 +28,19 @@ var game = new Phaser.Game(config);
 var cursors;
 function preload() {
 
-  this.load.image('player', 'static/loginscreen/assets/vectorArt/player.png');
+  this.load.image('default', 'static/loginscreen/assets/vectorArt/default.png');
+  this.load.image('red', 'static/loginscreen/assets/vectorArt/red.png');
+  this.load.image('orange', 'static/loginscreen/assets/vectorArt/orange.png');
+  this.load.image('yellow', 'static/loginscreen/assets/vectorArt/yellow.png');
+  this.load.image('green', 'static/loginscreen/assets/vectorArt/green.png');
+  this.load.image('blue', 'static/loginscreen/assets/vectorArt/blue.png');
+  this.load.image('purple', 'static/loginscreen/assets/vectorArt/purple.png');
+  this.load.image('pink', 'static/loginscreen/assets/vectorArt/pink.png');
+  this.load.image('white', 'static/loginscreen/assets/vectorArt/white.png');
+  this.load.image('lightbrown', 'static/loginscreen/assets/vectorArt/lightbrown.png');
+  this.load.image('brown', 'static/loginscreen/assets/vectorArt/brown.png');
+  this.load.image('black', 'static/loginscreen/assets/vectorArt/black.png');
+
   this.load.image('bottom1', '../static/loginscreen/assets/images/clothes/bottom1.png');
   this.load.image('bottom2', '../static/loginscreen/assets/images/clothes/bottom2.png');
   this.load.image('bottom3', '../static/loginscreen/assets/images/clothes/bottom3.png');
@@ -119,6 +131,7 @@ function preload() {
 var username = "Unknown user";
 var wearing = [];
 var owns = [];
+var color = "default";
 function create() {
 
 
@@ -131,7 +144,8 @@ function create() {
     username = event.data.username; // current player username
     wearing = event.data.wearing; // current player wearing
     owns = event.data.owns; // current player owns
-    self.socket.emit('updatePlayerUsernameAndWearing', username, wearing, owns); // save the data to the server
+    color = event.data.color; // current player avatar color
+    self.socket.emit('updatePlayerUsernameAndWearing', username, wearing, owns, color); // save the data to the server
   });
 
   // update another player based on the new username and wearing data
@@ -425,7 +439,7 @@ function addPlayer(self, playerInfo) {
   self.ship.x = playerInfo.x;
   self.ship.y = playerInfo.y;
   self.physics.world.enable(self.ship);
-  let baseImage = self.physics.add.image(0, 0, 'player').setOrigin(0, 0).setScale(0.3);
+  let baseImage = self.physics.add.image(0, 0, "default").setOrigin(0, 0).setScale(0.3);
 
   self.ship.add(baseImage);
  
@@ -455,7 +469,7 @@ function addOtherPlayers(self, playerInfo) {
   otherPlayer.x = playerInfo.x;
   otherPlayer.y = playerInfo.y;
   self.physics.world.enable(otherPlayer);
-  let baseImage = self.physics.add.image(0, 0, 'player').setOrigin(0, 0).setScale(0.3)
+  let baseImage = self.physics.add.image(0, 0, "default").setOrigin(0, 0).setScale(0.3)
   otherPlayer.add(baseImage);
 
   let usernameText = self.add.text(0, 100, playerInfo.username, { fontSize: '15px', fill: '#FFF' });
@@ -496,15 +510,33 @@ function makeParticleEmitter(self, sprite) {
 });
 }
 function putOnClothes(self, sprite, playerInfo) {
-
+  console.log(playerInfo);
+  let color = playerInfo.color;
+  if (color) {
+    if (typeof(playerInfo.color.color) == "string"){
+      color = playerInfo.color.color;
+    } 
+    let colorImage = self.physics.add.image(0, 0, color).setOrigin(0, 0).setScale(0.3);
+    sprite.add(colorImage);
+  }
+ 
   let wearingArray = playerInfo.wearing;
+  if (typeof (playerInfo.wearing) == "string") {
+    wearingArray = convertStringToArray(playerInfo.wearing);
+  }
   if (typeof (playerInfo.wearing.wearing) == "string") {
     wearingArray = convertStringToArray(playerInfo.wearing.wearing);
   }
   let ownsArray = playerInfo.owns;
+  if (typeof (playerInfo.ownsArray) == "string") {
+    ownsArray = convertStringToArray(playerInfo.ownsArray);
+  }
   if (typeof (playerInfo.owns.owns) == "string") {
     ownsArray = convertStringToArray(playerInfo.owns.owns);
   }
+ 
+  
+  console.log(wearingArray);
   wearingArray.forEach((item) => {
    
     let id = item;

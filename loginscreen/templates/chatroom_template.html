@@ -51,12 +51,13 @@
     let username = "";
     let wearing = "";
     let owns = "";
+    let color = "";
     setTimeout(getUsername, 1000);
     // getUsername();
 
     function sendMessage() {
         console.log("sent!");
-        const message = {"username": username, "wearing": wearing, "owns" : owns};
+        const message = {"username": username, "wearing": wearing, "owns" : owns, "color": color};
         const iframe = document.querySelector("iframe");
         iframe.contentWindow.postMessage(message, "*");
     }
@@ -86,7 +87,12 @@
             type: "GET",
             dataType: "json",
             success: function (data) {
-                wearing = data;
+                if (data.wearing == "") {
+                    data.wearing = "null";
+                   
+                }
+                console.log("data: ", data.wearing);
+                wearing = data.wearing;
                 getOwns();
             },
             error: function (error) {
@@ -102,8 +108,12 @@
             type: "GET",
             dataType: "json",
             success: function (data) {
-                owns = data;
-                sendMessage();
+                if (data.owns == "") {
+                    data.owns = "null";
+                   
+                }
+                console.log("data: ", data.owns);
+                getAvatarColor();
                
             },
             error: function (error) {
@@ -111,6 +121,29 @@
             }
         });
     }
+
+    // get the user's color info from database
+function getAvatarColor() {
+    // first, get the number of sparkles that the user currently has
+    $.ajax({
+        url: '/get_color/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            if (data.color == "") {
+                    data.color = "default";
+                   
+                }
+                console.log("data: ", data.color);
+            color = data.color;
+            
+            sendMessage();
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+}
 
 
     window.addEventListener('message', function(event) {
