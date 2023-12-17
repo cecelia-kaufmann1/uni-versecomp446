@@ -11,6 +11,7 @@ function updateAllUI(data) {
     updateUIElement(data.font, "accessibleFont");
     updateUIElement(data.font_size, "bigFont");
     updateUIElement(data.buttons, "medPink");
+    updateUIElement(data.buttons, "simpleButton");
     console.log("updateAllUI is called");
     
 }

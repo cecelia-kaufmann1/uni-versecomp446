@@ -20,6 +20,7 @@ $(document).ready(function () {
     $("#buttons_toggle").on('change', function() {
         buttons_toggle = convertToNumber($(this).is(':checked'));
         tryNewUI('medPink', buttons_toggle);
+        tryNewUI('simpleButton', buttons_toggle);
     });
     
     $("#colors_toggle").on('change', function() {
