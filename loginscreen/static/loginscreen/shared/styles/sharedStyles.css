@@ -32,8 +32,14 @@ hr {
 
 
 body {
-  background: pink;
-  background-image: url("../../assets/images/alt_bg.png");
+  /* background: pink; */
+  /* background: radial-gradient(rectangular at center, #b44ffd 0%, #bf66ff 80%, #d4a5f6 100%); */
+  background: radial-gradient(ellipse at center, white 0%, #bf66ff 85%, #b44ffd 100%);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Making linear gradient not repeat: https://forum.freecodecamp.org/t/solved-preventing-a-gradient-background-from-repeating/74090*/
+  /* background-color: pink; */
+  /* background-image: url("../../assets/images/alt_bg.png"); */
   font-family: 'FruitFont';
   src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
   color: var(--black);
