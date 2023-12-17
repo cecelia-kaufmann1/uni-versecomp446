@@ -2,11 +2,51 @@
     height: 33rem;
     width: 60rem;
     background-color: white;   
-    background-image:  url("../../assets/images/homebg.png");
+    background-image:  url("../../assets/images/home_bg.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    
+    background-position: center;
+
+    overflow:hidden;
 }
+
+#blurb {
+  grid-column-start:3;
+  width:80%;
+}
+
+
+/* Code for animating a gif: https://blog.logrocket.com/making-css-animations-using-a-sprite-sheet/ */
+@keyframes fall {
+  to { background-position: -2200px }
+}
+
+#waterfall{
+  width: 320px;
+  height: 725px;
+  background: url("../../assets/sheets/waterfall_sheet.png");
+  animation: fall 0.5s steps(4) infinite;
+
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+@media only screen and (min-width: 320px) {
+  #waterfall {
+    transform: scale(1.2);
+    position:static;
+    
+    /* background-color: red; */
+    /* padding: 0; */
+    right: -10px;
+    /* bottom: 0;
+    top: 10px;
+    left: 0; */ 
+    /* position:fixed; */
+    
+  }
+}
+
 
 
 
@@ -21,11 +61,14 @@
     width: 225px;
     background: url("../../assets/sheets/sunglassesSheet.png");
     animation: sprite 20s steps(202) infinite;
+
+    grid-row-start: 1;
+    grid-column-start: 4;
   }
   
   @media only screen and (min-width: 1024px) {
     #gif {
-      transform: scale(1.2);
+      transform: scale(0.8);
       /* background-color: red; */
       margin: auto;
       padding: 0;
@@ -33,7 +76,6 @@
       bottom: 0;
       top: 0;
       left: 0;
-      margin-top: 5%;
       /* position:fixed; */
       
     }

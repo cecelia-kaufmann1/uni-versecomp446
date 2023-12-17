@@ -26,6 +26,7 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
 
 $(document).ready(function () {
     getSparklesNum();
+    getColorBlindness();
 
     let buyItemButton = document.getElementsByClassName("buyItemButton")[0];
     buyItemButton.onclick = purchaseItems;
@@ -658,5 +659,28 @@ function convertArrayToString(arr) {
         newStr = "null"; // empty array = 'null' string
     }
     return newStr;
+}
+
+function getColorBlindness() {
+    console.log("color blindess ajax call");
+    $.ajax({
+        url: '/get_colorblindness/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log("got colorblindess " + data.colors)
+            if (data.colors) {
+                $(".colorName").css('display', 'block');
+            }
+            else {
+                $(".colorName").css('display', 'none');
+            }
+            
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+
 }
 

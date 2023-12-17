@@ -11,11 +11,11 @@ class Profile(models.Model):
     owns = models.CharField(max_length=100, null=True, default='null') 
     color = models.CharField(max_length=100, null=True, default='default') # set default value code from https://stackoverflow.com/questions/755857/how-can-i-set-a-default-value-for-a-field-in-a-django-model
 
-    volume = models.BooleanField(default=True)
-    font = models.BooleanField(default=True)
-    font_size = models.BooleanField(default=True)
-    buttons = models.BooleanField(default=True)
-    colors = models.BooleanField(default=True)
+    volume = models.BooleanField(default=False)
+    font = models.BooleanField(default=False)
+    font_size = models.BooleanField(default=False)
+    buttons = models.BooleanField(default=False)
+    colors = models.BooleanField(default=False)
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):

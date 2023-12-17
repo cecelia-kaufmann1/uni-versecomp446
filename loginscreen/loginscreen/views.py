@@ -223,3 +223,11 @@ def get_layout_accessibility(request):
         }
         return JsonResponse(response) 
 
+@csrf_exempt
+def get_colorblindness(request):
+    if request.method == 'GET':
+        response = {
+            'colors': request.user.profile.colors
+        }
+        return JsonResponse(response) 
+
