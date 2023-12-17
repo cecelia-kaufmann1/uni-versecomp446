@@ -1,16 +1,16 @@
 $(document).ready(function() {
     window.localStorage.setItem('audio-enabled', '1');
     document.querySelector('body').click();
-    playAudio();
+    // playAudio();
 
     $(".popupExitButton").on('click', function() {
         $('#blurb').css('display','none')
     });
     
-    var waterfall = new Audio('../static/loginscreen/assets/sounds/waterfall.wav');
-    waterfall.loop= true; 
-    waterfall.volume = 0.2;
-    waterfall.play();
+    // var waterfall = new Audio('../static/loginscreen/assets/sounds/waterfall.wav');
+    // waterfall.loop= true; 
+    // waterfall.volume = 0.2;
+    // waterfall.play();
     
 })
 

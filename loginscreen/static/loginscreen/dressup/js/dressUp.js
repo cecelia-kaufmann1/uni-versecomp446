@@ -28,6 +28,8 @@ $(document).ready(function () {
     getSparklesNum();
     getColorBlindness();
 
+    listenForSoundEffects();
+
     let buyItemButton = document.getElementsByClassName("buyItemButton")[0];
     buyItemButton.onclick = purchaseItems;
 
@@ -243,6 +245,7 @@ function createClothingItemBox(item, itemType, id) {
 
     itemBox.onclick = function () {
         clickClosetItem(item, itemType, id);
+        playNoise('../static/loginscreen/assets/sounds/equip.wav');
     }
 
     if (isWearing(id)) {
@@ -688,4 +691,21 @@ function getColorBlindness() {
     });
 
 }
+function listenForSoundEffects() {
+    $("#avatarColorsButton").on('click', function() {
+        playNoise('../static/loginscreen/assets/sounds/draw_pull_out.wav');
+    })
 
+    $(".tab").on('click', function() {
+        playNoise('../static/loginscreen/assets/sounds/tick.wav');
+    })
+
+   
+
+
+
+}
+function playNoise(path) {
+    var noise = new Audio(path);
+    noise.play();
+}
