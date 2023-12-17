@@ -10,14 +10,59 @@
     overflow:hidden;
 }
 
-#frame div {
-  /* max-height: 200px; */
-}
 #blurb {
   grid-column-start:3;
-  width:80%;
+  grid-column-end:6;
+  margin-top: 1rem;
 }
 
+#blurb p {
+  margin-left: -1rem;
+}
+
+#uni {
+  background: url("../../assets/vectorArt/default.png");
+  width: 231px;
+  height: 298px;
+  transform: scale(0.8);
+  filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
+  margin-top: 1.5rem;
+  grid-row: 2;
+  grid-column-start: 3;
+}
+
+#uni:hover {
+  cursor: url("../../assets/images/brush.png"), auto;
+}
+
+#sign {
+  width: 362px;
+  height: 330px;
+  background: url("../../assets/sheets/sign_sheet.png");
+  background-repeat: no-repeat;
+  transform: scale(0.5);
+  /* animation: sign 0.5s steps(2) infinite; */
+  margin-top:-8rem;
+  margin-left: 5rem;
+  grid-row: 3;
+  grid-column-start: 4;
+  filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
+
+}
+
+@media only screen and (min-width: 362px) {
+  #sign:hover {
+    transform: scale(0.5);
+    background: url("../../assets/sheets/sign_sheet.png");
+    animation: sign 0.3s steps(2) infinite;
+
+  }
+}
+
+/* Code for animating a gif: https://blog.logrocket.com/making-css-animations-using-a-sprite-sheet/ */
+@keyframes sign {
+  to { background-position: -724px }
+}
 
 /* Code for animating a gif: https://blog.logrocket.com/making-css-animations-using-a-sprite-sheet/ */
 @keyframes fall {
@@ -30,10 +75,9 @@
   background: url("../../assets/sheets/waterfall_sheet.png");
   animation: fall 0.5s steps(4) infinite;
 
-  grid-row: 1 /4;
+  grid-row: 1 /2;
   grid-column-start: 1;
-  
-
+  filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
 }
 
 @media only screen and (min-width: 320px) {
@@ -41,19 +85,10 @@
     transform: scale(1.2);
     position:static;
     
-    /* background-color: red; */
-    /* padding: 0; */
     right: -10px;
-    /* bottom: 0;
-    top: 10px;
-    left: 0; */ 
-    /* position:fixed; */
     
   }
 }
-
-
-
 
 
 /* Code for animating a gif: https://blog.logrocket.com/making-css-animations-using-a-sprite-sheet/ */
@@ -68,14 +103,15 @@
     animation: sprite 20s steps(202) infinite;
 
     grid-row-start: 1;
-    grid-column-start: 4;
+    grid-column-start: 6;
+    margin-left: -4rem;
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
   }
   
   @media only screen and (min-width: 1024px) {
     #gif {
       transform: scale(0.8);
       /* background-color: red; */
-      margin: auto;
       padding: 0;
       right: 0;
       bottom: 0;

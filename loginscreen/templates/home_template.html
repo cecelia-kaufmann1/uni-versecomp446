@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/sharedStyles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {% load static %}
+    <script src="{% static './loginscreen/homescreen/js/home.js' %}"></script>
+
 
 </head>
 
@@ -25,10 +28,15 @@
     not available -->
 <div id="frame" class="landingGrid">
     <div id="waterfall"> </div>
+    
    <div id="gif"> </div>
-   <div id="blurb" class="pinkGradientContainer"> 
-        <p> Welcome to the Uni-Verse!</p>
-        <p> Dress up <br> Collect sparkles, watch out for paparrazi! <br> show off your outfits to your friends!</p>
+   <div id="sign"> </div>
+   <div id="uni"> </div>
+   <div id="blurb" class="pinkGradientContainer">
+    <button class="popupExitButton"> x </button>
+        <h1> Welcome to the Uni-Verse!</h1>
+        <p> Dress up, collect sparkles, and show off your outfits to your friends!</p>
+        
    </div>
    
 
