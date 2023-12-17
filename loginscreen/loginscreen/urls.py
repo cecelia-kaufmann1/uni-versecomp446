@@ -48,6 +48,8 @@ urlpatterns = [
     path('update_wearing/', views.update_wearing),
     path('get_owns/', views.get_owns),
     path('update_owns/', views.update_owns),
+    path('get_color/', views.get_color),
+    path('update_color/', views.update_color),
     path('get_username/', views.get_username),
 
     path('update_accessibility/', views.update_accessibility),

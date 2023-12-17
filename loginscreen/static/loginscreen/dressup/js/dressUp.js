@@ -46,13 +46,65 @@ $(document).ready(function () {
 
         }
     }
-
+    getAvatarColor();
+    
+    let defaultColor = document.getElementById("default");
+    defaultColor.onclick = function() {
+        changeAvatarColor("default");
+    }
     let red = document.getElementById("red");
     red.onclick = function() {
-        console.log("red clicked");
+        changeAvatarColor("red");
     }
-    
 
+    let orange = document.getElementById("orange");
+    orange.onclick = function() {
+        changeAvatarColor("orange");
+    }
+
+    let yellow = document.getElementById("yellow");
+    yellow.onclick = function() {
+        changeAvatarColor("yellow");
+    }
+
+    let green = document.getElementById("green");
+    green.onclick = function() {
+        changeAvatarColor("green");
+    }
+
+    let blue = document.getElementById("blue");
+    blue.onclick = function() {
+        changeAvatarColor("blue");
+    }
+
+    let purple = document.getElementById("purple");
+    purple.onclick = function() {
+        changeAvatarColor("purple");
+    }
+    let pink = document.getElementById("pink");
+    pink.onclick = function() {
+        changeAvatarColor("pink");
+    }
+
+    let white = document.getElementById("white");
+    white.onclick = function() {
+        changeAvatarColor("white");
+    }
+
+    let lightbrown = document.getElementById("lightbrown");
+    lightbrown.onclick = function() {
+        changeAvatarColor("lightbrown");
+    }
+
+    let brown = document.getElementById("brown");
+    brown.onclick = function() {
+        changeAvatarColor("brown");
+    }
+
+    let black = document.getElementById("black");
+    black.onclick = function() {
+        changeAvatarColor("black");
+    }
 })
 
 // ----------------------------------------------------
@@ -71,7 +123,9 @@ function printDebugValues() {
 
 // put on clothes, and populate shop/closet. Used when the screen is first loaded
 function setUpScreen() {
-     // put on each item that user is currently wearing
+     
+    
+    // put on each item that user is currently wearing
      for (let i = 0; i < wearing.length; i++) {
         
         let id = wearing[i];
@@ -339,13 +393,15 @@ function removeIfWearing(itemType) {
                 break;
             }
         }
-    } 
-    
-
-
-   
+    }    
 }
 
+function changeAvatarColor(color) {
+    console.log("new color: ", color);
+    let avatarImage = document.getElementById("unicornImage");
+    avatarImage.setAttribute("src", "../static/loginscreen/assets/vectorArt/"+color+".png");
+    saveColorToDatabase(color);
+}
 // ----------------------------------------------
 // -------------------- Data --------------------
 // ----------------------------------------------
@@ -517,6 +573,40 @@ function saveOwnsToDB() {
         }
     })
 }
+
+// save the given color to the database
+function saveColorToDatabase(color) {
+    // first, get the number of sparkles that the user currently has
+    $.ajax({
+        type: 'POST',
+        url: '/update_color/',
+        data: {
+            color: color
+        },
+        success: function(data) {
+            console.log("posted color: ", data);
+        }
+    })
+}
+
+// get the user's color info from database
+function getAvatarColor() {
+    // first, get the number of sparkles that the user currently has
+    $.ajax({
+        url: '/get_color/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            let color = data.color;
+            console.log("got color from db: ", data.color);
+            changeAvatarColor(color);
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+}
+
 
 
 
