@@ -6,15 +6,23 @@
   <link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/button.css">
   <link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/sharedStyles.css">
   <style>
-    .gameBox {
-    width: 35rem;
-    height: 30rem;
-      
-    justify-content: center;
-    align-content: center;
-    justify-items: center;      
-   
-  }
+   .gameBox {
+      width: 40rem;
+      height: 30rem;
+
+      font-family: videoGameFont;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .gameBox * {
+      font-family: videoGameFont;
+      justify-self: center;
+    }
 
   .centerButton {
     margin: auto;
@@ -24,28 +32,119 @@
     flex-direction: row;
   }
 
-  .small {
-    width: 7rem;
-    font-size: 20px;
-  }
+  .box_line {
+      position: absolute;
+      background: white;
+    }
 
+    .box_line_top,
+    .box_line_bottom {
+      height: 10px;
+      width: 100%;
+    }
+
+    .box_line_top::before,
+    .box_line_bottom::before,
+    .box_line_top::after,
+    .box_line_bottom::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+    }
+
+    .box_line_top {
+      top: -10px;
+
+
+
+
+    }
+
+    .box_line_top::before {
+      left: 0;
+      bottom: -10px;
+    }
+
+    .box_line_top::after {
+      right: 0;
+      bottom: -10px;
+    }
+
+    .box_line_bottom {
+      bottom: -10px;
+
+
+    }
+
+    .box_line_bottom::before {
+      left: 0;
+      top: -10px;
+    }
+
+    .box_line_bottom::after {
+      right: 0;
+      top: -10px;
+    }
+
+    .box_line_left,
+    .box_line_right {
+      width: 10px;
+      height: 100%;
+    }
+
+    .box_line_left {
+      left: -10px;
+    }
+
+    .box_line_right {
+      right: -10px;
+    }
+
+  .difficultyButton {
+	text-align: center;
+	width: 8.5rem;
+	border-radius: 3rem;
+	box-shadow:  0 0.5rem #9d45dd;
+	color: black;
+	margin: 5px;
+	cursor: pointer;
+  padding-left: 5px;
+  background: linear-gradient(135deg,white 0%, #bf66ff 50%, #b24dfa 90%);
+  border: 1px #9d45dd solid;
+}
+
+.difficultyButton:active{
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+.videoGameText{
+  color: white;
+}
     
   </style>
   
 </head>
 <body>  
-   <div class = "pinkContainer gameBox" id = "gameOver">
-    <h1>Game Over-- the papparazi caught you!</h1>
+   <div class = "gameBox" id = "gameOver">
+    <div class="box_line box_line_top"></div>
+    <div class="box_line box_line_right"></div>
+    <div class="box_line box_line_bottom"></div>
+    <div class="box_line box_line_left"></div>
+    <h1 class="videoGameText">Game Over-- the papparazi caught you!</h1>
     <!-- <div class = "gameOver">Game Over-- the papparazi caught you!</div> -->
-    <p id = "score"></p>
-    <p id = "totalSparkles"></p>
+    <p class="videoGameText" id = "score"></p>
+    <p class="videoGameText" id = "totalSparkles"></p>
 
-    <p> Choose a difficulty to replay: </p>
+    <pc lass="videoGameText"> Choose a difficulty to replay: </p>
     <div id="difficultyContainer">
-      <button name = "replay" id = "easy" class = "lightPurpleShine superRound outline small"> Easy </button>
-      <button name = "replay" id = "medium" class = "lightPurpleShine superRound outline small"> Medium </button>
-      <button name = "replay" id = "hard" class = "lightPurpleShine superRound outline small"> Hard </button>
-      <button name = "replay" id = "extreme" class = "lightPurpleShine superRound outline small"> XTREME </button>
+      <button name = "replay" id = "easy" class = "difficultyButton"> Easy </button>
+      <button name = "replay" id = "medium" class = "difficultyButton"> Medium </button>
+      <button name = "replay" id = "hard" class = "difficultyButton"> Hard </button>
+      <button name = "replay" id = "extreme" class = "difficultyButton"> XTREME </button>
     </div>
 
   

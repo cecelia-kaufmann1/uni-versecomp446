@@ -241,8 +241,9 @@ class MainScene extends Phaser.Scene {
     createUI() {
 
 
-        this.scoreText = this.add.text(0, 0, "", { fontSize: '32px', fill: '#FFF' });
+        this.scoreText = this.add.text(0, 0, "", { fontSize: '32px', fill: '#FFF', fontFamily: 'videoGameFont' });
         this.scoreText.setPadding(10, 10, 10, 10);
+        
         this.updateUI();
 
     }
@@ -390,7 +391,7 @@ class MainScene extends Phaser.Scene {
         player.body.offset.y = player.displayHeight * 0.2;
     }
     countdown() {
-        let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF' });
+        let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF', fontFamily: "videoGameFont"});
         countdownText.setOrigin(0.5);
         startedGame = true;
         sparkleSpawnRate = INIT_SPARKLE_SPAWN_RATE;
