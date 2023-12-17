@@ -7,8 +7,9 @@ from django.dispatch import receiver
 class Profile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sparkles = models.IntegerField(null=True)
-    wearing = models.CharField(max_length=100, null=True)
-    owns = models.CharField(max_length=100, null=True)
+    wearing = models.CharField(max_length=100, null=True, default='null')
+    owns = models.CharField(max_length=100, null=True, default='null')
+    color = models.CharField(max_length=100, null=True, default='default')
 
     volume = models.BooleanField(default=True)
     font = models.BooleanField(default=True)
@@ -19,7 +20,7 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance, sparkles=0, wearing='', owns='')
+        Profile.objects.create(user=instance, sparkles=0, wearing='', owns='',color='')
 
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
