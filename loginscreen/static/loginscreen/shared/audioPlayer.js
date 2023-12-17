@@ -1,13 +1,30 @@
+var audio_on = true;
 $(document).ready(function() {
     console.log("AUDIO PLAYER IS PRESENT FOR PAGE : " + window.location.href);
-    getAudioForPage(window.location.href);
-    // var waterfall = new Audio('../static/loginscreen/assets/sounds/waterfall.wav');
-    // waterfall.loop= true; 
-    // waterfall.volume = 0.2;
-    // waterfall.play();
-
-    
+    getAudioPreference();
+    // if (audio_on) {
+    //     getAudioForPage(window.location.href);
+    // }
 })
+
+function getAudioPreference() {
+    $.ajax({
+        url: '/get_audio_preference/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+           
+            audio_on = data.audio_preference;
+            console.log("THE PREFERENCE FOR VOLUME IS:" + audio_on);
+            if (audio_on) {
+                getAudioForPage(window.location.href);
+            }
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+}
 
 function getAudioForPage(link) {
     if (link.includes("home")){
@@ -22,6 +39,15 @@ function getAudioForPage(link) {
         playBackgroundMusic('../static/loginscreen/assets/sounds/monday_morning.wav');
     }
 
+}
+
+function playNoise(path, volume) {
+    if (audio_on) {
+        var noise = new Audio(path);
+        noise.volume = volume;
+        noise.play();
+    }
+    
 }
 
 function playSecondaryAudio(path) {
