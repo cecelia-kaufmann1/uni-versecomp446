@@ -15,7 +15,6 @@
 
 .landingGrid {
     display:grid;
-    
    
     /* Make the grid 10 columns wide, every other taking up twice the free space */
     /* grid-template-columns: 1fr 1fr 3fr 1fr; */
@@ -37,6 +36,8 @@
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
 }
+
+
 /* ================= Container Styling ================= */
 
 

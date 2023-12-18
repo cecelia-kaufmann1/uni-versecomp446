@@ -7,25 +7,32 @@
 }
 
 #confirm_button {
-    display:block;
-    width: auto;
-    
-    margin-top: 5%;
-    margin-left: 60%;
+    width: fit-content;
+    margin-top: -5em;
+    margin-left: 50%;
 }
 
 .accessibility_element {
     display: grid;
-    width: 100%;
 
     column-gap: 1rem;
     /* Make the grid 10 columns wide, every other taking up twice the free space */
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
   
     /* Make the grid have 10 explicit rows, 50px high each */
-    grid-template-rows: 1fr;
+    grid-template-rows: 2rem 2rem;
     margin: 0.25rem;
+}
 
+.accessibility_options {
+  display:grid;
+  width: 50rem;
+  grid-template-columns: 1fr 1fr;
+  /* Make the grid have 10 explicit rows, 50px high each */
+}
+
+.accessibility_options h2 {
+  grid-row-start: 1;
 }
 
 /* The switch - the box around the slider */
@@ -69,11 +76,11 @@
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #88bbe8;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #88bbe8;
   }
   
   input:checked + .slider:before {

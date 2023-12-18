@@ -42,7 +42,6 @@
   background: url("../../assets/sheets/sign_sheet.png");
   background-repeat: no-repeat;
   transform: scale(0.5);
-  /* animation: sign 0.5s steps(2) infinite; */
   margin-top:-8rem;
   margin-left: 5rem;
   grid-row: 3;

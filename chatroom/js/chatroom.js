@@ -291,6 +291,10 @@ function create() {
   this.boundaries = this.physics.add.staticGroup();
  
   this.boundaries.create(0, 230, 'bigGrass').setScale(2.9, 9).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+  this.boundaries.create(0, 0, 'bigGrass').setScale(8, 4.3).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+  this.boundaries.create(250, 18, 'bigGrass').setScale(10, 2).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
+
+
 
 
 }

@@ -25,7 +25,7 @@ io.on('connection', function (socket) {
     players[socket.id] = {
         rotation: 0,
         x: Math.floor(Math.random() * 550) + 250,
-        y: Math.floor(Math.random() * 450) + 50,
+        y: Math.floor(Math.random() * 400) + 200,     
        
         playerId: socket.id,
         team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue',

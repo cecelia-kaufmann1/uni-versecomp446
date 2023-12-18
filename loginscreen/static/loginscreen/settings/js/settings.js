@@ -2,11 +2,11 @@ var volume_toggle, font_toggle, font_size_toggle, buttons_toggle, colors_toggle;
 
 $(document).ready(function () {
     getAccessibilityInDB();
-    $("#volume_toggle").on('change', function() {
-        volume_toggle = convertToNumber($(this).is(':checked'));
-        
-    });
 
+    $("#volume_toggle").on('click', function() {
+        checkVolumeToggle();
+    })
+    
     $("#font_toggle").on('change', function() {
         font_toggle = convertToNumber($(this).is(':checked'));
         tryNewUI('accessibleFont', font_toggle);
@@ -53,9 +53,27 @@ function tryNewUI(attribute, checked){
         $("body").removeClass(attribute);
     }
 }
+function checkVolumeToggle() {
+    if ($("#volume_toggle").attr("src").includes("unmute")) {
+        $("#volume_toggle").attr("src", "../static/loginscreen/assets/images/icons/muted.png")
+        volume_toggle = '0';
+    }
+    else {
+        $("#volume_toggle").attr("src", "../static/loginscreen/assets/images/icons/unmuted.png")
+        volume_toggle = '1';
+    }
+}
 
+function updateVolumeToggle(data) {
+    if (data == '1'){
+        $("#volume_toggle").attr("src", "../static/loginscreen/assets/images/icons/unmuted.png")
+    }
+    else {
+        $("#volume_toggle").attr("src", "../static/loginscreen/assets/images/icons/muted.png")
+    }
+}
 function updateUI(data) {
-    $("#volume_toggle").prop('checked', data.volume);
+    updateVolumeToggle(data.volume);
     $("#font_toggle").prop('checked', data.font);
     $("#font_size_toggle").prop('checked', data.font_size);
     $("#buttons_toggle").prop('checked', data.buttons);
@@ -104,6 +122,9 @@ function updateAccessibilityInDB() {
             font_size: font_size_toggle,
             buttons: buttons_toggle,
             colors: colors_toggle
-        }
+        } 
     })
+
+    window.location.href = '/home/';  // Adjust the URL as needed
+
 }

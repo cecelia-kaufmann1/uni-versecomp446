@@ -191,7 +191,7 @@ def update_accessibility(request):
 
         current_profile.save() #update the number of sparkles for the existing user
 
-        return HttpResponse(current_profile.volume)
+        return render(request, 'home_template.html')
 
 def update_accessibility_element(item):
     if (item == "1"):

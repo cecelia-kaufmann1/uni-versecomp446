@@ -19,18 +19,10 @@
 
     <div id="frame">
         <h1>Settings</h1>
-
-        <h2>Volume</h2>
-        <div class="accessibility_element">
-            <label> Volume: </label>
-            <label class="switch" >
-                <input type="checkbox" id="volume_toggle">
-                <span class="slider round"></span>
-            </label>
-        </div>
-
-        <h2>Accessibility</h2>
         
+        <div class="accessibility_options"> 
+        <h2>Accessibility</h2>
+        <div>
         <div class="accessibility_element">
             <label> Accessibility Font: </label>
             <label class="switch">
@@ -62,6 +54,21 @@
                 <span class="slider round"></span>
             </label>
         </div>
+    </div>  
+    
+        <h2>Audio</h2>
+        <div class="accessibility_element">
+            <label> Music & Sound Effects: </label>
+            <img id="volume_toggle"src="../static/loginscreen/assets/images/icons/muted.png" alt="muted" width="50"/>
+
+            <!-- <label class="switch" >
+                <input type="checkbox" id="volume_toggle">
+                <span class="slider round"></span>
+            </label> -->
+        </div>
+</div>
+
+    </div>
 
         <button id="confirm_button" class="medPinkShine superRound outline navButton"> 
             Confirm Changes

@@ -4,6 +4,7 @@
 button {
     position: relative;
     width: 20rem;
+    /* width: fit-content; */
     height: 5rem;
   
     border-radius: 40px;
