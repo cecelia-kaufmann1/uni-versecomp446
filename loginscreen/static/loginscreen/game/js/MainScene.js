@@ -105,22 +105,22 @@ class MainScene extends Phaser.Scene {
                 if (event.target.id === "easy") {
                     console.log("easy")
 
-                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_ENEMY_SPAWN_RATE = 250;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
                     console.log("medium");
-                    INIT_ENEMY_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 200;
                     INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
                     console.log("hard");
-                    INIT_ENEMY_SPAWN_RATE = 200;
+                    INIT_ENEMY_SPAWN_RATE = 150;
                     INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
                     console.log("extreme");
-                    INIT_ENEMY_SPAWN_RATE = 150;
+                    INIT_ENEMY_SPAWN_RATE = 100;
                     INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
                 }
@@ -330,22 +330,22 @@ class MainScene extends Phaser.Scene {
             if (event.target.name === "replay") {
                 if (event.target.id === "easy") {
                     console.log("easy")
-                    INIT_ENEMY_SPAWN_RATE = 300;
+                    INIT_ENEMY_SPAWN_RATE = 250;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
                     console.log("medium");
-                    INIT_ENEMY_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 200;
                     INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
                     console.log("hard");
-                    INIT_ENEMY_SPAWN_RATE = 200;
+                    INIT_ENEMY_SPAWN_RATE = 150;
                     INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
                     console.log("extreme");
-                    INIT_ENEMY_SPAWN_RATE = 150;
+                    INIT_ENEMY_SPAWN_RATE = 100;
                     INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
                 }

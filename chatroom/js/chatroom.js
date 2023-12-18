@@ -38,6 +38,7 @@ function preload() {
   this.load.image('pink', 'static/loginscreen/assets/vectorArt/pink.png');
   this.load.image('white', 'static/loginscreen/assets/vectorArt/white.png');
   this.load.image('lightbrown', 'static/loginscreen/assets/vectorArt/lightbrown.png');
+  this.load.image('medbrown', 'static/loginscreen/assets/vectorArt/medbrown.png');
   this.load.image('brown', 'static/loginscreen/assets/vectorArt/brown.png');
   this.load.image('black', 'static/loginscreen/assets/vectorArt/black.png');
 

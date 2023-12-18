@@ -98,6 +98,11 @@ $(document).ready(function () {
         changeAvatarColor("lightbrown");
     }
 
+    let medbrown = document.getElementById("medbrown");
+    medbrown.onclick = function() {
+        changeAvatarColor("medbrown");
+    }
+
     let brown = document.getElementById("brown");
     brown.onclick = function() {
         changeAvatarColor("brown");
