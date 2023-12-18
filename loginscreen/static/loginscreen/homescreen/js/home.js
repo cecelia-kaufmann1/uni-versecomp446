@@ -1,63 +1,57 @@
 $(document).ready(function() {
-    window.localStorage.setItem('audio-enabled', '1');
-    document.querySelector('body').click();
-    // playAudio();
+    
+    handlePopUpOnLoad();
+
+    $("#gif").on('click', function() {
+      window.localStorage.setItem('popup-on', '1');
+      $('#blurb').css('display','block');
+    });
 
     $(".popupExitButton").on('click', function() {
-        $('#blurb').css('display','none')
+        $('#blurb').css('display','none');
+        window.localStorage.setItem('popup-on', '0');
     });
     
-    // var waterfall = new Audio('../static/loginscreen/assets/sounds/waterfall.wav');
-    // waterfall.loop= true; 
-    // waterfall.volume = 0.2;
-    // waterfall.play();
-    
+    $("#tree").on('click', function() {
+        $('#p_uni').addClass("rotate_p_uni");
+        setTimeout(
+                function() 
+                {
+                  //do something special
+                  console.log("FINISHED ANIMATION");
+                  $('#p_uni').addClass("animate_p_uni");
+                  
+                  playNoise('../static/loginscreen/assets/sounds/camera_shutter.m4a', 1)
+                }, 500);
+        setTimeout(
+                function() 
+                {
+                  $('#p_uni').removeClass("animate_p_uni");
+                  $('#p_uni').removeClass("rotate_p_uni");
+                  $('#p_uni').addClass("rotate_back_p_uni");
+                }, 1000);
+        setTimeout(
+                function() 
+                {
+                //   $('#p_uni').removeClass("animate_p_uni");
+                  $('#p_uni').removeClass("rotate_back_p_uni")
+                }, 1500);
+    });
+ 
 })
 
-
-function playAudio() {
-        // code is from: https://stackoverflow.com/questions/60427633/how-to-ask-audio-autoplay-permission-in-the-browsersafari-with-javascript
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-        navigator.mediaDevices
-        .getUserMedia({ audio: true })
-        .then(() => {
-            const source = audioContext.createBufferSource();
-            source.addEventListener('ended', () => {
-                source.stop();
-                audioContext.close();
-            });
-    
-            const request = new XMLHttpRequest();
-    
-            request.open('GET', '../static/loginscreen/assets/sounds/Little_Apprentice.wav', true);
-            // request.open('GET', '../static/loginscreen/assets/sounds/waterfall.wav', true);
-            request.responseType = 'arraybuffer';
-            request.onload = () => {
-                audioContext.decodeAudioData(
-                    request.response,
-                    (buffer) => {
-                        source.buffer = buffer;
-                        source.loop = true;
-
-                        var gainNode = audioContext.createGain();
-                        gainNode.gain.value = 0.3; // 10 %
-                        gainNode.connect(audioContext.destination);
-                        
-                        // now instead of connecting to aCtx.destination, connect to the gainNode
-                        source.connect(gainNode)
-
-                        
-                        source.start();
-                    },
-                    (e) => {
-                        console.log('Error with decoding audio data' + e.message);
-                    });
-            }
-    
-            request.send();
-        })
-        .catch(reason => console.error(`Audio permissions denied: ${reason}`));
+function handlePopUpOnLoad() {
+  if (window.localStorage.getItem('popup-on')) {
+    console.log("pop up currently does exist" + window.localStorage.getItem('popup-on'));
+    if (window.localStorage.getItem('popup-on') == '1'){
+      $('#blurb').css('display','block');
+    }
+    else {
+      $('#blurb').css('display','none');
+    }
+  }
+  else {
+    window.localStorage.setItem('popup-on', '1');
+  }
 }
 
-// code from: https://stackoverflow.com/questions/43386277/how-to-control-the-sound-volume-of-audio-buffer-audiocontext

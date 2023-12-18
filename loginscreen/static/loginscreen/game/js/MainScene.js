@@ -93,6 +93,7 @@ class MainScene extends Phaser.Scene {
         this.getAudioPermission();
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('startGame');
         console.log("start screen parent: " + element.parent);
+        playNoise('../static/loginscreen/assets/sounds/camera_shutter.m4a', 1);
 
         element.setOrigin(0.5);
 
@@ -468,7 +469,7 @@ class MainScene extends Phaser.Scene {
             success: function (data) {
                 
                 // calculate what the new sparkle value should be
-                audio_allowed = data.audio_preference;
+                
                 if (!data.audio_preference) {
                     game.sound.mute = true;
                 }

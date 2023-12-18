@@ -29,6 +29,7 @@
   margin-top: 1.5rem;
   grid-row: 2;
   grid-column-start: 3;
+  z-index: 1;
 }
 
 #uni:hover {
@@ -69,6 +70,25 @@
   to { background-position: -2200px }
 }
 
+#tree {
+  width: 150px;
+  height: 250px;
+  transform: scale(1.8);
+
+  margin-top:4rem;
+  margin-left:9rem;
+
+  background: url("../../assets/images/tree.png");
+  background-repeat: no-repeat;
+
+  grid-row: 1;
+  grid-column-start: 2;
+}
+
+#tree:hover {
+  cursor:pointer;
+}
+
 #waterfall{
   width: 320px;
   height: 725px;
@@ -107,6 +127,10 @@
     margin-left: -4rem;
     filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
   }
+
+  #gif:hover {
+    cursor:pointer;
+  }
   
   @media only screen and (min-width: 1024px) {
     #gif {
@@ -119,6 +143,64 @@
       left: 0;
       /* position:fixed; */
       
+    }
+  }
+
+  #p_uni {
+    background: url("../../assets/sheets/paparazziSheet.png/");
+    width: 367px;
+    height: 327px;
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
+    margin-top: 1.5rem;
+    grid-row: 1;
+    grid-column-start: 2;
+  }
+
+  @keyframes snapshot {
+    from {
+      background-position: 0px;
+      transform: rotate(-15deg) scale(0.8);
+    }
+    to {
+        background-position: -5340px;
+        transform: rotate(-15deg) scale(0.8);
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg) scale(0.8);
+    }
+    to {
+      transform: rotate(-15deg) scale(0.8);
+    }
+  }
+
+
+  @keyframes rotate-back {
+    from {
+      transform: rotate(-15deg) scale(0.8);
+    }
+    to {
+      transform: rotate(0deg) scale(0.8);
+    }
+  }
+
+  .rotate_p_uni {
+    animation: rotate 0.5s steps(15);
+  }
+
+  .rotate_back_p_uni {
+    animation: rotate-back 0.5s steps(15);
+  }
+
+  @media only screen and (min-width: 367px) {
+    .animate_p_uni {
+      transform: scale(0.8);
+      background: url("../../assets/sheets/paparazziSheet.png");
+      animation: snapshot 0.5s steps(5);
+  
     }
   }
 
