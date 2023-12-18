@@ -5,49 +5,52 @@
 {% block content %}
 
 <head>
-  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedStyles.css">
-  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/button.css">
-  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/container.css">
-  <link rel="stylesheet" type="text/css" href="../../static/loginscreen/homescreen/styles/login.css">
-  <script src="../../static/loginscreen/homescreen/js/slideshow.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/sharedStyles.css">
+    <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/button.css">
+    <link rel="stylesheet" type="text/css" href="../../static/loginscreen/shared/styles/container.css">
+    <link rel="stylesheet" type="text/css" href="../../static/loginscreen/homescreen/styles/login.css">
+    <script src="../../static/loginscreen/homescreen/js/slideshow.js"></script>
 
 </head>
-
-<!-- <div class="slideshow-container">
+<div class="logo_div">
+    <img class="logo" src="../../static/loginscreen/assets/images/uni_logo2.png" alt="uni-verse_logo" width="250"
+        height="250" />
+</div>
+<div class="horizontalFlex">
+<div class="slideshow-container">
     <div class="mySlides fade">
-        <img src="../../static/loginscreen/assets/images/logindressup.png" alt="Dressuproom" height="250" width="250">
+        <img src="../../static/loginscreen/assets/images/dressup_2.png" alt="Dressuproom" height="250" width="250">
         <div class="caption">Dress up in your favorite looks!</div>
     </div>
 
     <div class="mySlides fade">
-        <img src="../../static/loginscreen/assets/images/gameForLogin.png" alt="Game play" height="250" width="250">
+        <img src="../../static/loginscreen/assets/images/game_2.png" alt="Game play" height="250" width="250" id="gameplay">
         <div class="caption"> Dodge the paparazzi to collect sparkles!</div>
     </div>
 
     <div class="mySlides fade">
-        <img src="../../static/loginscreen/assets/images/chatroomLogin.png" alt="Chatroom" height="250" width="250">
+        <img src="../../static/loginscreen/assets/images/chat_2.png" alt="Chatroom" height="250" width="250">
         <div class="caption"> Go chat with your friends and show off your fits!</div>
     </div>
-</div> -->
+</div>
 
-<div class="twoColumnGrid">
-    <div class="logo_div">
-        <img class="logo" src="../../static/loginscreen/assets/images/uni_logo2.png" alt="uni-verse_logo" width="250" height="250"/>
-    </div>
-        <div class="pinkGradientContainer"> 
-            <h1> Login </h1>
-            <form method="post" action="/">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="account_button" >Log In</button>
-                <p class="alignRight"><a class="darkPinkLink" href="{% url 'password_reset' %}">Forgot Password?</a> </p>
-                <hr>
-                <p> New to Uni-verse? <a class="darkPinkLink" href ="{% url 'community_guidelines' %}">Create an Account</a></p>
-            </form>
-        </div>
-    </div>
 
-    <div class="unicorn-container">
-        <img class="unicorn" src="../../static/loginscreen/assets/vectorArt/default.png" alt="Unicorn"/>
-    </div>
+
+<div class="pinkGradientContainer">
+    <h1> Login </h1>
+    <form method="post" action="/">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="account_button">Log In</button>
+        <p class="alignRight"><a class="darkPinkLink" href="{% url 'password_reset' %}">Forgot Password?</a> </p>
+        <hr>
+        <p> New to Uni-verse? <a class="darkPinkLink" href="{% url 'community_guidelines' %}">Create an Account</a>
+        </p>
+    </form>
+</div>
+</div>
+
+<div class="unicorn-container">
+    <img class="unicorn" src="../../static/loginscreen/assets/vectorArt/default.png" alt="Unicorn" />
+</div>
 {% endblock %}
