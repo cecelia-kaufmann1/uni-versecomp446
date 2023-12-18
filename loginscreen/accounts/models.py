@@ -8,7 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sparkles = models.IntegerField(null=True)
     wearing = models.CharField(max_length=100, null=True, default='null')
-    owns = models.CharField(max_length=100, null=True, default='null') 
+    owns = models.CharField(max_length=400, null=True, default='null') 
     color = models.CharField(max_length=100, null=True, default='default') # set default value code from https://stackoverflow.com/questions/755857/how-can-i-set-a-default-value-for-a-field-in-a-django-model
 
     volume = models.BooleanField(default=True)

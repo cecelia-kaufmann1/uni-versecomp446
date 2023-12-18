@@ -9,7 +9,7 @@
     /* background-color: orange; */
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: end !important;
 }
 
 #horizontalContainer {
@@ -34,6 +34,7 @@
     border-radius: 6rem;
     border: #cd1d58 2px solid;
     margin: 0;
+
     box-shadow: 0 0 10px rgba(255, 114, 161, 0.5);
 
    
@@ -56,6 +57,7 @@
       height: fit-content;
       width: fit-content;
       box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+
       margin-bottom:15%;
     }
 

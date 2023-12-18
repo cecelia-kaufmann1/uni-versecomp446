@@ -257,4 +257,113 @@
   }
 
 
+  /* ----- Avatar Clothing Positioning -----*/
+#bottom {
+  position: absolute;
+  top: 8.5rem;
+  left: 8.1rem;
+}
+
+#skirt {
+  position: absolute;
+  top: 8rem;
+  left: 9rem;
+}
+
+#top {
+  position: absolute;
+  top: 8.7rem;
+  left: 3.2rem;
+}
+
+#feet {
+  position: absolute;
+  top: 16.6rem;
+  left: 3.51rem;
+}
+
+#backcap {
+  position: absolute;
+  top: 0.5rem;
+  left: 2rem;
+}
+
+#cap {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.2rem;
+}
+
+#partyhattype {
+  position: absolute;
+  top: -1rem;
+  left: 3rem;
+}
+
+#tophattype {
+  position: absolute;
+  top: 0rem;
+  left: 2rem;
+}
+
+#carrothorn {
+  position: absolute;
+  top: 0rem;
+  left: 2rem;
+}
+#icecreamhorn {
+  position: absolute;
+  top: -0.5rem;
+  left: 1.2rem;
+}
+#headphonestype {
+  position: absolute;
+  top: 1rem;
+  left: 4rem;
+}
+#earringtype {
+  position: absolute;
+  top: -16rem;
+  left: 6rem;
+}
+ 
+#necklace {
+  position: absolute;
+  top: 8rem;
+  left: 3.5rem;
+}
+
+#glassestype {
+  position: absolute;
+  top: 3rem;
+  left: 1.2rem;
+}
+
+#monocletype {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+}
+
+
+#eyeliner {
+  position: absolute;
+  top: 3.25rem;
+  left: 4rem;
+}
+ 
+#mustache {
+  position: absolute;
+  top: 5.4rem;
+  left: 0rem;
+}
+
+#nosetype {
+  position: absolute;
+  top: 4.2rem;
+  left: -0.8rem;
+}
+
+
+
   
