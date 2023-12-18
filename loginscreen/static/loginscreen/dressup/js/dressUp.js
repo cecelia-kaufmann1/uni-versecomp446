@@ -34,9 +34,6 @@ $(document).ready(function () {
     buyItemButton.onclick = purchaseItems;
 
     updateCartButton();
-    // populateOwnedClothes();
-   
-    console.log("finished ready method");
 
     let avatarColorsButton = document.getElementById("avatarColorsButton");
     let avatarColorLabel = document.getElementById("colorLabel");
@@ -45,7 +42,6 @@ $(document).ready(function () {
             avatarColorsButton.classList.remove("on");
         } else {
             avatarColorsButton.classList.add("on");
-
         }
     }
     getAvatarColor();

@@ -32,8 +32,6 @@ class MainScene extends Phaser.Scene {
         this.load.audio('gameTransition', '/static/loginscreen/assets/sounds/gameStart.mp3');
         this.load.audio('countdownSound', '/static/loginscreen/assets/sounds/countdown.mp3');
         this.load.audio('gameOver', '/static/loginscreen/assets/sounds/gameOver.mp3');
-
-
     }
     create() {
         // Get time that the game started (used for increasing difficulty)
@@ -46,18 +44,12 @@ class MainScene extends Phaser.Scene {
         // Set up background
         this.map = this.make.tilemap({ key: "map" });
         const tileset = this.map.addTilesetImage("MagicForest", "grass");
-        // // // grass layer one
-        // this.layer = this.map.createDynamicLayer('Grass', tileset, 0, 0);
-
-
+    
         this.add.image(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "bigGrass").setScale(100);
 
         this.map2 = this.make.tilemap({ key: "map" });
         const tileset2 = this.map.addTilesetImage("MagicForest", "accessories");
-        // // // grass layer 2
-        // this.layer2 = this.map2.createDynamicLayer('Grass', tileset, this.layer.displayWidth , 0);
-        // this.layer2.setScale(2);
-
+      
         // flower layer 1
         this.layer3 = this.map.createDynamicLayer('Accessories', tileset2, 0, 0);
         this.layer3.setScale(3);
@@ -68,9 +60,6 @@ class MainScene extends Phaser.Scene {
         this.layer4.setScale(3);
         this.layer4.shuffle(0, 0, 1800, 1800);
 
-
-
-
         // Set up player
         player = this.physics.add.sprite(CANVAS_WIDTH / 20, CANVAS_HEIGHT / 2, 'player');
         player.setBounce(0.2);
@@ -79,9 +68,6 @@ class MainScene extends Phaser.Scene {
         player.setScale(SPRITE_SCALE);
 
         this.originalFrameRate = player.anims.msPerFrame;
-
-       
-
 
         // Set up enemies
         enemies = this.add.group();
@@ -92,12 +78,9 @@ class MainScene extends Phaser.Scene {
 
         this.resizeBoundingBoxes();
 
-        // gameOver = true;
-        // this.gameOver();
-
         this.getAudioPermission();
+        
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('startGame');
-        console.log("start screen parent: " + element.parent);
         playNoise('../static/loginscreen/assets/sounds/camera_shutter.m4a', 1);
 
         element.setOrigin(0.5);
@@ -109,23 +92,18 @@ class MainScene extends Phaser.Scene {
         element.on('click', function (event) {
             if (event.target.name === "play") {
                 if (event.target.id === "easy") {
-                    console.log("easy")
-
                     INIT_ENEMY_SPAWN_RATE = 270;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
-                    console.log("medium");
                     INIT_ENEMY_SPAWN_RATE = 220;
                     INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
-                    console.log("hard");
                     INIT_ENEMY_SPAWN_RATE = 170;
                     INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
-                    console.log("extreme");
                     INIT_ENEMY_SPAWN_RATE = 120;
                     INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
@@ -133,9 +111,7 @@ class MainScene extends Phaser.Scene {
 
                 runningSpeed = INIT_RUNNING_SPEED;
              
-               
                 self.music = this.scene.sound.add("bg_music", { loop: true });
-
 
                 let gameBox = document.getElementsByClassName("gameBox")[0];
                 gameBox.classList.add("animateAway");
@@ -143,14 +119,11 @@ class MainScene extends Phaser.Scene {
             }
         });
 
-       
-        
         let homebg = this.add.sprite(CANVAS_WIDTH/2, CANVAS_HEIGHT/2,"vectorbg");
         let vectorSprite = this.add.sprite(CANVAS_WIDTH * 0.3, CANVAS_HEIGHT / 2, "vectorsprite").setScale(-1,1);
         let paparazziSprite = this.add.sprite(CANVAS_WIDTH * 0.75, CANVAS_HEIGHT / 2, "paparazzisprite");
         paparazziSprite.anims.play('paparazzi');
 
-       
         setTimeout(function() {
             let transistionCover = self.add.sprite(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 'transition');
             transistionCover.anims.play('transitionCover', false);
@@ -164,10 +137,7 @@ class MainScene extends Phaser.Scene {
 
             var transitionSound = self.sound.add("gameTransition", { loop: false });
             transitionSound.play();
-            
-           
         }, 2000);
-       
        
        setTimeout(function() {
             homebg.destroy();
@@ -179,38 +149,29 @@ class MainScene extends Phaser.Scene {
         element.setPosition(CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
         let gameBox = document.getElementsByClassName('gameBox')[0];
         gameBox.classList.add("animateIn");
-
        }, 3200);
-
-
-
     }
     update() {
         if (!startedGame) {
             return;
         }
-        // console.log("layer3: " + this.layer3.x + " layer4 : " + this.layer4.x);
         if (!gameOver) {
-            // TODO: better way to do this?
             this.children.bringToTop(this.scoreText);
-            // this.layer.x += runningSpeed / 60;
-            // this.layer2.x += runningSpeed / 60;
+            
+            // move background
             this.layer3.x += (runningSpeed / 60.0);
             this.layer4.x += (runningSpeed / 60.0);
 
+            // respawn background
             if (this.layer3.x <= -this.layer3.displayWidth) {
-                // console.log("layer3 reset");
-                // this.layer.x = this.layer2.x + this.layer2.displayWidth;
                 this.layer3.x = this.layer4.x + this.layer4.displayWidth * 0.75;
                 this.layer3.shuffle(0, 0, 1800, 1800);
             } else if (this.layer4.x <= -this.layer4.displayWidth) {
-                // console.log("layer4 reset");
-                // this.layer2.x = this.layer.x + this.layer.displayWidth;
                 this.layer4.x = this.layer3.x + this.layer3.displayWidth * 0.75;
                 this.layer4.shuffle(0, 0, 1800, 1800);
             }
+            
             clockTick++;
-
             // increase difficulty about every 10 seconds
             if (clockTick % 450 == 0) {
                 this.increaseDifficulty();
@@ -220,14 +181,12 @@ class MainScene extends Phaser.Scene {
             if (clockTick % enemySpawnRate < 1) {
                 var enemy = new Enemy(this);
                 this.physics.add.overlap(player, enemy, this.hitEnemy, null, this);
-
             }
 
             // Spawn in new sparkles
             if (clockTick % sparkleSpawnRate < 1) {
                 var sparkle = new Sparkle(this);
                 this.physics.add.overlap(player, sparkle, this.collectSparkle, null, this);
-
             }
 
             // Update existing enemies
@@ -247,7 +206,6 @@ class MainScene extends Phaser.Scene {
                     sparkle.destroy();
                 }
             }
-
 
             // Handle user input/player movement
             if (cursors.up.isDown) {
@@ -286,44 +244,37 @@ class MainScene extends Phaser.Scene {
         this.gameOver();
 
         player.anims.play("idleRight", true);
-
-
     }
 
+    // create the score text UI
     createUI() {
-
-
         this.scoreText = this.add.text(0, 0, "", { fontSize: '32px', fill: '#FFF', fontFamily: 'videoGameFont' });
         this.scoreText.setPadding(10, 10, 10, 10);
         
         this.updateUI();
-
     }
-    // test comment
+   
+    // called whenever a player gets a sparkle
     collectSparkle(player, sparkle) {
-        console.log(this.game.sound);
         this.sound.play('sparkle')
-
 
         sparkle.destroy();
         score += 1;
         this.updateUI();
     }
 
+    // update the score text to match the current score value
     updateUI() {
-
         this.scoreText.text = "Sparkles: " + score;
         this.scoreText.x = CANVAS_WIDTH - this.scoreText.displayWidth * 1.1;
     }
 
     increaseDifficulty() {
-
         enemySpawnRate *= 0.85;
         sparkleSpawnRate *= 0.85;
         runningSpeed *= 1.2;
         console.log("harder: spawn rate: " + enemySpawnRate + "speed: " + runningSpeed);
         player.anims.msPerFrame = player.anims.msPerFrame * 0.925;
-
     }
 
     // Display game over screen
@@ -337,32 +288,23 @@ class MainScene extends Phaser.Scene {
         console.log("game over parent: " + element.parent);
         element.setOrigin(0.5);
 
-        // let gameOverDisplay = document.getElementById("gameOver");
-
-        // gameOverDisplay.x = CANVAS_WIDTH / 2;
-        // gameOverDisplay.y = CANVAS_HEIGHT / 2;
-
         element.addListener('click');
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
         element.on('click', function (event) {
             if (event.target.name === "replay") {
                 if (event.target.id === "easy") {
-                    console.log("easy")
                     INIT_ENEMY_SPAWN_RATE = 270;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
-                    console.log("medium");
                     INIT_ENEMY_SPAWN_RATE = 220;
                     INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
-                    console.log("hard");
                     INIT_ENEMY_SPAWN_RATE = 170;
                     INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
-                    console.log("extreme");
                     INIT_ENEMY_SPAWN_RATE = 120;
                     INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
@@ -373,12 +315,10 @@ class MainScene extends Phaser.Scene {
             }
         });
 
-
         let el = document.getElementById("score");
         el.displayOriginX = 100;
         el.x = 100;
         el.innerHTML = "Sparkles collected: " + score;
-
 
         el = document.getElementById("totalSparkles");
         el.innerHTML = "Total sparkles:  " + "N/A";
@@ -413,15 +353,14 @@ class MainScene extends Phaser.Scene {
                         $("#sparkles_status").text(data);
                     }
                 })
-
             },
             error: function (error) {
                 console.log(`Error ${error}`);
             }
         });
-
     }
 
+    // replay the game - elementToDelete is either the gameover screen or start game screen
     replay(elementToDelete) {
         score = 0;
         this.updateUI();
@@ -437,14 +376,13 @@ class MainScene extends Phaser.Scene {
     }
     // Change size of sprite bounding boxes to align with the image size
     resizeBoundingBoxes() {
-        // Change these based on sprite size
-
         // Set up bounding box for player
         player.body.setSize(player.displayWidth * 0.6, player.displayHeight * 0.5, true); // code for smaller bounding box: https://labs.phaser.io/edit.html?src=src/physics/arcade/smaller%20bounding%20box.js
 
-
         player.body.offset.y = player.displayHeight * 0.2;
     }
+
+    // Countdown from 3 and then start the game. Remove elementToDelete from the screen
     countdown(elementToDelete) {
         let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF', fontFamily: "videoGameFont"});
         countdownText.setOrigin(0.5);
@@ -463,13 +401,9 @@ class MainScene extends Phaser.Scene {
             setTimeout(function () {
                 countdownText.text = "1";
                 setTimeout(function () {
-                    
                     self.music.play();
-                    
                     elementToDelete.destroy();
                     countdownText.destroy();
-
-
                 }, 1000);
             }, 1000);
         }, 1000);
@@ -481,18 +415,10 @@ class MainScene extends Phaser.Scene {
             type: "GET",
             dataType: "json",
             success: function (data) {
-                
-                // calculate what the new sparkle value should be
-                
                 if (!data.audio_preference) {
                     game.sound.mute = true;
                 }
-                // game.sound.mute = true;
-                // on success, post the new value
             }
         })   
     }
-
-
-
 }
