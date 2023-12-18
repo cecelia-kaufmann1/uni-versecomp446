@@ -9,6 +9,7 @@ class Prepare extends Phaser.Scene {
         this.load.image('bigGrass', '/static/loginscreen/assets/images/bigGrass.png');
         this.load.image('accessories', '/static/loginscreen/assets/sheets/grassSheet.png');
         this.load.image('vectorsprite', '/static/loginscreen/assets/vectorArt/default.png');
+
         this.load.image('vectorbg', '/static/loginscreen/assets/images/home_bg.png');
         this.load.tilemapTiledJSON('map', '/static/loginscreen/assets/sheets/universeTiles.json');
         this.load.spritesheet('player',
@@ -27,6 +28,10 @@ class Prepare extends Phaser.Scene {
             '/static/loginscreen/assets/sheets/transition.png',
             { frameWidth: 475, frameHeight: 265 }
         );
+        this.load.spritesheet('paparazzisprite',
+        '/static/loginscreen/assets/sheets/paparazziSheet.png',
+        { frameWidth: 356, frameHeight: 327 }
+    );
 
         this.load.html('gameOver', '/static/loginscreen/game/html/gameOver.html');
         this.load.html('startGame', '/static/loginscreen/game/html/startGame.html');
@@ -98,6 +103,12 @@ class Prepare extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('transition', { start: 0, end: 31 }),
             frameRate: 20,
             repeat: 0, 
+        });
+        this.anims.create({
+            key: 'paparazzi',
+            frames: this.anims.generateFrameNumbers('paparazzisprite', { start: 0, end: 11 }),
+            frameRate: 10,
+            repeat: -1, 
         });
     }
 }

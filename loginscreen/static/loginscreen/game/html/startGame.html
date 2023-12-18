@@ -21,10 +21,14 @@
       align-items: center;
       justify-content: center;
       transition-duration: 1000ms;
+      transform: translate(0, -100rem);
+
 
     }
-
-    .animate {
+    .animateIn {
+      transform: translate(0, 0);
+    }
+    .animateAway {
       transform: translate(0, 100rem);
     }
 
@@ -150,9 +154,9 @@
     <div class="box_line box_line_right"></div>
     <div class="box_line box_line_bottom"></div>
     <div class="box_line box_line_left"></div>
-    <h1 class="videoGameText">Papparazi</h1>
+    <h1 class="videoGameText">Paparazzi</h1>
     <div id="sparkle_image"></div>
-    <p class="videoGameText"> Collect as many sparkles as you can while avoiding the papparazi! <br>Use the up and down arrows to move</p>
+    <p class="videoGameText"> Collect as many sparkles as you can while avoiding the paparazzi! <br>Use the up and down arrows to move</p>
     <p class="videoGameText"> Choose a difficulty: </p>
     <div id="difficultyContainer">
       <button name="play" id="easy" class="difficultyButton small"> Easy </button>

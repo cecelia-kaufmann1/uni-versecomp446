@@ -2,7 +2,7 @@
 
 A capstone project for Macalester College's COMP 446 by Cecelia Kaufmann, Lucy Rubin, and Linda Lor
 
-This interactive web application takes you into the world of unicorns, with the main goal of the unicorn being outrunning the papparazzi to collect sparkles! Then, go spend those sparkles at the store to show off to all your friends! Finally, go chat with other unicorns while you are dressed in your finest attire. 
+This interactive web application takes you into the world of unicorns, with the main goal of the unicorn being outrunning the paparazzi to collect sparkles! Then, go spend those sparkles at the store to show off to all your friends! Finally, go chat with other unicorns while you are dressed in your finest attire. 
 
 This project uses the Django Framework to host the login and then a separate server to host the multiplayer/chatroom feature, which is then embedded within the wesbite. The game utilizes the Phaser Framework, and we also used Ajax for asychronous loading. For the front-end framework, we used HTML, CSS, and Javascript. 
 

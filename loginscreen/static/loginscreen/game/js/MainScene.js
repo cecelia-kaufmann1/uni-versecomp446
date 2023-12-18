@@ -132,7 +132,7 @@ class MainScene extends Phaser.Scene {
                 
 
                 let gameBox = document.getElementsByClassName("gameBox")[0];
-                gameBox.classList.add("animate");
+                gameBox.classList.add("animateAway");
                 self.countdown(element);
             }
         });
@@ -140,7 +140,10 @@ class MainScene extends Phaser.Scene {
        
         
         let homebg = this.add.sprite(CANVAS_WIDTH/2, CANVAS_HEIGHT/2,"vectorbg");
-        let vectorSprite = this.add.sprite(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "vectorsprite");
+        let vectorSprite = this.add.sprite(CANVAS_WIDTH * 0.3, CANVAS_HEIGHT / 2, "vectorsprite").setScale(-1,1);
+        let paparazziSprite = this.add.sprite(CANVAS_WIDTH * 0.75, CANVAS_HEIGHT / 2, "paparazzisprite");
+        paparazziSprite.anims.play('paparazzi');
+
        
         setTimeout(function() {
             let transistionCover = self.add.sprite(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 'transition');
@@ -157,17 +160,21 @@ class MainScene extends Phaser.Scene {
             transitionSound.play();
             
            
-        }, 200);
+        }, 2000);
        
        
        setTimeout(function() {
             homebg.destroy();
             vectorSprite.destroy();
-       }, 2000);
+            paparazziSprite.destroy();
+       }, 2600);
 
        setTimeout(function() {
         element.setPosition(CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
-       }, 3000);
+        let gameBox = document.getElementsByClassName('gameBox')[0];
+        gameBox.classList.add("animateIn");
+
+       }, 3200);
 
 
 
@@ -182,8 +189,8 @@ class MainScene extends Phaser.Scene {
             this.children.bringToTop(this.scoreText);
             // this.layer.x += runningSpeed / 60;
             // this.layer2.x += runningSpeed / 60;
-            this.layer3.x += (runningSpeed / 30.0);
-            this.layer4.x += (runningSpeed / 30.0);
+            this.layer3.x += (runningSpeed / 60.0);
+            this.layer4.x += (runningSpeed / 60.0);
 
             if (this.layer3.x <= -this.layer3.displayWidth) {
                 // console.log("layer3 reset");
