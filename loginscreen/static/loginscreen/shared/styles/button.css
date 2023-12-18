@@ -108,7 +108,7 @@ button {
 
   
   .darkPinkShine:active {
-    background: radial-gradient(ellipse farthest-corner at top left,   #AB2E58 15%, #D37897 30%, #AB2E58 50%);
+    background: radial-gradient(ellipse at center top,  #f7dde2 10%, #fab8c6 50%);
   }
 
   .darkPinkShine.disabled, .pinkShine.disabled, .lightPinkShine.disabled, .purpleShine.disabled, .lightPurpleShine.disabled {
