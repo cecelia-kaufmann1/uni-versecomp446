@@ -28,12 +28,8 @@ $(document).ready(function () {
     });
 
     $("#confirm_button").on('click', function() {
-        console.log("AJAX WAS CALLED FOR ACCESSIBILITY");
         updateAccessibilityInDB();
     });
-
-    console.log("SETTINGS.JS FINISHED THEIR DOM READY METHOD");
-
 })
 
 function convertToNumber(toggle) {
@@ -86,21 +82,14 @@ function updateVariables(data){
     font_size_toggle = convertToNumber(data.font_size);
     buttons_toggle = convertToNumber(data.buttons);
     colors_toggle = convertToNumber(data.colors);
-
-    console.log("ALL SETTINGS.JS VARIABLES ARE UPDATED");
-
 }
 
 function getAccessibilityInDB() {
-    console.log("GET ACCESSIBILITY IN DB CALLED");
     $.ajax({
         url: '/get_accessibility/',
         type: "GET",
         dataType: "json",
         success: function (data) {
-            // owns = convertStringToArray(data.owns);
-            // console.log("VOLUME IS:", data.volume);
-
             updateUI(data);
             updateVariables(data);
             

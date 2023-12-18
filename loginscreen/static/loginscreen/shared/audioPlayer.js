@@ -1,10 +1,6 @@
 var audio_on = true;
 $(document).ready(function() {
-    console.log("AUDIO PLAYER IS PRESENT FOR PAGE : " + window.location.href);
     getAudioPreference();
-    // if (audio_on) {
-    //     getAudioForPage(window.location.href);
-    // }
 })
 
 function getAudioPreference() {
@@ -13,9 +9,7 @@ function getAudioPreference() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-           
             audio_on = data.audio_preference;
-            console.log("THE PREFERENCE FOR VOLUME IS:" + audio_on);
             if (audio_on) {
                 getAudioForPage(window.location.href);
             }
@@ -28,7 +22,6 @@ function getAudioPreference() {
 
 function getAudioForPage(link) {
     if (link.includes("home")){
-        console.log("LINK INCLUDES HOME");
         playBackgroundMusic('../static/loginscreen/assets/sounds/Little_Apprentice.wav');
         playSecondaryAudio('../static/loginscreen/assets/sounds/waterfall.wav');
     }
@@ -38,7 +31,6 @@ function getAudioForPage(link) {
     else if (link.includes("dressup")){
         playBackgroundMusic('../static/loginscreen/assets/sounds/monday_morning.wav');
     }
-
 }
 
 function playNoise(path, volume) {
