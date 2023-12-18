@@ -3,7 +3,7 @@ $(document).ready(function() {
     handlePopUpOnLoad();
 
     $("#confirm_button").on("click", function() {
-      postFirstLogin();
+      // postFirstLogin();
       hideFirstLoginUI();
     });
 
@@ -75,6 +75,7 @@ function getFirstLoginData() {
       success: function (data) {
         if (data.first_login) {
           handleFirstLoginUI();
+          postFirstLogin();
         }
         else {
           hideFirstLoginUI();

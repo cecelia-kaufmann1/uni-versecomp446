@@ -35,6 +35,11 @@ class LoginView(View):
         if form.is_valid():
             login(request, form.get_user())
             print("User successfully logged in!")
+           
+            if (request.user.profile.first_login):
+                print("SPARKLES IS NULL")
+                request.user.profile.sparkles = 50
+                request.user.profile.save() #update the number 
             return redirect(self.success_url)
         else:
             print("Form is not valid:", form.errors)
