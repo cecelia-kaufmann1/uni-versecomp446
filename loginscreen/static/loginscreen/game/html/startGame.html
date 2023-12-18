@@ -148,21 +148,22 @@
   </style>
 </head>
 
-<body>
-  <div class="gameBox">
-    <div class="box_line box_line_top"></div>
-    <div class="box_line box_line_right"></div>
-    <div class="box_line box_line_bottom"></div>
-    <div class="box_line box_line_left"></div>
-    <h1 class="videoGameText">Paparazzi</h1>
-    <div id="sparkle_image"></div>
-    <p class="videoGameText"> Collect as many sparkles as you can while avoiding the paparazzi! <br>Use the up and down arrows to move</p>
-    <p class="videoGameText"> Choose a difficulty: </p>
-    <div id="difficultyContainer">
-      <button name="play" id="easy" class="difficultyButton small"> Easy </button>
-      <button name="play" id="medium" class="difficultyButton small"> Medium </button>
-      <button name="play" id="hard" class="difficultyButton small"> Hard </button>
-      <button name="play" id="extreme" class="difficultyButton small"> XTREME </button>
+<body aria-label="Paparazzi Game">
+  <div class="gameBox" aria-label="Game Box">
+    <div class="box_line box_line_top" aria-hidden="true"></div>
+    <div class="box_line box_line_right" aria-hidden="true"></div>
+    <div class="box_line box_line_bottom" aria-hidden="true"></div>
+    <div class="box_line box_line_left" aria-hidden="true"></div>
+    <h1 class="videoGameText" aria-label="Game Title">Paparazzi</h1>
+    <div id="sparkle_image" aria-label="Sparkle Image"></div>
+    <p class="videoGameText" aria-label="Game Instructions">
+      Collect as many sparkles as you can while avoiding the paparazzi! <br> Use the up and down arrows to move
+    </p>
+    <div id="difficultyContainer" aria-label="Choose a Difficulty">
+      <button name="play" id="easy" class="difficultyButton small" aria-label="Easy Difficulty"> Easy </button>
+      <button name="play" id="medium" class="difficultyButton small" aria-label="Medium Difficulty"> Medium </button>
+      <button name="play" id="hard" class="difficultyButton small"  aria-label="Hard Difficulty"> Hard </button>
+      <button name="play" id="extreme" class="difficultyButton small" aria-label="Extreme Difficulty"> XTREME </button>
     </div>
 
   </div>

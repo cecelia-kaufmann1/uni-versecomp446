@@ -58,10 +58,6 @@
 
     .box_line_top {
       top: -10px;
-
-
-
-
     }
 
     .box_line_top::before {
@@ -76,8 +72,6 @@
 
     .box_line_bottom {
       bottom: -10px;
-
-
     }
 
     .box_line_bottom::before {
@@ -134,25 +128,23 @@
   </style>
   
 </head>
-<body>  
-   <div class = "gameBox" id = "gameOver">
+<body aria-label="Game Over Page">
+  <div class="gameBox" id="gameOver" aria-label="Game Over Box">
     <div class="box_line box_line_top"></div>
     <div class="box_line box_line_right"></div>
     <div class="box_line box_line_bottom"></div>
     <div class="box_line box_line_left"></div>
-    <h1 class="videoGameText">Game Over-- the paparazzi caught you!</h1>
-    <p class="videoGameText" id = "score"></p>
-    <p class="videoGameText" id = "totalSparkles"></p>
+    <h1 class="videoGameText" aria-label="Game Over Heading">Game Over-- the paparazzi caught you!</h1>
+    <p class="videoGameText" id="score" aria-label="Score Paragraph"></p>
+    <p class="videoGameText" id="totalSparkles" aria-label="Total Sparkles Paragraph"></p>
 
-    <pc lass="videoGameText"> Choose a difficulty to replay: </p>
-    <div id="difficultyContainer">
-      <button name = "replay" id = "easy" class = "difficultyButton"> Easy </button>
-      <button name = "replay" id = "medium" class = "difficultyButton"> Medium </button>
-      <button name = "replay" id = "hard" class = "difficultyButton"> Hard </button>
-      <button name = "replay" id = "extreme" class = "difficultyButton"> XTREME </button>
+    <p class="videoGameText" aria-label="Replay Difficulty Label"> Choose a difficulty to replay: </p>
+    <div id="difficultyContainer" aria-label="Difficulty Container">
+      <button name="replay" id="easy" class="difficultyButton" aria-label="Easy Difficulty Button"> Easy </button>
+      <button name="replay" id="medium" class="difficultyButton" aria-label="Medium Difficulty Button"> Medium </button>
+      <button name="replay" id="hard" class="difficultyButton" aria-label="Hard Difficulty Button"> Hard </button>
+      <button name="replay" id="extreme" class="difficultyButton" aria-label="Extreme Difficulty Button"> XTREME </button>
     </div>
-
-  
-
+  </div>
 </body>
 </html>

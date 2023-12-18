@@ -17,12 +17,12 @@ and then me-->
 <link rel="stylesheet" type="text/css" href="../static/loginscreen/homescreen/styles/logout_styles.css">
 <link rel="stylesheet" type="text/css" href="../static/loginscreen/shared/styles/button.css">
 
-    <div class="container">
+    <div class="container" aria-label="Thank You Message">
         <h2 class="message">Thank you for playing! Come again soon!</h2>
-        <div class="logo_div" > 
+        <div class="logo_div" aria-label="Uni-Verse Logo"> 
             <img class="logo" src="../../static/loginscreen/assets/images/universe_logo.png" alt="uni-verse_logo" 
             />
         </div>
-        <a href="{% url 'login' %}" class="button medPinkShine">Back to Login</a>
+        <a href="{% url 'login' %}" class="button medPinkShine" aria-label="Back to Login Button">Back to Login</a>
     </div>
 {% endblock %}

@@ -94,15 +94,15 @@
  </style>
 </head>
 <body>  
-    <div class = "chatContainer">
-        <div class="chatLog scrollbar" id = "chatLog">
+    <div class = "chatContainer" aria-label="Chat Interface">
+        <div class="chatLog scrollbar" id = "chatLog" role="log" aria-live="polite" aria-relevant="additions">
         </div>
-        <div class="chatInput">
+        <div class="chatInput" aria-label="Chat Input">
         
             <!--https://www.w3schools.com/tags/tag_input.asp-->
             <div class="horizontalContainer">
-                <input type="text" id="chat" name="chat">
-                <input type="submit" id = "submitchat" value="">
+                <input type="text" id="chat" name="chat" aria-label="Type your message">
+                <input type="submit" id = "submitchat" value="" aria-label="Send Message">
             </div>
            
     

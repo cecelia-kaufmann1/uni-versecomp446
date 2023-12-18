@@ -27,51 +27,50 @@
 
 <!-- <iframe id="frame" height="100%" width="100%" scrolling="no"  id="frame">game
     not available -->
-<div id="frame" class="landingGrid">
+<div id="frame" class="landingGrid" role="region" aria-label="Game Content">
     <!-- <audio id="musicplayer" allow="autoplay">
         <source src="../static/loginscreen/assets/sounds/Little_Apprentice.wav" />
     </audio> -->
 
-    <div id="waterfall"> </div>
-    
-   <div id="gif"> </div>
-   <div id="sign"> </div>
-   <div id="uni"> </div>
-   <div id="p_uni"> </div>
-   <div id="tree"> </div>
-   <div id="blurb" class="pinkGradientContainer">
+    <div id="waterfall" aria-hidden="true"> </div>
+   <div id="gif" aria-hidden="true"> </div>
+   <div id="sign" aria-hidden="true"> </div>
+   <div id="uni" aria-hidden="true"> </div>
+   <div id="p_uni" aria-hidden="true"> </div>
+   <div id="tree" aria-hidden="true"> </div>
+   <div id="blurb" class="pinkGradientContainer" role="presentation" aria-label="Welcome Message">
     <img class="popupExitButton" src="../../../../static/loginscreen/assets/images/icons/exit_button.png" />
     <!-- <button class="popupExitButton"> x </button> -->
         <h1> Welcome to the Uni-Verse!</h1>
         <p> Dress up, collect sparkles, and show off your outfits to your friends!</p>
    </div>
 
-   <div id="login_welcome" class="pinkGradientContainer"> 
+   <div id="login_welcome" class="pinkGradientContainer" role="presentation" aria-label="Login Welcome"> 
         <h1>Welcome to the Uni-Verse!</h1>
         <p>We're so happy you could make it! To start, we've added 50 Sparkles to your inventory and a few clothing items!</p>
-        <div class="starter_items"> 
+        <div class="starter_items" role="presentation" aria-label="Starter Items"> 
             <div class="buttonHolderSparkleCount">
                 <p> +50 </p>
-                <img class="image" src="../../../../static/loginscreen/assets/images/singleSparkle.png", alt="game_sparkles" width = "60" height="60" />
+                <img class="image" src="../../../../static/loginscreen/assets/images/singleSparkle.png", alt="game_sparkles" width = "60" height="60" aria-hidden="true"/>
             </div>
             <div class="buttonHolderSparkleCount">
                 <p> +3 </p>
-                <img class="image" src="../../../../static/loginscreen/assets/images/clothes/top2.png", alt="game_sparkles" width = "50" height="60" />
+                <img class="image" src="../../../../static/loginscreen/assets/images/clothes/top2.png", alt="game_sparkles" width = "50" height="60" aria-hidden="true"/>
             </div>
             <div class="buttonHolderSparkleCount">
                 <p> +3 </p>
-                <img class="image" src="../../../../static/loginscreen/assets/images/clothes/bottom12.png", alt="game_sparkles" width = "50" height="60" />
+                <img class="image" src="../../../../static/loginscreen/assets/images/clothes/bottom12.png", alt="game_sparkles" width = "50" height="60" aria-hidden="true"/>
             </div>
         </div>
         <br>
-        <div class="navbar_suggestions">
+        <div class="navbar_suggestions" role="navigation" aria-label="Navigation Suggestions">
             <p> Check out your inventory in </p>
-            <button class="fakeButton medPinkShine superRound outline navButton">
+            <button class="fakeButton medPinkShine superRound outline navButton"  aria-label="Dress Up Button">
                 <img class="icon" src="../../../../static/loginscreen/assets/images/icons/dressup_icon.png" />
                 Dress Up</button>
         </div>
         
-        <button id="confirm_button" class="medPinkShine superRound outline navButton"> Get Started!</button>
+        <button id="confirm_button" class="medPinkShine superRound outline navButton" aria-label="Get Started Button"> Get Started!</button>
     </div>
 
    

@@ -16,37 +16,32 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="{% static './loginscreen/homescreen/js/layout.js' %}"></script>
   <script src="{% static './loginscreen/shared/audioPlayer.js' %}"></script>
-
-    
-
 </head>
 
 <body>
- 
-  <div class="pinkContainer darkPinkContainer">
+  <div class="pinkContainer darkPinkContainer" role="main" aria-label="User Dashboard">
    
-    <div id = "horizontalContainer">
-      <div id="userInfoVerticalContainer">
+    <div id = "horizontalContainer" role="presentation">
+      <div id="userInfoVerticalContainer" role="region" aria-label="User Information">
         <img class="logo" src="../static/loginscreen/assets/images/logo_ver2.png" alt="uni-verse_logo" width="270"
         height="200" />
-        <p> Welcome, {{ user.profile.user }}!</p>
-        <p> Total Sparkles:</p>
-        <div class="buttonHolderOutlineSparkleCount">
+        <p aria-live="assertive"> Welcome, {{ user.profile.user }}!</p>
+        <p aria-live="assertive"> Total Sparkles:</p>
+        <div class="buttonHolderOutlineSparkleCount" role="presentation">
           <div class="buttonHolderSparkleCount">
-            <div id="sparkles_status"> {{ user.profile.sparkles }} </div>
-            <img class="image" src="../../../../static/loginscreen/assets/images/singleSparkle.png", alt="game_sparkles" width = "60" height="60" />
-            
-          
+            <div id="sparkles_status" aria-live="polite">{{ user.profile.sparkles }}</div>
+            <img class="image" src="../../../../static/loginscreen/assets/images/singleSparkle.png" alt="game_sparkles"
+              width="60" height="60" aria-hidden="true" />
           </div>
         </div>
         <a href="/settings">
-          <button class="medPinkShine superRound outline navButton">
+          <button class="medPinkShine superRound outline navButton" aria-label="Settings">
             <img class="icon" src="../../../../static/loginscreen/assets/images/icons/settings_icon.png" />
             Settings
           </button>
         </a>
         <a href="/logout">
-          <button class="medPinkShine superRound outline navButton" >
+          <button class="medPinkShine superRound outline navButton" aria-label="Logout">
             <img class="icon" src="../../../../static/loginscreen/assets/images/icons/logout_icon.png" />
             Logout
           </button>
@@ -56,26 +51,25 @@
           <div id="navbar">
             <!-- Button url redirects: https://stackoverflow.com/questions/46565460/how-to-make-a-button-click-redirect-to-another-url-in-django-->
             <a href="/home">
-              <button class="medPinkShine superRound outline navButton">
+              <button class="medPinkShine superRound outline navButton" aria-label="Home">
                 <img class="icon" src="../../../../static/loginscreen/assets/images/icons/home_icon.png" />
                 Home
               </button>
             </a>
             <a href="/game">
-              <button class="medPinkShine superRound outline navButton" id="gameButton">
+              <button class="medPinkShine superRound outline navButton" id="gameButton" aria-label="Collect Sparkles">
                 <img class="icon" src="../../../../static/loginscreen/assets/images/icons/sparkle_icon.png" />
                 Get Sparkles
               </button>
             </a>
             <a href="/dressup">
-              <button class="medPinkShine superRound outline navButton" id="dressUp">
+              <button class="medPinkShine superRound outline navButton" id="dressUp" aria-label="Dressup">
                 <img class="icon" src="../../../../static/loginscreen/assets/images/icons/dressup_icon.png" />
                 Dress Up</button>
             </a>
             <a href="/chatroom">
-              <button class="medPinkShine superRound outline navButton">
+              <button class="medPinkShine superRound outline navButton" aria-label="Chatroom">
                 <img class="icon" src="../../../../static/loginscreen/assets/images/icons/speech_icon.png" />
-
               Chatroom
             </button>
             </a>
@@ -87,11 +81,5 @@
     </div>
    
   </div>
-
-  <!-- <div id="gif"></div> -->
- 
-
-
 </body>
-
 </html>
