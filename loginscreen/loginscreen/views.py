@@ -251,7 +251,7 @@ def get_first_login(request):
 def update_first_login(request):
     if request.method == 'POST':
         current_profile = Profile.objects.get(user=request.user)
-        current_profile.first_login = request.POST["first_login"]
+        current_profile.first_login = update_accessibility_element(request.POST["first_login"])
 
         current_profile.save() #update the number of sparkles for the existing user
 
