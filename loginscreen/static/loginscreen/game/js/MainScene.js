@@ -90,7 +90,7 @@ class MainScene extends Phaser.Scene {
         // gameOver = true;
         // this.gameOver();
 
-
+        this.getAudioPermission();
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('startGame');
         console.log("start screen parent: " + element.parent);
 
@@ -126,8 +126,10 @@ class MainScene extends Phaser.Scene {
                 }
 
                 runningSpeed = INIT_RUNNING_SPEED;
+             
                 this.music = this.scene.sound.add("bg_music", { loop: true });
                 this.music.play();
+                
 
                 let gameBox = document.getElementsByClassName("gameBox")[0];
                 gameBox.classList.add("animate");
@@ -449,9 +451,26 @@ class MainScene extends Phaser.Scene {
                 }, 1000);
             }, 1000);
         }, 1000);
-
-
     }
+
+    getAudioPermission() {
+        $.ajax({
+            url: '/get_audio_preference/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                
+                // calculate what the new sparkle value should be
+                audio_allowed = data.audio_preference;
+                if (!data.audio_preference) {
+                    game.sound.mute = true;
+                }
+                // game.sound.mute = true;
+                // on success, post the new value
+            }
+        })   
+    }
+
 
 
 }
