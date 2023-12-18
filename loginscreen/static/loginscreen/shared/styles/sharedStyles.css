@@ -1,3 +1,4 @@
+/* ================= User Input (text)  ================= */
 input {
   width: 100%;
   height: 2rem;
@@ -5,6 +6,22 @@ input {
   border-radius: 0.5rem;
 }
 
+/* ================= Horizontal Lines  ================= */
+hr {
+  border: 1px solid rgb(239, 183, 191);
+  border-style: inset;
+  border-width: 1px;
+}
+
+/* ================= Text-Align  ================= */
+.alignRight {
+  text-align: right;
+}
+
+/* ================= Links <a>  ================= */
+a {
+  text-decoration: none;
+}
 .home_a {
   text-decoration: none;
   color: #cd1d58;
@@ -12,39 +29,13 @@ input {
   cursor:pointer;
 }
 
-hr {
-  border: 1px solid rgb(239, 183, 191);
-  border-style: inset;
-  border-width: 1px;
-}
-
-/* TEXT */
-.alignRight {
-  text-align: right;
-}
-
-
 .darkPinkLink { 
   text-decoration: none;
   color: #cd1d58; 
   font-size: larger;
 } 
 
-
-body {
-  /* background: pink; */
-  /* background: radial-gradient(rectangular at center, #b44ffd 0%, #bf66ff 80%, #d4a5f6 100%); */
-  /* background: radial-gradient(ellipse at center, white 0%, #bf66ff 85%, #b44ffd 100%); */
-
-  
-  /* background-color: pink; */
-  background-image: url("../../assets/images/alt_bg.png");
-  font-family: 'FruitFont';
-  src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
-  color: var(--black);
-  margin: 1%;
-}
-
+/* ================= Fonts ================= */
 @font-face {
   font-family: videoGameFont;
   src: url(../../assets/fonts/videogamefont.otf);

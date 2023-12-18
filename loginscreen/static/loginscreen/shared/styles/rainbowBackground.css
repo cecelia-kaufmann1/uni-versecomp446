@@ -1,0 +1,8 @@
+/* ================= SignUp & Community Guidelines backgrounds  ================= */
+body {
+    background-image: url("../../assets/images/alt_bg.png");
+    font-family: 'FruitFont';
+    src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
+    color: var(--black);
+    margin: 1%;
+  }
