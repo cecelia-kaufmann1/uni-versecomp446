@@ -17,6 +17,8 @@ class Profile(models.Model):
     buttons = models.BooleanField(default=False)
     colors = models.BooleanField(default=False)
 
+    first_login = models.BooleanField(default=True)
+
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

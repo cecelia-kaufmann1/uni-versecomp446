@@ -1,6 +1,11 @@
 $(document).ready(function() {
-    
+    getFirstLoginData();
     handlePopUpOnLoad();
+
+    $("#confirm_button").on("click", function() {
+      postFirstLogin();
+      hideFirstLoginUI();
+    });
 
     $("#gif").on('click', function() {
       window.localStorage.setItem('popup-on', '1');
@@ -40,6 +45,13 @@ $(document).ready(function() {
  
 })
 
+function hideFirstLoginUI() {
+  $("#login_welcome").css("display", "none");
+}
+function handleFirstLoginUI() {
+  $("#login_welcome").css("display", "block");
+}
+
 function handlePopUpOnLoad() {
   if (window.localStorage.getItem('popup-on')) {
     console.log("pop up currently does exist" + window.localStorage.getItem('popup-on'));
@@ -54,4 +66,36 @@ function handlePopUpOnLoad() {
     window.localStorage.setItem('popup-on', '1');
   }
 }
+
+function getFirstLoginData() {
+  $.ajax({
+      url: '/get_first_login/',
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        if (data.first_login) {
+          handleFirstLoginUI();
+        }
+        else {
+          hideFirstLoginUI();
+        }
+      },
+      error: function (error) {
+          console.log(`Error ${error}`);
+      }
+  });
+}
+
+// save the given color to the database
+function postFirstLogin() {
+  // first, get the number of sparkles that the user currently has
+  $.ajax({
+      type: 'POST',
+      url: '/update_first_login/',
+      data: {
+          first_login: "0",
+      },
+  })
+}
+
 

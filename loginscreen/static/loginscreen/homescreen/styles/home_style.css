@@ -20,6 +20,58 @@
   margin-left: -1rem;
 }
 
+#login_welcome {
+  display: none;
+  position: fixed;
+  z-index: 2;
+
+  width: 50rem;
+  align-self: center;
+  margin-left: 5rem;
+  padding:1rem;
+}
+
+.starter_items {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.starter_items .buttonHolderSparkleCount {
+  width: 15rem;
+}
+
+.starter_items p {
+  text-align: center;
+  font-size: 40px;
+  height:fit-content;
+  margin: 0;
+  align-self: center;
+}
+
+#login_welcome #confirm_button {
+  margin-left:35rem;
+}
+
+#login_welcome .fakeButton {
+  transform: scale(0.7);
+  pointer-events: none;
+  margin:-2.5rem;
+}
+
+#login_welcome p {
+  display:inline-block;
+  margin-left: -1rem;
+}
+
+#login_welcome .navbar_suggestions {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
 #uni {
   background: url("../../assets/vectorArt/default.png");
   width: 231px;

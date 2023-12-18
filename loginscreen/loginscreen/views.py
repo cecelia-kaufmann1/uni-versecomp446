@@ -239,3 +239,21 @@ def get_audio_preference(request):
         }
         return JsonResponse(response) 
 
+@csrf_exempt
+def get_first_login(request):
+    if request.method == 'GET':
+        response = {
+            'first_login': request.user.profile.first_login
+        }
+        return JsonResponse(response) 
+
+@csrf_exempt # this allows posts to be made without any admin stuff (no 404 errors)
+def update_first_login(request):
+    if request.method == 'POST':
+        current_profile = Profile.objects.get(user=request.user)
+        current_profile.first_login = request.POST["first_login"]
+
+        current_profile.save() #update the number of sparkles for the existing user
+
+        return HttpResponse(current_profile.first_login)
+

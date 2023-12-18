@@ -56,7 +56,9 @@ urlpatterns = [
     path('get_accessibility/', views.get_accessibility),
     path('get_layout_accessibility/', views.get_layout_accessibility),
     path('get_colorblindness/', views.get_colorblindness),
-    path('get_audio_preference/', views.get_audio_preference)
+    path('get_audio_preference/', views.get_audio_preference),
+    path('get_first_login/', views.get_first_login),
+    path('update_first_login/', views.update_first_login),
 
 
 ]
