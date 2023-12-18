@@ -17,30 +17,31 @@
                 width = "250"
                 height = "200"/>
 
-    <h1> Join The Uni-verse! </h1>
+      <h1 id="welcomeHeading"> Join The Uni-verse! </h1>
   </div>
   
 
-  <div class="pinkGradientContainer halfContainer" id="community_guidelines"> 
+  <div class="pinkGradientContainer halfContainer" id="community_guidelines" aria-labelledby="communityGuidelines"> 
     <a href="{% url 'login' %}" class="home_a"> &#8592;  Back To Login </a>
-    <h1> Welcome To The Uni-Verse!</h1>
-    <p> Before you join us, be sure to read the Community Guidelines to keep Uni-Verse a safe place! <br>
+    <h1 id="communityGuidelines"> Welcome To The Uni-Verse!</h1>
+    <p aria-describedby="introDescription"> Before you join us, be sure to read the Community Guidelines to keep Uni-Verse a safe place! <br>
       Remember, you must follow these rules if you wish to use Uni-Verse.
 
     </p>
     <h2> Be Kind and Inclusive </h2>
-    <p> Treat every member with kindness and respect. Our community is a safe space for all, regardless of background, beliefs, or preferences. Embrace the magic of inclusivity and celebrate diversity. </p>
+    <p aria-describedby="beKindDescription"> Treat every member with kindness and respect. Our community is a safe space for all, regardless of background, beliefs, or preferences. Embrace the magic of inclusivity and celebrate diversity. </p>
     <h2> Mind Your Language</h2>
-    <p>Keep the conversation enchanting! Refrain from using offensive language, swear words, or any form of harmful communication. Let the positivity and sparkle flow in your words.</p>
+    <p aria-describedby="mindLanguageDescription">Keep the conversation enchanting! Refrain from using offensive language, swear words, or any form of harmful communication. Let the positivity and sparkle flow in your words.</p>
     <h2>Spread Joy</h2>
-    <p>Unicorns are all about spreading joy and positivity. If you have constructive feedback, share it with kindness. Avoid negativity, gossip, or any behavior that may dampen the magical spirit of our community.</p>
+    <p aria-describedby="spreadJoyDescription">Unicorns are all about spreading joy and positivity. If you have constructive feedback, share it with kindness. Avoid negativity, gossip, or any behavior that may dampen the magical spirit of our community.</p>
     Remember, our unicorn community is a place of joy, kindness, and magic. Let's make it sparkle together! 🌈✨
     </p>
 
 
+    
     <a href="{% url 'signup' %}"> 
-        <button id="next_button" class="account_button" type="submit">Next</button> 
-    </a>
+      <button id="next_button" class="account_button" type="submit" aria-label="Next Button">Next</button> 
+  </a>
   </div>
   
 {% endblock %}
