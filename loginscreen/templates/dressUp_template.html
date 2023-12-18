@@ -19,25 +19,22 @@
 <script src="{% static './loginscreen/dressup/js/dressUp.js' %}" defer
     numSparkles="{{ user.profile.sparkles }}"></script>
 
-
-<!-- <iframe id="frame" height="100%" width="100%" scrolling="no"  id="frame">game
-    not available -->
-<div id="frame">
+<div id="frame"  role="region" aria-live="polite" aria-busy="false">
     <div class="flexRow">
         <div class="verticalContainer">
             <div class="horizontalContainer">
-                <div class="tab" id="shop" onclick="populateShop()"> Shop</div>
-                <div class="tab" id="myClothes" onclick="populateOwnedClothes()"> My clothes</div>
+                <div class="tab" id="shop" onclick="populateShop()" aria-label="Shop Tab"> Shop</div>
+                <div class="tab" id="myClothes" onclick="populateOwnedClothes()" aria-label="My Clothes Tab"> My clothes</div>
             </div>
 
-            <div class="closet scrollbar" id="closet">  
+            <div class="closet scrollbar" id="closet" role="reigon" aria-live="assertive" aria-busy="false">  
             </div>
             
         </div>
 
         <div id="avatarColorsButton"> 
-            <p id="colorLabel"> Color </p> 
-            <div id="colors">
+            <p id="colorLabel" role="heading" aria-level="2"> Color </p> 
+            <div id="colors" role="radiogroup" aria-labelledby="colorLabel">
                 <div class="color" id="default"><p class="colorName">Default</p></div>
                 <div class="color" id="red"><p class="colorName">Red</p></div>
                 <div class="color" id="orange"><p class="colorName">Orange</p></div>
@@ -54,20 +51,19 @@
             </div>
         </div>
         
-        <div class="container" id="avatar">
-            <img id="unicornImage" src="../static/loginscreen/assets/vectorArt/default.png" alt="Your Unicorn Avatar">
+        <div class="container" id="avatar" role="img" aria-labelledby="unicornImage">
+            <img id="unicornImage" src="../static/loginscreen/assets/vectorArt/default.png" alt="Your Unicorn Avatar" role="presentation">
 
 
         </div>
-        <div class="cartVerticalContainer">
+        <div class="cartVerticalContainer"  role="region" aria-live="polite" aria-busy="false">
             <p> In Cart:</p>
-            <div class="cartItemsContainer">
+            <div class="cartItemsContainer"  role="region" aria-live="polite" aria-busy="false">
             </div>
-            <button class="buyItemButton darkPinkShine superRound outline short"> Buy</button>
+            <button class="buyItemButton darkPinkShine superRound outline short" role="button" aria-label="Buy Item Button"> Buy</button>
         </div>
     </div>
 
 </div>
-<!-- </iframe>  -->
 
 {% endblock %}
