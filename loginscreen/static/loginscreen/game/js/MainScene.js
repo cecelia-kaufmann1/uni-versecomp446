@@ -26,9 +26,14 @@ class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('bg_music', '/static/loginscreen/assets/sounds/8Bit.wav');
+        this.load.audio('bg_music', '/static/loginscreen/assets/sounds/8bitpaparazzi.mp3');
+        this.load.audio('old_bg_music', '/static/loginscreen/assets/sounds/8Bit.wav');
         this.load.audio('sparkle', '/static/loginscreen/assets/sounds/Confirm.wav');
         this.load.audio('gameTransition', '/static/loginscreen/assets/sounds/gameStart.mp3');
+        this.load.audio('countdownSound', '/static/loginscreen/assets/sounds/countdown.mp3');
+        this.load.audio('gameOver', '/static/loginscreen/assets/sounds/gameOver.mp3');
+
+
     }
     create() {
         // Get time that the game started (used for increasing difficulty)
@@ -106,31 +111,31 @@ class MainScene extends Phaser.Scene {
                 if (event.target.id === "easy") {
                     console.log("easy")
 
-                    INIT_ENEMY_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 270;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
                     console.log("medium");
-                    INIT_ENEMY_SPAWN_RATE = 200;
+                    INIT_ENEMY_SPAWN_RATE = 220;
                     INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
                     console.log("hard");
-                    INIT_ENEMY_SPAWN_RATE = 150;
+                    INIT_ENEMY_SPAWN_RATE = 170;
                     INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
                     console.log("extreme");
-                    INIT_ENEMY_SPAWN_RATE = 100;
+                    INIT_ENEMY_SPAWN_RATE = 120;
                     INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
                 }
 
                 runningSpeed = INIT_RUNNING_SPEED;
              
-                this.music = this.scene.sound.add("bg_music", { loop: true });
-                this.music.play();
-                
+               
+                self.music = this.scene.sound.add("bg_music", { loop: true });
+
 
                 let gameBox = document.getElementsByClassName("gameBox")[0];
                 gameBox.classList.add("animateAway");
@@ -323,6 +328,9 @@ class MainScene extends Phaser.Scene {
 
     // Display game over screen
     gameOver() {
+        this.music.pause();
+        this.sound.play("gameOver");
+
         this.scoreText.text = "";
         // code to add DOM elements is from https://labs.phaser.io/edit.html?src=src/game%20objects/dom%20element/css%20style%20object.js&v=3.60.0
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('gameOver');
@@ -340,22 +348,22 @@ class MainScene extends Phaser.Scene {
             if (event.target.name === "replay") {
                 if (event.target.id === "easy") {
                     console.log("easy")
-                    INIT_ENEMY_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 270;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
                     console.log("medium");
-                    INIT_ENEMY_SPAWN_RATE = 200;
+                    INIT_ENEMY_SPAWN_RATE = 220;
                     INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
                     console.log("hard");
-                    INIT_ENEMY_SPAWN_RATE = 150;
+                    INIT_ENEMY_SPAWN_RATE = 170;
                     INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
                     console.log("extreme");
-                    INIT_ENEMY_SPAWN_RATE = 100;
+                    INIT_ENEMY_SPAWN_RATE = 120;
                     INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
                 }
@@ -446,11 +454,17 @@ class MainScene extends Phaser.Scene {
         runningSpeed = INIT_RUNNING_SPEED;
         player.anims.play("right", true);
 
+        var countdownSound = this.sound.add("countdownSound", { loop: false });
+        countdownSound.play();
+        let self = this;
+        
         setTimeout(function () {
             countdownText.text = "2";
             setTimeout(function () {
                 countdownText.text = "1";
                 setTimeout(function () {
+                    
+                    self.music.play();
                     
                     elementToDelete.destroy();
                     countdownText.destroy();
