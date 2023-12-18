@@ -54,6 +54,7 @@
     let color = "";
     setTimeout(getUsername, 1000);
 
+    // code for sending messages to iframe: https://javascriptbit.com/transfer-data-between-parent-window-and-iframe-postmessage-api/
     function sendMessage() {
         console.log("sent!");
         const message = {"username": username, "wearing": wearing, "owns" : owns, "color": color};
