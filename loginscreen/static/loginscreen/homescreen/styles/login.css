@@ -19,8 +19,6 @@ body {
 
   .horizontalFlex {
     position: relative;
-    /* width: auto;
-    height: auto; */
     display: flex;
     flex-direction: row;
     margin: 0;
@@ -36,10 +34,6 @@ body {
     max-width: 400px;
     position: relative;
     margin: auto;
-    /* margin-top: 100px; */
-    /* top: 20px; */
-    /* width: 400px;
-    height: 400px; */
     z-index: 5;
     padding: 10px;
     top: -2rem;
@@ -52,8 +46,6 @@ body {
     width: 500px;
     height: 450px;
     position: relative;
-    /*Move this back to 300 if too wide for Mac OS*/
-    /* left: 550px; */
     top: 30px;
     padding: 15px;
     margin-left: 18rem;
@@ -65,8 +57,6 @@ body {
     position: absolute;
    left: 0;
    top: -2rem;
-
-    /* bottom: 600px; */
     transform: rotate(-10deg);
     z-index: 10;
 }
@@ -80,7 +70,7 @@ body {
 /* Styles for the unicorn container */
 .unicorn-container {
     text-align: center;
-    margin-top: 6px; /* Adjust as needed */
+    margin-top: 6px; 
     position: absolute;
     left: 45rem;
     z-index: 5;
@@ -89,17 +79,17 @@ body {
   }
  
 .unicorn {
-    width: auto; /* Let the width adjust based on the image's natural size */
-    height: 350px; /* Set a fixed height */
+    width: auto; 
+    height: 350px; 
     margin-left: -2rem;
 }
  
 
 .slideshow-container {
-    max-width: 400px; /* Adjust based on your preference */
+    max-width: 400px; 
     position: relative;
     margin: auto;
-    margin-top: 10%; /* Adjust based on your preference */
+    margin-top: 10%; 
     transform: rotate(-5deg) scale(1.1);
     filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
 
@@ -108,7 +98,7 @@ body {
 
 .mySlides {
     display: none;
-    border: 3vw solid white; /* Adjust based on your preference */
+    border: 3vw solid white; 
     border-radius: 2rem;
     position: relative;
 } 

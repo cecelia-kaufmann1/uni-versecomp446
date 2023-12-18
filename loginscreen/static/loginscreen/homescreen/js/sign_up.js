@@ -14,6 +14,7 @@ $(document).ready(function () {
 
 })
 
+// On click to go to Sign Up
 function goToSignUp() {
     $('#community_guidelines').css('display', 'none');
     $('#form').css('display', 'block');
@@ -26,7 +27,6 @@ function goToCG() {
 
 // Function to submit the form and redirect to login
 function submitFormAndRedirect() {
-    // Assuming your form has an ID "signupForm"
     $('#form').submit();
     window.location.href = '/';  // Adjust the URL as needed
 }

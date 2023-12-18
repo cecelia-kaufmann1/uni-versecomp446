@@ -319,7 +319,6 @@
     
     display: flex;
     flex-direction: column;
-    /* margin-top: 3rem; */
 }
 
 .color {
@@ -415,9 +414,6 @@
   #avatarColorsButton.on #colors {
     left: -63rem;
   }
-  /* #slideout:hover #slideout_inner {
-    left: 0;
-  } */
   
 
 /* ----- Avatar Clothing Positioning -----*/
@@ -531,11 +527,7 @@
 
 /* ----- Clothing image paths ----- */
 #frame #bottom1 {
-    background-image: url("../../assets/images/clothes/bottom1.png");
-    /* background-image: url("../static/loginscreen/assets/images/clothes/bottom1.png"); */
-
-    
-    
+    background-image: url("../../assets/images/clothes/bottom1.png");   
 }
 
 #frame #bottom2 {
@@ -790,9 +782,6 @@
 #frame #nose {
     background-image: url("../../assets/images/clothes/nose.png");
 }
-
-
-
 
 
 

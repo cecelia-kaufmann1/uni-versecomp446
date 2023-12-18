@@ -11,7 +11,6 @@ body {
     background: pink;
     background-image: url("../../assets/images/alt_bg.png");
     font-family: 'FruitFont';
-    /*src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');*/
     color: var(--white);
     margin: 1%;
 }
@@ -21,7 +20,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Adjust as needed for the desired height */
+    height: 100vh; 
     position: relative;
 }
 
@@ -34,7 +33,7 @@ body {
 }
 
 .logo {
-        height: 20rem; /* Adjust the height as needed */
+        height: 20rem; 
         margin: auto;
         filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
 }

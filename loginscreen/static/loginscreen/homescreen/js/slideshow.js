@@ -1,5 +1,5 @@
-// slideshow.js
 
+// Creating the transitions through slideshows
 let slideIndex = 0;
 
 function showSlides() {
