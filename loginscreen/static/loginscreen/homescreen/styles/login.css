@@ -48,10 +48,6 @@ body {
     right: 0;
 }
 
-
-
-
-
 .pinkGradientContainer{
     width: 500px;
     height: 450px;
@@ -62,7 +58,6 @@ body {
     padding: 15px;
     margin-left: 18rem;
 }
-
 
 .logo_div {
    
@@ -79,11 +74,8 @@ body {
 
 .logo{
     width: 350px;
-    height: 350px;
+    height: 310px;
 }
-
-
-
 
 /* Styles for the unicorn container */
 .unicorn-container {
@@ -96,10 +88,11 @@ body {
    
   }
  
-  .unicorn {
+.unicorn {
     width: auto; /* Let the width adjust based on the image's natural size */
     height: 350px; /* Set a fixed height */
-  }
+    margin-left: -2rem;
+}
  
 
 .slideshow-container {
@@ -107,17 +100,18 @@ body {
     position: relative;
     margin: auto;
     margin-top: 10%; /* Adjust based on your preference */
-    /* transform: rotate(-10deg); */
+    transform: rotate(-5deg) scale(1.1);
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
+
 }
 
 
 .mySlides {
     display: none;
     border: 3vw solid white; /* Adjust based on your preference */
+    border-radius: 2rem;
     position: relative;
 } 
-
-
 
 
 img {
