@@ -41,6 +41,16 @@ Linda Lor
 
 Unicorn Sparkles Music
 https://soundcloud.com/timbeek/8bit-dna-loop 
+
+Get Sparkles Game Transition: Sound Effect from https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6104
+
+Get Sparkles Countdown: Sound Effect by Lesiakower on https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=151797
+
+Get Sparkles Game Over: Sound Effect from https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=38507
+
+Get Sparkles Paparazzi 8 bit song: https://www.youtube.com/watch?v=V0ZvdCeIPzM
+
+
 BRANDING
 Button Design 
 Lucy Rubin
@@ -84,6 +94,14 @@ Server:
 Code for setting up mulitplyer server is from https://gamedevacademy.org/create-a-basic-multiplayer-game-in-phaser-3-with-socket-io-part-1/#Setting_up_the_server
 Code for this line is from https://stackoverflow.com/questions/64923775/typeerror-require-listen-is-not-a-function
 Code for disconnecting a socket:https://www.dynetisgames.com/2017/03/06/how-to-make-a-multiplayer-online-game-with-phaser-socket-io-and-node-js/ 
+Code for sending messages to iframe: https://javascriptbit.com/transfer-data-between-parent-window-and-iframe-postmessage-api/ 
+
 
 Virtual Environment and Requirements.txt file:
 https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html
+
+Get Sparkles Game: 
+HTML and CSS for the 8bit style container: https://codepen.io/robdimarzo/pen/eYWmxKr
+HTML and CSS for video game style buttons based off of: https://codepen.io/reulison/pen/WNNVPZq
+Adding a custom font to phaser from: https://learn.yorkcs.com/2019/09/28/phaser-3-basics-custom-fonts/
+
