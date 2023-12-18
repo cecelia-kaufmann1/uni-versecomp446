@@ -34,7 +34,6 @@ class LoginView(View):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            print("User successfully logged in!")
            
             if (request.user.profile.first_login):
                 request.user.profile.sparkles = 50
@@ -56,12 +55,7 @@ class SignUpView(CreateView):
 #     template_name = 'registration/login.html'  # You can customize the login template if needed
 
 
-  
-  
 def send_dictionary(request): 
-    
-    print("username", request.user)
-    print("sparkles", request.user.profile.sparkles)
     # create data dictionary 
     dataDictionary = { 
         'hello': 'World', 
@@ -79,8 +73,6 @@ def send_dictionary(request):
 # This means you can only do dress up logged in
 @login_required(login_url='/')
 def run_dressup(request): 
-    print("username", request.user)
-    print("sparkles", request.user.profile.sparkles)
     # create data dictionary 
     return render(request, 'dressUp_template.html', {'username': request.user, 'sparkles': request.user.profile.sparkles}) 
 
