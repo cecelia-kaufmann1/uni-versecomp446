@@ -43,11 +43,6 @@ class Prepare extends Phaser.Scene {
         this.add.text(20, 20, "Loading game...");
         this.scene.start("playGame");
 
-        // var audio = new Audio('/static/loginscreen/assets/sounds/8Bit.wav');
-        // audio.loop = true;
-        // audio.muted = false;
-        // audio.play();
-
         // Animations
         this.anims.create({
             key: 'right',

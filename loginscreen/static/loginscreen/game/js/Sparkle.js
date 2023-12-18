@@ -12,12 +12,11 @@ class Sparkle extends Phaser.Physics.Arcade.Sprite {
         scene.physics.world.enableBody(this);
         sparkles.add(this);
 
-        // // Visuals
+        // Visuals
         this.play("sparkleIdle");
         this.setScale(SPRITE_SCALE);
 
-
-        // // Physics
+        // Physics
 
         this.resizeBoundingBoxes();
     }
@@ -32,21 +31,7 @@ class Sparkle extends Phaser.Physics.Arcade.Sprite {
     }
 
     update(xSpeed) {
-        // const ENEMY_Y_SPEED = 300; // speed of enemies oscillating on y-axis
-        // const ENEMY_MAX_DISTANCE = 100;  // distance enemies oscillate
-
-        // // Move to the left
+        // Move to the left
         this.body.velocity.x = xSpeed;
-
-        // // Oscillate up and down
-        // if (this.slime_offset < ENEMY_MAX_DISTANCE && this.body.velocity.y <= 0) {
-        //     this.body.velocity.y = -ENEMY_Y_SPEED;
-        //     this.slime_offset += 1;
-        // } else if (this.slime_offset > 0) {
-        //     this.body.velocity.y = ENEMY_Y_SPEED;
-        //     this.slime_offset -= 1;
-        // } else {
-        //     this.body.velocity.y = -ENEMY_Y_SPEED;
-        // }
     }
 }

@@ -44,22 +44,9 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     }
     
     update(xSpeed) {
-       
-        
         // Move to the left
         this.body.velocity.x = xSpeed;
-        
-        // Oscillate up and down
-        // if (this.slime_offset < ENEMY_MAX_DISTANCE && this.body.velocity.y <= 0) {
-        //     this.body.velocity.y = -ENEMY_Y_SPEED;
-        //     this.slime_offset += 1;
-        // } else if (this.slime_offset > 0) {
-        //     this.body.velocity.y = ENEMY_Y_SPEED;
-        //     this.slime_offset -= 1;
-        // } else {
-        //     this.body.velocity.y = -ENEMY_Y_SPEED;
-        // }
-
+    
         if (this.body.velocity.y >= this.ENEMY_Y_SPEED){
             this.acceleration = -1.1;
         } else if (this.body.velocity.y <= -this.ENEMY_Y_SPEED) {
