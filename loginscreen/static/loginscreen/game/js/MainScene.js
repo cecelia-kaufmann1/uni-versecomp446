@@ -28,6 +28,7 @@ class MainScene extends Phaser.Scene {
     preload() {
         this.load.audio('bg_music', '/static/loginscreen/assets/sounds/8Bit.wav');
         this.load.audio('sparkle', '/static/loginscreen/assets/sounds/Confirm.wav');
+        this.load.audio('gameTransition', '/static/loginscreen/assets/sounds/gameStart.mp3');
     }
     create() {
         // Get time that the game started (used for increasing difficulty)
@@ -74,6 +75,8 @@ class MainScene extends Phaser.Scene {
 
         this.originalFrameRate = player.anims.msPerFrame;
 
+       
+
 
         // Set up enemies
         enemies = this.add.group();
@@ -87,10 +90,13 @@ class MainScene extends Phaser.Scene {
         // gameOver = true;
         // this.gameOver();
 
+
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('startGame');
         console.log("start screen parent: " + element.parent);
 
         element.setOrigin(0.5);
+
+        element.setPosition(-1000,-1000);
 
         element.addListener('click');
         let self = this; // need to save 'this' because 'this' changes meaning once inside the evemt listener. from https://stackoverflow.com/questions/28386051/problems-calling-a-function-inside-a-listener-onclick
@@ -104,30 +110,62 @@ class MainScene extends Phaser.Scene {
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
                     console.log("medium");
-                    INIT_ENEMY_SPAWN_RATE = 300;
-                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 250;
+                    INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
                     console.log("hard");
-                    INIT_ENEMY_SPAWN_RATE = 300;
-                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 200;
+                    INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
                     console.log("extreme");
-                    INIT_ENEMY_SPAWN_RATE = 300;
-                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 150;
+                    INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
                 }
 
-
-                var music = this.scene.sound.add("bg_music", { loop: true });
-                music.play();
+                runningSpeed = INIT_RUNNING_SPEED;
+                this.music = this.scene.sound.add("bg_music", { loop: true });
+                this.music.play();
 
                 let gameBox = document.getElementsByClassName("gameBox")[0];
                 gameBox.classList.add("animate");
                 self.countdown(element);
             }
         });
+
+       
+        
+        let homebg = this.add.sprite(CANVAS_WIDTH/2, CANVAS_HEIGHT/2,"vectorbg");
+        let vectorSprite = this.add.sprite(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "vectorsprite");
+       
+        setTimeout(function() {
+            let transistionCover = self.add.sprite(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 'transition');
+            transistionCover.anims.play('transitionCover', false);
+            transistionCover.setScale(2.2);
+            self.children.bringToTop(transistionCover);
+    
+            let transitionReveal = self.add.sprite(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 'transition');
+            transitionReveal.setScale(2.2);
+            transitionReveal.anims.play('transitionReveal', false);
+            self.children.bringToTop(transitionReveal);
+
+            var transitionSound = self.sound.add("gameTransition", { loop: false });
+            transitionSound.play();
+            
+           
+        }, 200);
+       
+       
+       setTimeout(function() {
+            homebg.destroy();
+            vectorSprite.destroy();
+       }, 2000);
+
+       setTimeout(function() {
+        element.setPosition(CANVAS_WIDTH/2,CANVAS_HEIGHT/2);
+       }, 3000);
 
 
 
@@ -142,8 +180,8 @@ class MainScene extends Phaser.Scene {
             this.children.bringToTop(this.scoreText);
             // this.layer.x += runningSpeed / 60;
             // this.layer2.x += runningSpeed / 60;
-            this.layer3.x += (runningSpeed / 60.0);
-            this.layer4.x += (runningSpeed / 60.0);
+            this.layer3.x += (runningSpeed / 30.0);
+            this.layer4.x += (runningSpeed / 30.0);
 
             if (this.layer3.x <= -this.layer3.displayWidth) {
                 // console.log("layer3 reset");
@@ -292,24 +330,23 @@ class MainScene extends Phaser.Scene {
             if (event.target.name === "replay") {
                 if (event.target.id === "easy") {
                     console.log("easy")
-
                     INIT_ENEMY_SPAWN_RATE = 300;
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -110;
                 } else if (event.target.id === "medium") {
                     console.log("medium");
-                    INIT_ENEMY_SPAWN_RATE = 300;
-                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 250;
+                    INIT_SPARKLE_SPAWN_RATE = 200;
                     INIT_RUNNING_SPEED = -210;
                 } else if (event.target.id === "hard") {
                     console.log("hard");
-                    INIT_ENEMY_SPAWN_RATE = 300;
-                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 200;
+                    INIT_SPARKLE_SPAWN_RATE = 150;
                     INIT_RUNNING_SPEED = -310;
                 } else if (event.target.id === "extreme") {
                     console.log("extreme");
-                    INIT_ENEMY_SPAWN_RATE = 300;
-                    INIT_SPARKLE_SPAWN_RATE = 250;
+                    INIT_ENEMY_SPAWN_RATE = 150;
+                    INIT_SPARKLE_SPAWN_RATE = 100;
                     INIT_RUNNING_SPEED = -410;
                 }
                 let gameBox = document.getElementsByClassName("gameBox")[0];
@@ -371,6 +408,7 @@ class MainScene extends Phaser.Scene {
         score = 0;
         this.updateUI();
 
+        runningSpeed = INIT_RUNNING_SPEED;
 
         gameOver = false;
         this.countdown(elementToDelete);
