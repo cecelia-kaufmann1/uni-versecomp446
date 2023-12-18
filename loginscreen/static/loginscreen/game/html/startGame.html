@@ -4,46 +4,164 @@
 <head>
 
 
-<link rel="stylesheet" type="text/css" href="/static/loginscreen/game/css/startGame.css">
-<link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/button.css">
-<link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/sharedStyles.css">
+  <link rel="stylesheet" type="text/css" href="/static/loginscreen/game/css/startGame.css">
+  <link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/sharedStyles.css">
 
- 
-  <style> 
-  .gameBox {
-    width: 35rem;
-    height: 30rem;
-      
-    justify-content: center;
-    align-content: center;
-    justify-items: center;      
-   
-  }
 
-  #difficultyContainer {
-    display: flex;
-    flex-direction: row;
-  }
+  <style>
+    .gameBox {
+      width: 40rem;
+      height: 30rem;
 
-  .small {
-    width: 7rem;
-    font-size: 20px;
-  }
+      font-family: videoGameFont;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition-duration: 1000ms;
+
+    }
+
+    .animate {
+      transform: translate(0, 100rem);
+    }
+
+    .gameBox * {
+      font-family: videoGameFont;
+      justify-self: center;
+    }
+
+    #difficultyContainer {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .small {
+      width: 8rem;
+      font-size: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-family: videoGameFont;
+    }
+
+    #sparkle_image {
+      background-image: url(../../../../static/loginscreen/assets/sheets/sparkle.png);
+      width: 28rem;
+      height: 4rem;
+    }
+
+    .box_line {
+      position: absolute;
+      background: white;
+    }
+
+    .box_line_top,
+    .box_line_bottom {
+      height: 10px;
+      width: 100%;
+    }
+
+    .box_line_top::before,
+    .box_line_bottom::before,
+    .box_line_top::after,
+    .box_line_bottom::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+    }
+
+    .box_line_top {
+      top: -10px;
+    }
+
+    .box_line_top::before {
+      left: 0;
+      bottom: -10px;
+    }
+
+    .box_line_top::after {
+      right: 0;
+      bottom: -10px;
+    }
+
+    .box_line_bottom {
+      bottom: -10px;
+    }
+
+    .box_line_bottom::before {
+      left: 0;
+      top: -10px;
+    }
+
+    .box_line_bottom::after {
+      right: 0;
+      top: -10px;
+    }
+
+    .box_line_left,
+    .box_line_right {
+      width: 10px;
+      height: 100%;
+    }
+
+    .box_line_left {
+      left: -10px;
+    }
+
+    .box_line_right {
+      right: -10px;
+    }
+
+.difficultyButton {
+	text-align: center;
+	width: 8.5rem;
+	border-radius: 3rem;
+	box-shadow:  0 0.5rem #9d45dd;
+	color: black;
+	margin: 5px;
+	cursor: pointer;
+  padding-left: 5px;
+  background: linear-gradient(135deg,white 0%, #bf66ff 50%, #b24dfa 90%);
+  border: 1px #9d45dd solid;
+}
+
+.difficultyButton:active{
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+.videoGameText{
+  color: white;
+}
   </style>
 </head>
-<body>  
-   <div class = "pinkContainer gameBox">
-    <h1>Collect Sparkles</h1>
-    <img class="image" src="../../../../static/loginscreen/assets/sheets/sparkle.png", alt="game_sparkles" width = "100" height="150" />
-   <p> Collect as many sparkles as you can while avoiding the papparazi! <br>Use the up and down arrows to move</p>
-   <p> Choose a difficulty: </p>
+
+<body>
+  <div class="gameBox">
+    <div class="box_line box_line_top"></div>
+    <div class="box_line box_line_right"></div>
+    <div class="box_line box_line_bottom"></div>
+    <div class="box_line box_line_left"></div>
+    <h1 class="videoGameText">Papparazi</h1>
+    <div id="sparkle_image"></div>
+    <p class="videoGameText"> Collect as many sparkles as you can while avoiding the papparazi! <br>Use the up and down arrows to move</p>
+    <p class="videoGameText"> Choose a difficulty: </p>
     <div id="difficultyContainer">
-      <button name = "play" id = "easy" class = "lightPurpleShine superRound outline small"> Easy </button>
-      <button name = "play" id = "medium" class = "lightPurpleShine superRound outline small"> Medium </button>
-      <button name = "play" id = "hard" class = "lightPurpleShine superRound outline small"> Hard </button>
-      <button name = "play" id = "extreme" class = "lightPurpleShine superRound outline small"> XTREME </button>
+      <button name="play" id="easy" class="difficultyButton small"> Easy </button>
+      <button name="play" id="medium" class="difficultyButton small"> Medium </button>
+      <button name="play" id="hard" class="difficultyButton small"> Hard </button>
+      <button name="play" id="extreme" class="difficultyButton small"> XTREME </button>
     </div>
-    
-    </div>
+
+  </div>
 </body>
+
 </html>

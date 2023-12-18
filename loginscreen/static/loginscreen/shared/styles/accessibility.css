@@ -39,6 +39,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.accessibleFont h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* ================ Buttons ================ */
 .medPink button{
     /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */

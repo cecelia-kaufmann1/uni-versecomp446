@@ -123,10 +123,9 @@ class MainScene extends Phaser.Scene {
                 var music = this.scene.sound.add("bg_music", { loop: true });
                 music.play();
 
-
-                this.removeElement();
-                this.destroy();
-                self.countdown();
+                let gameBox = document.getElementsByClassName("gameBox")[0];
+                gameBox.classList.add("animate");
+                self.countdown(element);
             }
         });
 
@@ -241,8 +240,9 @@ class MainScene extends Phaser.Scene {
     createUI() {
 
 
-        this.scoreText = this.add.text(0, 0, "", { fontSize: '32px', fill: '#FFF' });
+        this.scoreText = this.add.text(0, 0, "", { fontSize: '32px', fill: '#FFF', fontFamily: 'videoGameFont' });
         this.scoreText.setPadding(10, 10, 10, 10);
+        
         this.updateUI();
 
     }
@@ -312,9 +312,9 @@ class MainScene extends Phaser.Scene {
                     INIT_SPARKLE_SPAWN_RATE = 250;
                     INIT_RUNNING_SPEED = -410;
                 }
-                this.removeElement();
-                this.destroy();
-                self.replay();
+                let gameBox = document.getElementsByClassName("gameBox")[0];
+                gameBox.classList.add("animate");
+                self.replay(element);
             }
         });
 
@@ -367,13 +367,13 @@ class MainScene extends Phaser.Scene {
 
     }
 
-    replay() {
+    replay(elementToDelete) {
         score = 0;
         this.updateUI();
 
 
         gameOver = false;
-        this.countdown();
+        this.countdown(elementToDelete);
         player.setVelocityY(0);
         this.physics.resume();
 
@@ -389,8 +389,8 @@ class MainScene extends Phaser.Scene {
 
         player.body.offset.y = player.displayHeight * 0.2;
     }
-    countdown() {
-        let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF' });
+    countdown(elementToDelete) {
+        let countdownText = this.add.text(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, "3", { fontSize: '100px', fill: '#FFF', fontFamily: "videoGameFont"});
         countdownText.setOrigin(0.5);
         startedGame = true;
         sparkleSpawnRate = INIT_SPARKLE_SPAWN_RATE;
@@ -403,6 +403,8 @@ class MainScene extends Phaser.Scene {
             setTimeout(function () {
                 countdownText.text = "1";
                 setTimeout(function () {
+                    
+                    elementToDelete.destroy();
                     countdownText.destroy();
 
 

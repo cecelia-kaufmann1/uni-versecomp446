@@ -3,7 +3,7 @@
 {% block title %}Game{% endblock %}
 
 {% block content %}
-{% load static %} 
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -12,15 +12,27 @@
     <title>Uni-Verse</title>
 
     <style>
+        @font-face {
+            font-family: videoGameFont;
+            src: url(../static/loginscreen/assets/fonts/videogamefont.otf);
+        }
+
         #game {
             height: 33rem;
             width: 60rem;
+        }
+
+        .videoGameFont {
+            font-family: videoGameFont;
+            position: absolute;
+            left: -1000px;
+            visibility: hidden;
         }
     </style>
 
 </head>
 
-<div id = "game">
+<div id="game">
 
     <script type="text/javascript" src="../static/loginscreen/game/phaser/phaser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.min.js"></script>
@@ -33,7 +45,9 @@
     <script type="text/javascript" src="../static/loginscreen/game/js/Enemy.js"></script>
     <script type="text/javascript" src="../static/loginscreen/game/js/Sparkle.js"></script>
     <script type="text/javascript" src="../static/loginscreen/game/js/game.js"></script>
+    <div class="videoGameFont">.</div>
 </div>
+
 <body>
 </body>
 

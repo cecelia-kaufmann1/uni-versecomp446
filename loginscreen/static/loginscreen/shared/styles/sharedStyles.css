@@ -46,6 +46,10 @@ body {
 }
 
 @font-face {
+  font-family: videoGameFont;
+  src: url(../../assets/fonts/videogamefont.otf);
+}
+@font-face {
     font-family: myFont;
     src: url(../../assets/fonts/fruitfont.otf);
   }
