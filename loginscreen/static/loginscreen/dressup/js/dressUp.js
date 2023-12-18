@@ -20,7 +20,6 @@ fetch("../static/loginscreen/dressup/json/clothes.json")
     .then(json => {
 
         clothes = json.clothes;
-        console.log("json loaded");
         getWearing();
     });
 
@@ -126,39 +125,19 @@ function printDebugValues() {
 
 // put on clothes, and populate shop/closet. Used when the screen is first loaded
 function setUpScreen() {
-     
-    
     // put on each item that user is currently wearing
      for (let i = 0; i < wearing.length; i++) {
         
         let id = wearing[i];
-        console.log(id);
         let item = clothes[wearing[i]].name;
         let itemType = clothes[wearing[i]].type;
         putOn(item, itemType, id);
-       
     }
     if (tabOpen == "shop") {
         populateShop();
     } else {
         populateOwnedClothes();
     }
-}
-// Gets the Django sparkles number 
-function getSparklesNum() {
-    $.ajax({
-        url: '/get_sparkles/',
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-            currentSparklesInDB = data.sparkles;
-            // calculate what the new sparkle value should be
-            numSparkles = currentSparklesInDB;
-        },
-        error: function (error) {
-            console.log(`Error ${error}`);
-        }
-    });
 }
 
 // Fill the 'My Clothes' section with owned clothes
@@ -211,7 +190,6 @@ function highlightShopTab() {
     let myClothesTab = document.getElementById("myClothes");
     
     let shopTab = document.getElementById("shop");
-    
 
     shopTab.style.zIndex = 2;
     myClothesTab.style.zIndex = 0;
@@ -222,11 +200,9 @@ function highlightShopTab() {
 
 // highlight the my clothes tab on the side of the closet
 function highlightMyClothesTab() {
-    console.log('HI highlightMyClothes');
     let myClothesTab = document.getElementById("myClothes");
     
     let shopTab = document.getElementById("shop");
-   
 
     shopTab.style.zIndex = 0;
     myClothesTab.style.zIndex = 1;
@@ -252,8 +228,6 @@ function createClothingItemBox(item, itemType, id) {
     if (isWearing(id)) {
         clothingItem.style.backgroundColor = "#957a4c";
     }
-
-    
     return itemBox;
 }
 
@@ -298,7 +272,6 @@ function putOn(item, itemType, id) {
     avatar.classList.add(itemType);
 
     if (!isWearing(id) ) {
-        console.log("not wearing");
         if (!userOwnsItem) {
             
         } else {
@@ -402,7 +375,6 @@ function removeIfWearing(itemType) {
 }
 
 function changeAvatarColor(color) {
-    console.log("new color: ", color);
     let avatarImage = document.getElementById("unicornImage");
     avatarImage.setAttribute("src", "../static/loginscreen/assets/vectorArt/"+color+".png");
     saveColorToDatabase(color);
@@ -434,9 +406,7 @@ function purchaseItems() {
            
         }
         
-        console.log("Purchased item(s), calculating..." + numSparkles + "-" + costInCart);
         numSparkles = numSparkles - costInCart;
-        console.log("numSparkles is now: " + numSparkles)
         updateSparklesInDB();
 
         saveOwnsToDB();
@@ -451,8 +421,6 @@ function purchaseItems() {
         } else {
             populateOwnedClothes();
         }
-        printDebugValues();
-        
     }
 
 }
@@ -498,9 +466,6 @@ function updateSparklesInDB() {
         },
         success: function(data) {
             // the success will automatically update the number of sparkles for user end of site
-            // let numSparklesElement = document.getElementsByClassName("numSparkles")[0];
-            // numSparklesElement.innerHTML = "Sparkles: " + data;
-            console.log("new sparkles", $("#sparkles_status"));
             $("#sparkles_status").text(data);
            
         }
@@ -543,7 +508,6 @@ function saveWearingToDB() {
             wearing: wearingAsString
         },
         success: function(data) {
-            console.log("posted wearing: ", data);
         }, error: function (error) {
             console.log(`Error ${error}`);
         }
@@ -575,7 +539,6 @@ function getOwns() {
 // save the current value of wearing (as a char string) to the database
 function saveOwnsToDB() {
     // first, get the number of sparkles that the user currently has
-    console.log("conversion started");
     let ownsAsString = convertArrayToString(owns);
     
     $.ajax({
@@ -586,9 +549,7 @@ function saveOwnsToDB() {
             owns: ownsAsString
         },
         success: function(data) {
-            console.log("ajax success");
-            console.log("posted owns: ", data);
-            console.log("saving owns as ", ownsAsString);
+           
         }
     })
 }
@@ -603,7 +564,6 @@ function saveColorToDatabase(color) {
             color: color
         },
         success: function(data) {
-            console.log("posted color: ", data);
         }
     })
 }
@@ -625,7 +585,6 @@ function getAvatarColor() {
                 color = data.color;
             }
             
-            console.log("got color from db: ", data.color);
             changeAvatarColor(color);
         },
         error: function (error) {
@@ -633,6 +592,25 @@ function getAvatarColor() {
         }
     });
 }
+
+
+// Gets the Django sparkles number 
+function getSparklesNum() {
+    $.ajax({
+        url: '/get_sparkles/',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            currentSparklesInDB = data.sparkles;
+            // calculate what the new sparkle value should be
+            numSparkles = currentSparklesInDB;
+        },
+        error: function (error) {
+            console.log(`Error ${error}`);
+        }
+    });
+}
+
 
 
 
@@ -650,7 +628,7 @@ function convertStringToArray(str) {
         newArray[i] = parseInt(newArray[i]);
     }
     } else {
-        console.log("twas null");
+        console.log("null array");
         // keep it as an empty array
     }
     
@@ -666,7 +644,6 @@ function convertArrayToString(arr) {
     if (arr.length == 0) {
         newStr = "null"; // empty array = 'null' string
     }
-    console.log("conversion finsihes");
 
     return newStr;
 }
@@ -677,7 +654,6 @@ function getColorBlindness() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            console.log("got colorblindess " + data.colors)
             if (data.colors) {
                 $(".colorName").css('display', 'block');
             }

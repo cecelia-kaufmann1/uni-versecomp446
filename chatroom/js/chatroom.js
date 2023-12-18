@@ -110,12 +110,6 @@ function preload() {
   this.load.image('stache', '../static/loginscreen/assets/images/clothes/stache.png');
   this.load.image('nose', '../static/loginscreen/assets/images/clothes/nose.png');
 
-
-
-
-
-
-
   this.load.image('bigGrass', '../static/loginscreen/assets/images/bigGrass.png');
   this.load.image('cafebg', '../static/loginscreen/assets/images/fae_cafe.png')
   this.load.image('altbg', '../static/loginscreen/assets/images/alt_bg.png');
@@ -126,7 +120,6 @@ function preload() {
   this.load.tilemapTiledJSON('map', '../static/loginscreen/assets/sheets/universeTiles.json');
 
   this.load.html('chatInput', '../static/loginscreen/chatroom/html/chatInput.html');
-
 }
 
 
@@ -134,15 +127,13 @@ var username = "Unknown user";
 var wearing = [];
 var owns = [];
 var color = "default";
-function create() {
 
+function create() {
 
   var self = this;
   this.socket = io();
   this.otherPlayers = this.physics.add.group();
   
-  
-
   // listen for a message from the chatroom_template.html django file
   window.addEventListener('message', function (event) {
     username = event.data.username; // current player username
@@ -150,7 +141,6 @@ function create() {
     owns = event.data.owns; // current player owns
     color = event.data.color; // current player avatar color
     self.socket.emit('updatePlayerUsernameAndWearing', username, wearing, owns, color); // save the data to the server
-   
   });
 
   // update another player based on the new username and wearing data
@@ -219,7 +209,6 @@ function create() {
 
   // update other players when a new player joins
   this.socket.on('newPlayer', function (playerInfo) {
-    // console.log("new player");
     addOtherPlayers(self, playerInfo);
   });
 
@@ -236,7 +225,6 @@ function create() {
 
     self.otherPlayers.getChildren().forEach(function (otherPlayer) {
       if (playerInfo.playerId === otherPlayer.playerId) {
-        // otherPlayer.setRotation(playerInfo.rotation);
         otherPlayer.setPosition(playerInfo.x, playerInfo.y);
 
         if (playerInfo.xSpeed < 0) {
@@ -251,7 +239,6 @@ function create() {
   });
 
   this.socket.on('showNewChat', function (text, user) {
-    // console.log("showNewChat: text =",text, "user=",user);
     addNewChat(text, user);
   });
 
@@ -259,11 +246,8 @@ function create() {
 
   this.add.image(0, 320, "cafebg").setScale(0.7,0.7).setOrigin(0,0.55);
 
- 
-
   // focus: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
   focus(this);
-
 
   const element = this.add.dom(CANVAS_WIDTH * 0, CANVAS_HEIGHT).createFromCache('chatInput');
   element.setOrigin(0, 1);
@@ -273,10 +257,8 @@ function create() {
   chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
   let submitChatButton = document.getElementById("submitchat");
   submitChatButton.addEventListener("click", function () {
-    // console.log("self.username:", username);
     submitChat(self, username);
   });
-
 
   // fixing the space bar for sending chats from: https://stackoverflow.com/questions/1987439/space-bar-not-working-in-form-fields
   let chatInput = document.getElementById("chat");
@@ -286,7 +268,6 @@ function create() {
     } else if (event.key == "Enter") {
       submitChat(self, username);
     }
-
   });
 
   this.boundaries = this.physics.add.staticGroup();
@@ -294,33 +275,25 @@ function create() {
   this.boundaries.create(0, 230, 'bigGrass').setScale(2.9, 9).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
   this.boundaries.create(0, 0, 'bigGrass').setScale(8, 4.3).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
   this.boundaries.create(250, 18, 'bigGrass').setScale(10, 2).setTint(0xff0000).setOrigin(0,0).setAlpha(0).refreshBody();
-
-
-
-
 }
+
 const MAX_SPEED = 120;
 var xSpeed = 0;
 var ySpeed = 0;
+
 // handle player movement
 function update() {
 
   if (this.ship) {
 
     if (cursors.left.isDown) {
-      
       xSpeed = -1;
       this.ship.flipX = false;
       setPlayerFlipX(this.ship, false);
-      
-
     } else if (cursors.right.isDown) {
-      
       xSpeed = 1;
       this.ship.flipX = true;
-
       setPlayerFlipX(this.ship, true);
-
     } else {
       xSpeed = 0;
     }
@@ -335,14 +308,10 @@ function update() {
     this.ship.body.setVelocity(xSpeed, ySpeed);
     this.ship.body.velocity.normalize().scale(MAX_SPEED);
 
-
-    // emit player movement
-
     // store player position info
     var x = this.ship.x;
     var y = this.ship.y;
     var r = this.ship.rotation;
-
 
     // if the position has changed, emit a playerMovement event
     if (this.ship.oldPosition && (x !== this.ship.oldPosition.x || y !== this.ship.oldPosition.y || r !== this.ship.oldPosition.rotation)) {
@@ -357,6 +326,7 @@ function update() {
   }
 }
 
+// flip the player horizontally based on bool
 function setPlayerFlipX(container, bool) {
   container.list.forEach(function (child) {
     let itemType = child.itemType;
@@ -437,7 +407,6 @@ function setPlayerFlipX(container, bool) {
         child.setOrigin(0.5, -2.8);
       }
     }
-
   }, this);
 }
 
@@ -450,13 +419,7 @@ function addPlayer(self, playerInfo) {
   let baseImage = self.physics.add.image(0, 0, "default").setOrigin(0, 0).setScale(0.3);
 
   self.ship.add(baseImage);
- 
 
-  if (playerInfo.team === 'blue') {
-    // self.ship.setTint(0x0000ff);
-  } else {
-    // self.ship.setTint(0xff0000);
-  }
   self.ship.body.setDrag(100);
   self.ship.body.setAngularDrag(100);
   self.ship.body.setMaxVelocity(200);
@@ -466,8 +429,6 @@ function addPlayer(self, playerInfo) {
   self.physics.add.collider(self.ship, self.boundaries);
 
   makeParticleEmitter(self, self.ship);
-
-
 }
 
 // add avatar for other player
@@ -493,7 +454,6 @@ function addOtherPlayers(self, playerInfo) {
   self.otherPlayers.add(otherPlayer);
 
   makeParticleEmitter(self, otherPlayer);
-
 }
 
 // add a sparkle particle emitter to the given sprite for 1 second
@@ -518,8 +478,9 @@ function makeParticleEmitter(self, sprite) {
     particles.destroy();
 });
 }
+
+// put clothes on the given sprite
 function putOnClothes(self, sprite, playerInfo) {
-  console.log("put on clothes");
   let color = playerInfo.color;
   if (color) {
     if (typeof(playerInfo.color.color) == "string"){
@@ -538,25 +499,18 @@ function putOnClothes(self, sprite, playerInfo) {
   }
   let ownsArray = playerInfo.owns;
 
-  // if (typeof (playerInfo.ownsArray) == "string") {
-  //   ownsArray = convertStringToArray(playerInfo.ownsArray);
-  // }
   if (typeof (playerInfo.owns.owns) == "string") {
     ownsArray = convertStringToArray(playerInfo.owns.owns);
   }
  
-  console.log("owns array:", playerInfo);
-  console.log(wearingArray);
   wearingArray.forEach((item) => {
    
     let id = item;
-    console.log("item = ", clothes[id]);
     let name = clothes[id].name;
     let itemType = clothes[id].type;
 
     // if any of the clothes in wearing aren't also owned, do not put them on.
     if (ownsArray.includes(id)) {
-      console.log("owns, id");
       var clothingItem = self.physics.add.image(0, 0, name).setScale(0.3);
       if (itemType == "skirt") {
         clothingItem.setOrigin(-2, -1.1);
@@ -565,7 +519,6 @@ function putOnClothes(self, sprite, playerInfo) {
       } else if (itemType == "bottom") {
         clothingItem.setOrigin(-1.9, -0.9);
       } else if (itemType == "feet") {
-        console.log("feet");
         clothingItem.setOrigin(-0.39, -8);
       } else if (itemType == "backcap") {
         clothingItem.setOrigin(-0.29, -0.3);
@@ -595,7 +548,6 @@ function putOnClothes(self, sprite, playerInfo) {
         clothingItem.setOrigin(0.5, -2.8);
       }
 
-
       if (!(itemType == "feet" || itemType == "eyeliner")){ // make sure that feet are behind other clothes
         sprite.bringToTop(clothingItem);
     } 
@@ -605,8 +557,7 @@ function putOnClothes(self, sprite, playerInfo) {
   });
 }
 
-
-
+// convert a string into an array for wearing or owns arrays
 function convertStringToArray(str) {
   let newArray = [];
   if (str !== "null") {
@@ -618,11 +569,8 @@ function convertStringToArray(str) {
       newArray[i] = parseInt(newArray[i]);
     }
   } else {
-    console.log("twas null");
     // keep it as an empty array
   }
-
-
   return newArray;
 }
 
@@ -635,14 +583,11 @@ fetch("../chatroom/json/clothes.json")
     clothes = json.clothes;
   });
 
-
-
 // if there is a valid message in the chatbox, emit a signal that there is a new chat
 function submitChat(self, user) {
   let chatInput = document.getElementById("chat");
   let text = chatInput.value;
   if (text) {
-    // console.log("emit: ", user);
     self.socket.emit('newChat', text, user);
   }
 }
@@ -659,6 +604,5 @@ function addNewChat(text, user) {
 
   // put scrollbar at bottom is from: https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
   chatLog.scrollTop = chatLog.scrollHeight - chatLog.clientHeight;
-
 }
 
