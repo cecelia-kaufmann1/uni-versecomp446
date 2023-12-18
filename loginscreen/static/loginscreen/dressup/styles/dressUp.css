@@ -294,8 +294,8 @@
 #avatarColorsButton {
     position: relative;
     padding-bottom: 1rem;
-    left: -65rem;
-    top: -27rem;
+    left: -63rem;
+    top: -25rem;
     width: 5rem;
     height: fit-content;
     border-radius: 1rem;
@@ -327,8 +327,8 @@
 .color {
     background-color: pink;
     border: 3px #7e37b1 solid;
-    height: 4rem;
-    width: 4rem;
+    height: 3.5rem;
+    width: 3.5rem;
     margin: 0.25rem;
     transform: rotate(-90deg);
    
@@ -383,11 +383,11 @@
 }
 
 #purple {
-    background-color: purple;
+    background-color: rgb(107, 49, 223);
 }
 
 #pink {
-    background-color: pink;
+    background-color: rgb(255, 84, 249);
 }
 
 #white {
@@ -397,9 +397,12 @@
 #lightbrown {
     background-color: burlywood;
 }
+#medbrown {
+    background-color: rgb(226, 164, 84);
+}
 
 #brown {
-    background-color: brown;
+    background-color: rgb(165, 93, 42);
 }
 
 #black {
@@ -408,11 +411,11 @@
 
 /* Help for slide out menu animation from https://codepen.io/krisgrove/pen/prPdov*/
 #avatarColorsButton.on {
-    left: -9rem;
+    left: -10.5rem;
   }
 
   #avatarColorsButton.on #colors {
-    left: -65rem;
+    left: -63rem;
   }
   /* #slideout:hover #slideout_inner {
     left: 0;
