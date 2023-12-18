@@ -273,7 +273,6 @@ class MainScene extends Phaser.Scene {
         enemySpawnRate *= 0.85;
         sparkleSpawnRate *= 0.85;
         runningSpeed *= 1.2;
-        console.log("harder: spawn rate: " + enemySpawnRate + "speed: " + runningSpeed);
         player.anims.msPerFrame = player.anims.msPerFrame * 0.925;
     }
 
@@ -285,7 +284,6 @@ class MainScene extends Phaser.Scene {
         this.scoreText.text = "";
         // code to add DOM elements is from https://labs.phaser.io/edit.html?src=src/game%20objects/dom%20element/css%20style%20object.js&v=3.60.0
         const element = this.add.dom(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).createFromCache('gameOver');
-        console.log("game over parent: " + element.parent);
         element.setOrigin(0.5);
 
         element.addListener('click');
