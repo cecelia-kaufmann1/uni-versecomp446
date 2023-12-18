@@ -6,6 +6,7 @@ button {
     width: 20rem;
     /* width: fit-content; */
     height: 5rem;
+   
   
     border-radius: 40px;
     border-width: 0;  
@@ -37,6 +38,11 @@ button {
   .navButton {
     width: 12rem;
     height: 4rem;
+
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0.5rem;
   }
 
 
@@ -164,11 +170,8 @@ button {
 }
 
 .popupExitButton{
-  background-color: #be1b51;
+
   height: 1.5rem;
   width: 1.5rem;
   margin: 0%;
-  font-size: large;
-  color: white;
-  padding-top: revert-layer;
 }
