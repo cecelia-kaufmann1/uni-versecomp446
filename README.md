@@ -131,7 +131,10 @@ Universe Logo: [Linda Lor](https://github.com/LindaLor028)\
 [Virtual Environment and Requirements.txt file](https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html)\
 [Customize font in phaser](https://learn.yorkcs.com/2019/09/28/phaser-3-basics-custom-fonts/)\
 [User Permissions for audio](https://stackoverflow.com/questions/60427633/how-to-ask-audio-autoplay-permission-in-the-browsersafari-with-javascript)\
-[Volume control for AudioBuffer](https://stackoverflow.com/questions/43386277/how-to-control-the-sound-volume-of-audio-buffer-audiocontext)
+[Volume control for AudioBuffer](https://stackoverflow.com/questions/43386277/how-to-control-the-sound-volume-of-audio-buffer-audiocontext)\
+
+### Notes
+We would like to extend a huge thank you to [Scratch](scratch.mit.edu) for their Vector editor- which was used to make over 80% of the assets. 
 
 ## ✨ If you've made it this far...
 We'd like to say a huge thank you for checking out our project! :) 
