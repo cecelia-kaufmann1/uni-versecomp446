@@ -1,4 +1,5 @@
 # 🦄 Welcome to the Uni-verse!
+![site preview](loginscreen/static/loginscreen/assets/images/site_preview.png)
 
 A capstone project for Macalester College's COMP 446 by [Cecelia Kaufmann](https://github.com/cecelia-kaufmann1), [Lucy Rubin](https://github.com/lucyrubin), and [Linda Lor](https://github.com/LindaLor028)
 
