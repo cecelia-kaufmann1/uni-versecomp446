@@ -133,4 +133,8 @@ Universe Logo: [Linda Lor](https://github.com/LindaLor028)\
 [User Permissions for audio](https://stackoverflow.com/questions/60427633/how-to-ask-audio-autoplay-permission-in-the-browsersafari-with-javascript)\
 [Volume control for AudioBuffer](https://stackoverflow.com/questions/43386277/how-to-control-the-sound-volume-of-audio-buffer-audiocontext)
 
+## ✨ If you've made it this far...
+We'd like to say a huge thank you for checking out our project! :) 
+![site preview](loginscreen/static/loginscreen/assets/images/Thanks.png)
+
 
