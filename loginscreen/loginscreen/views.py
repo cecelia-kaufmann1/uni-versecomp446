@@ -37,7 +37,7 @@ class LoginView(View):
            
             if (request.user.profile.first_login):
                 request.user.profile.sparkles = 50
-                request.user.profile.owns = "0,10,21,22"
+                request.user.profile.owns = "0,10,21,22,"
 
                 request.user.profile.save() #update the number 
             return redirect(self.success_url)
