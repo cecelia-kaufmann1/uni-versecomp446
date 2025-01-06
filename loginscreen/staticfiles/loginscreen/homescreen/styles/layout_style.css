@@ -1,0 +1,205 @@
+#verticalContainer {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+#navbar {
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: end !important;
+}
+
+#horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    /* background-color: yellow; */
+}
+
+#userInfoVerticalContainer {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.buttonHolderSparkleCount {
+    background: radial-gradient(ellipse at center, #febdd3 0%, #ff72a1 60%, #ff4382 100%);
+    /* padding: 1rem; */
+    /*Change this back to 3rem if we need it to go back to being rectangular*/
+    border-radius: 6rem;
+    border: #cd1d58 2px solid;
+    margin: 0;
+
+    box-shadow: 0 0 10px rgba(255, 114, 161, 0.5);
+
+
+    height: 6rem;
+    width: fit-content;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-content: center;
+
+}
+
+.buttonHolderOutlineSparkleCount {
+
+    background: linear-gradient(135deg, #ff4382 20%, #fb84ac 70%);
+    padding: 2%;
+    border-radius: 6rem;
+    border: #cd1d58 2px solid;
+    height: fit-content;
+    width: fit-content;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+    margin-bottom: 15%;
+}
+
+/* Little bit of movement for the sparkle added */
+.buttonHolderSparkleCount:hover {
+    background: radial-gradient(ellipse at center, #febdd3 0%, #ff72a1 60%, #ff4382 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    margin: 0;
+    padding: 1rem;
+    font-size: 20px;
+}
+
+.logo {
+
+    /* position:fixed; */
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
+    transform: rotate(-20deg) translateY(-10%) scale(1.2);
+
+}
+
+#verticalRightContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    margin: 0;
+    width: 50%;
+}
+
+#menuText {
+    color: white;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+
+
+body {
+    background-image: none !important;
+    background: radial-gradient(ellipse at center, white 0%, #bf66ff 85%, #b44ffd 100%) !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    /* Making linear gradient not repeat: https://forum.freecodecamp.org/t/solved-preventing-a-gradient-background-from-repeating/74090*/
+    font-family: 'FruitFont';
+    src: url('/loginscreen/static/loginscreen/assets/fonts/fruitfont.otf') format('opentype');
+    color: var(--black);
+
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    display: grid;
+
+    column-gap: 2%;
+    grid-template-columns: 1fr 15fr 2fr;
+
+    margin: 1%;
+}
+
+.user_bar {
+    background: #C93667;
+    border-radius: 5rem;
+    height: 10%;
+    width: 35rem;
+
+    color: white;
+    font-size: larger;
+
+
+    padding-left: 2rem;
+    padding-top: 0.8rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    position: relative;
+    z-index: -1;
+}
+
+#sparkles_status {
+    text-align: center;
+    font-size: 40px;
+    height: fit-content;
+    margin: 0;
+    align-self: center;
+}
+
+.dropdown {
+    background: white;
+    display: none;
+    position: absolute;
+    width: 15rem;
+
+    margin-top: 0.4rem;
+}
+
+#dropdown_area {
+    cursor: pointer;
+}
+
+li {
+    margin-left: -1.5rem;
+    list-style: none;
+
+}
+
+.item {
+    /* We center the contents of these items using flexbox. You can also do this CSS grid too! */
+    font-size: 1.5em;
+    background-color: transparent;
+    border: 0.1rem;
+    border-radius: 0.25em;
+    padding: 0.125rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    padding-top: 0;
+}
+
+.header_empty {
+    display: flex;
+    background-color: rgb(212, 22, 54);
+    grid-column: span 2;
+    grid-row: span 1;
+
+}
+
+.image {
+    margin: 0;
+    align-self: center;
+    margin-top: 0rem;
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0, 0.25));
+}
+
+.icon {
+    transform: scale(0.5);
+}

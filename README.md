@@ -68,6 +68,11 @@ python manage.py runserver
 ```
 At this point, Django will print out a url in the terminal. If you go to that url, the website should be running (with an exception to the chatroom). 
 
+> To host Uni-verse on your computer and allow users on the same network to join, instead first navigate to [chatroom_template.html](loginscreen/templates/chatroom_template.html)and enter your IP address on line 45.   
+> Then run the server with: 
+> ```
+> python manage.py runserver http://your_ip_address:8000/ 
+> ```
 
 **Step 4:** To run the chatroom, we need to open a second terminal. Once the second terminal is opened, cd into the project, and install "npm install express". 
 ```
@@ -79,6 +84,8 @@ node server.js
 ```
 
 **Step 6:** And you are done!! Take the link in the first terminal (step 3) and put it into your browser. From there, you should be able to go into the Uni-verse! When you are done, Ctrl + C to break and then type "deactivate" to deactivate the virtual environment. 
+
+> If you set up your computer as a host in Step 3, share that link with others who are on the same local network as you and you can play together!
 
 
 ## 📝 Credits:

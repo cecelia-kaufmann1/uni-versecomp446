@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/loginscreen/game/css/gameOver.css">
+  <link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/button.css">
+  <link rel="stylesheet" type="text/css" href="/static/loginscreen/shared/styles/sharedStyles.css">
+  <style>
+   .gameBox {
+      width: 40rem;
+      height: 30rem;
+
+      font-family: videoGameFont;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      transition-duration: 1000ms;
+
+    }
+
+    .gameBox * {
+      font-family: videoGameFont;
+      justify-self: center;
+    }
+
+  .centerButton {
+    margin: auto;
+  }
+  #difficultyContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box_line {
+      position: absolute;
+      background: white;
+    }
+
+    .box_line_top,
+    .box_line_bottom {
+      height: 10px;
+      width: 100%;
+    }
+
+    .box_line_top::before,
+    .box_line_bottom::before,
+    .box_line_top::after,
+    .box_line_bottom::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+    }
+
+    .box_line_top {
+      top: -10px;
+    }
+
+    .box_line_top::before {
+      left: 0;
+      bottom: -10px;
+    }
+
+    .box_line_top::after {
+      right: 0;
+      bottom: -10px;
+    }
+
+    .box_line_bottom {
+      bottom: -10px;
+    }
+
+    .box_line_bottom::before {
+      left: 0;
+      top: -10px;
+    }
+
+    .box_line_bottom::after {
+      right: 0;
+      top: -10px;
+    }
+
+    .box_line_left,
+    .box_line_right {
+      width: 10px;
+      height: 100%;
+    }
+
+    .box_line_left {
+      left: -10px;
+    }
+
+    .box_line_right {
+      right: -10px;
+    }
+
+  .difficultyButton {
+	text-align: center;
+	width: 8.5rem;
+	border-radius: 3rem;
+	box-shadow:  0 0.5rem #9d45dd;
+	color: black;
+	margin: 5px;
+	cursor: pointer;
+  padding-left: 5px;
+  background: linear-gradient(135deg,white 0%, #bf66ff 50%, #b24dfa 90%);
+  border: 1px #9d45dd solid;
+}
+
+.difficultyButton:active{
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+.videoGameText{
+  color: white;
+}
+
+.animate {
+      transform: translate(0, 100rem);
+    }
+    
+  </style>
+  
+</head>
+<body aria-label="Game Over Page">
+  <div class="gameBox" id="gameOver" aria-label="Game Over Box">
+    <div class="box_line box_line_top"></div>
+    <div class="box_line box_line_right"></div>
+    <div class="box_line box_line_bottom"></div>
+    <div class="box_line box_line_left"></div>
+    <h1 class="videoGameText" aria-label="Game Over Heading">Game Over-- the paparazzi caught you!</h1>
+    <p class="videoGameText" id="score" aria-label="Score Paragraph"></p>
+    <p class="videoGameText" id="totalSparkles" aria-label="Total Sparkles Paragraph"></p>
+
+    <p class="videoGameText" aria-label="Replay Difficulty Label"> Choose a difficulty to replay: </p>
+    <div id="difficultyContainer" aria-label="Difficulty Container">
+      <button name="replay" id="easy" class="difficultyButton" aria-label="Easy Difficulty Button"> Easy </button>
+      <button name="replay" id="medium" class="difficultyButton" aria-label="Medium Difficulty Button"> Medium </button>
+      <button name="replay" id="hard" class="difficultyButton" aria-label="Hard Difficulty Button"> Hard </button>
+      <button name="replay" id="extreme" class="difficultyButton" aria-label="Extreme Difficulty Button"> XTREME </button>
+    </div>
+  </div>
+</body>
+</html>

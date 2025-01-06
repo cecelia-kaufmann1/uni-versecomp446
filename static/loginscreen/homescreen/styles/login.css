@@ -1,0 +1,132 @@
+body {
+    background-image: url('../../assets/images/layout_bg.png'); 
+    background-size: 140%, 100%;
+    
+    background-position: 0 0 0 0 ;
+    background-repeat: no-repeat;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 0;
+    background-color: blue;
+
+  }
+
+
+  .horizontalFlex {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    top: 3rem;
+    left: 7rem;
+    right: 0;
+    bottom: 0;
+   
+}
+
+
+  .slideshow-container {
+    max-width: 400px;
+    position: relative;
+    margin: auto;
+    z-index: 5;
+    padding: 10px;
+    top: -2rem;
+    bottom: 0;
+    left: 1rem;
+    right: 0;
+}
+
+.pinkGradientContainer{
+    width: 500px;
+    height: 450px;
+    position: relative;
+    top: 30px;
+    padding: 15px;
+    margin-left: 18rem;
+}
+
+.logo_div {
+   
+    width: 350px;
+    position: absolute;
+   left: 0;
+   top: -2rem;
+    transform: rotate(-10deg);
+    z-index: 10;
+}
+
+
+.logo{
+    width: 350px;
+    height: 310px;
+}
+
+/* Styles for the unicorn container */
+.unicorn-container {
+    text-align: center;
+    margin-top: 6px; 
+    position: absolute;
+    left: 45rem;
+    z-index: 5;
+    bottom: 1rem
+   
+  }
+ 
+.unicorn {
+    width: auto; 
+    height: 350px; 
+    margin-left: -2rem;
+}
+ 
+
+.slideshow-container {
+    max-width: 400px; 
+    position: relative;
+    margin: auto;
+    margin-top: 10%; 
+    transform: rotate(-5deg) scale(1.1);
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.5));
+
+}
+
+
+.mySlides {
+    display: none;
+    border: 3vw solid white; 
+    border-radius: 2rem;
+    position: relative;
+} 
+
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+.caption {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.caption.top {
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+}
+
+.caption.bottom {
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+} 
+
+

@@ -1,0 +1,77 @@
+/* ================ Big Font ================ */
+.bigFont { 
+    font-size: 130%;
+}
+
+.bigFont button {
+    font-size: 130%;
+}
+
+.bigFont p {
+    font-size: 130%;
+}
+
+#gameButton{
+    width: fit-content;
+}
+
+.bigFont .cartVerticalContainer .buyItemButton {
+    width: fit-content;
+}
+
+/* ================ Accessible Font ================ */
+.accessibleFont {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.accessibleFont button {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#gameButton{
+    width: fit-content;
+}
+
+.accessibleFont .cartVerticalContainer .buyItemButton {
+    width: fit-content;
+}
+
+
+
+
+.accessibleFont p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.accessibleFont div {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.accessibleFont h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================ Buttons ================ */
+.medPink button{
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    /* background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%); */
+    background: #ff4382;
+    /* border-color: #C93667; */
+    border: 3px #cd1d58 solid;
+    color: white;
+    letter-spacing: 2px;
+
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+  }
+
+  .simpleButton button:hover{
+    /* radial gradient from https://www.cssportal.com/css-gradient-generator/ */
+    /* background: radial-gradient(ellipse farthest-corner at top left,   #C93667 15%, #D18CA3 30%, #C93667 50%); */
+    background: #df3971 !important;
+    /* border-color: #C93667; */
+    border: 3px #cd1d58 solid;
+    color: white;
+    letter-spacing: 2px;
+
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+  }

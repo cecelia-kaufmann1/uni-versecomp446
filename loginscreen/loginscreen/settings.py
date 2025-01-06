@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w4+9j9)o1pb7e++3o9h7$kte!4p@dbiy*t=7_(bm-q_wc&n6jh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -117,7 +117,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -130,7 +130,7 @@ LOGOUT_REDIRECT_URL = "logout"
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
-# STATIC_ROOT = ''
+STATIC_ROOT = '/Users/lucy/Documents/Internet Computing/uni-versecomp446/static'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/')

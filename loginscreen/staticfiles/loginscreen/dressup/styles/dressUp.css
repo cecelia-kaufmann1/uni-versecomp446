@@ -1,0 +1,818 @@
+
+/* ----- Closet ----- */
+
+#frame .closet {
+    padding: 1rem;
+    overflow-y: scroll;
+    width: 80%;
+    height: 30rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0;
+    grid-auto-rows: 12rem;
+    /* background-color: #3ED#0DD; */
+    /* border: solid 15px #1d7077; */
+    border: solid 5px #655334;
+   
+
+    /* Custom border radius: https://blog.avada.io/css/border-examples
+    border-radius: 5% 5% 5% 5% / 50% 50% 50% 50% ;
+     */
+    border-radius: 2rem;
+    background-color: #A28654;
+     
+}
+
+#frame .tab {
+    
+    /* background-color: #CCCCFF; */
+    background-color: gray;
+    margin: -0.15rem;
+    margin-left: -0.75rem;
+    padding: 1rem;
+    padding-bottom: 0;
+    /* border-radius: 2rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; */
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    
+    /* border: solid #1d7077 5px; */
+    border: solid #655334 5px;
+    text-align: center;
+    border-bottom-width: 0;
+    cursor: pointer;
+    
+}
+
+#frame .highlighted {
+    /* background-color: #a0a0fd; */
+    background-color: white;
+}
+
+
+/* ----- Avatar ----- */
+
+#frame avatar {
+
+    /* background-color: #B7FAFF; */
+    margin: 1rem;
+    width: 50%;
+    text-align: center;
+    
+    position: relative;
+    margin: 1rem;
+    padding: 0;
+    border-radius: 1rem;
+    background-color: orange;
+    margin: 1rem;
+    
+}
+
+#frame .container {
+    position: relative;
+    left: 1rem;
+    bottom: 0rem;
+}
+
+
+
+/* ----- Currency ----- */
+#frame .numSparkles {
+    text-align: center;
+    height: fit-content;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    font-size: larger;
+    margin-top: 1rem;
+    
+}
+
+#frame .price {
+    background-color: white;
+    border: black dashed 3px;
+    border-radius: 10px;
+    padding: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    font-size: 20px;
+}
+
+#frame .shopItemBox {
+   display:grid;
+   grid-template-rows: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+#frame .canAfford {
+    background-color: white;
+}
+
+#frame .cannotAfford {
+    background-color: red;
+}
+
+#frame .buyItemButton {
+    background-color: pink;
+}
+#frame .cartVerticalContainer {
+    left: 45rem;
+    bottom: 3rem;
+    position: absolute;
+    background-color: #FFFFFFD0;
+    padding: 0.2rem;
+    border-radius: 3rem;
+    text-align: center; 
+
+
+}
+#frame .cartItemsContainer {
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    margin-bottom: 1rem;
+    align-items: center;
+    max-height: 7rem;
+    overflow-y: scroll;
+    
+}
+
+#frame .cartItem {
+    background-color: #B7FAFF;
+    height: 4rem;
+    width: 4rem;
+    min-height: 4rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-position-x: center;
+    background-size:contain;
+
+    border-radius: 0.5rem;
+    border: 3px black solid;
+
+}
+
+
+/* ----- Clothes ----- */
+
+#frame img {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    right: 0rem;
+    top: 0rem;
+    margin: auto;
+    /* bottom: 1rem;
+    right: 1rem; */
+    transform: scale(1.25);
+}
+
+#frame .clothingItemBorder {
+    /* background: linear-gradient(120deg, #B7FAFF 30%, #ecfeff); */
+    background: linear-gradient(120deg, #655334
+    30%, white);
+    padding: 0.3rem;
+    border-radius: 1rem;
+    margin: 0.3rem;
+
+}
+
+
+#frame .clothingItem {
+    /* background-color: #B7FAFF; */
+    background-color: #c2a97e
+    ;
+    
+    border-radius: 1rem;
+    height: 100%;
+    vertical-align: middle;
+
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-position-x: center;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 5;
+   
+}
+
+#frame .clothingItem.highlighted {
+    /* background-color:#c8c8f7; */
+    background-color: gray;
+}
+
+
+/* ----- Layout ----- */
+#frame #myClothes{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    background-color: #A28654;
+}
+#frame #shop {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row: 1;
+    margin-left: 3rem;
+    background-color: #78633E;
+}
+
+#frame .verticalContainer {
+    margin: 2rem;
+    margin-left: 4rem;
+    margin-top: 0rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+#frame .horizontalContainer {
+    display: grid;
+    grid-template-columns: 3fr 3fr 4fr 1fr 8fr; 
+    margin-left: 2rem;
+    transform: rotate(270deg) translate(-5rem, -16.4rem);
+    margin-top: 4rem;
+}
+
+#frame html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#frame {
+    height: 33rem;
+    width: 60rem;
+    
+    background-image: url("../../assets/images/dressup_bg2.png");
+    background-repeat: no-repeat;
+    background-size: 130% 110%;
+
+    /* height: 100%;
+    background-image: url("../images/dressup_bg2.png");
+    background-repeat: no-repeat;
+    /* background-size: 150% 150%; */
+    /* background-size: cover;
+     */ 
+     overflow-x: hidden;
+}
+
+#frame .flexRow {
+    display: flex;
+    /* justify-content: center;
+    align-content: center; */
+    flex-direction: row;
+    
+    /* background-color: #B7FAFF; */
+   
+    margin: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+#frame p {
+    margin: 0;
+    
+}
+
+/* ----- Avatar Color -----*/
+
+#avatarColorsButton {
+    position: relative;
+    padding-bottom: 1rem;
+    left: -63rem;
+    top: -25rem;
+    width: 5rem;
+    height: fit-content;
+    border-radius: 1rem;
+    transform: rotate(90deg);
+    background-color: #bf66ff;
+    border: 5px #b44ffd solid;
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.1);
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+#colorLabel {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    padding-bottom: 2rem;
+}
+#colors{
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.color {
+    background-color: pink;
+    border: 3px #7e37b1 solid;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin: 0.25rem;
+    transform: rotate(-90deg);
+   
+    align-self: center;
+    border-radius: 1rem;
+}
+
+.colorName {
+    display: none;  /* change this to turn on colorblind mode*/
+    letter-spacing: 2px;
+    font-weight:normal;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.color:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+#default {
+    background: linear-gradient(pink 50%, white 70%);
+}
+#red {
+    background-color: red;
+}
+
+#orange {
+    background-color: orange;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#purple {
+    background-color: rgb(107, 49, 223);
+}
+
+#pink {
+    background-color: rgb(255, 84, 249);
+}
+
+#white {
+    background-color: white;
+}
+
+#lightbrown {
+    background-color: burlywood;
+}
+#medbrown {
+    background-color: rgb(226, 164, 84);
+}
+
+#brown {
+    background-color: rgb(165, 93, 42);
+}
+
+#black {
+    background-color: black;
+}
+
+/* Help for slide out menu animation from https://codepen.io/krisgrove/pen/prPdov*/
+#avatarColorsButton.on {
+    left: -10.5rem;
+  }
+
+  #avatarColorsButton.on #colors {
+    left: -63rem;
+  }
+  
+
+/* ----- Avatar Clothing Positioning -----*/
+#frame #bottom {
+    position: absolute;
+    top: 10rem;
+    left: 9rem;
+}
+
+#frame #skirt {
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+}
+
+#frame #top {
+    position: absolute;
+    top: 8.5rem;
+    left: 3rem;
+}
+
+#frame #feet {
+    position: absolute;
+    top: 20.6rem;
+    left: 3.7rem;
+}
+
+#frame #backcap {
+    position: absolute;
+    top: -19rem;
+    left: 1.5rem;
+}
+
+#frame #cap {
+    position: absolute;
+    top: -19rem;
+    left: -0.9rem;
+}
+
+#frame #partyhattype {
+    position: absolute;
+    top: -22rem;
+    left: 2rem;
+}
+
+#frame #tophattype {
+    position: absolute;
+    top: -20rem;
+    left: 2rem;
+}
+
+#frame #carrothorn {
+    position: absolute;
+    top: -20rem;
+    left: 1rem;
+}
+#frame #icecreamhorn {
+    position: absolute;
+    top: -18rem;
+    left: 0rem;
+}
+#frame #headphonestype {
+    position: absolute;
+    top: -16rem;
+    left: 4rem;
+}
+#frame #earringtype {
+    position: absolute;
+    top: -16rem;
+    left: 6rem;
+}
+
+#frame #necklace {
+    position: absolute;
+    top: 0rem;
+    left: 3rem;
+}
+
+#frame #glassestype {
+    position: absolute;
+    top: -11rem;
+    left: 0.5rem;
+}
+
+#frame #monocletype {
+    position: absolute;
+    top: -9rem;
+    left: 1.5rem;
+}
+
+
+#frame #eyeliner {
+    position: absolute;
+    top: -12.25rem;
+    left: 3.5rem;
+}
+
+#frame #mustache {
+    position: absolute;
+    top: -8rem;
+    left: -1.5rem;
+}
+
+#frame #nosetype {
+    position: absolute;
+    top: -10rem;
+    left: -3rem;
+}
+
+
+
+/* ----- Clothing image paths ----- */
+#frame #bottom1 {
+    background-image: url("../../assets/images/clothes/bottom1.png");   
+}
+
+#frame #bottom2 {
+    background-image: url("../../assets/images/clothes/bottom2.png");
+    
+}
+
+#frame #bottom3 {
+    background-image: url("../../assets/images/clothes/bottom3.png");
+}
+
+#frame #bottom4 {
+    background-image: url("../../assets/images/clothes/bottom4.png");
+}
+
+#frame #bottom5 {
+    background-image: url("../../assets/images/clothes/bottom5.png");
+}
+
+#frame #bottom6 {
+    background-image: url("../../assets/images/clothes/bottom6.png");
+}
+
+#frame #bottom7 {
+    background-image: url("../../assets/images/clothes/bottom7.png");
+}
+
+#frame #bottom8 {
+    background-image: url("../../assets/images/clothes/bottom8.png");
+}
+
+#frame #bottom9 {
+    background-image: url("../../assets/images/clothes/bottom9.png");
+}
+
+#frame #bottom10 {
+    background-image: url("../../assets/images/clothes/bottom10.png");
+}
+
+#frame #bottom11 {
+    background-image: url("../../assets/images/clothes/bottom11.png");
+}
+
+#frame #bottom12 {
+    background-image: url("../../assets/images/clothes/bottom12.png");
+}
+
+#frame #bottom13 {
+    background-image: url("../../assets/images/clothes/bottom13.png");
+}
+
+#frame #bottom14 {
+    background-image: url("../../assets/images/clothes/bottom14.png");
+}
+
+#frame #bottom15 {
+    background-image: url("../../assets/images/clothes/bottom15.png");
+}
+
+#frame #bottom16 {
+    background-image: url("../../assets/images/clothes/bottom16.png");
+}
+
+#frame #bottom17 {
+    background-image: url("../../assets/images/clothes/bottom17.png");
+}
+
+#frame #bottom18 {
+    background-image: url("../../assets/images/clothes/bottom18.png");
+}
+
+#frame #bottom19 {
+    background-image: url("../../assets/images/clothes/bottom19.png");
+}
+
+#frame #bottom20 {
+    background-image: url("../../assets/images/clothes/bottom20.png");
+}
+
+#frame #bottom21 {
+    background-image: url("../../assets/images/clothes/bottom21.png");
+}
+
+#frame #top1 {
+    background-image: url("../../assets/images/clothes/top1.png");
+}
+
+#frame #top2 {
+    background-image: url("../../assets/images/clothes/top2.png");
+}
+
+#frame #top3 {
+    background-image: url("../../assets/images/clothes/top3.png");
+}
+
+#frame #top4 {
+    background-image: url("../../assets/images/clothes/top4.png");
+}
+
+#frame #top5 {
+    background-image: url("../../assets/images/clothes/top5.png");
+}
+
+#frame #top6 {
+    background-image: url("../../assets/images/clothes/top6.png");
+}
+
+#frame #top7 {
+    background-image: url("../../assets/images/clothes/top7.png");
+}
+
+#frame #top8 {
+    background-image: url("../../assets/images/clothes/top8.png");
+}
+
+#frame #top9 {
+    background-image: url("../../assets/images/clothes/top9.png");
+}
+
+#frame #top10 {
+    background-image: url("../../assets/images/clothes/top10.png");
+}
+
+#frame #top11 {
+    background-image: url("../../assets/images/clothes/top11.png");
+}
+
+#frame #top12 {
+    background-image: url("../../assets/images/clothes/top12.png");
+}
+
+#frame #top13 {
+    background-image: url("../../assets/images/clothes/top13.png");
+}
+
+#frame #top14 {
+    background-image: url("../../assets/images/clothes/top14.png");
+}
+
+#frame #top15 {
+    background-image: url("../../assets/images/clothes/top15.png");
+}
+
+#frame #top16 {
+    background-image: url("../../assets/images/clothes/top16.png");
+}
+
+#frame #feet1 {
+    background-image: url("../../assets/images/clothes/feet1.png");
+}
+
+#frame #feet2 {
+    background-image: url("../../assets/images/clothes/feet2.png");
+}
+
+#frame #feet3 {
+    background-image: url("../../assets/images/clothes/feet3.png");
+}
+
+#frame #feet4 {
+    background-image: url("../../assets/images/clothes/feet4.png");
+}
+
+#frame #feet5 {
+    background-image: url("../../assets/images/clothes/feet5.png");
+}
+
+#frame #feet6 {
+    background-image: url("../../assets/images/clothes/feet6.png");
+}
+
+#frame #feet7 {
+    background-image: url("../../assets/images/clothes/feet7.png");
+}
+
+#frame #feet8 {
+    background-image: url("../../assets/images/clothes/feet8.png");
+}
+
+#frame #feet9 {
+    background-image: url("../../assets/images/clothes/feet9.png");
+}
+
+#frame #feet10 {
+    background-image: url("../../assets/images/clothes/feet10.png");
+}
+
+#frame #feet11 {
+    background-image: url("../../assets/images/clothes/feet11.png");
+}
+
+#frame #feet12 {
+    background-image: url("../../assets/images/clothes/feet12.png");
+}
+
+#frame #backwardshat {
+    background-image: url("../../assets/images/clothes/backwardshat.png");
+}
+
+#frame #hat {
+    background-image: url("../../assets/images/clothes/hat.png");
+}
+
+#frame #partyhat {
+    background-image: url("../../assets/images/clothes/partyhat.png");
+}
+
+#frame #tophat {
+    background-image: url("../../assets/images/clothes/tophat.png");
+}
+
+#frame #carrot {
+    background-image: url("../../assets/images/clothes/carrot.png");
+}
+
+#frame #icecream {
+    background-image: url("../../assets/images/clothes/icecream.png");
+}
+
+#frame #headphones {
+    background-image: url("../../assets/images/clothes/headphones.png");
+}
+
+#frame #earring {
+    background-image: url("../../assets/images/clothes/earring.png");
+}
+
+#frame #pearls {
+    background-image: url("../../assets/images/clothes/pearls.png");
+}
+
+#frame #glasses {
+    background-image: url("../../assets/images/clothes/glasses.png");
+}
+
+#frame #monocle {
+    background-image: url("../../assets/images/clothes/monocle.png");
+}
+
+#frame #eyeliner1 {
+    background-image: url("../../assets/images/clothes/eyeliner1.png");
+}
+
+#frame #eyeliner2 {
+    background-image: url("../../assets/images/clothes/eyeliner2.png");
+}
+
+#frame #stache {
+    background-image: url("../../assets/images/clothes/stache.png");
+}
+
+#frame #nose {
+    background-image: url("../../assets/images/clothes/nose.png");
+}
+
+
+
+
+/* ----- Scrollbar ----- */
+/* Custom scrollbar from Eye Catching Scrollbar #4 on https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/*/
+.scrollbar::-webkit-scrollbar {
+    width: 30px;
+    border-radius: 10px;
+    height: 50%;
+   
+}
+
+
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 10px;
+   
+    background: linear-gradient(90deg, #f6e3e3, #f8bdbb 40% 60%,#f6e3e3);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+    margin: 4rem;
+    
+    
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+     background: linear-gradient(white, #ffd6d5 20%);
+     border: 1px #a56463 solid;
+    border-radius: 10px;
+}
+
+
+
+

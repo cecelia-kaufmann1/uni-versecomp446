@@ -1,0 +1,21 @@
+  
+    body {
+        display: block;
+      }
+  
+      h1 {
+        font-size: 70px;
+        text-align: center;
+      }
+  
+      button {
+        font-family: myFont;
+        margin: auto;          
+      }
+  
+      p {
+        text-align: center;
+        font-size: 20px;
+        text-wrap: pretty;
+      }
+  
